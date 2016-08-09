@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  KuntaAPI
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Api;
+namespace KuntaAPIAPI;
 
-use \Swagger\Client\Configuration;
-use \Swagger\Client\ApiClient;
-use \Swagger\Client\ApiException;
-use \Swagger\Client\ObjectSerializer;
+use \KuntaAPI\Configuration;
+use \KuntaAPI\ApiClient;
+use \KuntaAPI\ApiException;
+use \KuntaAPI\ObjectSerializer;
 
 /**
  * ServiceCategoriesApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  KuntaAPI
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class ServiceCategoriesApi
     /**
      * API Client
      *
-     * @var \Swagger\Client\ApiClient instance of the ApiClient
+     * @var \KuntaAPI\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \Swagger\Client\ApiClient|null $apiClient The api client to use
+     * @param \KuntaAPI\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\Swagger\Client\ApiClient $apiClient = null)
+    public function __construct(\KuntaAPI\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class ServiceCategoriesApi
     /**
      * Get API client
      *
-     * @return \Swagger\Client\ApiClient get the API client
+     * @return \KuntaAPI\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class ServiceCategoriesApi
     /**
      * Set the API client
      *
-     * @param \Swagger\Client\ApiClient $apiClient set the API client
+     * @param \KuntaAPI\ApiClient $apiClient set the API client
      *
      * @return ServiceCategoriesApi
      */
-    public function setApiClient(\Swagger\Client\ApiClient $apiClient)
+    public function setApiClient(\KuntaAPI\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -109,7 +109,7 @@ class ServiceCategoriesApi
      *
      * @param string $organization_id Organization id (required)
      * @return \Swagger\Client\Model\ServiceClass[]
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function listServiceClasses($organization_id)
     {
@@ -124,7 +124,7 @@ class ServiceCategoriesApi
      *
      * @param string $organization_id Organization id (required)
      * @return Array of \Swagger\Client\Model\ServiceClass[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function listServiceClassesWithHttpInfo($organization_id)
     {
