@@ -1,4 +1,4 @@
-# Swagger\Client\ServicesApi
+# KuntaAPI\ServicesApi
 
 All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
@@ -31,7 +31,7 @@ Creates new service for the organization
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $body = new \Swagger\Client\Model\Service(); // \Swagger\Client\Model\Service | Service definition
 
@@ -78,7 +78,7 @@ Delete a single municipal service
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 
@@ -124,7 +124,7 @@ Delete a single service data field by id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 $data_id = "data_id_example"; // string | Service data field id.
@@ -172,7 +172,7 @@ Returns single service by it's unique id.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 
@@ -219,7 +219,7 @@ Returns a single service data field by id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 $data_id = "data_id_example"; // string | Service data field id.
@@ -268,7 +268,7 @@ Returns single service by it's unique id.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $service_source_id = "service_source_id_example"; // string | Service source id
 
 try {
@@ -313,7 +313,7 @@ Returns list of organization's service classes
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 
 try {
@@ -358,7 +358,7 @@ Returns list of data fields assigned to the specified service
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 $source_id = "source_id_example"; // string | Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources.
@@ -407,7 +407,7 @@ Lists service electronic channels
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 
@@ -454,7 +454,7 @@ Returns list of service sources.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 
 try {
     $result = $api_instance->listServiceSources();
@@ -495,7 +495,7 @@ Lists organization's services
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_class_id = "service_class_id_example"; // string | Filter services by service class id
 
@@ -542,7 +542,7 @@ Updates a single municipal service
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 
@@ -589,7 +589,7 @@ Update a single service data field by id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesApi();
+$api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 $data_id = "data_id_example"; // string | Service data field id.

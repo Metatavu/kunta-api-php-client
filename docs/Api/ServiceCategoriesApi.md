@@ -1,4 +1,4 @@
-# Swagger\Client\ServiceCategoriesApi
+# KuntaAPI\ServiceCategoriesApi
 
 All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
@@ -19,7 +19,7 @@ Returns list of organization's service classes
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServiceCategoriesApi();
+$api_instance = new KuntaAPI\Api\ServiceCategoriesApi();
 $organization_id = "organization_id_example"; // string | Organization id
 
 try {

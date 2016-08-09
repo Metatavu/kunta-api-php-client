@@ -1,4 +1,4 @@
-# Swagger\Client\ServiceChannelsApi
+# KuntaAPI\ServiceChannelsApi
 
 All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
@@ -19,7 +19,7 @@ Lists service electronic channels
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServiceChannelsApi();
+$api_instance = new KuntaAPI\Api\ServiceChannelsApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 

@@ -1,4 +1,4 @@
-# Swagger\Client\ServicesSourcesApi
+# KuntaAPI\ServicesSourcesApi
 
 All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
@@ -20,7 +20,7 @@ Returns single service by it's unique id.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesSourcesApi();
+$api_instance = new KuntaAPI\Api\ServicesSourcesApi();
 $service_source_id = "service_source_id_example"; // string | Service source id
 
 try {
@@ -65,7 +65,7 @@ Returns list of service sources.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServicesSourcesApi();
+$api_instance = new KuntaAPI\Api\ServicesSourcesApi();
 
 try {
     $result = $api_instance->listServiceSources();

@@ -1,4 +1,4 @@
-# Swagger\Client\ServiceDataApi
+# KuntaAPI\ServiceDataApi
 
 All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
@@ -22,7 +22,7 @@ Delete a single service data field by id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServiceDataApi();
+$api_instance = new KuntaAPI\Api\ServiceDataApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 $data_id = "data_id_example"; // string | Service data field id.
@@ -70,7 +70,7 @@ Returns a single service data field by id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServiceDataApi();
+$api_instance = new KuntaAPI\Api\ServiceDataApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 $data_id = "data_id_example"; // string | Service data field id.
@@ -119,7 +119,7 @@ Returns list of data fields assigned to the specified service
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServiceDataApi();
+$api_instance = new KuntaAPI\Api\ServiceDataApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 $source_id = "source_id_example"; // string | Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources.
@@ -168,7 +168,7 @@ Update a single service data field by id
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Swagger\Client\Api\ServiceDataApi();
+$api_instance = new KuntaAPI\Api\ServiceDataApi();
 $organization_id = "organization_id_example"; // string | Organization id
 $service_id = "service_id_example"; // string | Service id
 $data_id = "data_id_example"; // string | Service data field id.
