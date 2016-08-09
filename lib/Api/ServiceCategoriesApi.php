@@ -38,7 +38,7 @@
  * Do not edit the class manually.
  */
 
-namespace KuntaAPIAPI;
+namespace KuntaAPIApi;
 
 use \KuntaAPI\Configuration;
 use \KuntaAPI\ApiClient;
