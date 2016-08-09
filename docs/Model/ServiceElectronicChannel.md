@@ -3,16 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attachments** | [**\Swagger\Client\Model\Attachment[]**](Attachment.md) |  | [optional] 
-**urls** | [**\Swagger\Client\Model\LanguageItem[]**](LanguageItem.md) |  | [optional] 
+**attachments** | [**\KuntaAPI\Model\Attachment[]**](Attachment.md) |  | [optional] 
+**urls** | [**\KuntaAPI\Model\LanguageItem[]**](LanguageItem.md) |  | [optional] 
 **requires_authentication** | **bool** |  | [optional] 
 **requires_signature** | **bool** |  | [optional] 
 **signature_quantity** | **int** |  | [optional] 
-**support_contacts** | [**\Swagger\Client\Model\Support[]**](Support.md) |  | [optional] 
-**service_hours** | [**\Swagger\Client\Model\ServiceHour[]**](ServiceHour.md) |  | [optional] 
-**web_pages** | [**\Swagger\Client\Model\WebPage[]**](WebPage.md) |  | [optional] 
-**name** | [**\Swagger\Client\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
-**description** | [**\Swagger\Client\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
+**support_contacts** | [**\KuntaAPI\Model\Support[]**](Support.md) |  | [optional] 
+**service_hours** | [**\KuntaAPI\Model\ServiceHour[]**](ServiceHour.md) |  | [optional] 
+**web_pages** | [**\KuntaAPI\Model\WebPage[]**](WebPage.md) |  | [optional] 
+**name** | [**\KuntaAPI\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
+**description** | [**\KuntaAPI\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
 **organization_id** | **string** |  | [optional] 
 **id** | **string** |  | [optional] 
 

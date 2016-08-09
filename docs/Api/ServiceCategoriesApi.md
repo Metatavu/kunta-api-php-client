@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **listServiceClasses**
-> \Swagger\Client\Model\ServiceClass[] listServiceClasses($organization_id)
+> \KuntaAPI\Model\ServiceClass[] listServiceClasses($organization_id)
 
 List service classes for an organization
 
@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceClass[]**](../Model/ServiceClass.md)
+[**\KuntaAPI\Model\ServiceClass[]**](../Model/ServiceClass.md)
 
 ### Authorization
 

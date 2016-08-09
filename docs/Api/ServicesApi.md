@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **createService**
-> \Swagger\Client\Model\Service[] createService($organization_id, $body)
+> \KuntaAPI\Model\Service[] createService($organization_id, $body)
 
 Create a service
 
@@ -33,7 +33,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
 $organization_id = "organization_id_example"; // string | Organization id
-$body = new \Swagger\Client\Model\Service(); // \Swagger\Client\Model\Service | Service definition
+$body = new \KuntaAPI\Model\Service(); // \KuntaAPI\Model\Service | Service definition
 
 try {
     $result = $api_instance->createService($organization_id, $body);
@@ -49,11 +49,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **string**| Organization id |
- **body** | [**\Swagger\Client\Model\Service**](../Model/\Swagger\Client\Model\Service.md)| Service definition |
+ **body** | [**\KuntaAPI\Model\Service**](../Model/\KuntaAPI\Model\Service.md)| Service definition |
 
 ### Return type
 
-[**\Swagger\Client\Model\Service[]**](../Model/Service.md)
+[**\KuntaAPI\Model\Service[]**](../Model/Service.md)
 
 ### Authorization
 
@@ -161,7 +161,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findService**
-> \Swagger\Client\Model\Service findService($organization_id, $service_id)
+> \KuntaAPI\Model\Service findService($organization_id, $service_id)
 
 Find a service by id
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Service**](../Model/Service.md)
+[**\KuntaAPI\Model\Service**](../Model/Service.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findServiceData**
-> \Swagger\Client\Model\ServiceData findServiceData($organization_id, $service_id, $data_id)
+> \KuntaAPI\Model\ServiceData findServiceData($organization_id, $service_id, $data_id)
 
 Find single service data field by id
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceData**](../Model/ServiceData.md)
+[**\KuntaAPI\Model\ServiceData**](../Model/ServiceData.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findServiceSource**
-> \Swagger\Client\Model\ServiceSource findServiceSource($service_source_id)
+> \KuntaAPI\Model\ServiceSource findServiceSource($service_source_id)
 
 Find a service by id
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceSource**](../Model/ServiceSource.md)
+[**\KuntaAPI\Model\ServiceSource**](../Model/ServiceSource.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceClasses**
-> \Swagger\Client\Model\ServiceClass[] listServiceClasses($organization_id)
+> \KuntaAPI\Model\ServiceClass[] listServiceClasses($organization_id)
 
 List service classes for an organization
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceClass[]**](../Model/ServiceClass.md)
+[**\KuntaAPI\Model\ServiceClass[]**](../Model/ServiceClass.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceDatas**
-> \Swagger\Client\Model\ServiceData[] listServiceDatas($organization_id, $service_id, $source_id)
+> \KuntaAPI\Model\ServiceData[] listServiceDatas($organization_id, $service_id, $source_id)
 
 List service datas
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceData[]**](../Model/ServiceData.md)
+[**\KuntaAPI\Model\ServiceData[]**](../Model/ServiceData.md)
 
 ### Authorization
 
@@ -396,7 +396,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceElectornicChannels**
-> \Swagger\Client\Model\ServiceElectronicChannel listServiceElectornicChannels($organization_id, $service_id)
+> \KuntaAPI\Model\ServiceElectronicChannel listServiceElectornicChannels($organization_id, $service_id)
 
 List service electornic channels
 
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceElectronicChannel**](../Model/ServiceElectronicChannel.md)
+[**\KuntaAPI\Model\ServiceElectronicChannel**](../Model/ServiceElectronicChannel.md)
 
 ### Authorization
 
@@ -443,7 +443,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceSources**
-> \Swagger\Client\Model\ServiceSource[] listServiceSources()
+> \KuntaAPI\Model\ServiceSource[] listServiceSources()
 
 List service sources
 
@@ -470,7 +470,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceSource[]**](../Model/ServiceSource.md)
+[**\KuntaAPI\Model\ServiceSource[]**](../Model/ServiceSource.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServices**
-> \Swagger\Client\Model\Service[] listServices($organization_id, $service_class_id)
+> \KuntaAPI\Model\Service[] listServices($organization_id, $service_class_id)
 
 List services
 
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Service[]**](../Model/Service.md)
+[**\KuntaAPI\Model\Service[]**](../Model/Service.md)
 
 ### Authorization
 
@@ -531,7 +531,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateService**
-> \Swagger\Client\Model\Service updateService($organization_id, $service_id)
+> \KuntaAPI\Model\Service updateService($organization_id, $service_id)
 
 Update a service
 
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Service**](../Model/Service.md)
+[**\KuntaAPI\Model\Service**](../Model/Service.md)
 
 ### Authorization
 
@@ -578,7 +578,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateServiceData**
-> \Swagger\Client\Model\ServiceData updateServiceData($organization_id, $service_id, $data_id)
+> \KuntaAPI\Model\ServiceData updateServiceData($organization_id, $service_id, $data_id)
 
 Update single service data field by id
 
@@ -613,7 +613,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceData**](../Model/ServiceData.md)
+[**\KuntaAPI\Model\ServiceData**](../Model/ServiceData.md)
 
 ### Authorization
 

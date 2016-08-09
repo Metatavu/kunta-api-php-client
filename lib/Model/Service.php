@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  KuntaAPI
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace KuntaAPI\Model;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     Swagger\Client
+ * @package     KuntaAPI
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,8 +67,8 @@ class Service implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'description' => '\Swagger\Client\Model\LocalizedValue',
-        'name' => '\Swagger\Client\Model\LocalizedValue',
+        'description' => '\KuntaAPI\Model\LocalizedValue',
+        'name' => '\KuntaAPI\Model\LocalizedValue',
         'source_ids' => 'string[]',
         'electronic_channel_ids' => 'string[]',
         'phone_channel_ids' => 'string[]',
@@ -218,7 +218,7 @@ class Service implements ArrayAccess
 
     /**
      * Gets description
-     * @return \Swagger\Client\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue
      */
     public function getDescription()
     {
@@ -227,7 +227,7 @@ class Service implements ArrayAccess
 
     /**
      * Sets description
-     * @param \Swagger\Client\Model\LocalizedValue $description
+     * @param \KuntaAPI\Model\LocalizedValue $description
      * @return $this
      */
     public function setDescription($description)
@@ -239,7 +239,7 @@ class Service implements ArrayAccess
 
     /**
      * Gets name
-     * @return \Swagger\Client\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue
      */
     public function getName()
     {
@@ -248,7 +248,7 @@ class Service implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Swagger\Client\Model\LocalizedValue $name
+     * @param \KuntaAPI\Model\LocalizedValue $name
      * @return $this
      */
     public function setName($name)
@@ -435,10 +435,10 @@ class Service implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\Swagger\Client\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\KuntaAPI\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\Swagger\Client\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\KuntaAPI\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

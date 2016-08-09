@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  KuntaAPI
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace KuntaAPI\Model;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     Swagger\Client
+ * @package     KuntaAPI
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -68,11 +68,11 @@ class ServiceChannelCommon implements ArrayAccess
     protected static $swaggerTypes = array(
         'id' => 'string',
         'organization_id' => 'string',
-        'description' => '\Swagger\Client\Model\LocalizedValue',
-        'name' => '\Swagger\Client\Model\LocalizedValue',
-        'web_pages' => '\Swagger\Client\Model\WebPage[]',
-        'service_hours' => '\Swagger\Client\Model\ServiceHour[]',
-        'support_contacts' => '\Swagger\Client\Model\Support[]'
+        'description' => '\KuntaAPI\Model\LocalizedValue',
+        'name' => '\KuntaAPI\Model\LocalizedValue',
+        'web_pages' => '\KuntaAPI\Model\WebPage[]',
+        'service_hours' => '\KuntaAPI\Model\ServiceHour[]',
+        'support_contacts' => '\KuntaAPI\Model\Support[]'
     );
 
     public static function swaggerTypes()
@@ -229,7 +229,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Gets description
-     * @return \Swagger\Client\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue
      */
     public function getDescription()
     {
@@ -238,7 +238,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Sets description
-     * @param \Swagger\Client\Model\LocalizedValue $description
+     * @param \KuntaAPI\Model\LocalizedValue $description
      * @return $this
      */
     public function setDescription($description)
@@ -250,7 +250,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Gets name
-     * @return \Swagger\Client\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue
      */
     public function getName()
     {
@@ -259,7 +259,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Swagger\Client\Model\LocalizedValue $name
+     * @param \KuntaAPI\Model\LocalizedValue $name
      * @return $this
      */
     public function setName($name)
@@ -271,7 +271,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Gets web_pages
-     * @return \Swagger\Client\Model\WebPage[]
+     * @return \KuntaAPI\Model\WebPage[]
      */
     public function getWebPages()
     {
@@ -280,7 +280,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Sets web_pages
-     * @param \Swagger\Client\Model\WebPage[] $web_pages
+     * @param \KuntaAPI\Model\WebPage[] $web_pages
      * @return $this
      */
     public function setWebPages($web_pages)
@@ -292,7 +292,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Gets service_hours
-     * @return \Swagger\Client\Model\ServiceHour[]
+     * @return \KuntaAPI\Model\ServiceHour[]
      */
     public function getServiceHours()
     {
@@ -301,7 +301,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Sets service_hours
-     * @param \Swagger\Client\Model\ServiceHour[] $service_hours
+     * @param \KuntaAPI\Model\ServiceHour[] $service_hours
      * @return $this
      */
     public function setServiceHours($service_hours)
@@ -313,7 +313,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Gets support_contacts
-     * @return \Swagger\Client\Model\Support[]
+     * @return \KuntaAPI\Model\Support[]
      */
     public function getSupportContacts()
     {
@@ -322,7 +322,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Sets support_contacts
-     * @param \Swagger\Client\Model\Support[] $support_contacts
+     * @param \KuntaAPI\Model\Support[] $support_contacts
      * @return $this
      */
     public function setSupportContacts($support_contacts)
@@ -383,10 +383,10 @@ class ServiceChannelCommon implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\Swagger\Client\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\KuntaAPI\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\Swagger\Client\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\KuntaAPI\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

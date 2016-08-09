@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier representing a specific service. | [optional] 
-**description** | [**\Swagger\Client\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
-**name** | [**\Swagger\Client\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
+**description** | [**\KuntaAPI\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
+**name** | [**\KuntaAPI\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
 **source_ids** | **string[]** | Name of the service. | [optional] 
 **electronic_channel_ids** | **string[]** |  | [optional] 
 **phone_channel_ids** | **string[]** |  | [optional] 

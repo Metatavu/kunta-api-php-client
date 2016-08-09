@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findServiceData**
-> \Swagger\Client\Model\ServiceData findServiceData($organization_id, $service_id, $data_id)
+> \KuntaAPI\Model\ServiceData findServiceData($organization_id, $service_id, $data_id)
 
 Find single service data field by id
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceData**](../Model/ServiceData.md)
+[**\KuntaAPI\Model\ServiceData**](../Model/ServiceData.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceDatas**
-> \Swagger\Client\Model\ServiceData[] listServiceDatas($organization_id, $service_id, $source_id)
+> \KuntaAPI\Model\ServiceData[] listServiceDatas($organization_id, $service_id, $source_id)
 
 List service datas
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceData[]**](../Model/ServiceData.md)
+[**\KuntaAPI\Model\ServiceData[]**](../Model/ServiceData.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateServiceData**
-> \Swagger\Client\Model\ServiceData updateServiceData($organization_id, $service_id, $data_id)
+> \KuntaAPI\Model\ServiceData updateServiceData($organization_id, $service_id, $data_id)
 
 Update single service data field by id
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceData**](../Model/ServiceData.md)
+[**\KuntaAPI\Model\ServiceData**](../Model/ServiceData.md)
 
 ### Authorization
 

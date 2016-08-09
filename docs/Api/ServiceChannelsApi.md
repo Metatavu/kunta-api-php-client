@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **listServiceElectornicChannels**
-> \Swagger\Client\Model\ServiceElectronicChannel listServiceElectornicChannels($organization_id, $service_id)
+> \KuntaAPI\Model\ServiceElectronicChannel listServiceElectornicChannels($organization_id, $service_id)
 
 List service electornic channels
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceElectronicChannel**](../Model/ServiceElectronicChannel.md)
+[**\KuntaAPI\Model\ServiceElectronicChannel**](../Model/ServiceElectronicChannel.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **findServiceSource**
-> \Swagger\Client\Model\ServiceSource findServiceSource($service_source_id)
+> \KuntaAPI\Model\ServiceSource findServiceSource($service_source_id)
 
 Find a service by id
 
@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceSource**](../Model/ServiceSource.md)
+[**\KuntaAPI\Model\ServiceSource**](../Model/ServiceSource.md)
 
 ### Authorization
 
@@ -54,7 +54,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceSources**
-> \Swagger\Client\Model\ServiceSource[] listServiceSources()
+> \KuntaAPI\Model\ServiceSource[] listServiceSources()
 
 List service sources
 
@@ -81,7 +81,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\Model\ServiceSource[]**](../Model/ServiceSource.md)
+[**\KuntaAPI\Model\ServiceSource[]**](../Model/ServiceSource.md)
 
 ### Authorization
 

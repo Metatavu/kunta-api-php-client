@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  KuntaAPI
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\Model;
+namespace KuntaAPI\Model;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     Swagger\Client
+ * @package     KuntaAPI
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,16 +66,16 @@ class ServiceElectronicChannel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'attachments' => '\Swagger\Client\Model\Attachment[]',
-        'urls' => '\Swagger\Client\Model\LanguageItem[]',
+        'attachments' => '\KuntaAPI\Model\Attachment[]',
+        'urls' => '\KuntaAPI\Model\LanguageItem[]',
         'requires_authentication' => 'bool',
         'requires_signature' => 'bool',
         'signature_quantity' => 'int',
-        'support_contacts' => '\Swagger\Client\Model\Support[]',
-        'service_hours' => '\Swagger\Client\Model\ServiceHour[]',
-        'web_pages' => '\Swagger\Client\Model\WebPage[]',
-        'name' => '\Swagger\Client\Model\LocalizedValue',
-        'description' => '\Swagger\Client\Model\LocalizedValue',
+        'support_contacts' => '\KuntaAPI\Model\Support[]',
+        'service_hours' => '\KuntaAPI\Model\ServiceHour[]',
+        'web_pages' => '\KuntaAPI\Model\WebPage[]',
+        'name' => '\KuntaAPI\Model\LocalizedValue',
+        'description' => '\KuntaAPI\Model\LocalizedValue',
         'organization_id' => 'string',
         'id' => 'string'
     );
@@ -212,7 +212,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets attachments
-     * @return \Swagger\Client\Model\Attachment[]
+     * @return \KuntaAPI\Model\Attachment[]
      */
     public function getAttachments()
     {
@@ -221,7 +221,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets attachments
-     * @param \Swagger\Client\Model\Attachment[] $attachments
+     * @param \KuntaAPI\Model\Attachment[] $attachments
      * @return $this
      */
     public function setAttachments($attachments)
@@ -233,7 +233,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets urls
-     * @return \Swagger\Client\Model\LanguageItem[]
+     * @return \KuntaAPI\Model\LanguageItem[]
      */
     public function getUrls()
     {
@@ -242,7 +242,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets urls
-     * @param \Swagger\Client\Model\LanguageItem[] $urls
+     * @param \KuntaAPI\Model\LanguageItem[] $urls
      * @return $this
      */
     public function setUrls($urls)
@@ -317,7 +317,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets support_contacts
-     * @return \Swagger\Client\Model\Support[]
+     * @return \KuntaAPI\Model\Support[]
      */
     public function getSupportContacts()
     {
@@ -326,7 +326,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets support_contacts
-     * @param \Swagger\Client\Model\Support[] $support_contacts
+     * @param \KuntaAPI\Model\Support[] $support_contacts
      * @return $this
      */
     public function setSupportContacts($support_contacts)
@@ -338,7 +338,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets service_hours
-     * @return \Swagger\Client\Model\ServiceHour[]
+     * @return \KuntaAPI\Model\ServiceHour[]
      */
     public function getServiceHours()
     {
@@ -347,7 +347,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets service_hours
-     * @param \Swagger\Client\Model\ServiceHour[] $service_hours
+     * @param \KuntaAPI\Model\ServiceHour[] $service_hours
      * @return $this
      */
     public function setServiceHours($service_hours)
@@ -359,7 +359,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets web_pages
-     * @return \Swagger\Client\Model\WebPage[]
+     * @return \KuntaAPI\Model\WebPage[]
      */
     public function getWebPages()
     {
@@ -368,7 +368,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets web_pages
-     * @param \Swagger\Client\Model\WebPage[] $web_pages
+     * @param \KuntaAPI\Model\WebPage[] $web_pages
      * @return $this
      */
     public function setWebPages($web_pages)
@@ -380,7 +380,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets name
-     * @return \Swagger\Client\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue
      */
     public function getName()
     {
@@ -389,7 +389,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Swagger\Client\Model\LocalizedValue $name
+     * @param \KuntaAPI\Model\LocalizedValue $name
      * @return $this
      */
     public function setName($name)
@@ -401,7 +401,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets description
-     * @return \Swagger\Client\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue
      */
     public function getDescription()
     {
@@ -410,7 +410,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets description
-     * @param \Swagger\Client\Model\LocalizedValue $description
+     * @param \KuntaAPI\Model\LocalizedValue $description
      * @return $this
      */
     public function setDescription($description)
@@ -513,10 +513,10 @@ class ServiceElectronicChannel implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\Swagger\Client\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\KuntaAPI\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\Swagger\Client\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\KuntaAPI\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 
