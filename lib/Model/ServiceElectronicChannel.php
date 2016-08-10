@@ -74,8 +74,8 @@ class ServiceElectronicChannel implements ArrayAccess
         'support_contacts' => '\KuntaAPI\Model\Support[]',
         'service_hours' => '\KuntaAPI\Model\ServiceHour[]',
         'web_pages' => '\KuntaAPI\Model\WebPage[]',
-        'name' => '\KuntaAPI\Model\LocalizedValue',
-        'description' => '\KuntaAPI\Model\LocalizedValue',
+        'name' => '\KuntaAPI\Model\LocalizedValue[]',
+        'description' => '\KuntaAPI\Model\LocalizedValue[]',
         'organization_id' => 'string',
         'id' => 'string'
     );
@@ -380,7 +380,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets name
-     * @return \KuntaAPI\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
     public function getName()
     {
@@ -389,7 +389,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets name
-     * @param \KuntaAPI\Model\LocalizedValue $name
+     * @param \KuntaAPI\Model\LocalizedValue[] $name
      * @return $this
      */
     public function setName($name)
@@ -401,7 +401,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets description
-     * @return \KuntaAPI\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
     public function getDescription()
     {
@@ -410,7 +410,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets description
-     * @param \KuntaAPI\Model\LocalizedValue $description
+     * @param \KuntaAPI\Model\LocalizedValue[] $description
      * @return $this
      */
     public function setDescription($description)

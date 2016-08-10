@@ -67,8 +67,8 @@ class Service implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'description' => '\KuntaAPI\Model\LocalizedValue',
-        'name' => '\KuntaAPI\Model\LocalizedValue',
+        'description' => '\KuntaAPI\Model\LocalizedValue[]',
+        'name' => '\KuntaAPI\Model\LocalizedValue[]',
         'source_ids' => 'string[]',
         'electronic_channel_ids' => 'string[]',
         'phone_channel_ids' => 'string[]',
@@ -218,7 +218,7 @@ class Service implements ArrayAccess
 
     /**
      * Gets description
-     * @return \KuntaAPI\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
     public function getDescription()
     {
@@ -227,7 +227,7 @@ class Service implements ArrayAccess
 
     /**
      * Sets description
-     * @param \KuntaAPI\Model\LocalizedValue $description
+     * @param \KuntaAPI\Model\LocalizedValue[] $description
      * @return $this
      */
     public function setDescription($description)
@@ -239,7 +239,7 @@ class Service implements ArrayAccess
 
     /**
      * Gets name
-     * @return \KuntaAPI\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
     public function getName()
     {
@@ -248,7 +248,7 @@ class Service implements ArrayAccess
 
     /**
      * Sets name
-     * @param \KuntaAPI\Model\LocalizedValue $name
+     * @param \KuntaAPI\Model\LocalizedValue[] $name
      * @return $this
      */
     public function setName($name)

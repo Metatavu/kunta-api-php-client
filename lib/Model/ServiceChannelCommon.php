@@ -68,8 +68,8 @@ class ServiceChannelCommon implements ArrayAccess
     protected static $swaggerTypes = array(
         'id' => 'string',
         'organization_id' => 'string',
-        'description' => '\KuntaAPI\Model\LocalizedValue',
-        'name' => '\KuntaAPI\Model\LocalizedValue',
+        'description' => '\KuntaAPI\Model\LocalizedValue[]',
+        'name' => '\KuntaAPI\Model\LocalizedValue[]',
         'web_pages' => '\KuntaAPI\Model\WebPage[]',
         'service_hours' => '\KuntaAPI\Model\ServiceHour[]',
         'support_contacts' => '\KuntaAPI\Model\Support[]'
@@ -229,7 +229,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Gets description
-     * @return \KuntaAPI\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
     public function getDescription()
     {
@@ -238,7 +238,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Sets description
-     * @param \KuntaAPI\Model\LocalizedValue $description
+     * @param \KuntaAPI\Model\LocalizedValue[] $description
      * @return $this
      */
     public function setDescription($description)
@@ -250,7 +250,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Gets name
-     * @return \KuntaAPI\Model\LocalizedValue
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
     public function getName()
     {
@@ -259,7 +259,7 @@ class ServiceChannelCommon implements ArrayAccess
 
     /**
      * Sets name
-     * @param \KuntaAPI\Model\LocalizedValue $name
+     * @param \KuntaAPI\Model\LocalizedValue[] $name
      * @return $this
      */
     public function setName($name)

@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **support_contacts** | [**\KuntaAPI\Model\Support[]**](Support.md) |  | [optional] 
 **service_hours** | [**\KuntaAPI\Model\ServiceHour[]**](ServiceHour.md) |  | [optional] 
 **web_pages** | [**\KuntaAPI\Model\WebPage[]**](WebPage.md) |  | [optional] 
-**name** | [**\KuntaAPI\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
-**description** | [**\KuntaAPI\Model\LocalizedValue**](LocalizedValue.md) |  | [optional] 
+**name** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
+**description** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **organization_id** | **string** |  | [optional] 
 **id** | **string** |  | [optional] 
 
