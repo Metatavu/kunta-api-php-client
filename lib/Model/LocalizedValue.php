@@ -66,7 +66,8 @@ class LocalizedValue implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        
+        'language' => 'string',
+        'value' => 'string'
     );
 
     public static function swaggerTypes()
@@ -79,7 +80,8 @@ class LocalizedValue implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        
+        'language' => 'language',
+        'value' => 'value'
     );
 
     public static function attributeMap()
@@ -92,7 +94,8 @@ class LocalizedValue implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        
+        'language' => 'setLanguage',
+        'value' => 'setValue'
     );
 
     public static function setters()
@@ -105,7 +108,8 @@ class LocalizedValue implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        
+        'language' => 'getLanguage',
+        'value' => 'getValue'
     );
 
     public static function getters()
@@ -129,6 +133,8 @@ class LocalizedValue implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -153,6 +159,48 @@ class LocalizedValue implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets language
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     * @param string $language
+     * @return $this
+     */
+    public function setLanguage($language)
+    {
+        $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     * @param string $value
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset

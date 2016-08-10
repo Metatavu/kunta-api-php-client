@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attachments** | [**\KuntaAPI\Model\Attachment[]**](Attachment.md) |  | [optional] 
-**urls** | [**\KuntaAPI\Model\LanguageItem[]**](LanguageItem.md) |  | [optional] 
+**urls** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **requires_authentication** | **bool** |  | [optional] 
 **requires_signature** | **bool** |  | [optional] 
 **signature_quantity** | **int** |  | [optional] 

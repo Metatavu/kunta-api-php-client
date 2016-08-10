@@ -67,7 +67,7 @@ class ServiceElectronicChannel implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'attachments' => '\KuntaAPI\Model\Attachment[]',
-        'urls' => '\KuntaAPI\Model\LanguageItem[]',
+        'urls' => '\KuntaAPI\Model\LocalizedValue[]',
         'requires_authentication' => 'bool',
         'requires_signature' => 'bool',
         'signature_quantity' => 'int',
@@ -233,7 +233,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets urls
-     * @return \KuntaAPI\Model\LanguageItem[]
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
     public function getUrls()
     {
@@ -242,7 +242,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets urls
-     * @param \KuntaAPI\Model\LanguageItem[] $urls
+     * @param \KuntaAPI\Model\LocalizedValue[] $urls
      * @return $this
      */
     public function setUrls($urls)
