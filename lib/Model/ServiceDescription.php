@@ -67,7 +67,8 @@ class ServiceDescription implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'type' => 'string',
-        'value' => '\KuntaAPI\Model\LocalizedValue[]'
+        'value' => 'string',
+        'language' => 'string'
     );
 
     public static function swaggerTypes()
@@ -81,7 +82,8 @@ class ServiceDescription implements ArrayAccess
      */
     protected static $attributeMap = array(
         'type' => 'type',
-        'value' => 'value'
+        'value' => 'value',
+        'language' => 'language'
     );
 
     public static function attributeMap()
@@ -95,7 +97,8 @@ class ServiceDescription implements ArrayAccess
      */
     protected static $setters = array(
         'type' => 'setType',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'language' => 'setLanguage'
     );
 
     public static function setters()
@@ -109,7 +112,8 @@ class ServiceDescription implements ArrayAccess
      */
     protected static $getters = array(
         'type' => 'getType',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'language' => 'getLanguage'
     );
 
     public static function getters()
@@ -135,6 +139,7 @@ class ServiceDescription implements ArrayAccess
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
     }
 
     /**
@@ -183,7 +188,7 @@ class ServiceDescription implements ArrayAccess
 
     /**
      * Gets value
-     * @return \KuntaAPI\Model\LocalizedValue[]
+     * @return string
      */
     public function getValue()
     {
@@ -192,12 +197,33 @@ class ServiceDescription implements ArrayAccess
 
     /**
      * Sets value
-     * @param \KuntaAPI\Model\LocalizedValue[] $value
+     * @param string $value
      * @return $this
      */
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets language
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     * @param string $language
+     * @return $this
+     */
+    public function setLanguage($language)
+    {
+        $this->container['language'] = $language;
 
         return $this;
     }
