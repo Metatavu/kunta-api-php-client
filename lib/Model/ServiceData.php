@@ -84,7 +84,7 @@ class ServiceData implements ArrayAccess
     protected static $attributeMap = array(
         'id' => 'id',
         'name' => 'name',
-        'sourceId' => 'source_id',
+        'sourceId' => 'sourceId',
         'value' => 'value'
     );
 

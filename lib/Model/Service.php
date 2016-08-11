@@ -91,13 +91,13 @@ class Service implements ArrayAccess
         'id' => 'id',
         'description' => 'description',
         'name' => 'name',
-        'sourceIds' => 'source_ids',
-        'classIds' => 'class_ids',
-        'electronicChannelIds' => 'electronic_channel_ids',
-        'phoneChannelIds' => 'phone_channel_ids',
-        'printableFormChannelIds' => 'printable_form_channel_ids',
-        'serviceLocationChannelIds' => 'service_location_channel_ids',
-        'webpageChannelIds' => 'webpage_channel_ids'
+        'sourceIds' => 'sourceIds',
+        'classIds' => 'classIds',
+        'electronicChannelIds' => 'electronicChannelIds',
+        'phoneChannelIds' => 'phoneChannelIds',
+        'printableFormChannelIds' => 'printableFormChannelIds',
+        'serviceLocationChannelIds' => 'serviceLocationChannelIds',
+        'webpageChannelIds' => 'webpageChannelIds'
     );
 
     public static function attributeMap()
