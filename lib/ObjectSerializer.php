@@ -304,7 +304,7 @@ class ObjectSerializer
                 }
                 
                 $propertyValue = null;
-                if (!isset($data->{$instance::attributeMap()[$property]})) {
+                if (isset($data->{$instance::attributeMap()[$property]})) {
                   $propertyValue = $data->{$instance::attributeMap()[$property]};
                 } else {
                   $propertyValue = $data->{$property};
