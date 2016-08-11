@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **description** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **name** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **source_ids** | **string[]** | Name of the service. | [optional] 
+**class_ids** | **string[]** | List of service classes | [optional] 
 **electronic_channel_ids** | **string[]** |  | [optional] 
 **phone_channel_ids** | **string[]** |  | [optional] 
 **printable_form_channel_ids** | **string[]** |  | [optional] 

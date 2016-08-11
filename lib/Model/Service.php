@@ -70,6 +70,7 @@ class Service implements ArrayAccess
         'description' => '\KuntaAPI\Model\LocalizedValue[]',
         'name' => '\KuntaAPI\Model\LocalizedValue[]',
         'source_ids' => 'string[]',
+        'class_ids' => 'string[]',
         'electronic_channel_ids' => 'string[]',
         'phone_channel_ids' => 'string[]',
         'printable_form_channel_ids' => 'string[]',
@@ -91,6 +92,7 @@ class Service implements ArrayAccess
         'description' => 'description',
         'name' => 'name',
         'source_ids' => 'source_ids',
+        'class_ids' => 'class_ids',
         'electronic_channel_ids' => 'electronic_channel_ids',
         'phone_channel_ids' => 'phone_channel_ids',
         'printable_form_channel_ids' => 'printable_form_channel_ids',
@@ -112,6 +114,7 @@ class Service implements ArrayAccess
         'description' => 'setDescription',
         'name' => 'setName',
         'source_ids' => 'setSourceIds',
+        'class_ids' => 'setClassIds',
         'electronic_channel_ids' => 'setElectronicChannelIds',
         'phone_channel_ids' => 'setPhoneChannelIds',
         'printable_form_channel_ids' => 'setPrintableFormChannelIds',
@@ -133,6 +136,7 @@ class Service implements ArrayAccess
         'description' => 'getDescription',
         'name' => 'getName',
         'source_ids' => 'getSourceIds',
+        'class_ids' => 'getClassIds',
         'electronic_channel_ids' => 'getElectronicChannelIds',
         'phone_channel_ids' => 'getPhoneChannelIds',
         'printable_form_channel_ids' => 'getPrintableFormChannelIds',
@@ -165,6 +169,7 @@ class Service implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['source_ids'] = isset($data['source_ids']) ? $data['source_ids'] : null;
+        $this->container['class_ids'] = isset($data['class_ids']) ? $data['class_ids'] : null;
         $this->container['electronic_channel_ids'] = isset($data['electronic_channel_ids']) ? $data['electronic_channel_ids'] : null;
         $this->container['phone_channel_ids'] = isset($data['phone_channel_ids']) ? $data['phone_channel_ids'] : null;
         $this->container['printable_form_channel_ids'] = isset($data['printable_form_channel_ids']) ? $data['printable_form_channel_ids'] : null;
@@ -275,6 +280,27 @@ class Service implements ArrayAccess
     public function setSourceIds($source_ids)
     {
         $this->container['source_ids'] = $source_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets class_ids
+     * @return string[]
+     */
+    public function getClassIds()
+    {
+        return $this->container['class_ids'];
+    }
+
+    /**
+     * Sets class_ids
+     * @param string[] $class_ids List of service classes
+     * @return $this
+     */
+    public function setClassIds($class_ids)
+    {
+        $this->container['class_ids'] = $class_ids;
 
         return $this;
     }
