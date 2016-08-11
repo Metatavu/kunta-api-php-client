@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **createService**
-> \KuntaAPI\Model\Service[] createService($organization_id, $body)
+> \KuntaAPI\Model\Service[] createService($organizationId, $body)
 
 Create a service
 
@@ -32,11 +32,11 @@ Creates new service for the organization
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
+$organizationId = "organizationId_example"; // string | Organization id
 $body = new \KuntaAPI\Model\Service(); // \KuntaAPI\Model\Service | Service definition
 
 try {
-    $result = $api_instance->createService($organization_id, $body);
+    $result = $api_instance->createService($organizationId, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->createService: ', $e->getMessage(), PHP_EOL;
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
+ **organizationId** | **string**| Organization id |
  **body** | [**\KuntaAPI\Model\Service**](../Model/\KuntaAPI\Model\Service.md)| Service definition |
 
 ### Return type
@@ -67,7 +67,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteService**
-> deleteService($organization_id, $service_id)
+> deleteService($organizationId, $serviceId)
 
 Delete a service
 
@@ -79,11 +79,11 @@ Delete a single municipal service
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
 
 try {
-    $api_instance->deleteService($organization_id, $service_id);
+    $api_instance->deleteService($organizationId, $serviceId);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->deleteService: ', $e->getMessage(), PHP_EOL;
 }
@@ -94,8 +94,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
 
 ### Return type
 
@@ -113,7 +113,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteServiceData**
-> deleteServiceData($organization_id, $service_id, $data_id)
+> deleteServiceData($organizationId, $serviceId, $dataId)
 
 Delete single service data field by id
 
@@ -125,12 +125,12 @@ Delete a single service data field by id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
-$data_id = "data_id_example"; // string | Service data field id.
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
+$dataId = "dataId_example"; // string | Service data field id.
 
 try {
-    $api_instance->deleteServiceData($organization_id, $service_id, $data_id);
+    $api_instance->deleteServiceData($organizationId, $serviceId, $dataId);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->deleteServiceData: ', $e->getMessage(), PHP_EOL;
 }
@@ -141,9 +141,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
- **data_id** | **string**| Service data field id. |
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
+ **dataId** | **string**| Service data field id. |
 
 ### Return type
 
@@ -161,7 +161,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findService**
-> \KuntaAPI\Model\Service findService($organization_id, $service_id)
+> \KuntaAPI\Model\Service findService($organizationId, $serviceId)
 
 Find a service by id
 
@@ -173,11 +173,11 @@ Returns single service by it's unique id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
 
 try {
-    $result = $api_instance->findService($organization_id, $service_id);
+    $result = $api_instance->findService($organizationId, $serviceId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->findService: ', $e->getMessage(), PHP_EOL;
@@ -189,8 +189,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
 
 ### Return type
 
@@ -208,7 +208,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findServiceData**
-> \KuntaAPI\Model\ServiceData findServiceData($organization_id, $service_id, $data_id)
+> \KuntaAPI\Model\ServiceData findServiceData($organizationId, $serviceId, $dataId)
 
 Find single service data field by id
 
@@ -220,12 +220,12 @@ Returns a single service data field by id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
-$data_id = "data_id_example"; // string | Service data field id.
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
+$dataId = "dataId_example"; // string | Service data field id.
 
 try {
-    $result = $api_instance->findServiceData($organization_id, $service_id, $data_id);
+    $result = $api_instance->findServiceData($organizationId, $serviceId, $dataId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->findServiceData: ', $e->getMessage(), PHP_EOL;
@@ -237,9 +237,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
- **data_id** | **string**| Service data field id. |
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
+ **dataId** | **string**| Service data field id. |
 
 ### Return type
 
@@ -257,7 +257,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findServiceSource**
-> \KuntaAPI\Model\ServiceSource findServiceSource($service_source_id)
+> \KuntaAPI\Model\ServiceSource findServiceSource($serviceSourceId)
 
 Find a service by id
 
@@ -269,10 +269,10 @@ Returns single service by it's unique id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$service_source_id = "service_source_id_example"; // string | Service source id
+$serviceSourceId = "serviceSourceId_example"; // string | Service source id
 
 try {
-    $result = $api_instance->findServiceSource($service_source_id);
+    $result = $api_instance->findServiceSource($serviceSourceId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->findServiceSource: ', $e->getMessage(), PHP_EOL;
@@ -284,7 +284,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **service_source_id** | **string**| Service source id |
+ **serviceSourceId** | **string**| Service source id |
 
 ### Return type
 
@@ -302,7 +302,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceClasses**
-> \KuntaAPI\Model\ServiceClass[] listServiceClasses($organization_id)
+> \KuntaAPI\Model\ServiceClass[] listServiceClasses($organizationId)
 
 List service classes for an organization
 
@@ -314,10 +314,10 @@ Returns list of organization's service classes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
+$organizationId = "organizationId_example"; // string | Organization id
 
 try {
-    $result = $api_instance->listServiceClasses($organization_id);
+    $result = $api_instance->listServiceClasses($organizationId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->listServiceClasses: ', $e->getMessage(), PHP_EOL;
@@ -329,7 +329,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
+ **organizationId** | **string**| Organization id |
 
 ### Return type
 
@@ -347,7 +347,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceDatas**
-> \KuntaAPI\Model\ServiceData[] listServiceDatas($organization_id, $service_id, $source_id)
+> \KuntaAPI\Model\ServiceData[] listServiceDatas($organizationId, $serviceId, $sourceId)
 
 List service datas
 
@@ -359,12 +359,12 @@ Returns list of data fields assigned to the specified service
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
-$source_id = "source_id_example"; // string | Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources.
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
+$sourceId = "sourceId_example"; // string | Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources.
 
 try {
-    $result = $api_instance->listServiceDatas($organization_id, $service_id, $source_id);
+    $result = $api_instance->listServiceDatas($organizationId, $serviceId, $sourceId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->listServiceDatas: ', $e->getMessage(), PHP_EOL;
@@ -376,9 +376,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
- **source_id** | **string**| Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources. | [optional]
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
+ **sourceId** | **string**| Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources. | [optional]
 
 ### Return type
 
@@ -396,7 +396,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceElectornicChannels**
-> \KuntaAPI\Model\ServiceElectronicChannel listServiceElectornicChannels($organization_id, $service_id)
+> \KuntaAPI\Model\ServiceElectronicChannel listServiceElectornicChannels($organizationId, $serviceId)
 
 List service electornic channels
 
@@ -408,11 +408,11 @@ Lists service electronic channels
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
 
 try {
-    $result = $api_instance->listServiceElectornicChannels($organization_id, $service_id);
+    $result = $api_instance->listServiceElectornicChannels($organizationId, $serviceId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->listServiceElectornicChannels: ', $e->getMessage(), PHP_EOL;
@@ -424,8 +424,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
 
 ### Return type
 
@@ -484,7 +484,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServices**
-> \KuntaAPI\Model\Service[] listServices($organization_id, $service_class_id)
+> \KuntaAPI\Model\Service[] listServices($organizationId, $serviceClassId)
 
 List services
 
@@ -496,11 +496,11 @@ Lists organization's services
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_class_id = "service_class_id_example"; // string | Filter services by service class id
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceClassId = "serviceClassId_example"; // string | Filter services by service class id
 
 try {
-    $result = $api_instance->listServices($organization_id, $service_class_id);
+    $result = $api_instance->listServices($organizationId, $serviceClassId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->listServices: ', $e->getMessage(), PHP_EOL;
@@ -512,8 +512,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_class_id** | **string**| Filter services by service class id | [optional]
+ **organizationId** | **string**| Organization id |
+ **serviceClassId** | **string**| Filter services by service class id | [optional]
 
 ### Return type
 
@@ -531,7 +531,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateService**
-> \KuntaAPI\Model\Service updateService($organization_id, $service_id)
+> \KuntaAPI\Model\Service updateService($organizationId, $serviceId)
 
 Update a service
 
@@ -543,11 +543,11 @@ Updates a single municipal service
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
 
 try {
-    $result = $api_instance->updateService($organization_id, $service_id);
+    $result = $api_instance->updateService($organizationId, $serviceId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->updateService: ', $e->getMessage(), PHP_EOL;
@@ -559,8 +559,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
 
 ### Return type
 
@@ -578,7 +578,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateServiceData**
-> \KuntaAPI\Model\ServiceData updateServiceData($organization_id, $service_id, $data_id)
+> \KuntaAPI\Model\ServiceData updateServiceData($organizationId, $serviceId, $dataId)
 
 Update single service data field by id
 
@@ -590,12 +590,12 @@ Update a single service data field by id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
-$data_id = "data_id_example"; // string | Service data field id.
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
+$dataId = "dataId_example"; // string | Service data field id.
 
 try {
-    $result = $api_instance->updateServiceData($organization_id, $service_id, $data_id);
+    $result = $api_instance->updateServiceData($organizationId, $serviceId, $dataId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->updateServiceData: ', $e->getMessage(), PHP_EOL;
@@ -607,9 +607,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
- **data_id** | **string**| Service data field id. |
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
+ **dataId** | **string**| Service data field id. |
 
 ### Return type
 

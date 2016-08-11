@@ -107,14 +107,14 @@ class ServiceChannelsApi
      *
      * List service electornic channels
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return \KuntaAPI\Model\ServiceElectronicChannel
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceElectornicChannels($organization_id, $service_id)
+    public function listServiceElectornicChannels($organizationId, $serviceId)
     {
-        list($response) = $this->listServiceElectornicChannelsWithHttpInfo($organization_id, $service_id);
+        list($response) = $this->listServiceElectornicChannelsWithHttpInfo($organizationId, $serviceId);
         return $response;
     }
 
@@ -123,20 +123,20 @@ class ServiceChannelsApi
      *
      * List service electornic channels
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return Array of \KuntaAPI\Model\ServiceElectronicChannel, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceElectornicChannelsWithHttpInfo($organization_id, $service_id)
+    public function listServiceElectornicChannelsWithHttpInfo($organizationId, $serviceId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling listServiceElectornicChannels');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServiceElectornicChannels');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling listServiceElectornicChannels');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceElectornicChannels');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}/electronicChannels";
@@ -151,18 +151,18 @@ class ServiceChannelsApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }

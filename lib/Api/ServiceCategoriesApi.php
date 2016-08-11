@@ -107,13 +107,13 @@ class ServiceCategoriesApi
      *
      * List service classes for an organization
      *
-     * @param string $organization_id Organization id (required)
+     * @param string $organizationId Organization id (required)
      * @return \KuntaAPI\Model\ServiceClass[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceClasses($organization_id)
+    public function listServiceClasses($organizationId)
     {
-        list($response) = $this->listServiceClassesWithHttpInfo($organization_id);
+        list($response) = $this->listServiceClassesWithHttpInfo($organizationId);
         return $response;
     }
 
@@ -122,15 +122,15 @@ class ServiceCategoriesApi
      *
      * List service classes for an organization
      *
-     * @param string $organization_id Organization id (required)
+     * @param string $organizationId Organization id (required)
      * @return Array of \KuntaAPI\Model\ServiceClass[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceClassesWithHttpInfo($organization_id)
+    public function listServiceClassesWithHttpInfo($organizationId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling listServiceClasses');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServiceClasses');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/serviceClasses/";
@@ -145,10 +145,10 @@ class ServiceCategoriesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }

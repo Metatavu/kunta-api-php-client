@@ -68,7 +68,7 @@ class ServiceData implements ArrayAccess
     protected static $swaggerTypes = array(
         'id' => 'string',
         'name' => 'string',
-        'source_id' => 'string',
+        'sourceId' => 'string',
         'value' => 'string'
     );
 
@@ -84,7 +84,7 @@ class ServiceData implements ArrayAccess
     protected static $attributeMap = array(
         'id' => 'id',
         'name' => 'name',
-        'source_id' => 'source_id',
+        'sourceId' => 'source_id',
         'value' => 'value'
     );
 
@@ -100,7 +100,7 @@ class ServiceData implements ArrayAccess
     protected static $setters = array(
         'id' => 'setId',
         'name' => 'setName',
-        'source_id' => 'setSourceId',
+        'sourceId' => 'setSourceId',
         'value' => 'setValue'
     );
 
@@ -116,7 +116,7 @@ class ServiceData implements ArrayAccess
     protected static $getters = array(
         'id' => 'getId',
         'name' => 'getName',
-        'source_id' => 'getSourceId',
+        'sourceId' => 'getSourceId',
         'value' => 'getValue'
     );
 
@@ -143,7 +143,7 @@ class ServiceData implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['source_id'] = isset($data['source_id']) ? $data['source_id'] : null;
+        $this->container['sourceId'] = isset($data['sourceId']) ? $data['sourceId'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -213,22 +213,22 @@ class ServiceData implements ArrayAccess
     }
 
     /**
-     * Gets source_id
+     * Gets sourceId
      * @return string
      */
     public function getSourceId()
     {
-        return $this->container['source_id'];
+        return $this->container['sourceId'];
     }
 
     /**
-     * Sets source_id
-     * @param string $source_id Identifier of data's source
+     * Sets sourceId
+     * @param string $sourceId Identifier of data's source
      * @return $this
      */
-    public function setSourceId($source_id)
+    public function setSourceId($sourceId)
     {
-        $this->container['source_id'] = $source_id;
+        $this->container['sourceId'] = $sourceId;
 
         return $this;
     }

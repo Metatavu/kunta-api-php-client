@@ -107,14 +107,14 @@ class ServicesApi
      *
      * Create a service
      *
-     * @param string $organization_id Organization id (required)
+     * @param string $organizationId Organization id (required)
      * @param \KuntaAPI\Model\Service $body Service definition (required)
      * @return \KuntaAPI\Model\Service[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function createService($organization_id, $body)
+    public function createService($organizationId, $body)
     {
-        list($response) = $this->createServiceWithHttpInfo($organization_id, $body);
+        list($response) = $this->createServiceWithHttpInfo($organizationId, $body);
         return $response;
     }
 
@@ -123,16 +123,16 @@ class ServicesApi
      *
      * Create a service
      *
-     * @param string $organization_id Organization id (required)
+     * @param string $organizationId Organization id (required)
      * @param \KuntaAPI\Model\Service $body Service definition (required)
      * @return Array of \KuntaAPI\Model\Service[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function createServiceWithHttpInfo($organization_id, $body)
+    public function createServiceWithHttpInfo($organizationId, $body)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling createService');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling createService');
         }
         // verify the required parameter 'body' is set
         if ($body === null) {
@@ -151,10 +151,10 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
@@ -223,14 +223,14 @@ class ServicesApi
      *
      * Delete a service
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return void
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function deleteService($organization_id, $service_id)
+    public function deleteService($organizationId, $serviceId)
     {
-        list($response) = $this->deleteServiceWithHttpInfo($organization_id, $service_id);
+        list($response) = $this->deleteServiceWithHttpInfo($organizationId, $serviceId);
         return $response;
     }
 
@@ -239,20 +239,20 @@ class ServicesApi
      *
      * Delete a service
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function deleteServiceWithHttpInfo($organization_id, $service_id)
+    public function deleteServiceWithHttpInfo($organizationId, $serviceId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling deleteService');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling deleteService');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling deleteService');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling deleteService');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}";
@@ -267,18 +267,18 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
@@ -334,15 +334,15 @@ class ServicesApi
      *
      * Delete single service data field by id
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
-     * @param string $data_id Service data field id. (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
+     * @param string $dataId Service data field id. (required)
      * @return void
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function deleteServiceData($organization_id, $service_id, $data_id)
+    public function deleteServiceData($organizationId, $serviceId, $dataId)
     {
-        list($response) = $this->deleteServiceDataWithHttpInfo($organization_id, $service_id, $data_id);
+        list($response) = $this->deleteServiceDataWithHttpInfo($organizationId, $serviceId, $dataId);
         return $response;
     }
 
@@ -351,25 +351,25 @@ class ServicesApi
      *
      * Delete single service data field by id
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
-     * @param string $data_id Service data field id. (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
+     * @param string $dataId Service data field id. (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function deleteServiceDataWithHttpInfo($organization_id, $service_id, $data_id)
+    public function deleteServiceDataWithHttpInfo($organizationId, $serviceId, $dataId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling deleteServiceData');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling deleteServiceData');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling deleteServiceData');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling deleteServiceData');
         }
-        // verify the required parameter 'data_id' is set
-        if ($data_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $data_id when calling deleteServiceData');
+        // verify the required parameter 'dataId' is set
+        if ($dataId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dataId when calling deleteServiceData');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}/datas/{dataId}";
@@ -384,26 +384,26 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
         // path params
-        if ($data_id !== null) {
+        if ($dataId !== null) {
             $resourcePath = str_replace(
                 "{" . "dataId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($data_id),
+                $this->apiClient->getSerializer()->toPathValue($dataId),
                 $resourcePath
             );
         }
@@ -459,14 +459,14 @@ class ServicesApi
      *
      * Find a service by id
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return \KuntaAPI\Model\Service
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findService($organization_id, $service_id)
+    public function findService($organizationId, $serviceId)
     {
-        list($response) = $this->findServiceWithHttpInfo($organization_id, $service_id);
+        list($response) = $this->findServiceWithHttpInfo($organizationId, $serviceId);
         return $response;
     }
 
@@ -475,20 +475,20 @@ class ServicesApi
      *
      * Find a service by id
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return Array of \KuntaAPI\Model\Service, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWithHttpInfo($organization_id, $service_id)
+    public function findServiceWithHttpInfo($organizationId, $serviceId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling findService');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findService');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling findService');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findService');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}";
@@ -503,18 +503,18 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
@@ -574,15 +574,15 @@ class ServicesApi
      *
      * Find single service data field by id
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
-     * @param string $data_id Service data field id. (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
+     * @param string $dataId Service data field id. (required)
      * @return \KuntaAPI\Model\ServiceData
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceData($organization_id, $service_id, $data_id)
+    public function findServiceData($organizationId, $serviceId, $dataId)
     {
-        list($response) = $this->findServiceDataWithHttpInfo($organization_id, $service_id, $data_id);
+        list($response) = $this->findServiceDataWithHttpInfo($organizationId, $serviceId, $dataId);
         return $response;
     }
 
@@ -591,25 +591,25 @@ class ServicesApi
      *
      * Find single service data field by id
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
-     * @param string $data_id Service data field id. (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
+     * @param string $dataId Service data field id. (required)
      * @return Array of \KuntaAPI\Model\ServiceData, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceDataWithHttpInfo($organization_id, $service_id, $data_id)
+    public function findServiceDataWithHttpInfo($organizationId, $serviceId, $dataId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling findServiceData');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findServiceData');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling findServiceData');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServiceData');
         }
-        // verify the required parameter 'data_id' is set
-        if ($data_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $data_id when calling findServiceData');
+        // verify the required parameter 'dataId' is set
+        if ($dataId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dataId when calling findServiceData');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}/datas/{dataId}";
@@ -624,26 +624,26 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
         // path params
-        if ($data_id !== null) {
+        if ($dataId !== null) {
             $resourcePath = str_replace(
                 "{" . "dataId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($data_id),
+                $this->apiClient->getSerializer()->toPathValue($dataId),
                 $resourcePath
             );
         }
@@ -703,13 +703,13 @@ class ServicesApi
      *
      * Find a service by id
      *
-     * @param string $service_source_id Service source id (required)
+     * @param string $serviceSourceId Service source id (required)
      * @return \KuntaAPI\Model\ServiceSource
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceSource($service_source_id)
+    public function findServiceSource($serviceSourceId)
     {
-        list($response) = $this->findServiceSourceWithHttpInfo($service_source_id);
+        list($response) = $this->findServiceSourceWithHttpInfo($serviceSourceId);
         return $response;
     }
 
@@ -718,15 +718,15 @@ class ServicesApi
      *
      * Find a service by id
      *
-     * @param string $service_source_id Service source id (required)
+     * @param string $serviceSourceId Service source id (required)
      * @return Array of \KuntaAPI\Model\ServiceSource, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceSourceWithHttpInfo($service_source_id)
+    public function findServiceSourceWithHttpInfo($serviceSourceId)
     {
-        // verify the required parameter 'service_source_id' is set
-        if ($service_source_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_source_id when calling findServiceSource');
+        // verify the required parameter 'serviceSourceId' is set
+        if ($serviceSourceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceSourceId when calling findServiceSource');
         }
         // parse inputs
         $resourcePath = "/serviceSources/{serviceSourceId}";
@@ -741,10 +741,10 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($service_source_id !== null) {
+        if ($serviceSourceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceSourceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_source_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceSourceId),
                 $resourcePath
             );
         }
@@ -800,13 +800,13 @@ class ServicesApi
      *
      * List service classes for an organization
      *
-     * @param string $organization_id Organization id (required)
+     * @param string $organizationId Organization id (required)
      * @return \KuntaAPI\Model\ServiceClass[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceClasses($organization_id)
+    public function listServiceClasses($organizationId)
     {
-        list($response) = $this->listServiceClassesWithHttpInfo($organization_id);
+        list($response) = $this->listServiceClassesWithHttpInfo($organizationId);
         return $response;
     }
 
@@ -815,15 +815,15 @@ class ServicesApi
      *
      * List service classes for an organization
      *
-     * @param string $organization_id Organization id (required)
+     * @param string $organizationId Organization id (required)
      * @return Array of \KuntaAPI\Model\ServiceClass[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceClassesWithHttpInfo($organization_id)
+    public function listServiceClassesWithHttpInfo($organizationId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling listServiceClasses');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServiceClasses');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/serviceClasses/";
@@ -838,10 +838,10 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
@@ -901,15 +901,15 @@ class ServicesApi
      *
      * List service datas
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
-     * @param string $source_id Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources. (optional)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
+     * @param string $sourceId Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources. (optional)
      * @return \KuntaAPI\Model\ServiceData[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceDatas($organization_id, $service_id, $source_id = null)
+    public function listServiceDatas($organizationId, $serviceId, $sourceId = null)
     {
-        list($response) = $this->listServiceDatasWithHttpInfo($organization_id, $service_id, $source_id);
+        list($response) = $this->listServiceDatasWithHttpInfo($organizationId, $serviceId, $sourceId);
         return $response;
     }
 
@@ -918,21 +918,21 @@ class ServicesApi
      *
      * List service datas
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
-     * @param string $source_id Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources. (optional)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
+     * @param string $sourceId Service source id. When specified datas of only specified source are listed. Default is to list datas of all sources. (optional)
      * @return Array of \KuntaAPI\Model\ServiceData[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceDatasWithHttpInfo($organization_id, $service_id, $source_id = null)
+    public function listServiceDatasWithHttpInfo($organizationId, $serviceId, $sourceId = null)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling listServiceDatas');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServiceDatas');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling listServiceDatas');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceDatas');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}/datas";
@@ -947,22 +947,22 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // query params
-        if ($source_id !== null) {
-            $queryParams['sourceId'] = $this->apiClient->getSerializer()->toQueryValue($source_id);
+        if ($sourceId !== null) {
+            $queryParams['sourceId'] = $this->apiClient->getSerializer()->toQueryValue($sourceId);
         }
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
@@ -1022,14 +1022,14 @@ class ServicesApi
      *
      * List service electornic channels
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return \KuntaAPI\Model\ServiceElectronicChannel
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceElectornicChannels($organization_id, $service_id)
+    public function listServiceElectornicChannels($organizationId, $serviceId)
     {
-        list($response) = $this->listServiceElectornicChannelsWithHttpInfo($organization_id, $service_id);
+        list($response) = $this->listServiceElectornicChannelsWithHttpInfo($organizationId, $serviceId);
         return $response;
     }
 
@@ -1038,20 +1038,20 @@ class ServicesApi
      *
      * List service electornic channels
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return Array of \KuntaAPI\Model\ServiceElectronicChannel, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceElectornicChannelsWithHttpInfo($organization_id, $service_id)
+    public function listServiceElectornicChannelsWithHttpInfo($organizationId, $serviceId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling listServiceElectornicChannels');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServiceElectornicChannels');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling listServiceElectornicChannels');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceElectornicChannels');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}/electronicChannels";
@@ -1066,18 +1066,18 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
@@ -1220,14 +1220,14 @@ class ServicesApi
      *
      * List services
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_class_id Filter services by service class id (optional)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceClassId Filter services by service class id (optional)
      * @return \KuntaAPI\Model\Service[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServices($organization_id, $service_class_id = null)
+    public function listServices($organizationId, $serviceClassId = null)
     {
-        list($response) = $this->listServicesWithHttpInfo($organization_id, $service_class_id);
+        list($response) = $this->listServicesWithHttpInfo($organizationId, $serviceClassId);
         return $response;
     }
 
@@ -1236,16 +1236,16 @@ class ServicesApi
      *
      * List services
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_class_id Filter services by service class id (optional)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceClassId Filter services by service class id (optional)
      * @return Array of \KuntaAPI\Model\Service[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServicesWithHttpInfo($organization_id, $service_class_id = null)
+    public function listServicesWithHttpInfo($organizationId, $serviceClassId = null)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling listServices');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServices');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services";
@@ -1260,14 +1260,14 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // query params
-        if ($service_class_id !== null) {
-            $queryParams['serviceClassId'] = $this->apiClient->getSerializer()->toQueryValue($service_class_id);
+        if ($serviceClassId !== null) {
+            $queryParams['serviceClassId'] = $this->apiClient->getSerializer()->toQueryValue($serviceClassId);
         }
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
@@ -1327,14 +1327,14 @@ class ServicesApi
      *
      * Update a service
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return \KuntaAPI\Model\Service
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function updateService($organization_id, $service_id)
+    public function updateService($organizationId, $serviceId)
     {
-        list($response) = $this->updateServiceWithHttpInfo($organization_id, $service_id);
+        list($response) = $this->updateServiceWithHttpInfo($organizationId, $serviceId);
         return $response;
     }
 
@@ -1343,20 +1343,20 @@ class ServicesApi
      *
      * Update a service
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
      * @return Array of \KuntaAPI\Model\Service, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function updateServiceWithHttpInfo($organization_id, $service_id)
+    public function updateServiceWithHttpInfo($organizationId, $serviceId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling updateService');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling updateService');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling updateService');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updateService');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}";
@@ -1371,18 +1371,18 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
@@ -1446,15 +1446,15 @@ class ServicesApi
      *
      * Update single service data field by id
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
-     * @param string $data_id Service data field id. (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
+     * @param string $dataId Service data field id. (required)
      * @return \KuntaAPI\Model\ServiceData
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function updateServiceData($organization_id, $service_id, $data_id)
+    public function updateServiceData($organizationId, $serviceId, $dataId)
     {
-        list($response) = $this->updateServiceDataWithHttpInfo($organization_id, $service_id, $data_id);
+        list($response) = $this->updateServiceDataWithHttpInfo($organizationId, $serviceId, $dataId);
         return $response;
     }
 
@@ -1463,25 +1463,25 @@ class ServicesApi
      *
      * Update single service data field by id
      *
-     * @param string $organization_id Organization id (required)
-     * @param string $service_id Service id (required)
-     * @param string $data_id Service data field id. (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $serviceId Service id (required)
+     * @param string $dataId Service data field id. (required)
      * @return Array of \KuntaAPI\Model\ServiceData, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function updateServiceDataWithHttpInfo($organization_id, $service_id, $data_id)
+    public function updateServiceDataWithHttpInfo($organizationId, $serviceId, $dataId)
     {
-        // verify the required parameter 'organization_id' is set
-        if ($organization_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organization_id when calling updateServiceData');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling updateServiceData');
         }
-        // verify the required parameter 'service_id' is set
-        if ($service_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_id when calling updateServiceData');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updateServiceData');
         }
-        // verify the required parameter 'data_id' is set
-        if ($data_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $data_id when calling updateServiceData');
+        // verify the required parameter 'dataId' is set
+        if ($dataId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dataId when calling updateServiceData');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/services/{serviceId}/datas/{dataId}";
@@ -1496,26 +1496,26 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organization_id !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organization_id),
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($service_id !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
         // path params
-        if ($data_id !== null) {
+        if ($dataId !== null) {
             $resourcePath = str_replace(
                 "{" . "dataId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($data_id),
+                $this->apiClient->getSerializer()->toPathValue($dataId),
                 $resourcePath
             );
         }

@@ -68,15 +68,15 @@ class ServiceElectronicChannel implements ArrayAccess
     protected static $swaggerTypes = array(
         'attachments' => '\KuntaAPI\Model\Attachment[]',
         'urls' => '\KuntaAPI\Model\LocalizedValue[]',
-        'requires_authentication' => 'bool',
-        'requires_signature' => 'bool',
-        'signature_quantity' => 'int',
-        'support_contacts' => '\KuntaAPI\Model\Support[]',
-        'service_hours' => '\KuntaAPI\Model\ServiceHour[]',
-        'web_pages' => '\KuntaAPI\Model\WebPage[]',
+        'requiresAuthentication' => 'bool',
+        'requiresSignature' => 'bool',
+        'signatureQuantity' => 'int',
+        'supportContacts' => '\KuntaAPI\Model\Support[]',
+        'serviceHours' => '\KuntaAPI\Model\ServiceHour[]',
+        'webPages' => '\KuntaAPI\Model\WebPage[]',
         'name' => '\KuntaAPI\Model\LocalizedValue[]',
         'description' => '\KuntaAPI\Model\LocalizedValue[]',
-        'organization_id' => 'string',
+        'organizationId' => 'string',
         'id' => 'string'
     );
 
@@ -92,15 +92,15 @@ class ServiceElectronicChannel implements ArrayAccess
     protected static $attributeMap = array(
         'attachments' => 'attachments',
         'urls' => 'urls',
-        'requires_authentication' => 'requiresAuthentication',
-        'requires_signature' => 'requiresSignature',
-        'signature_quantity' => 'signatureQuantity',
-        'support_contacts' => 'supportContacts',
-        'service_hours' => 'serviceHours',
-        'web_pages' => 'webPages',
+        'requiresAuthentication' => 'requiresAuthentication',
+        'requiresSignature' => 'requiresSignature',
+        'signatureQuantity' => 'signatureQuantity',
+        'supportContacts' => 'supportContacts',
+        'serviceHours' => 'serviceHours',
+        'webPages' => 'webPages',
         'name' => 'name',
         'description' => 'description',
-        'organization_id' => 'organizationId',
+        'organizationId' => 'organizationId',
         'id' => 'id'
     );
 
@@ -116,15 +116,15 @@ class ServiceElectronicChannel implements ArrayAccess
     protected static $setters = array(
         'attachments' => 'setAttachments',
         'urls' => 'setUrls',
-        'requires_authentication' => 'setRequiresAuthentication',
-        'requires_signature' => 'setRequiresSignature',
-        'signature_quantity' => 'setSignatureQuantity',
-        'support_contacts' => 'setSupportContacts',
-        'service_hours' => 'setServiceHours',
-        'web_pages' => 'setWebPages',
+        'requiresAuthentication' => 'setRequiresAuthentication',
+        'requiresSignature' => 'setRequiresSignature',
+        'signatureQuantity' => 'setSignatureQuantity',
+        'supportContacts' => 'setSupportContacts',
+        'serviceHours' => 'setServiceHours',
+        'webPages' => 'setWebPages',
         'name' => 'setName',
         'description' => 'setDescription',
-        'organization_id' => 'setOrganizationId',
+        'organizationId' => 'setOrganizationId',
         'id' => 'setId'
     );
 
@@ -140,15 +140,15 @@ class ServiceElectronicChannel implements ArrayAccess
     protected static $getters = array(
         'attachments' => 'getAttachments',
         'urls' => 'getUrls',
-        'requires_authentication' => 'getRequiresAuthentication',
-        'requires_signature' => 'getRequiresSignature',
-        'signature_quantity' => 'getSignatureQuantity',
-        'support_contacts' => 'getSupportContacts',
-        'service_hours' => 'getServiceHours',
-        'web_pages' => 'getWebPages',
+        'requiresAuthentication' => 'getRequiresAuthentication',
+        'requiresSignature' => 'getRequiresSignature',
+        'signatureQuantity' => 'getSignatureQuantity',
+        'supportContacts' => 'getSupportContacts',
+        'serviceHours' => 'getServiceHours',
+        'webPages' => 'getWebPages',
         'name' => 'getName',
         'description' => 'getDescription',
-        'organization_id' => 'getOrganizationId',
+        'organizationId' => 'getOrganizationId',
         'id' => 'getId'
     );
 
@@ -175,15 +175,15 @@ class ServiceElectronicChannel implements ArrayAccess
     {
         $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
-        $this->container['requires_authentication'] = isset($data['requires_authentication']) ? $data['requires_authentication'] : null;
-        $this->container['requires_signature'] = isset($data['requires_signature']) ? $data['requires_signature'] : null;
-        $this->container['signature_quantity'] = isset($data['signature_quantity']) ? $data['signature_quantity'] : null;
-        $this->container['support_contacts'] = isset($data['support_contacts']) ? $data['support_contacts'] : null;
-        $this->container['service_hours'] = isset($data['service_hours']) ? $data['service_hours'] : null;
-        $this->container['web_pages'] = isset($data['web_pages']) ? $data['web_pages'] : null;
+        $this->container['requiresAuthentication'] = isset($data['requiresAuthentication']) ? $data['requiresAuthentication'] : null;
+        $this->container['requiresSignature'] = isset($data['requiresSignature']) ? $data['requiresSignature'] : null;
+        $this->container['signatureQuantity'] = isset($data['signatureQuantity']) ? $data['signatureQuantity'] : null;
+        $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
+        $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
+        $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['organization_id'] = isset($data['organization_id']) ? $data['organization_id'] : null;
+        $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
@@ -253,127 +253,127 @@ class ServiceElectronicChannel implements ArrayAccess
     }
 
     /**
-     * Gets requires_authentication
+     * Gets requiresAuthentication
      * @return bool
      */
     public function getRequiresAuthentication()
     {
-        return $this->container['requires_authentication'];
+        return $this->container['requiresAuthentication'];
     }
 
     /**
-     * Sets requires_authentication
-     * @param bool $requires_authentication
+     * Sets requiresAuthentication
+     * @param bool $requiresAuthentication
      * @return $this
      */
-    public function setRequiresAuthentication($requires_authentication)
+    public function setRequiresAuthentication($requiresAuthentication)
     {
-        $this->container['requires_authentication'] = $requires_authentication;
+        $this->container['requiresAuthentication'] = $requiresAuthentication;
 
         return $this;
     }
 
     /**
-     * Gets requires_signature
+     * Gets requiresSignature
      * @return bool
      */
     public function getRequiresSignature()
     {
-        return $this->container['requires_signature'];
+        return $this->container['requiresSignature'];
     }
 
     /**
-     * Sets requires_signature
-     * @param bool $requires_signature
+     * Sets requiresSignature
+     * @param bool $requiresSignature
      * @return $this
      */
-    public function setRequiresSignature($requires_signature)
+    public function setRequiresSignature($requiresSignature)
     {
-        $this->container['requires_signature'] = $requires_signature;
+        $this->container['requiresSignature'] = $requiresSignature;
 
         return $this;
     }
 
     /**
-     * Gets signature_quantity
+     * Gets signatureQuantity
      * @return int
      */
     public function getSignatureQuantity()
     {
-        return $this->container['signature_quantity'];
+        return $this->container['signatureQuantity'];
     }
 
     /**
-     * Sets signature_quantity
-     * @param int $signature_quantity
+     * Sets signatureQuantity
+     * @param int $signatureQuantity
      * @return $this
      */
-    public function setSignatureQuantity($signature_quantity)
+    public function setSignatureQuantity($signatureQuantity)
     {
-        $this->container['signature_quantity'] = $signature_quantity;
+        $this->container['signatureQuantity'] = $signatureQuantity;
 
         return $this;
     }
 
     /**
-     * Gets support_contacts
+     * Gets supportContacts
      * @return \KuntaAPI\Model\Support[]
      */
     public function getSupportContacts()
     {
-        return $this->container['support_contacts'];
+        return $this->container['supportContacts'];
     }
 
     /**
-     * Sets support_contacts
-     * @param \KuntaAPI\Model\Support[] $support_contacts
+     * Sets supportContacts
+     * @param \KuntaAPI\Model\Support[] $supportContacts
      * @return $this
      */
-    public function setSupportContacts($support_contacts)
+    public function setSupportContacts($supportContacts)
     {
-        $this->container['support_contacts'] = $support_contacts;
+        $this->container['supportContacts'] = $supportContacts;
 
         return $this;
     }
 
     /**
-     * Gets service_hours
+     * Gets serviceHours
      * @return \KuntaAPI\Model\ServiceHour[]
      */
     public function getServiceHours()
     {
-        return $this->container['service_hours'];
+        return $this->container['serviceHours'];
     }
 
     /**
-     * Sets service_hours
-     * @param \KuntaAPI\Model\ServiceHour[] $service_hours
+     * Sets serviceHours
+     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours
      * @return $this
      */
-    public function setServiceHours($service_hours)
+    public function setServiceHours($serviceHours)
     {
-        $this->container['service_hours'] = $service_hours;
+        $this->container['serviceHours'] = $serviceHours;
 
         return $this;
     }
 
     /**
-     * Gets web_pages
+     * Gets webPages
      * @return \KuntaAPI\Model\WebPage[]
      */
     public function getWebPages()
     {
-        return $this->container['web_pages'];
+        return $this->container['webPages'];
     }
 
     /**
-     * Sets web_pages
-     * @param \KuntaAPI\Model\WebPage[] $web_pages
+     * Sets webPages
+     * @param \KuntaAPI\Model\WebPage[] $webPages
      * @return $this
      */
-    public function setWebPages($web_pages)
+    public function setWebPages($webPages)
     {
-        $this->container['web_pages'] = $web_pages;
+        $this->container['webPages'] = $webPages;
 
         return $this;
     }
@@ -421,22 +421,22 @@ class ServiceElectronicChannel implements ArrayAccess
     }
 
     /**
-     * Gets organization_id
+     * Gets organizationId
      * @return string
      */
     public function getOrganizationId()
     {
-        return $this->container['organization_id'];
+        return $this->container['organizationId'];
     }
 
     /**
-     * Sets organization_id
-     * @param string $organization_id
+     * Sets organizationId
+     * @param string $organizationId
      * @return $this
      */
-    public function setOrganizationId($organization_id)
+    public function setOrganizationId($organizationId)
     {
-        $this->container['organization_id'] = $organization_id;
+        $this->container['organizationId'] = $organizationId;
 
         return $this;
     }

@@ -68,9 +68,9 @@ class Support implements ArrayAccess
     protected static $swaggerTypes = array(
         'email' => 'string',
         'phone' => 'string',
-        'phone_charge_description' => 'string',
+        'phoneChargeDescription' => 'string',
         'language' => 'string',
-        'service_charge_types' => 'string[]'
+        'serviceChargeTypes' => 'string[]'
     );
 
     public static function swaggerTypes()
@@ -85,9 +85,9 @@ class Support implements ArrayAccess
     protected static $attributeMap = array(
         'email' => 'email',
         'phone' => 'phone',
-        'phone_charge_description' => 'phoneChargeDescription',
+        'phoneChargeDescription' => 'phoneChargeDescription',
         'language' => 'language',
-        'service_charge_types' => 'serviceChargeTypes'
+        'serviceChargeTypes' => 'serviceChargeTypes'
     );
 
     public static function attributeMap()
@@ -102,9 +102,9 @@ class Support implements ArrayAccess
     protected static $setters = array(
         'email' => 'setEmail',
         'phone' => 'setPhone',
-        'phone_charge_description' => 'setPhoneChargeDescription',
+        'phoneChargeDescription' => 'setPhoneChargeDescription',
         'language' => 'setLanguage',
-        'service_charge_types' => 'setServiceChargeTypes'
+        'serviceChargeTypes' => 'setServiceChargeTypes'
     );
 
     public static function setters()
@@ -119,9 +119,9 @@ class Support implements ArrayAccess
     protected static $getters = array(
         'email' => 'getEmail',
         'phone' => 'getPhone',
-        'phone_charge_description' => 'getPhoneChargeDescription',
+        'phoneChargeDescription' => 'getPhoneChargeDescription',
         'language' => 'getLanguage',
-        'service_charge_types' => 'getServiceChargeTypes'
+        'serviceChargeTypes' => 'getServiceChargeTypes'
     );
 
     public static function getters()
@@ -147,9 +147,9 @@ class Support implements ArrayAccess
     {
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
-        $this->container['phone_charge_description'] = isset($data['phone_charge_description']) ? $data['phone_charge_description'] : null;
+        $this->container['phoneChargeDescription'] = isset($data['phoneChargeDescription']) ? $data['phoneChargeDescription'] : null;
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
-        $this->container['service_charge_types'] = isset($data['service_charge_types']) ? $data['service_charge_types'] : null;
+        $this->container['serviceChargeTypes'] = isset($data['serviceChargeTypes']) ? $data['serviceChargeTypes'] : null;
     }
 
     /**
@@ -218,22 +218,22 @@ class Support implements ArrayAccess
     }
 
     /**
-     * Gets phone_charge_description
+     * Gets phoneChargeDescription
      * @return string
      */
     public function getPhoneChargeDescription()
     {
-        return $this->container['phone_charge_description'];
+        return $this->container['phoneChargeDescription'];
     }
 
     /**
-     * Sets phone_charge_description
-     * @param string $phone_charge_description
+     * Sets phoneChargeDescription
+     * @param string $phoneChargeDescription
      * @return $this
      */
-    public function setPhoneChargeDescription($phone_charge_description)
+    public function setPhoneChargeDescription($phoneChargeDescription)
     {
-        $this->container['phone_charge_description'] = $phone_charge_description;
+        $this->container['phoneChargeDescription'] = $phoneChargeDescription;
 
         return $this;
     }
@@ -260,22 +260,22 @@ class Support implements ArrayAccess
     }
 
     /**
-     * Gets service_charge_types
+     * Gets serviceChargeTypes
      * @return string[]
      */
     public function getServiceChargeTypes()
     {
-        return $this->container['service_charge_types'];
+        return $this->container['serviceChargeTypes'];
     }
 
     /**
-     * Sets service_charge_types
-     * @param string[] $service_charge_types
+     * Sets serviceChargeTypes
+     * @param string[] $serviceChargeTypes
      * @return $this
      */
-    public function setServiceChargeTypes($service_charge_types)
+    public function setServiceChargeTypes($serviceChargeTypes)
     {
-        $this->container['service_charge_types'] = $service_charge_types;
+        $this->container['serviceChargeTypes'] = $serviceChargeTypes;
 
         return $this;
     }

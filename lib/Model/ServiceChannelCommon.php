@@ -67,12 +67,12 @@ class ServiceChannelCommon implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'organization_id' => 'string',
+        'organizationId' => 'string',
         'description' => '\KuntaAPI\Model\LocalizedValue[]',
         'name' => '\KuntaAPI\Model\LocalizedValue[]',
-        'web_pages' => '\KuntaAPI\Model\WebPage[]',
-        'service_hours' => '\KuntaAPI\Model\ServiceHour[]',
-        'support_contacts' => '\KuntaAPI\Model\Support[]'
+        'webPages' => '\KuntaAPI\Model\WebPage[]',
+        'serviceHours' => '\KuntaAPI\Model\ServiceHour[]',
+        'supportContacts' => '\KuntaAPI\Model\Support[]'
     );
 
     public static function swaggerTypes()
@@ -86,12 +86,12 @@ class ServiceChannelCommon implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'organization_id' => 'organizationId',
+        'organizationId' => 'organizationId',
         'description' => 'description',
         'name' => 'name',
-        'web_pages' => 'webPages',
-        'service_hours' => 'serviceHours',
-        'support_contacts' => 'supportContacts'
+        'webPages' => 'webPages',
+        'serviceHours' => 'serviceHours',
+        'supportContacts' => 'supportContacts'
     );
 
     public static function attributeMap()
@@ -105,12 +105,12 @@ class ServiceChannelCommon implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'organization_id' => 'setOrganizationId',
+        'organizationId' => 'setOrganizationId',
         'description' => 'setDescription',
         'name' => 'setName',
-        'web_pages' => 'setWebPages',
-        'service_hours' => 'setServiceHours',
-        'support_contacts' => 'setSupportContacts'
+        'webPages' => 'setWebPages',
+        'serviceHours' => 'setServiceHours',
+        'supportContacts' => 'setSupportContacts'
     );
 
     public static function setters()
@@ -124,12 +124,12 @@ class ServiceChannelCommon implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'organization_id' => 'getOrganizationId',
+        'organizationId' => 'getOrganizationId',
         'description' => 'getDescription',
         'name' => 'getName',
-        'web_pages' => 'getWebPages',
-        'service_hours' => 'getServiceHours',
-        'support_contacts' => 'getSupportContacts'
+        'webPages' => 'getWebPages',
+        'serviceHours' => 'getServiceHours',
+        'supportContacts' => 'getSupportContacts'
     );
 
     public static function getters()
@@ -154,12 +154,12 @@ class ServiceChannelCommon implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['organization_id'] = isset($data['organization_id']) ? $data['organization_id'] : null;
+        $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['web_pages'] = isset($data['web_pages']) ? $data['web_pages'] : null;
-        $this->container['service_hours'] = isset($data['service_hours']) ? $data['service_hours'] : null;
-        $this->container['support_contacts'] = isset($data['support_contacts']) ? $data['support_contacts'] : null;
+        $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
+        $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
+        $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
     }
 
     /**
@@ -207,22 +207,22 @@ class ServiceChannelCommon implements ArrayAccess
     }
 
     /**
-     * Gets organization_id
+     * Gets organizationId
      * @return string
      */
     public function getOrganizationId()
     {
-        return $this->container['organization_id'];
+        return $this->container['organizationId'];
     }
 
     /**
-     * Sets organization_id
-     * @param string $organization_id
+     * Sets organizationId
+     * @param string $organizationId
      * @return $this
      */
-    public function setOrganizationId($organization_id)
+    public function setOrganizationId($organizationId)
     {
-        $this->container['organization_id'] = $organization_id;
+        $this->container['organizationId'] = $organizationId;
 
         return $this;
     }
@@ -270,64 +270,64 @@ class ServiceChannelCommon implements ArrayAccess
     }
 
     /**
-     * Gets web_pages
+     * Gets webPages
      * @return \KuntaAPI\Model\WebPage[]
      */
     public function getWebPages()
     {
-        return $this->container['web_pages'];
+        return $this->container['webPages'];
     }
 
     /**
-     * Sets web_pages
-     * @param \KuntaAPI\Model\WebPage[] $web_pages
+     * Sets webPages
+     * @param \KuntaAPI\Model\WebPage[] $webPages
      * @return $this
      */
-    public function setWebPages($web_pages)
+    public function setWebPages($webPages)
     {
-        $this->container['web_pages'] = $web_pages;
+        $this->container['webPages'] = $webPages;
 
         return $this;
     }
 
     /**
-     * Gets service_hours
+     * Gets serviceHours
      * @return \KuntaAPI\Model\ServiceHour[]
      */
     public function getServiceHours()
     {
-        return $this->container['service_hours'];
+        return $this->container['serviceHours'];
     }
 
     /**
-     * Sets service_hours
-     * @param \KuntaAPI\Model\ServiceHour[] $service_hours
+     * Sets serviceHours
+     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours
      * @return $this
      */
-    public function setServiceHours($service_hours)
+    public function setServiceHours($serviceHours)
     {
-        $this->container['service_hours'] = $service_hours;
+        $this->container['serviceHours'] = $serviceHours;
 
         return $this;
     }
 
     /**
-     * Gets support_contacts
+     * Gets supportContacts
      * @return \KuntaAPI\Model\Support[]
      */
     public function getSupportContacts()
     {
-        return $this->container['support_contacts'];
+        return $this->container['supportContacts'];
     }
 
     /**
-     * Sets support_contacts
-     * @param \KuntaAPI\Model\Support[] $support_contacts
+     * Sets supportContacts
+     * @param \KuntaAPI\Model\Support[] $supportContacts
      * @return $this
      */
-    public function setSupportContacts($support_contacts)
+    public function setSupportContacts($supportContacts)
     {
-        $this->container['support_contacts'] = $support_contacts;
+        $this->container['supportContacts'] = $supportContacts;
 
         return $this;
     }

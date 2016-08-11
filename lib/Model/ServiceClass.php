@@ -69,10 +69,10 @@ class ServiceClass implements ArrayAccess
         'id' => 'string',
         'name' => 'string',
         'code' => 'string',
-        'ontology_type' => 'string',
+        'ontologyType' => 'string',
         'uri' => 'string',
-        'parent_id' => 'string',
-        'parent_uri' => 'string'
+        'parentId' => 'string',
+        'parentUri' => 'string'
     );
 
     public static function swaggerTypes()
@@ -88,10 +88,10 @@ class ServiceClass implements ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'code' => 'code',
-        'ontology_type' => 'ontologyType',
+        'ontologyType' => 'ontologyType',
         'uri' => 'uri',
-        'parent_id' => 'parentId',
-        'parent_uri' => 'parentUri'
+        'parentId' => 'parentId',
+        'parentUri' => 'parentUri'
     );
 
     public static function attributeMap()
@@ -107,10 +107,10 @@ class ServiceClass implements ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'code' => 'setCode',
-        'ontology_type' => 'setOntologyType',
+        'ontologyType' => 'setOntologyType',
         'uri' => 'setUri',
-        'parent_id' => 'setParentId',
-        'parent_uri' => 'setParentUri'
+        'parentId' => 'setParentId',
+        'parentUri' => 'setParentUri'
     );
 
     public static function setters()
@@ -126,10 +126,10 @@ class ServiceClass implements ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'code' => 'getCode',
-        'ontology_type' => 'getOntologyType',
+        'ontologyType' => 'getOntologyType',
         'uri' => 'getUri',
-        'parent_id' => 'getParentId',
-        'parent_uri' => 'getParentUri'
+        'parentId' => 'getParentId',
+        'parentUri' => 'getParentUri'
     );
 
     public static function getters()
@@ -156,10 +156,10 @@ class ServiceClass implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['ontology_type'] = isset($data['ontology_type']) ? $data['ontology_type'] : null;
+        $this->container['ontologyType'] = isset($data['ontologyType']) ? $data['ontologyType'] : null;
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
-        $this->container['parent_id'] = isset($data['parent_id']) ? $data['parent_id'] : null;
-        $this->container['parent_uri'] = isset($data['parent_uri']) ? $data['parent_uri'] : null;
+        $this->container['parentId'] = isset($data['parentId']) ? $data['parentId'] : null;
+        $this->container['parentUri'] = isset($data['parentUri']) ? $data['parentUri'] : null;
     }
 
     /**
@@ -249,22 +249,22 @@ class ServiceClass implements ArrayAccess
     }
 
     /**
-     * Gets ontology_type
+     * Gets ontologyType
      * @return string
      */
     public function getOntologyType()
     {
-        return $this->container['ontology_type'];
+        return $this->container['ontologyType'];
     }
 
     /**
-     * Sets ontology_type
-     * @param string $ontology_type
+     * Sets ontologyType
+     * @param string $ontologyType
      * @return $this
      */
-    public function setOntologyType($ontology_type)
+    public function setOntologyType($ontologyType)
     {
-        $this->container['ontology_type'] = $ontology_type;
+        $this->container['ontologyType'] = $ontologyType;
 
         return $this;
     }
@@ -291,43 +291,43 @@ class ServiceClass implements ArrayAccess
     }
 
     /**
-     * Gets parent_id
+     * Gets parentId
      * @return string
      */
     public function getParentId()
     {
-        return $this->container['parent_id'];
+        return $this->container['parentId'];
     }
 
     /**
-     * Sets parent_id
-     * @param string $parent_id
+     * Sets parentId
+     * @param string $parentId
      * @return $this
      */
-    public function setParentId($parent_id)
+    public function setParentId($parentId)
     {
-        $this->container['parent_id'] = $parent_id;
+        $this->container['parentId'] = $parentId;
 
         return $this;
     }
 
     /**
-     * Gets parent_uri
+     * Gets parentUri
      * @return string
      */
     public function getParentUri()
     {
-        return $this->container['parent_uri'];
+        return $this->container['parentUri'];
     }
 
     /**
-     * Sets parent_uri
-     * @param string $parent_uri
+     * Sets parentUri
+     * @param string $parentUri
      * @return $this
      */
-    public function setParentUri($parent_uri)
+    public function setParentUri($parentUri)
     {
-        $this->container['parent_uri'] = $parent_uri;
+        $this->container['parentUri'] = $parentUri;
 
         return $this;
     }

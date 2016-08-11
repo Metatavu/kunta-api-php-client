@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **findServiceSource**
-> \KuntaAPI\Model\ServiceSource findServiceSource($service_source_id)
+> \KuntaAPI\Model\ServiceSource findServiceSource($serviceSourceId)
 
 Find a service by id
 
@@ -21,10 +21,10 @@ Returns single service by it's unique id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\SourcesApi();
-$service_source_id = "service_source_id_example"; // string | Service source id
+$serviceSourceId = "serviceSourceId_example"; // string | Service source id
 
 try {
-    $result = $api_instance->findServiceSource($service_source_id);
+    $result = $api_instance->findServiceSource($serviceSourceId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SourcesApi->findServiceSource: ', $e->getMessage(), PHP_EOL;
@@ -36,7 +36,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **service_source_id** | **string**| Service source id |
+ **serviceSourceId** | **string**| Service source id |
 
 ### Return type
 

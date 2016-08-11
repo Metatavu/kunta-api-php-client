@@ -107,13 +107,13 @@ class ServicesSourcesApi
      *
      * Find a service by id
      *
-     * @param string $service_source_id Service source id (required)
+     * @param string $serviceSourceId Service source id (required)
      * @return \KuntaAPI\Model\ServiceSource
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceSource($service_source_id)
+    public function findServiceSource($serviceSourceId)
     {
-        list($response) = $this->findServiceSourceWithHttpInfo($service_source_id);
+        list($response) = $this->findServiceSourceWithHttpInfo($serviceSourceId);
         return $response;
     }
 
@@ -122,15 +122,15 @@ class ServicesSourcesApi
      *
      * Find a service by id
      *
-     * @param string $service_source_id Service source id (required)
+     * @param string $serviceSourceId Service source id (required)
      * @return Array of \KuntaAPI\Model\ServiceSource, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceSourceWithHttpInfo($service_source_id)
+    public function findServiceSourceWithHttpInfo($serviceSourceId)
     {
-        // verify the required parameter 'service_source_id' is set
-        if ($service_source_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $service_source_id when calling findServiceSource');
+        // verify the required parameter 'serviceSourceId' is set
+        if ($serviceSourceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceSourceId when calling findServiceSource');
         }
         // parse inputs
         $resourcePath = "/serviceSources/{serviceSourceId}";
@@ -145,10 +145,10 @@ class ServicesSourcesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($service_source_id !== null) {
+        if ($serviceSourceId !== null) {
             $resourcePath = str_replace(
                 "{" . "serviceSourceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($service_source_id),
+                $this->apiClient->getSerializer()->toPathValue($serviceSourceId),
                 $resourcePath
             );
         }

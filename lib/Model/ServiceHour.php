@@ -66,10 +66,10 @@ class ServiceHour implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'service_hour_type' => 'string',
-        'exception_hour_type' => 'string',
-        'valid_from' => '\DateTime',
-        'valid_to' => '\DateTime',
+        'serviceHourType' => 'string',
+        'exceptionHourType' => 'string',
+        'validFrom' => '\DateTime',
+        'validTo' => '\DateTime',
         'monday' => 'bool',
         'tuesday' => 'bool',
         'wednesday' => 'bool',
@@ -91,10 +91,10 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'service_hour_type' => 'serviceHourType',
-        'exception_hour_type' => 'exceptionHourType',
-        'valid_from' => 'validFrom',
-        'valid_to' => 'validTo',
+        'serviceHourType' => 'serviceHourType',
+        'exceptionHourType' => 'exceptionHourType',
+        'validFrom' => 'validFrom',
+        'validTo' => 'validTo',
         'monday' => 'monday',
         'tuesday' => 'tuesday',
         'wednesday' => 'wednesday',
@@ -116,10 +116,10 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'service_hour_type' => 'setServiceHourType',
-        'exception_hour_type' => 'setExceptionHourType',
-        'valid_from' => 'setValidFrom',
-        'valid_to' => 'setValidTo',
+        'serviceHourType' => 'setServiceHourType',
+        'exceptionHourType' => 'setExceptionHourType',
+        'validFrom' => 'setValidFrom',
+        'validTo' => 'setValidTo',
         'monday' => 'setMonday',
         'tuesday' => 'setTuesday',
         'wednesday' => 'setWednesday',
@@ -141,10 +141,10 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'service_hour_type' => 'getServiceHourType',
-        'exception_hour_type' => 'getExceptionHourType',
-        'valid_from' => 'getValidFrom',
-        'valid_to' => 'getValidTo',
+        'serviceHourType' => 'getServiceHourType',
+        'exceptionHourType' => 'getExceptionHourType',
+        'validFrom' => 'getValidFrom',
+        'validTo' => 'getValidTo',
         'monday' => 'getMonday',
         'tuesday' => 'getTuesday',
         'wednesday' => 'getWednesday',
@@ -177,10 +177,10 @@ class ServiceHour implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['service_hour_type'] = isset($data['service_hour_type']) ? $data['service_hour_type'] : null;
-        $this->container['exception_hour_type'] = isset($data['exception_hour_type']) ? $data['exception_hour_type'] : null;
-        $this->container['valid_from'] = isset($data['valid_from']) ? $data['valid_from'] : null;
-        $this->container['valid_to'] = isset($data['valid_to']) ? $data['valid_to'] : null;
+        $this->container['serviceHourType'] = isset($data['serviceHourType']) ? $data['serviceHourType'] : null;
+        $this->container['exceptionHourType'] = isset($data['exceptionHourType']) ? $data['exceptionHourType'] : null;
+        $this->container['validFrom'] = isset($data['validFrom']) ? $data['validFrom'] : null;
+        $this->container['validTo'] = isset($data['validTo']) ? $data['validTo'] : null;
         $this->container['monday'] = isset($data['monday']) ? $data['monday'] : null;
         $this->container['tuesday'] = isset($data['tuesday']) ? $data['tuesday'] : null;
         $this->container['wednesday'] = isset($data['wednesday']) ? $data['wednesday'] : null;
@@ -216,85 +216,85 @@ class ServiceHour implements ArrayAccess
 
 
     /**
-     * Gets service_hour_type
+     * Gets serviceHourType
      * @return string
      */
     public function getServiceHourType()
     {
-        return $this->container['service_hour_type'];
+        return $this->container['serviceHourType'];
     }
 
     /**
-     * Sets service_hour_type
-     * @param string $service_hour_type
+     * Sets serviceHourType
+     * @param string $serviceHourType
      * @return $this
      */
-    public function setServiceHourType($service_hour_type)
+    public function setServiceHourType($serviceHourType)
     {
-        $this->container['service_hour_type'] = $service_hour_type;
+        $this->container['serviceHourType'] = $serviceHourType;
 
         return $this;
     }
 
     /**
-     * Gets exception_hour_type
+     * Gets exceptionHourType
      * @return string
      */
     public function getExceptionHourType()
     {
-        return $this->container['exception_hour_type'];
+        return $this->container['exceptionHourType'];
     }
 
     /**
-     * Sets exception_hour_type
-     * @param string $exception_hour_type
+     * Sets exceptionHourType
+     * @param string $exceptionHourType
      * @return $this
      */
-    public function setExceptionHourType($exception_hour_type)
+    public function setExceptionHourType($exceptionHourType)
     {
-        $this->container['exception_hour_type'] = $exception_hour_type;
+        $this->container['exceptionHourType'] = $exceptionHourType;
 
         return $this;
     }
 
     /**
-     * Gets valid_from
+     * Gets validFrom
      * @return \DateTime
      */
     public function getValidFrom()
     {
-        return $this->container['valid_from'];
+        return $this->container['validFrom'];
     }
 
     /**
-     * Sets valid_from
-     * @param \DateTime $valid_from
+     * Sets validFrom
+     * @param \DateTime $validFrom
      * @return $this
      */
-    public function setValidFrom($valid_from)
+    public function setValidFrom($validFrom)
     {
-        $this->container['valid_from'] = $valid_from;
+        $this->container['validFrom'] = $validFrom;
 
         return $this;
     }
 
     /**
-     * Gets valid_to
+     * Gets validTo
      * @return \DateTime
      */
     public function getValidTo()
     {
-        return $this->container['valid_to'];
+        return $this->container['validTo'];
     }
 
     /**
-     * Sets valid_to
-     * @param \DateTime $valid_to
+     * Sets validTo
+     * @param \DateTime $validTo
      * @return $this
      */
-    public function setValidTo($valid_to)
+    public function setValidTo($validTo)
     {
-        $this->container['valid_to'] = $valid_to;
+        $this->container['validTo'] = $validTo;
 
         return $this;
     }

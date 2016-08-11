@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **listServiceElectornicChannels**
-> \KuntaAPI\Model\ServiceElectronicChannel listServiceElectornicChannels($organization_id, $service_id)
+> \KuntaAPI\Model\ServiceElectronicChannel listServiceElectornicChannels($organizationId, $serviceId)
 
 List service electornic channels
 
@@ -20,11 +20,11 @@ Lists service electronic channels
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServiceChannelsApi();
-$organization_id = "organization_id_example"; // string | Organization id
-$service_id = "service_id_example"; // string | Service id
+$organizationId = "organizationId_example"; // string | Organization id
+$serviceId = "serviceId_example"; // string | Service id
 
 try {
-    $result = $api_instance->listServiceElectornicChannels($organization_id, $service_id);
+    $result = $api_instance->listServiceElectornicChannels($organizationId, $serviceId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceChannelsApi->listServiceElectornicChannels: ', $e->getMessage(), PHP_EOL;
@@ -36,8 +36,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **string**| Organization id |
- **service_id** | **string**| Service id |
+ **organizationId** | **string**| Organization id |
+ **serviceId** | **string**| Service id |
 
 ### Return type
 
