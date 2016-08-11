@@ -294,12 +294,22 @@ class ObjectSerializer
             $instance = new $class();
             foreach ($instance::swaggerTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];
-
-                if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
+                
+                if (!isset($propertySetter)) {
                     continue;
                 }
+                
+                if (!isset($data->{$instance::attributeMap()[$property]}) && !isset($data->{$property})) {
+                    continue;
+                }
+                
+                $propertyValue = null;
+                if (!isset($data->{$instance::attributeMap()[$property]})) {
+                  $propertyValue = $data->{$instance::attributeMap()[$property]};
+                } else {
+                  $propertyValue = $data->{$property};
+                }
 
-                $propertyValue = $data->{$instance::attributeMap()[$property]};
                 if (isset($propertyValue)) {
                     $instance->$propertySetter(self::deserialize($propertyValue, $type, null, $discriminator));
                 }
