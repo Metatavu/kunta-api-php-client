@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier representing a specific service. | [optional] 
-**description** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
+**descriptions** | [**\KuntaAPI\Model\ServiceDescription[]**](ServiceDescription.md) |  | [optional] 
 **name** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **sourceIds** | **string[]** | Name of the service. | [optional] 
 **classIds** | **string[]** | List of service classes | [optional] 

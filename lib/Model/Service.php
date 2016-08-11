@@ -67,7 +67,7 @@ class Service implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'description' => '\KuntaAPI\Model\LocalizedValue[]',
+        'descriptions' => '\KuntaAPI\Model\ServiceDescription[]',
         'name' => '\KuntaAPI\Model\LocalizedValue[]',
         'sourceIds' => 'string[]',
         'classIds' => 'string[]',
@@ -89,7 +89,7 @@ class Service implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'description' => 'description',
+        'descriptions' => 'descriptions',
         'name' => 'name',
         'sourceIds' => 'source_ids',
         'classIds' => 'class_ids',
@@ -111,7 +111,7 @@ class Service implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'description' => 'setDescription',
+        'descriptions' => 'setDescriptions',
         'name' => 'setName',
         'sourceIds' => 'setSourceIds',
         'classIds' => 'setClassIds',
@@ -133,7 +133,7 @@ class Service implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'description' => 'getDescription',
+        'descriptions' => 'getDescriptions',
         'name' => 'getName',
         'sourceIds' => 'getSourceIds',
         'classIds' => 'getClassIds',
@@ -166,7 +166,7 @@ class Service implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['sourceIds'] = isset($data['sourceIds']) ? $data['sourceIds'] : null;
         $this->container['classIds'] = isset($data['classIds']) ? $data['classIds'] : null;
@@ -222,22 +222,22 @@ class Service implements ArrayAccess
     }
 
     /**
-     * Gets description
-     * @return \KuntaAPI\Model\LocalizedValue[]
+     * Gets descriptions
+     * @return \KuntaAPI\Model\ServiceDescription[]
      */
-    public function getDescription()
+    public function getDescriptions()
     {
-        return $this->container['description'];
+        return $this->container['descriptions'];
     }
 
     /**
-     * Sets description
-     * @param \KuntaAPI\Model\LocalizedValue[] $description
+     * Sets descriptions
+     * @param \KuntaAPI\Model\ServiceDescription[] $descriptions
      * @return $this
      */
-    public function setDescription($description)
+    public function setDescriptions($descriptions)
     {
-        $this->container['description'] = $description;
+        $this->container['descriptions'] = $descriptions;
 
         return $this;
     }
