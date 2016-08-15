@@ -109,7 +109,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **findService**
-> \KuntaAPI\Model\Service findService($organizationId, $serviceId)
+> \KuntaAPI\Model\Service findService($organizationId, $serviceId, $enriched)
 
 Find a service by id
 
@@ -123,9 +123,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new KuntaAPI\Api\ServicesApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $serviceId = "serviceId_example"; // string | Service id
+$enriched = true; // bool | whether return enriched content or just the master data
 
 try {
-    $result = $api_instance->findService($organizationId, $serviceId);
+    $result = $api_instance->findService($organizationId, $serviceId, $enriched);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->findService: ', $e->getMessage(), PHP_EOL;
@@ -139,6 +140,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
  **serviceId** | **string**| Service id |
+ **enriched** | **bool**| whether return enriched content or just the master data | [optional]
 
 ### Return type
 
