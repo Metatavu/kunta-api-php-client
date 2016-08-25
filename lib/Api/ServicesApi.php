@@ -336,13 +336,13 @@ class ServicesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $serviceId Service id (required)
-     * @param bool $enriched whether return enriched content or just the master data (optional)
+     * @param bool $onlySource whether return enriched content or just the source data (optional)
      * @return \KuntaAPI\Model\Service
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findService($organizationId, $serviceId, $enriched = null)
+    public function findService($organizationId, $serviceId, $onlySource = null)
     {
-        list($response) = $this->findServiceWithHttpInfo($organizationId, $serviceId, $enriched);
+        list($response) = $this->findServiceWithHttpInfo($organizationId, $serviceId, $onlySource);
         return $response;
     }
 
@@ -353,11 +353,11 @@ class ServicesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $serviceId Service id (required)
-     * @param bool $enriched whether return enriched content or just the master data (optional)
+     * @param bool $onlySource whether return enriched content or just the source data (optional)
      * @return Array of \KuntaAPI\Model\Service, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWithHttpInfo($organizationId, $serviceId, $enriched = null)
+    public function findServiceWithHttpInfo($organizationId, $serviceId, $onlySource = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -380,8 +380,8 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // query params
-        if ($enriched !== null) {
-            $queryParams['enriched'] = $this->apiClient->getSerializer()->toQueryValue($enriched);
+        if ($onlySource !== null) {
+            $queryParams['onlySource'] = $this->apiClient->getSerializer()->toQueryValue($onlySource);
         }
         // path params
         if ($organizationId !== null) {
