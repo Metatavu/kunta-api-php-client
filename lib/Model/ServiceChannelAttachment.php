@@ -1,6 +1,6 @@
 <?php
 /**
- * Attachment
+ * ServiceChannelAttachment
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * Attachment Class Doc Comment
+ * ServiceChannelAttachment Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,22 +53,24 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Attachment implements ArrayAccess
+class ServiceChannelAttachment implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Attachment';
+    protected static $swaggerModelName = 'ServiceChannelAttachment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'id' => 'string',
-        'contentType' => 'string',
-        'size' => 'int'
+        'type' => 'string',
+        'name' => 'string',
+        'description' => 'string',
+        'url' => 'string',
+        'language' => 'string'
     );
 
     public static function swaggerTypes()
@@ -81,9 +83,11 @@ class Attachment implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'id' => 'id',
-        'contentType' => 'contentType',
-        'size' => 'size'
+        'type' => 'type',
+        'name' => 'name',
+        'description' => 'description',
+        'url' => 'url',
+        'language' => 'language'
     );
 
     public static function attributeMap()
@@ -96,9 +100,11 @@ class Attachment implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'id' => 'setId',
-        'contentType' => 'setContentType',
-        'size' => 'setSize'
+        'type' => 'setType',
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'url' => 'setUrl',
+        'language' => 'setLanguage'
     );
 
     public static function setters()
@@ -111,9 +117,11 @@ class Attachment implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'id' => 'getId',
-        'contentType' => 'getContentType',
-        'size' => 'getSize'
+        'type' => 'getType',
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'url' => 'getUrl',
+        'language' => 'getLanguage'
     );
 
     public static function getters()
@@ -137,9 +145,11 @@ class Attachment implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['contentType'] = isset($data['contentType']) ? $data['contentType'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
     }
 
     /**
@@ -166,64 +176,106 @@ class Attachment implements ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets type
      * @return string
      */
-    public function getId()
+    public function getType()
     {
-        return $this->container['id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets id
-     * @param string $id
+     * Sets type
+     * @param string $type
      * @return $this
      */
-    public function setId($id)
+    public function setType($type)
     {
-        $this->container['id'] = $id;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets contentType
+     * Gets name
      * @return string
      */
-    public function getContentType()
+    public function getName()
     {
-        return $this->container['contentType'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets contentType
-     * @param string $contentType
+     * Sets name
+     * @param string $name
      * @return $this
      */
-    public function setContentType($contentType)
+    public function setName($name)
     {
-        $this->container['contentType'] = $contentType;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets size
-     * @return int
+     * Gets description
+     * @return string
      */
-    public function getSize()
+    public function getDescription()
     {
-        return $this->container['size'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets size
-     * @param int $size
+     * Sets description
+     * @param string $description
      * @return $this
      */
-    public function setSize($size)
+    public function setDescription($description)
     {
-        $this->container['size'] = $size;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     * @param string $url
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets language
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     * @param string $language
+     * @return $this
+     */
+    public function setLanguage($language)
+    {
+        $this->container['language'] = $language;
 
         return $this;
     }

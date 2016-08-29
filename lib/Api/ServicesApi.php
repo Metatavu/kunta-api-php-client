@@ -336,13 +336,12 @@ class ServicesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $serviceId Service id (required)
-     * @param bool $onlySource whether return enriched content or just the source data (optional)
      * @return \KuntaAPI\Model\Service
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findService($organizationId, $serviceId, $onlySource = null)
+    public function findService($organizationId, $serviceId)
     {
-        list($response) = $this->findServiceWithHttpInfo($organizationId, $serviceId, $onlySource);
+        list($response) = $this->findServiceWithHttpInfo($organizationId, $serviceId);
         return $response;
     }
 
@@ -353,11 +352,10 @@ class ServicesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $serviceId Service id (required)
-     * @param bool $onlySource whether return enriched content or just the source data (optional)
      * @return Array of \KuntaAPI\Model\Service, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWithHttpInfo($organizationId, $serviceId, $onlySource = null)
+    public function findServiceWithHttpInfo($organizationId, $serviceId)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -379,10 +377,6 @@ class ServicesApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
-        // query params
-        if ($onlySource !== null) {
-            $queryParams['onlySource'] = $this->apiClient->getSerializer()->toQueryValue($onlySource);
-        }
         // path params
         if ($organizationId !== null) {
             $resourcePath = str_replace(

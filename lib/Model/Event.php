@@ -1,6 +1,6 @@
 <?php
 /**
- * Attachment
+ * Event
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * Attachment Class Doc Comment
+ * Event Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Attachment implements ArrayAccess
+class Event implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Attachment';
+    protected static $swaggerModelName = 'Event';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,8 +67,15 @@ class Attachment implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'contentType' => 'string',
-        'size' => 'int'
+        'originalUrl' => 'string',
+        'name' => 'string',
+        'description' => 'string',
+        'start' => '\DateTime',
+        'end' => '\DateTime',
+        'city' => 'string',
+        'place' => 'string',
+        'address' => 'string',
+        'zip' => 'string'
     );
 
     public static function swaggerTypes()
@@ -82,8 +89,15 @@ class Attachment implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'contentType' => 'contentType',
-        'size' => 'size'
+        'originalUrl' => 'originalUrl',
+        'name' => 'name',
+        'description' => 'description',
+        'start' => 'start',
+        'end' => 'end',
+        'city' => 'city',
+        'place' => 'place',
+        'address' => 'address',
+        'zip' => 'zip'
     );
 
     public static function attributeMap()
@@ -97,8 +111,15 @@ class Attachment implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'contentType' => 'setContentType',
-        'size' => 'setSize'
+        'originalUrl' => 'setOriginalUrl',
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'start' => 'setStart',
+        'end' => 'setEnd',
+        'city' => 'setCity',
+        'place' => 'setPlace',
+        'address' => 'setAddress',
+        'zip' => 'setZip'
     );
 
     public static function setters()
@@ -112,8 +133,15 @@ class Attachment implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'contentType' => 'getContentType',
-        'size' => 'getSize'
+        'originalUrl' => 'getOriginalUrl',
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'start' => 'getStart',
+        'end' => 'getEnd',
+        'city' => 'getCity',
+        'place' => 'getPlace',
+        'address' => 'getAddress',
+        'zip' => 'getZip'
     );
 
     public static function getters()
@@ -138,8 +166,15 @@ class Attachment implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['contentType'] = isset($data['contentType']) ? $data['contentType'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['originalUrl'] = isset($data['originalUrl']) ? $data['originalUrl'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
+        $this->container['end'] = isset($data['end']) ? $data['end'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['place'] = isset($data['place']) ? $data['place'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
     }
 
     /**
@@ -187,43 +222,190 @@ class Attachment implements ArrayAccess
     }
 
     /**
-     * Gets contentType
+     * Gets originalUrl
      * @return string
      */
-    public function getContentType()
+    public function getOriginalUrl()
     {
-        return $this->container['contentType'];
+        return $this->container['originalUrl'];
     }
 
     /**
-     * Sets contentType
-     * @param string $contentType
+     * Sets originalUrl
+     * @param string $originalUrl
      * @return $this
      */
-    public function setContentType($contentType)
+    public function setOriginalUrl($originalUrl)
     {
-        $this->container['contentType'] = $contentType;
+        $this->container['originalUrl'] = $originalUrl;
 
         return $this;
     }
 
     /**
-     * Gets size
-     * @return int
+     * Gets name
+     * @return string
      */
-    public function getSize()
+    public function getName()
     {
-        return $this->container['size'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets size
-     * @param int $size
+     * Sets name
+     * @param string $name
      * @return $this
      */
-    public function setSize($size)
+    public function setName($name)
     {
-        $this->container['size'] = $size;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     * @param string $description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets start
+     * @return \DateTime
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     * @param \DateTime $start
+     * @return $this
+     */
+    public function setStart($start)
+    {
+        $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets end
+     * @return \DateTime
+     */
+    public function getEnd()
+    {
+        return $this->container['end'];
+    }
+
+    /**
+     * Sets end
+     * @param \DateTime $end
+     * @return $this
+     */
+    public function setEnd($end)
+    {
+        $this->container['end'] = $end;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     * @param string $city
+     * @return $this
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets place
+     * @return string
+     */
+    public function getPlace()
+    {
+        return $this->container['place'];
+    }
+
+    /**
+     * Sets place
+     * @param string $place
+     * @return $this
+     */
+    public function setPlace($place)
+    {
+        $this->container['place'] = $place;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     * @param string $address
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip
+     * @return string
+     */
+    public function getZip()
+    {
+        return $this->container['zip'];
+    }
+
+    /**
+     * Sets zip
+     * @param string $zip
+     * @return $this
+     */
+    public function setZip($zip)
+    {
+        $this->container['zip'] = $zip;
 
         return $this;
     }

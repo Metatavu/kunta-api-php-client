@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attachments** | [**\KuntaAPI\Model\Attachment[]**](Attachment.md) |  | [optional] 
+**attachments** | [**\KuntaAPI\Model\ServiceChannelAttachment[]**](ServiceChannelAttachment.md) |  | [optional] 
 **urls** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **requiresAuthentication** | **bool** |  | [optional] 
 **requiresSignature** | **bool** |  | [optional] 

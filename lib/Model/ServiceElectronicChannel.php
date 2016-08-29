@@ -66,7 +66,7 @@ class ServiceElectronicChannel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'attachments' => '\KuntaAPI\Model\Attachment[]',
+        'attachments' => '\KuntaAPI\Model\ServiceChannelAttachment[]',
         'urls' => '\KuntaAPI\Model\LocalizedValue[]',
         'requiresAuthentication' => 'bool',
         'requiresSignature' => 'bool',
@@ -212,7 +212,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets attachments
-     * @return \KuntaAPI\Model\Attachment[]
+     * @return \KuntaAPI\Model\ServiceChannelAttachment[]
      */
     public function getAttachments()
     {
@@ -221,7 +221,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets attachments
-     * @param \KuntaAPI\Model\Attachment[] $attachments
+     * @param \KuntaAPI\Model\ServiceChannelAttachment[] $attachments
      * @return $this
      */
     public function setAttachments($attachments)
