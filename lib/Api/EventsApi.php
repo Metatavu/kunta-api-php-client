@@ -388,7 +388,7 @@ class EventsApi
         $queryParams = array();
         $headerParams = array();
         $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/octet-stream'));
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
