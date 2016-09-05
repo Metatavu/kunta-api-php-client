@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **requiresSignature** | **bool** |  | [optional] 
 **signatureQuantity** | **int** |  | [optional] 
 **supportContacts** | [**\KuntaAPI\Model\ServiceChannelSupport[]**](ServiceChannelSupport.md) |  | [optional] 
+**serviceHoursAdditinalInformation** | **string** |  | [optional] 
 **serviceHours** | [**\KuntaAPI\Model\ServiceChannelServiceHour[]**](ServiceChannelServiceHour.md) |  | [optional] 
 **webPages** | [**\KuntaAPI\Model\ServiceChannelWebPage[]**](ServiceChannelWebPage.md) |  | [optional] 
 **shortDescriptions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 

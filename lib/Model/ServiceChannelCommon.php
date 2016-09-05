@@ -72,6 +72,7 @@ class ServiceChannelCommon implements ArrayAccess
         'shortDescriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'webPages' => '\KuntaAPI\Model\ServiceChannelWebPage[]',
         'serviceHours' => '\KuntaAPI\Model\ServiceChannelServiceHour[]',
+        'serviceHoursAdditinalInformation' => 'string',
         'supportContacts' => '\KuntaAPI\Model\ServiceChannelSupport[]'
     );
 
@@ -91,6 +92,7 @@ class ServiceChannelCommon implements ArrayAccess
         'shortDescriptions' => 'shortDescriptions',
         'webPages' => 'webPages',
         'serviceHours' => 'serviceHours',
+        'serviceHoursAdditinalInformation' => 'serviceHoursAdditinalInformation',
         'supportContacts' => 'supportContacts'
     );
 
@@ -110,6 +112,7 @@ class ServiceChannelCommon implements ArrayAccess
         'shortDescriptions' => 'setShortDescriptions',
         'webPages' => 'setWebPages',
         'serviceHours' => 'setServiceHours',
+        'serviceHoursAdditinalInformation' => 'setServiceHoursAdditinalInformation',
         'supportContacts' => 'setSupportContacts'
     );
 
@@ -129,6 +132,7 @@ class ServiceChannelCommon implements ArrayAccess
         'shortDescriptions' => 'getShortDescriptions',
         'webPages' => 'getWebPages',
         'serviceHours' => 'getServiceHours',
+        'serviceHoursAdditinalInformation' => 'getServiceHoursAdditinalInformation',
         'supportContacts' => 'getSupportContacts'
     );
 
@@ -159,6 +163,7 @@ class ServiceChannelCommon implements ArrayAccess
         $this->container['shortDescriptions'] = isset($data['shortDescriptions']) ? $data['shortDescriptions'] : null;
         $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
         $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
+        $this->container['serviceHoursAdditinalInformation'] = isset($data['serviceHoursAdditinalInformation']) ? $data['serviceHoursAdditinalInformation'] : null;
         $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
     }
 
@@ -307,6 +312,27 @@ class ServiceChannelCommon implements ArrayAccess
     public function setServiceHours($serviceHours)
     {
         $this->container['serviceHours'] = $serviceHours;
+
+        return $this;
+    }
+
+    /**
+     * Gets serviceHoursAdditinalInformation
+     * @return string
+     */
+    public function getServiceHoursAdditinalInformation()
+    {
+        return $this->container['serviceHoursAdditinalInformation'];
+    }
+
+    /**
+     * Sets serviceHoursAdditinalInformation
+     * @param string $serviceHoursAdditinalInformation
+     * @return $this
+     */
+    public function setServiceHoursAdditinalInformation($serviceHoursAdditinalInformation)
+    {
+        $this->container['serviceHoursAdditinalInformation'] = $serviceHoursAdditinalInformation;
 
         return $this;
     }

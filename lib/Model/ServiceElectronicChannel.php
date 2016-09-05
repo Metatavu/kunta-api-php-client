@@ -72,6 +72,7 @@ class ServiceElectronicChannel implements ArrayAccess
         'requiresSignature' => 'bool',
         'signatureQuantity' => 'int',
         'supportContacts' => '\KuntaAPI\Model\ServiceChannelSupport[]',
+        'serviceHoursAdditinalInformation' => 'string',
         'serviceHours' => '\KuntaAPI\Model\ServiceChannelServiceHour[]',
         'webPages' => '\KuntaAPI\Model\ServiceChannelWebPage[]',
         'shortDescriptions' => '\KuntaAPI\Model\LocalizedValue[]',
@@ -96,6 +97,7 @@ class ServiceElectronicChannel implements ArrayAccess
         'requiresSignature' => 'requiresSignature',
         'signatureQuantity' => 'signatureQuantity',
         'supportContacts' => 'supportContacts',
+        'serviceHoursAdditinalInformation' => 'serviceHoursAdditinalInformation',
         'serviceHours' => 'serviceHours',
         'webPages' => 'webPages',
         'shortDescriptions' => 'shortDescriptions',
@@ -120,6 +122,7 @@ class ServiceElectronicChannel implements ArrayAccess
         'requiresSignature' => 'setRequiresSignature',
         'signatureQuantity' => 'setSignatureQuantity',
         'supportContacts' => 'setSupportContacts',
+        'serviceHoursAdditinalInformation' => 'setServiceHoursAdditinalInformation',
         'serviceHours' => 'setServiceHours',
         'webPages' => 'setWebPages',
         'shortDescriptions' => 'setShortDescriptions',
@@ -144,6 +147,7 @@ class ServiceElectronicChannel implements ArrayAccess
         'requiresSignature' => 'getRequiresSignature',
         'signatureQuantity' => 'getSignatureQuantity',
         'supportContacts' => 'getSupportContacts',
+        'serviceHoursAdditinalInformation' => 'getServiceHoursAdditinalInformation',
         'serviceHours' => 'getServiceHours',
         'webPages' => 'getWebPages',
         'shortDescriptions' => 'getShortDescriptions',
@@ -179,6 +183,7 @@ class ServiceElectronicChannel implements ArrayAccess
         $this->container['requiresSignature'] = isset($data['requiresSignature']) ? $data['requiresSignature'] : null;
         $this->container['signatureQuantity'] = isset($data['signatureQuantity']) ? $data['signatureQuantity'] : null;
         $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
+        $this->container['serviceHoursAdditinalInformation'] = isset($data['serviceHoursAdditinalInformation']) ? $data['serviceHoursAdditinalInformation'] : null;
         $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
         $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
         $this->container['shortDescriptions'] = isset($data['shortDescriptions']) ? $data['shortDescriptions'] : null;
@@ -332,6 +337,27 @@ class ServiceElectronicChannel implements ArrayAccess
     public function setSupportContacts($supportContacts)
     {
         $this->container['supportContacts'] = $supportContacts;
+
+        return $this;
+    }
+
+    /**
+     * Gets serviceHoursAdditinalInformation
+     * @return string
+     */
+    public function getServiceHoursAdditinalInformation()
+    {
+        return $this->container['serviceHoursAdditinalInformation'];
+    }
+
+    /**
+     * Sets serviceHoursAdditinalInformation
+     * @param string $serviceHoursAdditinalInformation
+     * @return $this
+     */
+    public function setServiceHoursAdditinalInformation($serviceHoursAdditinalInformation)
+    {
+        $this->container['serviceHoursAdditinalInformation'] = $serviceHoursAdditinalInformation;
 
         return $this;
     }
