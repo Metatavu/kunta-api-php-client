@@ -7,10 +7,8 @@ Method | HTTP request | Description
 [**createService**](ServicesApi.md#createService) | **POST** /organizations/{organizationId}/services | Create a service
 [**deleteService**](ServicesApi.md#deleteService) | **DELETE** /organizations/{organizationId}/services/{serviceId} | Delete a service
 [**findService**](ServicesApi.md#findService) | **GET** /organizations/{organizationId}/services/{serviceId} | Find a service by id
-[**findServiceSource**](ServicesApi.md#findServiceSource) | **GET** /serviceSources/{serviceSourceId} | Find a service by id
 [**listServiceClasses**](ServicesApi.md#listServiceClasses) | **GET** /organizations/{organizationId}/serviceClasses/ | List service classes for an organization
 [**listServiceElectornicChannels**](ServicesApi.md#listServiceElectornicChannels) | **GET** /organizations/{organizationId}/services/{serviceId}/electronicChannels | List service electornic channels
-[**listServiceSources**](ServicesApi.md#listServiceSources) | **GET** /serviceSources | List service sources
 [**listServices**](ServicesApi.md#listServices) | **GET** /organizations/{organizationId}/services | List services
 [**updateService**](ServicesApi.md#updateService) | **PUT** /organizations/{organizationId}/services/{serviceId} | Update a service
 
@@ -155,51 +153,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **findServiceSource**
-> \KuntaAPI\Model\ServiceSource findServiceSource($serviceSourceId)
-
-Find a service by id
-
-Returns single service by it's unique id.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new KuntaAPI\Api\ServicesApi();
-$serviceSourceId = "serviceSourceId_example"; // string | Service source id
-
-try {
-    $result = $api_instance->findServiceSource($serviceSourceId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ServicesApi->findServiceSource: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceSourceId** | **string**| Service source id |
-
-### Return type
-
-[**\KuntaAPI\Model\ServiceSource**](../Model/ServiceSource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **listServiceClasses**
 > \KuntaAPI\Model\ServiceClass[] listServiceClasses($organizationId)
 
@@ -280,47 +233,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\KuntaAPI\Model\ServiceElectronicChannel**](../Model/ServiceElectronicChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **listServiceSources**
-> \KuntaAPI\Model\ServiceSource[] listServiceSources()
-
-List service sources
-
-Returns list of service sources.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new KuntaAPI\Api\ServicesApi();
-
-try {
-    $result = $api_instance->listServiceSources();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ServicesApi->listServiceSources: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\KuntaAPI\Model\ServiceSource[]**](../Model/ServiceSource.md)
 
 ### Authorization
 

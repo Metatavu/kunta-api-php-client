@@ -71,12 +71,11 @@ class ServiceElectronicChannel implements ArrayAccess
         'requiresAuthentication' => 'bool',
         'requiresSignature' => 'bool',
         'signatureQuantity' => 'int',
-        'supportContacts' => '\KuntaAPI\Model\Support[]',
-        'serviceHours' => '\KuntaAPI\Model\ServiceHour[]',
-        'webPages' => '\KuntaAPI\Model\WebPage[]',
+        'supportContacts' => '\KuntaAPI\Model\ServiceChannelSupport[]',
+        'serviceHours' => '\KuntaAPI\Model\ServiceChannelServiceHour[]',
+        'webPages' => '\KuntaAPI\Model\ServiceChannelWebPage[]',
         'name' => '\KuntaAPI\Model\LocalizedValue[]',
         'description' => '\KuntaAPI\Model\LocalizedValue[]',
-        'organizationId' => 'string',
         'id' => 'string'
     );
 
@@ -100,7 +99,6 @@ class ServiceElectronicChannel implements ArrayAccess
         'webPages' => 'webPages',
         'name' => 'name',
         'description' => 'description',
-        'organizationId' => 'organizationId',
         'id' => 'id'
     );
 
@@ -124,7 +122,6 @@ class ServiceElectronicChannel implements ArrayAccess
         'webPages' => 'setWebPages',
         'name' => 'setName',
         'description' => 'setDescription',
-        'organizationId' => 'setOrganizationId',
         'id' => 'setId'
     );
 
@@ -148,7 +145,6 @@ class ServiceElectronicChannel implements ArrayAccess
         'webPages' => 'getWebPages',
         'name' => 'getName',
         'description' => 'getDescription',
-        'organizationId' => 'getOrganizationId',
         'id' => 'getId'
     );
 
@@ -183,7 +179,6 @@ class ServiceElectronicChannel implements ArrayAccess
         $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
@@ -317,7 +312,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets supportContacts
-     * @return \KuntaAPI\Model\Support[]
+     * @return \KuntaAPI\Model\ServiceChannelSupport[]
      */
     public function getSupportContacts()
     {
@@ -326,7 +321,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets supportContacts
-     * @param \KuntaAPI\Model\Support[] $supportContacts
+     * @param \KuntaAPI\Model\ServiceChannelSupport[] $supportContacts
      * @return $this
      */
     public function setSupportContacts($supportContacts)
@@ -338,7 +333,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets serviceHours
-     * @return \KuntaAPI\Model\ServiceHour[]
+     * @return \KuntaAPI\Model\ServiceChannelServiceHour[]
      */
     public function getServiceHours()
     {
@@ -347,7 +342,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets serviceHours
-     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours
+     * @param \KuntaAPI\Model\ServiceChannelServiceHour[] $serviceHours
      * @return $this
      */
     public function setServiceHours($serviceHours)
@@ -359,7 +354,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Gets webPages
-     * @return \KuntaAPI\Model\WebPage[]
+     * @return \KuntaAPI\Model\ServiceChannelWebPage[]
      */
     public function getWebPages()
     {
@@ -368,7 +363,7 @@ class ServiceElectronicChannel implements ArrayAccess
 
     /**
      * Sets webPages
-     * @param \KuntaAPI\Model\WebPage[] $webPages
+     * @param \KuntaAPI\Model\ServiceChannelWebPage[] $webPages
      * @return $this
      */
     public function setWebPages($webPages)
@@ -416,27 +411,6 @@ class ServiceElectronicChannel implements ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets organizationId
-     * @return string
-     */
-    public function getOrganizationId()
-    {
-        return $this->container['organizationId'];
-    }
-
-    /**
-     * Sets organizationId
-     * @param string $organizationId
-     * @return $this
-     */
-    public function setOrganizationId($organizationId)
-    {
-        $this->container['organizationId'] = $organizationId;
 
         return $this;
     }

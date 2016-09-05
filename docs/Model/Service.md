@@ -4,9 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier representing a specific service. | [optional] 
-**descriptions** | [**\KuntaAPI\Model\ServiceDescription[]**](ServiceDescription.md) |  | [optional] 
-**name** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
-**sourceIds** | **string[]** | Name of the service. | [optional] 
+**shortDescriptions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
+**descriptions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
+**serviceUserInstructions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
+**names** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) | Name of the service. | [optional] 
+**alternativeNames** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) | Name of the service. | [optional] 
 **classIds** | **string[]** | List of service classes | [optional] 
 **electronicChannelIds** | **string[]** |  | [optional] 
 **phoneChannelIds** | **string[]** |  | [optional] 

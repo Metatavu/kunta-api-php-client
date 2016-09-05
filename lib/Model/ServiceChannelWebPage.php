@@ -1,6 +1,6 @@
 <?php
 /**
- * ServiceChannelCommon
+ * ServiceChannelWebPage
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * ServiceChannelCommon Class Doc Comment
+ * ServiceChannelWebPage Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,25 +53,23 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ServiceChannelCommon implements ArrayAccess
+class ServiceChannelWebPage implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ServiceChannelCommon';
+    protected static $swaggerModelName = 'ServiceChannelWebPage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'id' => 'string',
-        'description' => '\KuntaAPI\Model\LocalizedValue[]',
-        'name' => '\KuntaAPI\Model\LocalizedValue[]',
-        'webPages' => '\KuntaAPI\Model\ServiceChannelWebPage[]',
-        'serviceHours' => '\KuntaAPI\Model\ServiceChannelServiceHour[]',
-        'supportContacts' => '\KuntaAPI\Model\ServiceChannelSupport[]'
+        'type' => 'string',
+        'value' => 'string',
+        'url' => 'string',
+        'language' => 'string'
     );
 
     public static function swaggerTypes()
@@ -84,12 +82,10 @@ class ServiceChannelCommon implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'id' => 'id',
-        'description' => 'description',
-        'name' => 'name',
-        'webPages' => 'webPages',
-        'serviceHours' => 'serviceHours',
-        'supportContacts' => 'supportContacts'
+        'type' => 'type',
+        'value' => 'value',
+        'url' => 'url',
+        'language' => 'language'
     );
 
     public static function attributeMap()
@@ -102,12 +98,10 @@ class ServiceChannelCommon implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'id' => 'setId',
-        'description' => 'setDescription',
-        'name' => 'setName',
-        'webPages' => 'setWebPages',
-        'serviceHours' => 'setServiceHours',
-        'supportContacts' => 'setSupportContacts'
+        'type' => 'setType',
+        'value' => 'setValue',
+        'url' => 'setUrl',
+        'language' => 'setLanguage'
     );
 
     public static function setters()
@@ -120,12 +114,10 @@ class ServiceChannelCommon implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'id' => 'getId',
-        'description' => 'getDescription',
-        'name' => 'getName',
-        'webPages' => 'getWebPages',
-        'serviceHours' => 'getServiceHours',
-        'supportContacts' => 'getSupportContacts'
+        'type' => 'getType',
+        'value' => 'getValue',
+        'url' => 'getUrl',
+        'language' => 'getLanguage'
     );
 
     public static function getters()
@@ -149,12 +141,10 @@ class ServiceChannelCommon implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
-        $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
-        $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
     }
 
     /**
@@ -181,127 +171,85 @@ class ServiceChannelCommon implements ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets type
      * @return string
      */
-    public function getId()
+    public function getType()
     {
-        return $this->container['id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets id
-     * @param string $id
+     * Sets type
+     * @param string $type
      * @return $this
      */
-    public function setId($id)
+    public function setType($type)
     {
-        $this->container['id'] = $id;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets description
-     * @return \KuntaAPI\Model\LocalizedValue[]
+     * Gets value
+     * @return string
      */
-    public function getDescription()
+    public function getValue()
     {
-        return $this->container['description'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets description
-     * @param \KuntaAPI\Model\LocalizedValue[] $description
+     * Sets value
+     * @param string $value
      * @return $this
      */
-    public function setDescription($description)
+    public function setValue($value)
     {
-        $this->container['description'] = $description;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets name
-     * @return \KuntaAPI\Model\LocalizedValue[]
+     * Gets url
+     * @return string
      */
-    public function getName()
+    public function getUrl()
     {
-        return $this->container['name'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets name
-     * @param \KuntaAPI\Model\LocalizedValue[] $name
+     * Sets url
+     * @param string $url
      * @return $this
      */
-    public function setName($name)
+    public function setUrl($url)
     {
-        $this->container['name'] = $name;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets webPages
-     * @return \KuntaAPI\Model\ServiceChannelWebPage[]
+     * Gets language
+     * @return string
      */
-    public function getWebPages()
+    public function getLanguage()
     {
-        return $this->container['webPages'];
+        return $this->container['language'];
     }
 
     /**
-     * Sets webPages
-     * @param \KuntaAPI\Model\ServiceChannelWebPage[] $webPages
+     * Sets language
+     * @param string $language
      * @return $this
      */
-    public function setWebPages($webPages)
+    public function setLanguage($language)
     {
-        $this->container['webPages'] = $webPages;
-
-        return $this;
-    }
-
-    /**
-     * Gets serviceHours
-     * @return \KuntaAPI\Model\ServiceChannelServiceHour[]
-     */
-    public function getServiceHours()
-    {
-        return $this->container['serviceHours'];
-    }
-
-    /**
-     * Sets serviceHours
-     * @param \KuntaAPI\Model\ServiceChannelServiceHour[] $serviceHours
-     * @return $this
-     */
-    public function setServiceHours($serviceHours)
-    {
-        $this->container['serviceHours'] = $serviceHours;
-
-        return $this;
-    }
-
-    /**
-     * Gets supportContacts
-     * @return \KuntaAPI\Model\ServiceChannelSupport[]
-     */
-    public function getSupportContacts()
-    {
-        return $this->container['supportContacts'];
-    }
-
-    /**
-     * Sets supportContacts
-     * @param \KuntaAPI\Model\ServiceChannelSupport[] $supportContacts
-     * @return $this
-     */
-    public function setSupportContacts($supportContacts)
-    {
-        $this->container['supportContacts'] = $supportContacts;
+        $this->container['language'] = $language;
 
         return $this;
     }

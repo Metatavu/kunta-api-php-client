@@ -67,9 +67,11 @@ class Service implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'descriptions' => '\KuntaAPI\Model\ServiceDescription[]',
-        'name' => '\KuntaAPI\Model\LocalizedValue[]',
-        'sourceIds' => 'string[]',
+        'shortDescriptions' => '\KuntaAPI\Model\LocalizedValue[]',
+        'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
+        'serviceUserInstructions' => '\KuntaAPI\Model\LocalizedValue[]',
+        'names' => '\KuntaAPI\Model\LocalizedValue[]',
+        'alternativeNames' => '\KuntaAPI\Model\LocalizedValue[]',
         'classIds' => 'string[]',
         'electronicChannelIds' => 'string[]',
         'phoneChannelIds' => 'string[]',
@@ -89,15 +91,17 @@ class Service implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
+        'shortDescriptions' => 'shortDescriptions',
         'descriptions' => 'descriptions',
-        'name' => 'name',
-        'sourceIds' => 'source_ids',
-        'classIds' => 'class_ids',
-        'electronicChannelIds' => 'electronic_channel_ids',
-        'phoneChannelIds' => 'phone_channel_ids',
-        'printableFormChannelIds' => 'printable_form_channel_ids',
-        'serviceLocationChannelIds' => 'service_location_channel_ids',
-        'webpageChannelIds' => 'webpage_channel_ids'
+        'serviceUserInstructions' => 'serviceUserInstructions',
+        'names' => 'names',
+        'alternativeNames' => 'alternativeNames',
+        'classIds' => 'classIds',
+        'electronicChannelIds' => 'electronicChannelIds',
+        'phoneChannelIds' => 'phoneChannelIds',
+        'printableFormChannelIds' => 'printableFormChannelIds',
+        'serviceLocationChannelIds' => 'serviceLocationChannelIds',
+        'webpageChannelIds' => 'webpageChannelIds'
     );
 
     public static function attributeMap()
@@ -111,9 +115,11 @@ class Service implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
+        'shortDescriptions' => 'setShortDescriptions',
         'descriptions' => 'setDescriptions',
-        'name' => 'setName',
-        'sourceIds' => 'setSourceIds',
+        'serviceUserInstructions' => 'setServiceUserInstructions',
+        'names' => 'setNames',
+        'alternativeNames' => 'setAlternativeNames',
         'classIds' => 'setClassIds',
         'electronicChannelIds' => 'setElectronicChannelIds',
         'phoneChannelIds' => 'setPhoneChannelIds',
@@ -133,9 +139,11 @@ class Service implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
+        'shortDescriptions' => 'getShortDescriptions',
         'descriptions' => 'getDescriptions',
-        'name' => 'getName',
-        'sourceIds' => 'getSourceIds',
+        'serviceUserInstructions' => 'getServiceUserInstructions',
+        'names' => 'getNames',
+        'alternativeNames' => 'getAlternativeNames',
         'classIds' => 'getClassIds',
         'electronicChannelIds' => 'getElectronicChannelIds',
         'phoneChannelIds' => 'getPhoneChannelIds',
@@ -166,9 +174,11 @@ class Service implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['shortDescriptions'] = isset($data['shortDescriptions']) ? $data['shortDescriptions'] : null;
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['sourceIds'] = isset($data['sourceIds']) ? $data['sourceIds'] : null;
+        $this->container['serviceUserInstructions'] = isset($data['serviceUserInstructions']) ? $data['serviceUserInstructions'] : null;
+        $this->container['names'] = isset($data['names']) ? $data['names'] : null;
+        $this->container['alternativeNames'] = isset($data['alternativeNames']) ? $data['alternativeNames'] : null;
         $this->container['classIds'] = isset($data['classIds']) ? $data['classIds'] : null;
         $this->container['electronicChannelIds'] = isset($data['electronicChannelIds']) ? $data['electronicChannelIds'] : null;
         $this->container['phoneChannelIds'] = isset($data['phoneChannelIds']) ? $data['phoneChannelIds'] : null;
@@ -222,8 +232,29 @@ class Service implements ArrayAccess
     }
 
     /**
+     * Gets shortDescriptions
+     * @return \KuntaAPI\Model\LocalizedValue[]
+     */
+    public function getShortDescriptions()
+    {
+        return $this->container['shortDescriptions'];
+    }
+
+    /**
+     * Sets shortDescriptions
+     * @param \KuntaAPI\Model\LocalizedValue[] $shortDescriptions
+     * @return $this
+     */
+    public function setShortDescriptions($shortDescriptions)
+    {
+        $this->container['shortDescriptions'] = $shortDescriptions;
+
+        return $this;
+    }
+
+    /**
      * Gets descriptions
-     * @return \KuntaAPI\Model\ServiceDescription[]
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
     public function getDescriptions()
     {
@@ -232,7 +263,7 @@ class Service implements ArrayAccess
 
     /**
      * Sets descriptions
-     * @param \KuntaAPI\Model\ServiceDescription[] $descriptions
+     * @param \KuntaAPI\Model\LocalizedValue[] $descriptions
      * @return $this
      */
     public function setDescriptions($descriptions)
@@ -243,43 +274,64 @@ class Service implements ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets serviceUserInstructions
      * @return \KuntaAPI\Model\LocalizedValue[]
      */
-    public function getName()
+    public function getServiceUserInstructions()
     {
-        return $this->container['name'];
+        return $this->container['serviceUserInstructions'];
     }
 
     /**
-     * Sets name
-     * @param \KuntaAPI\Model\LocalizedValue[] $name
+     * Sets serviceUserInstructions
+     * @param \KuntaAPI\Model\LocalizedValue[] $serviceUserInstructions
      * @return $this
      */
-    public function setName($name)
+    public function setServiceUserInstructions($serviceUserInstructions)
     {
-        $this->container['name'] = $name;
+        $this->container['serviceUserInstructions'] = $serviceUserInstructions;
 
         return $this;
     }
 
     /**
-     * Gets sourceIds
-     * @return string[]
+     * Gets names
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
-    public function getSourceIds()
+    public function getNames()
     {
-        return $this->container['sourceIds'];
+        return $this->container['names'];
     }
 
     /**
-     * Sets sourceIds
-     * @param string[] $sourceIds Name of the service.
+     * Sets names
+     * @param \KuntaAPI\Model\LocalizedValue[] $names Name of the service.
      * @return $this
      */
-    public function setSourceIds($sourceIds)
+    public function setNames($names)
     {
-        $this->container['sourceIds'] = $sourceIds;
+        $this->container['names'] = $names;
+
+        return $this;
+    }
+
+    /**
+     * Gets alternativeNames
+     * @return \KuntaAPI\Model\LocalizedValue[]
+     */
+    public function getAlternativeNames()
+    {
+        return $this->container['alternativeNames'];
+    }
+
+    /**
+     * Sets alternativeNames
+     * @param \KuntaAPI\Model\LocalizedValue[] $alternativeNames Name of the service.
+     * @return $this
+     */
+    public function setAlternativeNames($alternativeNames)
+    {
+        $this->container['alternativeNames'] = $alternativeNames;
 
         return $this;
     }
