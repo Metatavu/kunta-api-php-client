@@ -4,8 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
-**description** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
-**name** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
+**names** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
+**descriptions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
+**shortDescriptions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **webPages** | [**\KuntaAPI\Model\ServiceChannelWebPage[]**](ServiceChannelWebPage.md) |  | [optional] 
 **serviceHours** | [**\KuntaAPI\Model\ServiceChannelServiceHour[]**](ServiceChannelServiceHour.md) |  | [optional] 
 **supportContacts** | [**\KuntaAPI\Model\ServiceChannelSupport[]**](ServiceChannelSupport.md) |  | [optional] 

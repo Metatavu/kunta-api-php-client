@@ -74,8 +74,9 @@ class ServiceElectronicChannel implements ArrayAccess
         'supportContacts' => '\KuntaAPI\Model\ServiceChannelSupport[]',
         'serviceHours' => '\KuntaAPI\Model\ServiceChannelServiceHour[]',
         'webPages' => '\KuntaAPI\Model\ServiceChannelWebPage[]',
-        'name' => '\KuntaAPI\Model\LocalizedValue[]',
-        'description' => '\KuntaAPI\Model\LocalizedValue[]',
+        'shortDescriptions' => '\KuntaAPI\Model\LocalizedValue[]',
+        'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
+        'names' => '\KuntaAPI\Model\LocalizedValue[]',
         'id' => 'string'
     );
 
@@ -97,8 +98,9 @@ class ServiceElectronicChannel implements ArrayAccess
         'supportContacts' => 'supportContacts',
         'serviceHours' => 'serviceHours',
         'webPages' => 'webPages',
-        'name' => 'name',
-        'description' => 'description',
+        'shortDescriptions' => 'shortDescriptions',
+        'descriptions' => 'descriptions',
+        'names' => 'names',
         'id' => 'id'
     );
 
@@ -120,8 +122,9 @@ class ServiceElectronicChannel implements ArrayAccess
         'supportContacts' => 'setSupportContacts',
         'serviceHours' => 'setServiceHours',
         'webPages' => 'setWebPages',
-        'name' => 'setName',
-        'description' => 'setDescription',
+        'shortDescriptions' => 'setShortDescriptions',
+        'descriptions' => 'setDescriptions',
+        'names' => 'setNames',
         'id' => 'setId'
     );
 
@@ -143,8 +146,9 @@ class ServiceElectronicChannel implements ArrayAccess
         'supportContacts' => 'getSupportContacts',
         'serviceHours' => 'getServiceHours',
         'webPages' => 'getWebPages',
-        'name' => 'getName',
-        'description' => 'getDescription',
+        'shortDescriptions' => 'getShortDescriptions',
+        'descriptions' => 'getDescriptions',
+        'names' => 'getNames',
         'id' => 'getId'
     );
 
@@ -177,8 +181,9 @@ class ServiceElectronicChannel implements ArrayAccess
         $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
         $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
         $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['shortDescriptions'] = isset($data['shortDescriptions']) ? $data['shortDescriptions'] : null;
+        $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
+        $this->container['names'] = isset($data['names']) ? $data['names'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
@@ -374,43 +379,64 @@ class ServiceElectronicChannel implements ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets shortDescriptions
      * @return \KuntaAPI\Model\LocalizedValue[]
      */
-    public function getName()
+    public function getShortDescriptions()
     {
-        return $this->container['name'];
+        return $this->container['shortDescriptions'];
     }
 
     /**
-     * Sets name
-     * @param \KuntaAPI\Model\LocalizedValue[] $name
+     * Sets shortDescriptions
+     * @param \KuntaAPI\Model\LocalizedValue[] $shortDescriptions
      * @return $this
      */
-    public function setName($name)
+    public function setShortDescriptions($shortDescriptions)
     {
-        $this->container['name'] = $name;
+        $this->container['shortDescriptions'] = $shortDescriptions;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets descriptions
      * @return \KuntaAPI\Model\LocalizedValue[]
      */
-    public function getDescription()
+    public function getDescriptions()
     {
-        return $this->container['description'];
+        return $this->container['descriptions'];
     }
 
     /**
-     * Sets description
-     * @param \KuntaAPI\Model\LocalizedValue[] $description
+     * Sets descriptions
+     * @param \KuntaAPI\Model\LocalizedValue[] $descriptions
      * @return $this
      */
-    public function setDescription($description)
+    public function setDescriptions($descriptions)
     {
-        $this->container['description'] = $description;
+        $this->container['descriptions'] = $descriptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets names
+     * @return \KuntaAPI\Model\LocalizedValue[]
+     */
+    public function getNames()
+    {
+        return $this->container['names'];
+    }
+
+    /**
+     * Sets names
+     * @param \KuntaAPI\Model\LocalizedValue[] $names
+     * @return $this
+     */
+    public function setNames($names)
+    {
+        $this->container['names'] = $names;
 
         return $this;
     }
