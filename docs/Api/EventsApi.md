@@ -219,10 +219,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\EventsApi();
 $organizationId = "organizationId_example"; // string | Organization id
-$startBefore = new \DateTime(); // \DateTime | return only events starting before the date
-$startAfter = new \DateTime(); // \DateTime | return only events starting after the date
-$endBefore = new \DateTime(); // \DateTime | return only events ending before the date
-$endAfter = new \DateTime(); // \DateTime | return only events ending after the date
+$startBefore = "startBefore_example"; // string | return only events starting before the date
+$startAfter = "startAfter_example"; // string | return only events starting after the date
+$endBefore = "endBefore_example"; // string | return only events ending before the date
+$endAfter = "endAfter_example"; // string | return only events ending after the date
 $firstResult = 56; // int | first index of results
 $maxResults = 56; // int | maximum number of results
 $orderBy = "orderBy_example"; // string | define order (startDate, endDate). Default is startDate
@@ -242,10 +242,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
- **startBefore** | **\DateTime**| return only events starting before the date | [optional]
- **startAfter** | **\DateTime**| return only events starting after the date | [optional]
- **endBefore** | **\DateTime**| return only events ending before the date | [optional]
- **endAfter** | **\DateTime**| return only events ending after the date | [optional]
+ **startBefore** | **string**| return only events starting before the date | [optional]
+ **startAfter** | **string**| return only events starting after the date | [optional]
+ **endBefore** | **string**| return only events ending before the date | [optional]
+ **endAfter** | **string**| return only events ending after the date | [optional]
  **firstResult** | **int**| first index of results | [optional]
  **maxResults** | **int**| maximum number of results | [optional]
  **orderBy** | **string**| define order (startDate, endDate). Default is startDate | [optional]

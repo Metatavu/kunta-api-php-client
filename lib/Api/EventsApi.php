@@ -586,10 +586,10 @@ class EventsApi
      * Lists organizations events
      *
      * @param string $organizationId Organization id (required)
-     * @param \DateTime $startBefore return only events starting before the date (optional)
-     * @param \DateTime $startAfter return only events starting after the date (optional)
-     * @param \DateTime $endBefore return only events ending before the date (optional)
-     * @param \DateTime $endAfter return only events ending after the date (optional)
+     * @param string $startBefore return only events starting before the date (optional)
+     * @param string $startAfter return only events starting after the date (optional)
+     * @param string $endBefore return only events ending before the date (optional)
+     * @param string $endAfter return only events ending after the date (optional)
      * @param int $firstResult first index of results (optional)
      * @param int $maxResults maximum number of results (optional)
      * @param string $orderBy define order (startDate, endDate). Default is startDate (optional)
@@ -609,10 +609,10 @@ class EventsApi
      * Lists organizations events
      *
      * @param string $organizationId Organization id (required)
-     * @param \DateTime $startBefore return only events starting before the date (optional)
-     * @param \DateTime $startAfter return only events starting after the date (optional)
-     * @param \DateTime $endBefore return only events ending before the date (optional)
-     * @param \DateTime $endAfter return only events ending after the date (optional)
+     * @param string $startBefore return only events starting before the date (optional)
+     * @param string $startAfter return only events starting after the date (optional)
+     * @param string $endBefore return only events ending before the date (optional)
+     * @param string $endAfter return only events ending after the date (optional)
      * @param int $firstResult first index of results (optional)
      * @param int $maxResults maximum number of results (optional)
      * @param string $orderBy define order (startDate, endDate). Default is startDate (optional)
