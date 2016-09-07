@@ -223,8 +223,8 @@ $startBefore = new \DateTime(); // \DateTime | return only events starting befor
 $startAfter = new \DateTime(); // \DateTime | return only events starting after the date
 $endBefore = new \DateTime(); // \DateTime | return only events ending before the date
 $endAfter = new \DateTime(); // \DateTime | return only events ending after the date
-$firstResult = 3.4; // float | first index of results
-$maxResults = 3.4; // float | maximum number of results
+$firstResult = 56; // int | first index of results
+$maxResults = 56; // int | maximum number of results
 $orderBy = "orderBy_example"; // string | define order (startDate, endDate). Default is startDate
 $orderDir = "orderDir_example"; // string | ascending, descending. Default is ascending
 
@@ -246,8 +246,8 @@ Name | Type | Description  | Notes
  **startAfter** | **\DateTime**| return only events starting after the date | [optional]
  **endBefore** | **\DateTime**| return only events ending before the date | [optional]
  **endAfter** | **\DateTime**| return only events ending after the date | [optional]
- **firstResult** | **float**| first index of results | [optional]
- **maxResults** | **float**| maximum number of results | [optional]
+ **firstResult** | **int**| first index of results | [optional]
+ **maxResults** | **int**| maximum number of results | [optional]
  **orderBy** | **string**| define order (startDate, endDate). Default is startDate | [optional]
  **orderDir** | **string**| ascending, descending. Default is ascending | [optional]
 
