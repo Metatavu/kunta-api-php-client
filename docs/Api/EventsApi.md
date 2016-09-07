@@ -206,7 +206,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationEvents**
-> \KuntaAPI\Model\Event[] listOrganizationEvents($organizationId)
+> \KuntaAPI\Model\Event[] listOrganizationEvents($organizationId, $startBefore, $startAfter, $endBefore, $endAfter, $firstResult, $maxResults, $orderBy, $orderDir)
 
 Lists organizations events
 
@@ -219,9 +219,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\EventsApi();
 $organizationId = "organizationId_example"; // string | Organization id
+$startBefore = new \DateTime(); // \DateTime | return only events starting before the date
+$startAfter = new \DateTime(); // \DateTime | return only events starting after the date
+$endBefore = new \DateTime(); // \DateTime | return only events ending before the date
+$endAfter = new \DateTime(); // \DateTime | return only events ending after the date
+$firstResult = 3.4; // float | first index of results
+$maxResults = 3.4; // float | maximum number of results
+$orderBy = "orderBy_example"; // string | define order (startDate, endDate). Default is startDate
+$orderDir = "orderDir_example"; // string | ascending, descending. Default is ascending
 
 try {
-    $result = $api_instance->listOrganizationEvents($organizationId);
+    $result = $api_instance->listOrganizationEvents($organizationId, $startBefore, $startAfter, $endBefore, $endAfter, $firstResult, $maxResults, $orderBy, $orderDir);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EventsApi->listOrganizationEvents: ', $e->getMessage(), PHP_EOL;
@@ -234,6 +242,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
+ **startBefore** | **\DateTime**| return only events starting before the date | [optional]
+ **startAfter** | **\DateTime**| return only events starting after the date | [optional]
+ **endBefore** | **\DateTime**| return only events ending before the date | [optional]
+ **endAfter** | **\DateTime**| return only events ending after the date | [optional]
+ **firstResult** | **float**| first index of results | [optional]
+ **maxResults** | **float**| maximum number of results | [optional]
+ **orderBy** | **string**| define order (startDate, endDate). Default is startDate | [optional]
+ **orderDir** | **string**| ascending, descending. Default is ascending | [optional]
 
 ### Return type
 

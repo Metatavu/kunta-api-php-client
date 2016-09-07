@@ -4,7 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** |  | [optional] 
-**displayable** | **string** |  | [optional] 
 **validFrom** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **validTo** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **opens** | **string** |  | [optional] 

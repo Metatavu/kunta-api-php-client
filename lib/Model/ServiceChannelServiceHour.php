@@ -67,7 +67,6 @@ class ServiceChannelServiceHour implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'type' => 'string',
-        'displayable' => 'string',
         'validFrom' => '\DateTime',
         'validTo' => '\DateTime',
         'opens' => 'string',
@@ -87,7 +86,6 @@ class ServiceChannelServiceHour implements ArrayAccess
      */
     protected static $attributeMap = array(
         'type' => 'type',
-        'displayable' => 'displayable',
         'validFrom' => 'validFrom',
         'validTo' => 'validTo',
         'opens' => 'opens',
@@ -107,7 +105,6 @@ class ServiceChannelServiceHour implements ArrayAccess
      */
     protected static $setters = array(
         'type' => 'setType',
-        'displayable' => 'setDisplayable',
         'validFrom' => 'setValidFrom',
         'validTo' => 'setValidTo',
         'opens' => 'setOpens',
@@ -127,7 +124,6 @@ class ServiceChannelServiceHour implements ArrayAccess
      */
     protected static $getters = array(
         'type' => 'getType',
-        'displayable' => 'getDisplayable',
         'validFrom' => 'getValidFrom',
         'validTo' => 'getValidTo',
         'opens' => 'getOpens',
@@ -158,7 +154,6 @@ class ServiceChannelServiceHour implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['displayable'] = isset($data['displayable']) ? $data['displayable'] : null;
         $this->container['validFrom'] = isset($data['validFrom']) ? $data['validFrom'] : null;
         $this->container['validTo'] = isset($data['validTo']) ? $data['validTo'] : null;
         $this->container['opens'] = isset($data['opens']) ? $data['opens'] : null;
@@ -207,27 +202,6 @@ class ServiceChannelServiceHour implements ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets displayable
-     * @return string
-     */
-    public function getDisplayable()
-    {
-        return $this->container['displayable'];
-    }
-
-    /**
-     * Sets displayable
-     * @param string $displayable
-     * @return $this
-     */
-    public function setDisplayable($displayable)
-    {
-        $this->container['displayable'] = $displayable;
 
         return $this;
     }

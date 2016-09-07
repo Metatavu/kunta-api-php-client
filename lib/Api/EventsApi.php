@@ -586,12 +586,20 @@ class EventsApi
      * Lists organizations events
      *
      * @param string $organizationId Organization id (required)
+     * @param \DateTime $startBefore return only events starting before the date (optional)
+     * @param \DateTime $startAfter return only events starting after the date (optional)
+     * @param \DateTime $endBefore return only events ending before the date (optional)
+     * @param \DateTime $endAfter return only events ending after the date (optional)
+     * @param float $firstResult first index of results (optional)
+     * @param float $maxResults maximum number of results (optional)
+     * @param string $orderBy define order (startDate, endDate). Default is startDate (optional)
+     * @param string $orderDir ascending, descending. Default is ascending (optional)
      * @return \KuntaAPI\Model\Event[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationEvents($organizationId)
+    public function listOrganizationEvents($organizationId, $startBefore = null, $startAfter = null, $endBefore = null, $endAfter = null, $firstResult = null, $maxResults = null, $orderBy = null, $orderDir = null)
     {
-        list($response) = $this->listOrganizationEventsWithHttpInfo($organizationId);
+        list($response) = $this->listOrganizationEventsWithHttpInfo($organizationId, $startBefore, $startAfter, $endBefore, $endAfter, $firstResult, $maxResults, $orderBy, $orderDir);
         return $response;
     }
 
@@ -601,10 +609,18 @@ class EventsApi
      * Lists organizations events
      *
      * @param string $organizationId Organization id (required)
+     * @param \DateTime $startBefore return only events starting before the date (optional)
+     * @param \DateTime $startAfter return only events starting after the date (optional)
+     * @param \DateTime $endBefore return only events ending before the date (optional)
+     * @param \DateTime $endAfter return only events ending after the date (optional)
+     * @param float $firstResult first index of results (optional)
+     * @param float $maxResults maximum number of results (optional)
+     * @param string $orderBy define order (startDate, endDate). Default is startDate (optional)
+     * @param string $orderDir ascending, descending. Default is ascending (optional)
      * @return Array of \KuntaAPI\Model\Event[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationEventsWithHttpInfo($organizationId)
+    public function listOrganizationEventsWithHttpInfo($organizationId, $startBefore = null, $startAfter = null, $endBefore = null, $endAfter = null, $firstResult = null, $maxResults = null, $orderBy = null, $orderDir = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -622,6 +638,38 @@ class EventsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
+        // query params
+        if ($startBefore !== null) {
+            $queryParams['startBefore'] = $this->apiClient->getSerializer()->toQueryValue($startBefore);
+        }
+        // query params
+        if ($startAfter !== null) {
+            $queryParams['startAfter'] = $this->apiClient->getSerializer()->toQueryValue($startAfter);
+        }
+        // query params
+        if ($endBefore !== null) {
+            $queryParams['endBefore'] = $this->apiClient->getSerializer()->toQueryValue($endBefore);
+        }
+        // query params
+        if ($endAfter !== null) {
+            $queryParams['endAfter'] = $this->apiClient->getSerializer()->toQueryValue($endAfter);
+        }
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
+        }
+        // query params
+        if ($orderBy !== null) {
+            $queryParams['orderBy'] = $this->apiClient->getSerializer()->toQueryValue($orderBy);
+        }
+        // query params
+        if ($orderDir !== null) {
+            $queryParams['orderDir'] = $this->apiClient->getSerializer()->toQueryValue($orderDir);
+        }
         // path params
         if ($organizationId !== null) {
             $resourcePath = str_replace(
