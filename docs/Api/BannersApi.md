@@ -4,13 +4,13 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findOrganizationBanners**](BannersApi.md#findOrganizationBanners) | **GET** /organizations/{organizationId}/banners/{bannerId} | Finds organizations banner
+[**findOrganizationBanner**](BannersApi.md#findOrganizationBanner) | **GET** /organizations/{organizationId}/banners/{bannerId} | Finds organizations banner
 [**listOrganizationBannerImages**](BannersApi.md#listOrganizationBannerImages) | **GET** /organizations/{organizationId}/banners/{bannerId}/images | Returns a list of organization banner images
 [**listOrganizationBanners**](BannersApi.md#listOrganizationBanners) | **GET** /organizations/{organizationId}/banners | Lists organizations banners
 
 
-# **findOrganizationBanners**
-> \KuntaAPI\Model\NewsArticle findOrganizationBanners($organizationId, $bannerId)
+# **findOrganizationBanner**
+> \KuntaAPI\Model\NewsArticle findOrganizationBanner($organizationId, $bannerId)
 
 Finds organizations banner
 
@@ -26,10 +26,10 @@ $organizationId = "organizationId_example"; // string | Organization id
 $bannerId = "bannerId_example"; // string | banner id
 
 try {
-    $result = $api_instance->findOrganizationBanners($organizationId, $bannerId);
+    $result = $api_instance->findOrganizationBanner($organizationId, $bannerId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BannersApi->findOrganizationBanners: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BannersApi->findOrganizationBanner: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

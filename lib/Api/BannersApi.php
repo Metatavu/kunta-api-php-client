@@ -103,7 +103,7 @@ class BannersApi
     }
 
     /**
-     * Operation findOrganizationBanners
+     * Operation findOrganizationBanner
      *
      * Finds organizations banner
      *
@@ -112,14 +112,14 @@ class BannersApi
      * @return \KuntaAPI\Model\NewsArticle
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findOrganizationBanners($organizationId, $bannerId)
+    public function findOrganizationBanner($organizationId, $bannerId)
     {
-        list($response) = $this->findOrganizationBannersWithHttpInfo($organizationId, $bannerId);
+        list($response) = $this->findOrganizationBannerWithHttpInfo($organizationId, $bannerId);
         return $response;
     }
 
     /**
-     * Operation findOrganizationBannersWithHttpInfo
+     * Operation findOrganizationBannerWithHttpInfo
      *
      * Finds organizations banner
      *
@@ -128,15 +128,15 @@ class BannersApi
      * @return Array of \KuntaAPI\Model\NewsArticle, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findOrganizationBannersWithHttpInfo($organizationId, $bannerId)
+    public function findOrganizationBannerWithHttpInfo($organizationId, $bannerId)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationBanners');
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationBanner');
         }
         // verify the required parameter 'bannerId' is set
         if ($bannerId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $bannerId when calling findOrganizationBanners');
+            throw new \InvalidArgumentException('Missing the required parameter $bannerId when calling findOrganizationBanner');
         }
         // parse inputs
         $resourcePath = "/organizations/{organizationId}/banners/{bannerId}";
