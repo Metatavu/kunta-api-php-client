@@ -199,7 +199,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrganizationSetting**
-> \KuntaAPI\Model\OrganizationSetting updateOrganizationSetting($organizationId, $settingId)
+> \KuntaAPI\Model\OrganizationSetting updateOrganizationSetting($organizationId, $settingId, $setting)
 
 Updates an organization setting
 
@@ -213,9 +213,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new KuntaAPI\Api\SettingsApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $settingId = "settingId_example"; // string | Setting id
+$setting = new \KuntaAPI\Model\OrganizationSetting(); // \KuntaAPI\Model\OrganizationSetting | 
 
 try {
-    $result = $api_instance->updateOrganizationSetting($organizationId, $settingId);
+    $result = $api_instance->updateOrganizationSetting($organizationId, $settingId, $setting);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SettingsApi->updateOrganizationSetting: ', $e->getMessage(), PHP_EOL;
@@ -229,6 +230,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
  **settingId** | **string**| Setting id |
+ **setting** | [**\KuntaAPI\Model\OrganizationSetting**](../Model/\KuntaAPI\Model\OrganizationSetting.md)|  | [optional]
 
 ### Return type
 

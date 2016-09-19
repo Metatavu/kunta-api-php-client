@@ -534,12 +534,13 @@ class SettingsApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $settingId Setting id (required)
+     * @param \KuntaAPI\Model\OrganizationSetting $setting  (optional)
      * @return \KuntaAPI\Model\OrganizationSetting
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function updateOrganizationSetting($organizationId, $settingId)
+    public function updateOrganizationSetting($organizationId, $settingId, $setting = null)
     {
-        list($response) = $this->updateOrganizationSettingWithHttpInfo($organizationId, $settingId);
+        list($response) = $this->updateOrganizationSettingWithHttpInfo($organizationId, $settingId, $setting);
         return $response;
     }
 
@@ -550,10 +551,11 @@ class SettingsApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $settingId Setting id (required)
+     * @param \KuntaAPI\Model\OrganizationSetting $setting  (optional)
      * @return Array of \KuntaAPI\Model\OrganizationSetting, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function updateOrganizationSettingWithHttpInfo($organizationId, $settingId)
+    public function updateOrganizationSettingWithHttpInfo($organizationId, $settingId, $setting = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -594,7 +596,12 @@ class SettingsApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($setting)) {
+            $_tempBody = $setting;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
