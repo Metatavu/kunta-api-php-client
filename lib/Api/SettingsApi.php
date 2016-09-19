@@ -210,6 +210,117 @@ class SettingsApi
     }
 
     /**
+     * Operation findOrganizationSetting
+     *
+     * Finds organizations setting
+     *
+     * @param string $organizationId Organization id (required)
+     * @param string $settingId Setting id (required)
+     * @return \KuntaAPI\Model\OrganizationSetting
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findOrganizationSetting($organizationId, $settingId)
+    {
+        list($response) = $this->findOrganizationSettingWithHttpInfo($organizationId, $settingId);
+        return $response;
+    }
+
+    /**
+     * Operation findOrganizationSettingWithHttpInfo
+     *
+     * Finds organizations setting
+     *
+     * @param string $organizationId Organization id (required)
+     * @param string $settingId Setting id (required)
+     * @return Array of \KuntaAPI\Model\OrganizationSetting, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findOrganizationSettingWithHttpInfo($organizationId, $settingId)
+    {
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationSetting');
+        }
+        // verify the required parameter 'settingId' is set
+        if ($settingId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $settingId when calling findOrganizationSetting');
+        }
+        // parse inputs
+        $resourcePath = "/organizations/{organizationId}/settings/{settingId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($organizationId !== null) {
+            $resourcePath = str_replace(
+                "{" . "organizationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($settingId !== null) {
+            $resourcePath = str_replace(
+                "{" . "settingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($settingId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\OrganizationSetting',
+                '/organizations/{organizationId}/settings/{settingId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\OrganizationSetting', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\OrganizationSetting', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation listOrganizationSettings
      *
      * Lists organizations settings
@@ -292,6 +403,117 @@ class SettingsApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\OrganizationSetting[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateOrganizationSetting
+     *
+     * Updates an organization setting
+     *
+     * @param string $organizationId Organization id (required)
+     * @param string $settingId Setting id (required)
+     * @return \KuntaAPI\Model\OrganizationSetting
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateOrganizationSetting($organizationId, $settingId)
+    {
+        list($response) = $this->updateOrganizationSettingWithHttpInfo($organizationId, $settingId);
+        return $response;
+    }
+
+    /**
+     * Operation updateOrganizationSettingWithHttpInfo
+     *
+     * Updates an organization setting
+     *
+     * @param string $organizationId Organization id (required)
+     * @param string $settingId Setting id (required)
+     * @return Array of \KuntaAPI\Model\OrganizationSetting, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateOrganizationSettingWithHttpInfo($organizationId, $settingId)
+    {
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling updateOrganizationSetting');
+        }
+        // verify the required parameter 'settingId' is set
+        if ($settingId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $settingId when calling updateOrganizationSetting');
+        }
+        // parse inputs
+        $resourcePath = "/organizations/{organizationId}/settings/{settingId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($organizationId !== null) {
+            $resourcePath = str_replace(
+                "{" . "organizationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($settingId !== null) {
+            $resourcePath = str_replace(
+                "{" . "settingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($settingId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\OrganizationSetting',
+                '/organizations/{organizationId}/settings/{settingId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\OrganizationSetting', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\OrganizationSetting', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
