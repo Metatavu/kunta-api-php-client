@@ -4,7 +4,7 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createOrganizationSetting**](SettingsApi.md#createOrganizationSetting) | **POST** /organizations/{organizationId}/settings/{settingId} | Creates organization setting
+[**createOrganizationSetting**](SettingsApi.md#createOrganizationSetting) | **POST** /organizations/{organizationId}/settings/ | Creates organization setting
 [**deleteOrganizationSetting**](SettingsApi.md#deleteOrganizationSetting) | **DELETE** /organizations/{organizationId}/settings/{settingId} | Deletes an organization setting
 [**findOrganizationSetting**](SettingsApi.md#findOrganizationSetting) | **GET** /organizations/{organizationId}/settings/{settingId} | Finds organizations setting
 [**listOrganizationSettings**](SettingsApi.md#listOrganizationSettings) | **GET** /organizations/{organizationId}/settings/ | Lists organizations settings
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **createOrganizationSetting**
-> \KuntaAPI\Model\OrganizationSetting createOrganizationSetting($organizationId, $settingId, $setting)
+> \KuntaAPI\Model\OrganizationSetting createOrganizationSetting($organizationId, $setting)
 
 Creates organization setting
 
@@ -25,11 +25,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\SettingsApi();
 $organizationId = "organizationId_example"; // string | Organization id
-$settingId = "settingId_example"; // string | Setting id
 $setting = new \KuntaAPI\Model\OrganizationSetting(); // \KuntaAPI\Model\OrganizationSetting | 
 
 try {
-    $result = $api_instance->createOrganizationSetting($organizationId, $settingId, $setting);
+    $result = $api_instance->createOrganizationSetting($organizationId, $setting);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SettingsApi->createOrganizationSetting: ', $e->getMessage(), PHP_EOL;
@@ -42,7 +41,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
- **settingId** | **string**| Setting id |
  **setting** | [**\KuntaAPI\Model\OrganizationSetting**](../Model/\KuntaAPI\Model\OrganizationSetting.md)|  | [optional]
 
 ### Return type

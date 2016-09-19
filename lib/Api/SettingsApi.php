@@ -108,14 +108,13 @@ class SettingsApi
      * Creates organization setting
      *
      * @param string $organizationId Organization id (required)
-     * @param string $settingId Setting id (required)
      * @param \KuntaAPI\Model\OrganizationSetting $setting  (optional)
      * @return \KuntaAPI\Model\OrganizationSetting
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function createOrganizationSetting($organizationId, $settingId, $setting = null)
+    public function createOrganizationSetting($organizationId, $setting = null)
     {
-        list($response) = $this->createOrganizationSettingWithHttpInfo($organizationId, $settingId, $setting);
+        list($response) = $this->createOrganizationSettingWithHttpInfo($organizationId, $setting);
         return $response;
     }
 
@@ -125,23 +124,18 @@ class SettingsApi
      * Creates organization setting
      *
      * @param string $organizationId Organization id (required)
-     * @param string $settingId Setting id (required)
      * @param \KuntaAPI\Model\OrganizationSetting $setting  (optional)
      * @return Array of \KuntaAPI\Model\OrganizationSetting, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function createOrganizationSettingWithHttpInfo($organizationId, $settingId, $setting = null)
+    public function createOrganizationSettingWithHttpInfo($organizationId, $setting = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
             throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling createOrganizationSetting');
         }
-        // verify the required parameter 'settingId' is set
-        if ($settingId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $settingId when calling createOrganizationSetting');
-        }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/settings/{settingId}";
+        $resourcePath = "/organizations/{organizationId}/settings/";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -157,14 +151,6 @@ class SettingsApi
             $resourcePath = str_replace(
                 "{" . "organizationId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($organizationId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($settingId !== null) {
-            $resourcePath = str_replace(
-                "{" . "settingId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($settingId),
                 $resourcePath
             );
         }
@@ -192,7 +178,7 @@ class SettingsApi
                 $httpBody,
                 $headerParams,
                 '\KuntaAPI\Model\OrganizationSetting',
-                '/organizations/{organizationId}/settings/{settingId}'
+                '/organizations/{organizationId}/settings/'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\OrganizationSetting', $httpHeader), $statusCode, $httpHeader);
