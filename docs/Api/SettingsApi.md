@@ -4,11 +4,61 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createOrganizationSetting**](SettingsApi.md#createOrganizationSetting) | **POST** /organizations/{organizationId}/settings/{settingId} | Creates organization setting
 [**deleteOrganizationSetting**](SettingsApi.md#deleteOrganizationSetting) | **DELETE** /organizations/{organizationId}/settings/{settingId} | Deletes an organization setting
 [**findOrganizationSetting**](SettingsApi.md#findOrganizationSetting) | **GET** /organizations/{organizationId}/settings/{settingId} | Finds organizations setting
 [**listOrganizationSettings**](SettingsApi.md#listOrganizationSettings) | **GET** /organizations/{organizationId}/settings/ | Lists organizations settings
 [**updateOrganizationSetting**](SettingsApi.md#updateOrganizationSetting) | **PUT** /organizations/{organizationId}/settings/{settingId} | Updates an organization setting
 
+
+# **createOrganizationSetting**
+> \KuntaAPI\Model\OrganizationSetting createOrganizationSetting($organizationId, $settingId, $setting)
+
+Creates organization setting
+
+Creates organization setting
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new KuntaAPI\Api\SettingsApi();
+$organizationId = "organizationId_example"; // string | Organization id
+$settingId = "settingId_example"; // string | Setting id
+$setting = new \KuntaAPI\Model\OrganizationSetting(); // \KuntaAPI\Model\OrganizationSetting | 
+
+try {
+    $result = $api_instance->createOrganizationSetting($organizationId, $settingId, $setting);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SettingsApi->createOrganizationSetting: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| Organization id |
+ **settingId** | **string**| Setting id |
+ **setting** | [**\KuntaAPI\Model\OrganizationSetting**](../Model/\KuntaAPI\Model\OrganizationSetting.md)|  | [optional]
+
+### Return type
+
+[**\KuntaAPI\Model\OrganizationSetting**](../Model/OrganizationSetting.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteOrganizationSetting**
 > deleteOrganizationSetting($organizationId, $settingId)
