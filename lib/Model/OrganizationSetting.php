@@ -67,7 +67,7 @@ class OrganizationSetting implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'name' => 'string',
+        'key' => 'string',
         'value' => 'string'
     );
 
@@ -82,7 +82,7 @@ class OrganizationSetting implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'name' => 'name',
+        'key' => 'key',
         'value' => 'value'
     );
 
@@ -97,7 +97,7 @@ class OrganizationSetting implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'name' => 'setName',
+        'key' => 'setKey',
         'value' => 'setValue'
     );
 
@@ -112,7 +112,7 @@ class OrganizationSetting implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'name' => 'getName',
+        'key' => 'getKey',
         'value' => 'getValue'
     );
 
@@ -138,7 +138,7 @@ class OrganizationSetting implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -187,22 +187,22 @@ class OrganizationSetting implements ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets key
      * @return string
      */
-    public function getName()
+    public function getKey()
     {
-        return $this->container['name'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets name
-     * @param string $name
+     * Sets key
+     * @param string $key
      * @return $this
      */
-    public function setName($name)
+    public function setKey($key)
     {
-        $this->container['name'] = $name;
+        $this->container['key'] = $key;
 
         return $this;
     }
