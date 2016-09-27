@@ -67,6 +67,7 @@ class MenuItem implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
+        'label' => 'string',
         'parentItemId' => 'string',
         'type' => 'string',
         'pageId' => 'string',
@@ -85,6 +86,7 @@ class MenuItem implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
+        'label' => 'label',
         'parentItemId' => 'parentItemId',
         'type' => 'type',
         'pageId' => 'pageId',
@@ -103,6 +105,7 @@ class MenuItem implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
+        'label' => 'setLabel',
         'parentItemId' => 'setParentItemId',
         'type' => 'setType',
         'pageId' => 'setPageId',
@@ -121,6 +124,7 @@ class MenuItem implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
+        'label' => 'getLabel',
         'parentItemId' => 'getParentItemId',
         'type' => 'getType',
         'pageId' => 'getPageId',
@@ -150,6 +154,7 @@ class MenuItem implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
         $this->container['parentItemId'] = isset($data['parentItemId']) ? $data['parentItemId'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['pageId'] = isset($data['pageId']) ? $data['pageId'] : null;
@@ -197,6 +202,27 @@ class MenuItem implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets label
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->container['label'];
+    }
+
+    /**
+     * Sets label
+     * @param string $label
+     * @return $this
+     */
+    public function setLabel($label)
+    {
+        $this->container['label'] = $label;
 
         return $this;
     }
