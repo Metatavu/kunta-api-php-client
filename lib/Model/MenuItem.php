@@ -67,10 +67,11 @@ class MenuItem implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'slug' => 'string',
+        'parentItemId' => 'string',
+        'type' => 'string',
         'pageId' => 'string',
         'fileId' => 'string',
-        'menuId' => 'string'
+        'externalUrl' => 'string'
     );
 
     public static function swaggerTypes()
@@ -84,10 +85,11 @@ class MenuItem implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'slug' => 'slug',
+        'parentItemId' => 'parentItemId',
+        'type' => 'type',
         'pageId' => 'pageId',
         'fileId' => 'fileId',
-        'menuId' => 'menuId'
+        'externalUrl' => 'externalUrl'
     );
 
     public static function attributeMap()
@@ -101,10 +103,11 @@ class MenuItem implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'slug' => 'setSlug',
+        'parentItemId' => 'setParentItemId',
+        'type' => 'setType',
         'pageId' => 'setPageId',
         'fileId' => 'setFileId',
-        'menuId' => 'setMenuId'
+        'externalUrl' => 'setExternalUrl'
     );
 
     public static function setters()
@@ -118,10 +121,11 @@ class MenuItem implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'slug' => 'getSlug',
+        'parentItemId' => 'getParentItemId',
+        'type' => 'getType',
         'pageId' => 'getPageId',
         'fileId' => 'getFileId',
-        'menuId' => 'getMenuId'
+        'externalUrl' => 'getExternalUrl'
     );
 
     public static function getters()
@@ -146,10 +150,11 @@ class MenuItem implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
+        $this->container['parentItemId'] = isset($data['parentItemId']) ? $data['parentItemId'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['pageId'] = isset($data['pageId']) ? $data['pageId'] : null;
         $this->container['fileId'] = isset($data['fileId']) ? $data['fileId'] : null;
-        $this->container['menuId'] = isset($data['menuId']) ? $data['menuId'] : null;
+        $this->container['externalUrl'] = isset($data['externalUrl']) ? $data['externalUrl'] : null;
     }
 
     /**
@@ -197,22 +202,43 @@ class MenuItem implements ArrayAccess
     }
 
     /**
-     * Gets slug
+     * Gets parentItemId
      * @return string
      */
-    public function getSlug()
+    public function getParentItemId()
     {
-        return $this->container['slug'];
+        return $this->container['parentItemId'];
     }
 
     /**
-     * Sets slug
-     * @param string $slug
+     * Sets parentItemId
+     * @param string $parentItemId
      * @return $this
      */
-    public function setSlug($slug)
+    public function setParentItemId($parentItemId)
     {
-        $this->container['slug'] = $slug;
+        $this->container['parentItemId'] = $parentItemId;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -260,22 +286,22 @@ class MenuItem implements ArrayAccess
     }
 
     /**
-     * Gets menuId
+     * Gets externalUrl
      * @return string
      */
-    public function getMenuId()
+    public function getExternalUrl()
     {
-        return $this->container['menuId'];
+        return $this->container['externalUrl'];
     }
 
     /**
-     * Sets menuId
-     * @param string $menuId
+     * Sets externalUrl
+     * @param string $externalUrl
      * @return $this
      */
-    public function setMenuId($menuId)
+    public function setExternalUrl($externalUrl)
     {
-        $this->container['menuId'] = $menuId;
+        $this->container['externalUrl'] = $externalUrl;
 
         return $this;
     }
