@@ -219,13 +219,14 @@ class PagesApi
      * Lists organizations pages
      *
      * @param string $organizationId Organization id (required)
-     * @param string $parentId List parents child pages (optional)
+     * @param string $parentId Filter results by parent id (optional)
+     * @param string $path Filter results by page path (optional)
      * @return \KuntaAPI\Model\Page[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationPages($organizationId, $parentId = null)
+    public function listOrganizationPages($organizationId, $parentId = null, $path = null)
     {
-        list($response) = $this->listOrganizationPagesWithHttpInfo($organizationId, $parentId);
+        list($response) = $this->listOrganizationPagesWithHttpInfo($organizationId, $parentId, $path);
         return $response;
     }
 
@@ -235,11 +236,12 @@ class PagesApi
      * Lists organizations pages
      *
      * @param string $organizationId Organization id (required)
-     * @param string $parentId List parents child pages (optional)
+     * @param string $parentId Filter results by parent id (optional)
+     * @param string $path Filter results by page path (optional)
      * @return Array of \KuntaAPI\Model\Page[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationPagesWithHttpInfo($organizationId, $parentId = null)
+    public function listOrganizationPagesWithHttpInfo($organizationId, $parentId = null, $path = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -260,6 +262,10 @@ class PagesApi
         // query params
         if ($parentId !== null) {
             $queryParams['parentId'] = $this->apiClient->getSerializer()->toQueryValue($parentId);
+        }
+        // query params
+        if ($path !== null) {
+            $queryParams['path'] = $this->apiClient->getSerializer()->toQueryValue($path);
         }
         // path params
         if ($organizationId !== null) {

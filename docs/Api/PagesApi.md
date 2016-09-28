@@ -56,7 +56,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationPages**
-> \KuntaAPI\Model\Page[] listOrganizationPages($organizationId, $parentId)
+> \KuntaAPI\Model\Page[] listOrganizationPages($organizationId, $parentId, $path)
 
 Lists organizations pages
 
@@ -69,10 +69,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\PagesApi();
 $organizationId = "organizationId_example"; // string | Organization id
-$parentId = "parentId_example"; // string | List parents child pages
+$parentId = "parentId_example"; // string | Filter results by parent id
+$path = "path_example"; // string | Filter results by page path
 
 try {
-    $result = $api_instance->listOrganizationPages($organizationId, $parentId);
+    $result = $api_instance->listOrganizationPages($organizationId, $parentId, $path);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PagesApi->listOrganizationPages: ', $e->getMessage(), PHP_EOL;
@@ -85,7 +86,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
- **parentId** | **string**| List parents child pages | [optional]
+ **parentId** | **string**| Filter results by parent id | [optional]
+ **path** | **string**| Filter results by page path | [optional]
 
 ### Return type
 
