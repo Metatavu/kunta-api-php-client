@@ -5,6 +5,9 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findOrganizationPage**](PagesApi.md#findOrganizationPage) | **GET** /organizations/{organizationId}/pages/{pageId} | Finds organizations page
+[**findOrganizationPageImage**](PagesApi.md#findOrganizationPageImage) | **GET** /organizations/{organizationId}/pages/{pageId}/images/{imageId} | Returns a single organiztion page image
+[**getOrganizationPageImageData**](PagesApi.md#getOrganizationPageImageData) | **GET** /organizations/{organizationId}/pages/{pageId}/images/{imageId}/data | Returns an organization page image data
+[**listOrganizationPageImages**](PagesApi.md#listOrganizationPageImages) | **GET** /organizations/{organizationId}/pages/{pageId}/images | Returns a list of organization page images
 [**listOrganizationPages**](PagesApi.md#listOrganizationPages) | **GET** /organizations/{organizationId}/pages | Lists organizations pages
 
 
@@ -43,6 +46,153 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\KuntaAPI\Model\Page**](../Model/Page.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **findOrganizationPageImage**
+> \KuntaAPI\Model\Attachment findOrganizationPageImage($organizationId, $pageId, $imageId)
+
+Returns a single organiztion page image
+
+Returns a single organiztion page image
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new KuntaAPI\Api\PagesApi();
+$organizationId = "organizationId_example"; // string | Organization id
+$pageId = "pageId_example"; // string | Page Id
+$imageId = "imageId_example"; // string | Page image id
+
+try {
+    $result = $api_instance->findOrganizationPageImage($organizationId, $pageId, $imageId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PagesApi->findOrganizationPageImage: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| Organization id |
+ **pageId** | **string**| Page Id |
+ **imageId** | **string**| Page image id |
+
+### Return type
+
+[**\KuntaAPI\Model\Attachment**](../Model/Attachment.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getOrganizationPageImageData**
+> string getOrganizationPageImageData($organizationId, $pageId, $imageId, $size)
+
+Returns an organization page image data
+
+Returns an organization page image data
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new KuntaAPI\Api\PagesApi();
+$organizationId = "organizationId_example"; // string | Organization id
+$pageId = "pageId_example"; // string | Page id
+$imageId = "imageId_example"; // string | Page image id
+$size = 56; // int | Maximum width or height of image
+
+try {
+    $result = $api_instance->getOrganizationPageImageData($organizationId, $pageId, $imageId, $size);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PagesApi->getOrganizationPageImageData: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| Organization id |
+ **pageId** | **string**| Page id |
+ **imageId** | **string**| Page image id |
+ **size** | **int**| Maximum width or height of image | [optional]
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listOrganizationPageImages**
+> \KuntaAPI\Model\Attachment[] listOrganizationPageImages($organizationId, $pageId)
+
+Returns a list of organization page images
+
+Returns a list of organization page images
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new KuntaAPI\Api\PagesApi();
+$organizationId = "organizationId_example"; // string | Organization id
+$pageId = "pageId_example"; // string | Page id
+
+try {
+    $result = $api_instance->listOrganizationPageImages($organizationId, $pageId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PagesApi->listOrganizationPageImages: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| Organization id |
+ **pageId** | **string**| Page id |
+
+### Return type
+
+[**\KuntaAPI\Model\Attachment[]**](../Model/Attachment.md)
 
 ### Authorization
 
