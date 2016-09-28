@@ -5,6 +5,7 @@ All URIs are relative to *https://demo.kuntaapi.fi/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findOrganizationPage**](PagesApi.md#findOrganizationPage) | **GET** /organizations/{organizationId}/pages/{pageId} | Finds organizations page
+[**findOrganizationPageContent**](PagesApi.md#findOrganizationPageContent) | **GET** /organizations/{organizationId}/pages/{pageId}/content | Returns organizations page content in all available languages
 [**findOrganizationPageImage**](PagesApi.md#findOrganizationPageImage) | **GET** /organizations/{organizationId}/pages/{pageId}/images/{imageId} | Returns a single organiztion page image
 [**getOrganizationPageImageData**](PagesApi.md#getOrganizationPageImageData) | **GET** /organizations/{organizationId}/pages/{pageId}/images/{imageId}/data | Returns an organization page image data
 [**listOrganizationPageImages**](PagesApi.md#listOrganizationPageImages) | **GET** /organizations/{organizationId}/pages/{pageId}/images | Returns a list of organization page images
@@ -46,6 +47,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\KuntaAPI\Model\Page**](../Model/Page.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **findOrganizationPageContent**
+> \KuntaAPI\Model\LocalizedValue[] findOrganizationPageContent($organizationId, $pageId)
+
+Returns organizations page content in all available languages
+
+Returns single organization page content in all available languages
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new KuntaAPI\Api\PagesApi();
+$organizationId = "organizationId_example"; // string | Organization id
+$pageId = "pageId_example"; // string | page id
+
+try {
+    $result = $api_instance->findOrganizationPageContent($organizationId, $pageId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PagesApi->findOrganizationPageContent: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| Organization id |
+ **pageId** | **string**| page id |
+
+### Return type
+
+[**\KuntaAPI\Model\LocalizedValue[]**](../Model/LocalizedValue.md)
 
 ### Authorization
 

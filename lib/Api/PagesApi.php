@@ -214,6 +214,117 @@ class PagesApi
     }
 
     /**
+     * Operation findOrganizationPageContent
+     *
+     * Returns organizations page content in all available languages
+     *
+     * @param string $organizationId Organization id (required)
+     * @param string $pageId page id (required)
+     * @return \KuntaAPI\Model\LocalizedValue[]
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findOrganizationPageContent($organizationId, $pageId)
+    {
+        list($response) = $this->findOrganizationPageContentWithHttpInfo($organizationId, $pageId);
+        return $response;
+    }
+
+    /**
+     * Operation findOrganizationPageContentWithHttpInfo
+     *
+     * Returns organizations page content in all available languages
+     *
+     * @param string $organizationId Organization id (required)
+     * @param string $pageId page id (required)
+     * @return Array of \KuntaAPI\Model\LocalizedValue[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findOrganizationPageContentWithHttpInfo($organizationId, $pageId)
+    {
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationPageContent');
+        }
+        // verify the required parameter 'pageId' is set
+        if ($pageId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $pageId when calling findOrganizationPageContent');
+        }
+        // parse inputs
+        $resourcePath = "/organizations/{organizationId}/pages/{pageId}/content";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($organizationId !== null) {
+            $resourcePath = str_replace(
+                "{" . "organizationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($pageId !== null) {
+            $resourcePath = str_replace(
+                "{" . "pageId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($pageId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\LocalizedValue[]',
+                '/organizations/{organizationId}/pages/{pageId}/content'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\LocalizedValue[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\LocalizedValue[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation findOrganizationPageImage
      *
      * Returns a single organiztion page image

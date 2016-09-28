@@ -69,7 +69,6 @@ class Page implements ArrayAccess
         'id' => 'string',
         'slug' => 'string',
         'titles' => '\KuntaAPI\Model\LocalizedValue[]',
-        'contents' => '\KuntaAPI\Model\LocalizedValue[]',
         'parentId' => 'string'
     );
 
@@ -86,7 +85,6 @@ class Page implements ArrayAccess
         'id' => 'id',
         'slug' => 'slug',
         'titles' => 'titles',
-        'contents' => 'contents',
         'parentId' => 'parentId'
     );
 
@@ -103,7 +101,6 @@ class Page implements ArrayAccess
         'id' => 'setId',
         'slug' => 'setSlug',
         'titles' => 'setTitles',
-        'contents' => 'setContents',
         'parentId' => 'setParentId'
     );
 
@@ -120,7 +117,6 @@ class Page implements ArrayAccess
         'id' => 'getId',
         'slug' => 'getSlug',
         'titles' => 'getTitles',
-        'contents' => 'getContents',
         'parentId' => 'getParentId'
     );
 
@@ -148,7 +144,6 @@ class Page implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['titles'] = isset($data['titles']) ? $data['titles'] : null;
-        $this->container['contents'] = isset($data['contents']) ? $data['contents'] : null;
         $this->container['parentId'] = isset($data['parentId']) ? $data['parentId'] : null;
     }
 
@@ -234,27 +229,6 @@ class Page implements ArrayAccess
     public function setTitles($titles)
     {
         $this->container['titles'] = $titles;
-
-        return $this;
-    }
-
-    /**
-     * Gets contents
-     * @return \KuntaAPI\Model\LocalizedValue[]
-     */
-    public function getContents()
-    {
-        return $this->container['contents'];
-    }
-
-    /**
-     * Sets contents
-     * @param \KuntaAPI\Model\LocalizedValue[] $contents
-     * @return $this
-     */
-    public function setContents($contents)
-    {
-        $this->container['contents'] = $contents;
 
         return $this;
     }
