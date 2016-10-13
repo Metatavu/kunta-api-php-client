@@ -66,19 +66,14 @@ class ServiceHour implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'serviceHourType' => 'string',
-        'exceptionHourType' => 'string',
+        'type' => 'string',
         'validFrom' => '\DateTime',
         'validTo' => '\DateTime',
-        'monday' => 'bool',
-        'tuesday' => 'bool',
-        'wednesday' => 'bool',
-        'thursday' => 'bool',
-        'friday' => 'bool',
-        'saturday' => 'bool',
-        'sunday' => 'bool',
         'opens' => 'string',
-        'closes' => 'string'
+        'closes' => 'string',
+        'days' => 'int[]',
+        'status' => 'string',
+        'additionalInformation' => '\KuntaAPI\Model\LocalizedValue[]'
     );
 
     public static function swaggerTypes()
@@ -91,19 +86,14 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'serviceHourType' => 'serviceHourType',
-        'exceptionHourType' => 'exceptionHourType',
+        'type' => 'type',
         'validFrom' => 'validFrom',
         'validTo' => 'validTo',
-        'monday' => 'monday',
-        'tuesday' => 'tuesday',
-        'wednesday' => 'wednesday',
-        'thursday' => 'thursday',
-        'friday' => 'friday',
-        'saturday' => 'saturday',
-        'sunday' => 'sunday',
         'opens' => 'opens',
-        'closes' => 'closes'
+        'closes' => 'closes',
+        'days' => 'days',
+        'status' => 'status',
+        'additionalInformation' => 'additionalInformation'
     );
 
     public static function attributeMap()
@@ -116,19 +106,14 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'serviceHourType' => 'setServiceHourType',
-        'exceptionHourType' => 'setExceptionHourType',
+        'type' => 'setType',
         'validFrom' => 'setValidFrom',
         'validTo' => 'setValidTo',
-        'monday' => 'setMonday',
-        'tuesday' => 'setTuesday',
-        'wednesday' => 'setWednesday',
-        'thursday' => 'setThursday',
-        'friday' => 'setFriday',
-        'saturday' => 'setSaturday',
-        'sunday' => 'setSunday',
         'opens' => 'setOpens',
-        'closes' => 'setCloses'
+        'closes' => 'setCloses',
+        'days' => 'setDays',
+        'status' => 'setStatus',
+        'additionalInformation' => 'setAdditionalInformation'
     );
 
     public static function setters()
@@ -141,19 +126,14 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'serviceHourType' => 'getServiceHourType',
-        'exceptionHourType' => 'getExceptionHourType',
+        'type' => 'getType',
         'validFrom' => 'getValidFrom',
         'validTo' => 'getValidTo',
-        'monday' => 'getMonday',
-        'tuesday' => 'getTuesday',
-        'wednesday' => 'getWednesday',
-        'thursday' => 'getThursday',
-        'friday' => 'getFriday',
-        'saturday' => 'getSaturday',
-        'sunday' => 'getSunday',
         'opens' => 'getOpens',
-        'closes' => 'getCloses'
+        'closes' => 'getCloses',
+        'days' => 'getDays',
+        'status' => 'getStatus',
+        'additionalInformation' => 'getAdditionalInformation'
     );
 
     public static function getters()
@@ -177,19 +157,14 @@ class ServiceHour implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['serviceHourType'] = isset($data['serviceHourType']) ? $data['serviceHourType'] : null;
-        $this->container['exceptionHourType'] = isset($data['exceptionHourType']) ? $data['exceptionHourType'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['validFrom'] = isset($data['validFrom']) ? $data['validFrom'] : null;
         $this->container['validTo'] = isset($data['validTo']) ? $data['validTo'] : null;
-        $this->container['monday'] = isset($data['monday']) ? $data['monday'] : null;
-        $this->container['tuesday'] = isset($data['tuesday']) ? $data['tuesday'] : null;
-        $this->container['wednesday'] = isset($data['wednesday']) ? $data['wednesday'] : null;
-        $this->container['thursday'] = isset($data['thursday']) ? $data['thursday'] : null;
-        $this->container['friday'] = isset($data['friday']) ? $data['friday'] : null;
-        $this->container['saturday'] = isset($data['saturday']) ? $data['saturday'] : null;
-        $this->container['sunday'] = isset($data['sunday']) ? $data['sunday'] : null;
         $this->container['opens'] = isset($data['opens']) ? $data['opens'] : null;
         $this->container['closes'] = isset($data['closes']) ? $data['closes'] : null;
+        $this->container['days'] = isset($data['days']) ? $data['days'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['additionalInformation'] = isset($data['additionalInformation']) ? $data['additionalInformation'] : null;
     }
 
     /**
@@ -216,43 +191,22 @@ class ServiceHour implements ArrayAccess
 
 
     /**
-     * Gets serviceHourType
+     * Gets type
      * @return string
      */
-    public function getServiceHourType()
+    public function getType()
     {
-        return $this->container['serviceHourType'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets serviceHourType
-     * @param string $serviceHourType
+     * Sets type
+     * @param string $type
      * @return $this
      */
-    public function setServiceHourType($serviceHourType)
+    public function setType($type)
     {
-        $this->container['serviceHourType'] = $serviceHourType;
-
-        return $this;
-    }
-
-    /**
-     * Gets exceptionHourType
-     * @return string
-     */
-    public function getExceptionHourType()
-    {
-        return $this->container['exceptionHourType'];
-    }
-
-    /**
-     * Sets exceptionHourType
-     * @param string $exceptionHourType
-     * @return $this
-     */
-    public function setExceptionHourType($exceptionHourType)
-    {
-        $this->container['exceptionHourType'] = $exceptionHourType;
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -300,153 +254,6 @@ class ServiceHour implements ArrayAccess
     }
 
     /**
-     * Gets monday
-     * @return bool
-     */
-    public function getMonday()
-    {
-        return $this->container['monday'];
-    }
-
-    /**
-     * Sets monday
-     * @param bool $monday
-     * @return $this
-     */
-    public function setMonday($monday)
-    {
-        $this->container['monday'] = $monday;
-
-        return $this;
-    }
-
-    /**
-     * Gets tuesday
-     * @return bool
-     */
-    public function getTuesday()
-    {
-        return $this->container['tuesday'];
-    }
-
-    /**
-     * Sets tuesday
-     * @param bool $tuesday
-     * @return $this
-     */
-    public function setTuesday($tuesday)
-    {
-        $this->container['tuesday'] = $tuesday;
-
-        return $this;
-    }
-
-    /**
-     * Gets wednesday
-     * @return bool
-     */
-    public function getWednesday()
-    {
-        return $this->container['wednesday'];
-    }
-
-    /**
-     * Sets wednesday
-     * @param bool $wednesday
-     * @return $this
-     */
-    public function setWednesday($wednesday)
-    {
-        $this->container['wednesday'] = $wednesday;
-
-        return $this;
-    }
-
-    /**
-     * Gets thursday
-     * @return bool
-     */
-    public function getThursday()
-    {
-        return $this->container['thursday'];
-    }
-
-    /**
-     * Sets thursday
-     * @param bool $thursday
-     * @return $this
-     */
-    public function setThursday($thursday)
-    {
-        $this->container['thursday'] = $thursday;
-
-        return $this;
-    }
-
-    /**
-     * Gets friday
-     * @return bool
-     */
-    public function getFriday()
-    {
-        return $this->container['friday'];
-    }
-
-    /**
-     * Sets friday
-     * @param bool $friday
-     * @return $this
-     */
-    public function setFriday($friday)
-    {
-        $this->container['friday'] = $friday;
-
-        return $this;
-    }
-
-    /**
-     * Gets saturday
-     * @return bool
-     */
-    public function getSaturday()
-    {
-        return $this->container['saturday'];
-    }
-
-    /**
-     * Sets saturday
-     * @param bool $saturday
-     * @return $this
-     */
-    public function setSaturday($saturday)
-    {
-        $this->container['saturday'] = $saturday;
-
-        return $this;
-    }
-
-    /**
-     * Gets sunday
-     * @return bool
-     */
-    public function getSunday()
-    {
-        return $this->container['sunday'];
-    }
-
-    /**
-     * Sets sunday
-     * @param bool $sunday
-     * @return $this
-     */
-    public function setSunday($sunday)
-    {
-        $this->container['sunday'] = $sunday;
-
-        return $this;
-    }
-
-    /**
      * Gets opens
      * @return string
      */
@@ -484,6 +291,69 @@ class ServiceHour implements ArrayAccess
     public function setCloses($closes)
     {
         $this->container['closes'] = $closes;
+
+        return $this;
+    }
+
+    /**
+     * Gets days
+     * @return int[]
+     */
+    public function getDays()
+    {
+        return $this->container['days'];
+    }
+
+    /**
+     * Sets days
+     * @param int[] $days
+     * @return $this
+     */
+    public function setDays($days)
+    {
+        $this->container['days'] = $days;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param string $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionalInformation
+     * @return \KuntaAPI\Model\LocalizedValue[]
+     */
+    public function getAdditionalInformation()
+    {
+        return $this->container['additionalInformation'];
+    }
+
+    /**
+     * Sets additionalInformation
+     * @param \KuntaAPI\Model\LocalizedValue[] $additionalInformation
+     * @return $this
+     */
+    public function setAdditionalInformation($additionalInformation)
+    {
+        $this->container['additionalInformation'] = $additionalInformation;
 
         return $this;
     }

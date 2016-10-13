@@ -1,6 +1,6 @@
 <?php
 /**
- * ServiceChannelAttachment
+ * OrganizationService
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * ServiceChannelAttachment Class Doc Comment
+ * OrganizationService Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,24 +53,25 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ServiceChannelAttachment implements ArrayAccess
+class OrganizationService implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ServiceChannelAttachment';
+    protected static $swaggerModelName = 'OrganizationService';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'type' => 'string',
-        'name' => 'string',
-        'description' => 'string',
-        'url' => 'string',
-        'language' => 'string'
+        'serviceId' => 'string',
+        'organizationId' => 'string',
+        'roleType' => 'string',
+        'provisionType' => 'string',
+        'additionalInformation' => '\KuntaAPI\Model\LocalizedValue[]',
+        'webPages' => '\KuntaAPI\Model\WebPage[]'
     );
 
     public static function swaggerTypes()
@@ -83,11 +84,12 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'type' => 'type',
-        'name' => 'name',
-        'description' => 'description',
-        'url' => 'url',
-        'language' => 'language'
+        'serviceId' => 'serviceId',
+        'organizationId' => 'organizationId',
+        'roleType' => 'roleType',
+        'provisionType' => 'provisionType',
+        'additionalInformation' => 'additionalInformation',
+        'webPages' => 'webPages'
     );
 
     public static function attributeMap()
@@ -100,11 +102,12 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'type' => 'setType',
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'url' => 'setUrl',
-        'language' => 'setLanguage'
+        'serviceId' => 'setServiceId',
+        'organizationId' => 'setOrganizationId',
+        'roleType' => 'setRoleType',
+        'provisionType' => 'setProvisionType',
+        'additionalInformation' => 'setAdditionalInformation',
+        'webPages' => 'setWebPages'
     );
 
     public static function setters()
@@ -117,11 +120,12 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'type' => 'getType',
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'url' => 'getUrl',
-        'language' => 'getLanguage'
+        'serviceId' => 'getServiceId',
+        'organizationId' => 'getOrganizationId',
+        'roleType' => 'getRoleType',
+        'provisionType' => 'getProvisionType',
+        'additionalInformation' => 'getAdditionalInformation',
+        'webPages' => 'getWebPages'
     );
 
     public static function getters()
@@ -145,11 +149,12 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['serviceId'] = isset($data['serviceId']) ? $data['serviceId'] : null;
+        $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
+        $this->container['roleType'] = isset($data['roleType']) ? $data['roleType'] : null;
+        $this->container['provisionType'] = isset($data['provisionType']) ? $data['provisionType'] : null;
+        $this->container['additionalInformation'] = isset($data['additionalInformation']) ? $data['additionalInformation'] : null;
+        $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
     }
 
     /**
@@ -160,18 +165,6 @@ class ServiceChannelAttachment implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 100)) {
-            $invalid_properties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 150)) {
-            $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 150.";
-        }
-
-        if (!is_null($this->container['url']) && (strlen($this->container['url']) > 500)) {
-            $invalid_properties[] = "invalid value for 'url', the character length must be smaller than or equal to 500.";
-        }
-
         return $invalid_properties;
     }
 
@@ -183,129 +176,132 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function valid()
     {
-        if (strlen($this->container['name']) > 100) {
-            return false;
-        }
-        if (strlen($this->container['description']) > 150) {
-            return false;
-        }
-        if (strlen($this->container['url']) > 500) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets type
+     * Gets serviceId
      * @return string
      */
-    public function getType()
+    public function getServiceId()
     {
-        return $this->container['type'];
+        return $this->container['serviceId'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets serviceId
+     * @param string $serviceId
      * @return $this
      */
-    public function setType($type)
+    public function setServiceId($serviceId)
     {
-        $this->container['type'] = $type;
+        $this->container['serviceId'] = $serviceId;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets organizationId
      * @return string
      */
-    public function getName()
+    public function getOrganizationId()
     {
-        return $this->container['name'];
+        return $this->container['organizationId'];
     }
 
     /**
-     * Sets name
-     * @param string $name
+     * Sets organizationId
+     * @param string $organizationId
      * @return $this
      */
-    public function setName($name)
+    public function setOrganizationId($organizationId)
     {
-        if (strlen($name) > 100) {
-            throw new \InvalidArgumentException('invalid length for $name when calling ServiceChannelAttachment., must be smaller than or equal to 100.');
-        }
-        $this->container['name'] = $name;
+        $this->container['organizationId'] = $organizationId;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets roleType
      * @return string
      */
-    public function getDescription()
+    public function getRoleType()
     {
-        return $this->container['description'];
+        return $this->container['roleType'];
     }
 
     /**
-     * Sets description
-     * @param string $description
+     * Sets roleType
+     * @param string $roleType
      * @return $this
      */
-    public function setDescription($description)
+    public function setRoleType($roleType)
     {
-        if (strlen($description) > 150) {
-            throw new \InvalidArgumentException('invalid length for $description when calling ServiceChannelAttachment., must be smaller than or equal to 150.');
-        }
-        $this->container['description'] = $description;
+        $this->container['roleType'] = $roleType;
 
         return $this;
     }
 
     /**
-     * Gets url
+     * Gets provisionType
      * @return string
      */
-    public function getUrl()
+    public function getProvisionType()
     {
-        return $this->container['url'];
+        return $this->container['provisionType'];
     }
 
     /**
-     * Sets url
-     * @param string $url
+     * Sets provisionType
+     * @param string $provisionType
      * @return $this
      */
-    public function setUrl($url)
+    public function setProvisionType($provisionType)
     {
-        if (strlen($url) > 500) {
-            throw new \InvalidArgumentException('invalid length for $url when calling ServiceChannelAttachment., must be smaller than or equal to 500.');
-        }
-        $this->container['url'] = $url;
+        $this->container['provisionType'] = $provisionType;
 
         return $this;
     }
 
     /**
-     * Gets language
-     * @return string
+     * Gets additionalInformation
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
-    public function getLanguage()
+    public function getAdditionalInformation()
     {
-        return $this->container['language'];
+        return $this->container['additionalInformation'];
     }
 
     /**
-     * Sets language
-     * @param string $language
+     * Sets additionalInformation
+     * @param \KuntaAPI\Model\LocalizedValue[] $additionalInformation
      * @return $this
      */
-    public function setLanguage($language)
+    public function setAdditionalInformation($additionalInformation)
     {
-        $this->container['language'] = $language;
+        $this->container['additionalInformation'] = $additionalInformation;
+
+        return $this;
+    }
+
+    /**
+     * Gets webPages
+     * @return \KuntaAPI\Model\WebPage[]
+     */
+    public function getWebPages()
+    {
+        return $this->container['webPages'];
+    }
+
+    /**
+     * Sets webPages
+     * @param \KuntaAPI\Model\WebPage[] $webPages
+     * @return $this
+     */
+    public function setWebPages($webPages)
+    {
+        $this->container['webPages'] = $webPages;
 
         return $this;
     }

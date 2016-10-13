@@ -1,6 +1,6 @@
 <?php
 /**
- * ServiceChannelAttachment
+ * SupportContact
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * ServiceChannelAttachment Class Doc Comment
+ * SupportContact Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,24 +53,24 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ServiceChannelAttachment implements ArrayAccess
+class SupportContact implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ServiceChannelAttachment';
+    protected static $swaggerModelName = 'SupportContact';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'type' => 'string',
-        'name' => 'string',
-        'description' => 'string',
-        'url' => 'string',
-        'language' => 'string'
+        'email' => 'string',
+        'phone' => 'string',
+        'phoneChargeDescription' => 'string',
+        'language' => 'string',
+        'serviceChargeTypes' => 'string[]'
     );
 
     public static function swaggerTypes()
@@ -83,11 +83,11 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'type' => 'type',
-        'name' => 'name',
-        'description' => 'description',
-        'url' => 'url',
-        'language' => 'language'
+        'email' => 'email',
+        'phone' => 'phone',
+        'phoneChargeDescription' => 'phoneChargeDescription',
+        'language' => 'language',
+        'serviceChargeTypes' => 'serviceChargeTypes'
     );
 
     public static function attributeMap()
@@ -100,11 +100,11 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'type' => 'setType',
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'url' => 'setUrl',
-        'language' => 'setLanguage'
+        'email' => 'setEmail',
+        'phone' => 'setPhone',
+        'phoneChargeDescription' => 'setPhoneChargeDescription',
+        'language' => 'setLanguage',
+        'serviceChargeTypes' => 'setServiceChargeTypes'
     );
 
     public static function setters()
@@ -117,11 +117,11 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'type' => 'getType',
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'url' => 'getUrl',
-        'language' => 'getLanguage'
+        'email' => 'getEmail',
+        'phone' => 'getPhone',
+        'phoneChargeDescription' => 'getPhoneChargeDescription',
+        'language' => 'getLanguage',
+        'serviceChargeTypes' => 'getServiceChargeTypes'
     );
 
     public static function getters()
@@ -145,11 +145,11 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['phoneChargeDescription'] = isset($data['phoneChargeDescription']) ? $data['phoneChargeDescription'] : null;
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['serviceChargeTypes'] = isset($data['serviceChargeTypes']) ? $data['serviceChargeTypes'] : null;
     }
 
     /**
@@ -160,18 +160,6 @@ class ServiceChannelAttachment implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 100)) {
-            $invalid_properties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 150)) {
-            $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 150.";
-        }
-
-        if (!is_null($this->container['url']) && (strlen($this->container['url']) > 500)) {
-            $invalid_properties[] = "invalid value for 'url', the character length must be smaller than or equal to 500.";
-        }
-
         return $invalid_properties;
     }
 
@@ -183,108 +171,69 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function valid()
     {
-        if (strlen($this->container['name']) > 100) {
-            return false;
-        }
-        if (strlen($this->container['description']) > 150) {
-            return false;
-        }
-        if (strlen($this->container['url']) > 500) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets type
+     * Gets email
      * @return string
      */
-    public function getType()
+    public function getEmail()
     {
-        return $this->container['type'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets email
+     * @param string $email
      * @return $this
      */
-    public function setType($type)
+    public function setEmail($email)
     {
-        $this->container['type'] = $type;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets phone
      * @return string
      */
-    public function getName()
+    public function getPhone()
     {
-        return $this->container['name'];
+        return $this->container['phone'];
     }
 
     /**
-     * Sets name
-     * @param string $name
+     * Sets phone
+     * @param string $phone
      * @return $this
      */
-    public function setName($name)
+    public function setPhone($phone)
     {
-        if (strlen($name) > 100) {
-            throw new \InvalidArgumentException('invalid length for $name when calling ServiceChannelAttachment., must be smaller than or equal to 100.');
-        }
-        $this->container['name'] = $name;
+        $this->container['phone'] = $phone;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets phoneChargeDescription
      * @return string
      */
-    public function getDescription()
+    public function getPhoneChargeDescription()
     {
-        return $this->container['description'];
+        return $this->container['phoneChargeDescription'];
     }
 
     /**
-     * Sets description
-     * @param string $description
+     * Sets phoneChargeDescription
+     * @param string $phoneChargeDescription
      * @return $this
      */
-    public function setDescription($description)
+    public function setPhoneChargeDescription($phoneChargeDescription)
     {
-        if (strlen($description) > 150) {
-            throw new \InvalidArgumentException('invalid length for $description when calling ServiceChannelAttachment., must be smaller than or equal to 150.');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     * @param string $url
-     * @return $this
-     */
-    public function setUrl($url)
-    {
-        if (strlen($url) > 500) {
-            throw new \InvalidArgumentException('invalid length for $url when calling ServiceChannelAttachment., must be smaller than or equal to 500.');
-        }
-        $this->container['url'] = $url;
+        $this->container['phoneChargeDescription'] = $phoneChargeDescription;
 
         return $this;
     }
@@ -306,6 +255,27 @@ class ServiceChannelAttachment implements ArrayAccess
     public function setLanguage($language)
     {
         $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets serviceChargeTypes
+     * @return string[]
+     */
+    public function getServiceChargeTypes()
+    {
+        return $this->container['serviceChargeTypes'];
+    }
+
+    /**
+     * Sets serviceChargeTypes
+     * @param string[] $serviceChargeTypes
+     * @return $this
+     */
+    public function setServiceChargeTypes($serviceChargeTypes)
+    {
+        $this->container['serviceChargeTypes'] = $serviceChargeTypes;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationsApi
+ * OrganizationServicesApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \KuntaAPI\ApiException;
 use \KuntaAPI\ObjectSerializer;
 
 /**
- * OrganizationsApi Class Doc Comment
+ * OrganizationServicesApi Class Doc Comment
  *
  * @category Class
  * @package  KuntaAPI
@@ -54,7 +54,7 @@ use \KuntaAPI\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrganizationsApi
+class OrganizationServicesApi
 {
 
     /**
@@ -94,7 +94,7 @@ class OrganizationsApi
      *
      * @param \KuntaAPI\ApiClient $apiClient set the API client
      *
-     * @return OrganizationsApi
+     * @return OrganizationServicesApi
      */
     public function setApiClient(\KuntaAPI\ApiClient $apiClient)
     {
@@ -426,101 +426,6 @@ class OrganizationsApi
                     break;
                 case 404:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listOrganizations
-     *
-     * List organizations
-     *
-     * @param string $businessName Filter by organization&#39;s business name (optional)
-     * @param string $businessCode Filter by organization&#39;s business code (optional)
-     * @return \KuntaAPI\Model\Organization[]
-     * @throws \KuntaAPI\ApiException on non-2xx response
-     */
-    public function listOrganizations($businessName = null, $businessCode = null)
-    {
-        list($response) = $this->listOrganizationsWithHttpInfo($businessName, $businessCode);
-        return $response;
-    }
-
-    /**
-     * Operation listOrganizationsWithHttpInfo
-     *
-     * List organizations
-     *
-     * @param string $businessName Filter by organization&#39;s business name (optional)
-     * @param string $businessCode Filter by organization&#39;s business code (optional)
-     * @return Array of \KuntaAPI\Model\Organization[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \KuntaAPI\ApiException on non-2xx response
-     */
-    public function listOrganizationsWithHttpInfo($businessName = null, $businessCode = null)
-    {
-        // parse inputs
-        $resourcePath = "/organizations";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
-
-        // query params
-        if ($businessName !== null) {
-            $queryParams['businessName'] = $this->apiClient->getSerializer()->toQueryValue($businessName);
-        }
-        // query params
-        if ($businessCode !== null) {
-            $queryParams['businessCode'] = $this->apiClient->getSerializer()->toQueryValue($businessCode);
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\KuntaAPI\Model\Organization[]',
-                '/organizations'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Organization[]', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Organization[]', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:

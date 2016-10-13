@@ -1,6 +1,6 @@
 <?php
 /**
- * Service
+ * PhoneChannel
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * Service Class Doc Comment
+ * PhoneChannel Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Service implements ArrayAccess
+class PhoneChannel implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Service';
+    protected static $swaggerModelName = 'PhoneChannel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -68,23 +68,18 @@ class Service implements ArrayAccess
     protected static $swaggerTypes = array(
         'id' => 'string',
         'type' => 'string',
-        'statutoryDescriptionId' => 'string',
-        'serviceClasses' => '\KuntaAPI\Model\OntologyItem[]',
-        'ontologyTerms' => '\KuntaAPI\Model\OntologyItem[]',
-        'targetGroups' => '\KuntaAPI\Model\OntologyItem[]',
-        'lifeEvents' => '\KuntaAPI\Model\OntologyItem[]',
-        'industrialClasses' => '\KuntaAPI\Model\OntologyItem[]',
+        'organizationId' => 'string',
         'names' => '\KuntaAPI\Model\LocalizedValue[]',
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
+        'phoneType' => 'string',
+        'chargeTypes' => 'string[]',
+        'supportContacts' => '\KuntaAPI\Model\SupportContact[]',
+        'phoneNumbers' => '\KuntaAPI\Model\LocalizedValue[]',
         'languages' => 'string[]',
-        'keywords' => 'string[]',
-        'coverageType' => 'string',
-        'municipalities' => 'string[]',
+        'phoneChargeDescriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'webPages' => '\KuntaAPI\Model\WebPage[]',
-        'requirements' => '\KuntaAPI\Model\LocalizedValue[]',
-        'publishingStatus' => 'string',
-        'chargeType' => 'string',
-        'additionalInformations' => '\KuntaAPI\Model\LocalizedValue[]'
+        'serviceHours' => '\KuntaAPI\Model\ServiceHour[]',
+        'publishingStatus' => 'string'
     );
 
     public static function swaggerTypes()
@@ -99,23 +94,18 @@ class Service implements ArrayAccess
     protected static $attributeMap = array(
         'id' => 'id',
         'type' => 'type',
-        'statutoryDescriptionId' => 'statutoryDescriptionId',
-        'serviceClasses' => 'serviceClasses',
-        'ontologyTerms' => 'ontologyTerms',
-        'targetGroups' => 'targetGroups',
-        'lifeEvents' => 'lifeEvents',
-        'industrialClasses' => 'industrialClasses',
+        'organizationId' => 'organizationId',
         'names' => 'names',
         'descriptions' => 'descriptions',
+        'phoneType' => 'phoneType',
+        'chargeTypes' => 'chargeTypes',
+        'supportContacts' => 'supportContacts',
+        'phoneNumbers' => 'phoneNumbers',
         'languages' => 'languages',
-        'keywords' => 'keywords',
-        'coverageType' => 'coverageType',
-        'municipalities' => 'municipalities',
+        'phoneChargeDescriptions' => 'phoneChargeDescriptions',
         'webPages' => 'webPages',
-        'requirements' => 'requirements',
-        'publishingStatus' => 'publishingStatus',
-        'chargeType' => 'chargeType',
-        'additionalInformations' => 'additionalInformations'
+        'serviceHours' => 'serviceHours',
+        'publishingStatus' => 'publishingStatus'
     );
 
     public static function attributeMap()
@@ -130,23 +120,18 @@ class Service implements ArrayAccess
     protected static $setters = array(
         'id' => 'setId',
         'type' => 'setType',
-        'statutoryDescriptionId' => 'setStatutoryDescriptionId',
-        'serviceClasses' => 'setServiceClasses',
-        'ontologyTerms' => 'setOntologyTerms',
-        'targetGroups' => 'setTargetGroups',
-        'lifeEvents' => 'setLifeEvents',
-        'industrialClasses' => 'setIndustrialClasses',
+        'organizationId' => 'setOrganizationId',
         'names' => 'setNames',
         'descriptions' => 'setDescriptions',
+        'phoneType' => 'setPhoneType',
+        'chargeTypes' => 'setChargeTypes',
+        'supportContacts' => 'setSupportContacts',
+        'phoneNumbers' => 'setPhoneNumbers',
         'languages' => 'setLanguages',
-        'keywords' => 'setKeywords',
-        'coverageType' => 'setCoverageType',
-        'municipalities' => 'setMunicipalities',
+        'phoneChargeDescriptions' => 'setPhoneChargeDescriptions',
         'webPages' => 'setWebPages',
-        'requirements' => 'setRequirements',
-        'publishingStatus' => 'setPublishingStatus',
-        'chargeType' => 'setChargeType',
-        'additionalInformations' => 'setAdditionalInformations'
+        'serviceHours' => 'setServiceHours',
+        'publishingStatus' => 'setPublishingStatus'
     );
 
     public static function setters()
@@ -161,23 +146,18 @@ class Service implements ArrayAccess
     protected static $getters = array(
         'id' => 'getId',
         'type' => 'getType',
-        'statutoryDescriptionId' => 'getStatutoryDescriptionId',
-        'serviceClasses' => 'getServiceClasses',
-        'ontologyTerms' => 'getOntologyTerms',
-        'targetGroups' => 'getTargetGroups',
-        'lifeEvents' => 'getLifeEvents',
-        'industrialClasses' => 'getIndustrialClasses',
+        'organizationId' => 'getOrganizationId',
         'names' => 'getNames',
         'descriptions' => 'getDescriptions',
+        'phoneType' => 'getPhoneType',
+        'chargeTypes' => 'getChargeTypes',
+        'supportContacts' => 'getSupportContacts',
+        'phoneNumbers' => 'getPhoneNumbers',
         'languages' => 'getLanguages',
-        'keywords' => 'getKeywords',
-        'coverageType' => 'getCoverageType',
-        'municipalities' => 'getMunicipalities',
+        'phoneChargeDescriptions' => 'getPhoneChargeDescriptions',
         'webPages' => 'getWebPages',
-        'requirements' => 'getRequirements',
-        'publishingStatus' => 'getPublishingStatus',
-        'chargeType' => 'getChargeType',
-        'additionalInformations' => 'getAdditionalInformations'
+        'serviceHours' => 'getServiceHours',
+        'publishingStatus' => 'getPublishingStatus'
     );
 
     public static function getters()
@@ -203,23 +183,18 @@ class Service implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['statutoryDescriptionId'] = isset($data['statutoryDescriptionId']) ? $data['statutoryDescriptionId'] : null;
-        $this->container['serviceClasses'] = isset($data['serviceClasses']) ? $data['serviceClasses'] : null;
-        $this->container['ontologyTerms'] = isset($data['ontologyTerms']) ? $data['ontologyTerms'] : null;
-        $this->container['targetGroups'] = isset($data['targetGroups']) ? $data['targetGroups'] : null;
-        $this->container['lifeEvents'] = isset($data['lifeEvents']) ? $data['lifeEvents'] : null;
-        $this->container['industrialClasses'] = isset($data['industrialClasses']) ? $data['industrialClasses'] : null;
+        $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['names'] = isset($data['names']) ? $data['names'] : null;
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
+        $this->container['phoneType'] = isset($data['phoneType']) ? $data['phoneType'] : null;
+        $this->container['chargeTypes'] = isset($data['chargeTypes']) ? $data['chargeTypes'] : null;
+        $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
+        $this->container['phoneNumbers'] = isset($data['phoneNumbers']) ? $data['phoneNumbers'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
-        $this->container['keywords'] = isset($data['keywords']) ? $data['keywords'] : null;
-        $this->container['coverageType'] = isset($data['coverageType']) ? $data['coverageType'] : null;
-        $this->container['municipalities'] = isset($data['municipalities']) ? $data['municipalities'] : null;
+        $this->container['phoneChargeDescriptions'] = isset($data['phoneChargeDescriptions']) ? $data['phoneChargeDescriptions'] : null;
         $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
-        $this->container['requirements'] = isset($data['requirements']) ? $data['requirements'] : null;
+        $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
         $this->container['publishingStatus'] = isset($data['publishingStatus']) ? $data['publishingStatus'] : null;
-        $this->container['chargeType'] = isset($data['chargeType']) ? $data['chargeType'] : null;
-        $this->container['additionalInformations'] = isset($data['additionalInformations']) ? $data['additionalInformations'] : null;
     }
 
     /**
@@ -288,127 +263,22 @@ class Service implements ArrayAccess
     }
 
     /**
-     * Gets statutoryDescriptionId
+     * Gets organizationId
      * @return string
      */
-    public function getStatutoryDescriptionId()
+    public function getOrganizationId()
     {
-        return $this->container['statutoryDescriptionId'];
+        return $this->container['organizationId'];
     }
 
     /**
-     * Sets statutoryDescriptionId
-     * @param string $statutoryDescriptionId
+     * Sets organizationId
+     * @param string $organizationId
      * @return $this
      */
-    public function setStatutoryDescriptionId($statutoryDescriptionId)
+    public function setOrganizationId($organizationId)
     {
-        $this->container['statutoryDescriptionId'] = $statutoryDescriptionId;
-
-        return $this;
-    }
-
-    /**
-     * Gets serviceClasses
-     * @return \KuntaAPI\Model\OntologyItem[]
-     */
-    public function getServiceClasses()
-    {
-        return $this->container['serviceClasses'];
-    }
-
-    /**
-     * Sets serviceClasses
-     * @param \KuntaAPI\Model\OntologyItem[] $serviceClasses
-     * @return $this
-     */
-    public function setServiceClasses($serviceClasses)
-    {
-        $this->container['serviceClasses'] = $serviceClasses;
-
-        return $this;
-    }
-
-    /**
-     * Gets ontologyTerms
-     * @return \KuntaAPI\Model\OntologyItem[]
-     */
-    public function getOntologyTerms()
-    {
-        return $this->container['ontologyTerms'];
-    }
-
-    /**
-     * Sets ontologyTerms
-     * @param \KuntaAPI\Model\OntologyItem[] $ontologyTerms
-     * @return $this
-     */
-    public function setOntologyTerms($ontologyTerms)
-    {
-        $this->container['ontologyTerms'] = $ontologyTerms;
-
-        return $this;
-    }
-
-    /**
-     * Gets targetGroups
-     * @return \KuntaAPI\Model\OntologyItem[]
-     */
-    public function getTargetGroups()
-    {
-        return $this->container['targetGroups'];
-    }
-
-    /**
-     * Sets targetGroups
-     * @param \KuntaAPI\Model\OntologyItem[] $targetGroups
-     * @return $this
-     */
-    public function setTargetGroups($targetGroups)
-    {
-        $this->container['targetGroups'] = $targetGroups;
-
-        return $this;
-    }
-
-    /**
-     * Gets lifeEvents
-     * @return \KuntaAPI\Model\OntologyItem[]
-     */
-    public function getLifeEvents()
-    {
-        return $this->container['lifeEvents'];
-    }
-
-    /**
-     * Sets lifeEvents
-     * @param \KuntaAPI\Model\OntologyItem[] $lifeEvents
-     * @return $this
-     */
-    public function setLifeEvents($lifeEvents)
-    {
-        $this->container['lifeEvents'] = $lifeEvents;
-
-        return $this;
-    }
-
-    /**
-     * Gets industrialClasses
-     * @return \KuntaAPI\Model\OntologyItem[]
-     */
-    public function getIndustrialClasses()
-    {
-        return $this->container['industrialClasses'];
-    }
-
-    /**
-     * Sets industrialClasses
-     * @param \KuntaAPI\Model\OntologyItem[] $industrialClasses
-     * @return $this
-     */
-    public function setIndustrialClasses($industrialClasses)
-    {
-        $this->container['industrialClasses'] = $industrialClasses;
+        $this->container['organizationId'] = $organizationId;
 
         return $this;
     }
@@ -456,6 +326,90 @@ class Service implements ArrayAccess
     }
 
     /**
+     * Gets phoneType
+     * @return string
+     */
+    public function getPhoneType()
+    {
+        return $this->container['phoneType'];
+    }
+
+    /**
+     * Sets phoneType
+     * @param string $phoneType
+     * @return $this
+     */
+    public function setPhoneType($phoneType)
+    {
+        $this->container['phoneType'] = $phoneType;
+
+        return $this;
+    }
+
+    /**
+     * Gets chargeTypes
+     * @return string[]
+     */
+    public function getChargeTypes()
+    {
+        return $this->container['chargeTypes'];
+    }
+
+    /**
+     * Sets chargeTypes
+     * @param string[] $chargeTypes
+     * @return $this
+     */
+    public function setChargeTypes($chargeTypes)
+    {
+        $this->container['chargeTypes'] = $chargeTypes;
+
+        return $this;
+    }
+
+    /**
+     * Gets supportContacts
+     * @return \KuntaAPI\Model\SupportContact[]
+     */
+    public function getSupportContacts()
+    {
+        return $this->container['supportContacts'];
+    }
+
+    /**
+     * Sets supportContacts
+     * @param \KuntaAPI\Model\SupportContact[] $supportContacts
+     * @return $this
+     */
+    public function setSupportContacts($supportContacts)
+    {
+        $this->container['supportContacts'] = $supportContacts;
+
+        return $this;
+    }
+
+    /**
+     * Gets phoneNumbers
+     * @return \KuntaAPI\Model\LocalizedValue[]
+     */
+    public function getPhoneNumbers()
+    {
+        return $this->container['phoneNumbers'];
+    }
+
+    /**
+     * Sets phoneNumbers
+     * @param \KuntaAPI\Model\LocalizedValue[] $phoneNumbers
+     * @return $this
+     */
+    public function setPhoneNumbers($phoneNumbers)
+    {
+        $this->container['phoneNumbers'] = $phoneNumbers;
+
+        return $this;
+    }
+
+    /**
      * Gets languages
      * @return string[]
      */
@@ -477,64 +431,22 @@ class Service implements ArrayAccess
     }
 
     /**
-     * Gets keywords
-     * @return string[]
+     * Gets phoneChargeDescriptions
+     * @return \KuntaAPI\Model\LocalizedValue[]
      */
-    public function getKeywords()
+    public function getPhoneChargeDescriptions()
     {
-        return $this->container['keywords'];
+        return $this->container['phoneChargeDescriptions'];
     }
 
     /**
-     * Sets keywords
-     * @param string[] $keywords
+     * Sets phoneChargeDescriptions
+     * @param \KuntaAPI\Model\LocalizedValue[] $phoneChargeDescriptions
      * @return $this
      */
-    public function setKeywords($keywords)
+    public function setPhoneChargeDescriptions($phoneChargeDescriptions)
     {
-        $this->container['keywords'] = $keywords;
-
-        return $this;
-    }
-
-    /**
-     * Gets coverageType
-     * @return string
-     */
-    public function getCoverageType()
-    {
-        return $this->container['coverageType'];
-    }
-
-    /**
-     * Sets coverageType
-     * @param string $coverageType
-     * @return $this
-     */
-    public function setCoverageType($coverageType)
-    {
-        $this->container['coverageType'] = $coverageType;
-
-        return $this;
-    }
-
-    /**
-     * Gets municipalities
-     * @return string[]
-     */
-    public function getMunicipalities()
-    {
-        return $this->container['municipalities'];
-    }
-
-    /**
-     * Sets municipalities
-     * @param string[] $municipalities
-     * @return $this
-     */
-    public function setMunicipalities($municipalities)
-    {
-        $this->container['municipalities'] = $municipalities;
+        $this->container['phoneChargeDescriptions'] = $phoneChargeDescriptions;
 
         return $this;
     }
@@ -561,22 +473,22 @@ class Service implements ArrayAccess
     }
 
     /**
-     * Gets requirements
-     * @return \KuntaAPI\Model\LocalizedValue[]
+     * Gets serviceHours
+     * @return \KuntaAPI\Model\ServiceHour[]
      */
-    public function getRequirements()
+    public function getServiceHours()
     {
-        return $this->container['requirements'];
+        return $this->container['serviceHours'];
     }
 
     /**
-     * Sets requirements
-     * @param \KuntaAPI\Model\LocalizedValue[] $requirements
+     * Sets serviceHours
+     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours
      * @return $this
      */
-    public function setRequirements($requirements)
+    public function setServiceHours($serviceHours)
     {
-        $this->container['requirements'] = $requirements;
+        $this->container['serviceHours'] = $serviceHours;
 
         return $this;
     }
@@ -598,48 +510,6 @@ class Service implements ArrayAccess
     public function setPublishingStatus($publishingStatus)
     {
         $this->container['publishingStatus'] = $publishingStatus;
-
-        return $this;
-    }
-
-    /**
-     * Gets chargeType
-     * @return string
-     */
-    public function getChargeType()
-    {
-        return $this->container['chargeType'];
-    }
-
-    /**
-     * Sets chargeType
-     * @param string $chargeType
-     * @return $this
-     */
-    public function setChargeType($chargeType)
-    {
-        $this->container['chargeType'] = $chargeType;
-
-        return $this;
-    }
-
-    /**
-     * Gets additionalInformations
-     * @return \KuntaAPI\Model\LocalizedValue[]
-     */
-    public function getAdditionalInformations()
-    {
-        return $this->container['additionalInformations'];
-    }
-
-    /**
-     * Sets additionalInformations
-     * @param \KuntaAPI\Model\LocalizedValue[] $additionalInformations
-     * @return $this
-     */
-    public function setAdditionalInformations($additionalInformations)
-    {
-        $this->container['additionalInformations'] = $additionalInformations;
 
         return $this;
     }

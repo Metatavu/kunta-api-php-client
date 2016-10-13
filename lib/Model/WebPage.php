@@ -66,10 +66,11 @@ class WebPage implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'type' => 'string',
-        'value' => 'string',
+        'description' => 'string',
         'url' => 'string',
-        'language' => 'string'
+        'language' => 'string',
+        'value' => 'string',
+        'type' => 'string'
     );
 
     public static function swaggerTypes()
@@ -82,10 +83,11 @@ class WebPage implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'type' => 'type',
-        'value' => 'value',
+        'description' => 'description',
         'url' => 'url',
-        'language' => 'language'
+        'language' => 'language',
+        'value' => 'value',
+        'type' => 'type'
     );
 
     public static function attributeMap()
@@ -98,10 +100,11 @@ class WebPage implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'type' => 'setType',
-        'value' => 'setValue',
+        'description' => 'setDescription',
         'url' => 'setUrl',
-        'language' => 'setLanguage'
+        'language' => 'setLanguage',
+        'value' => 'setValue',
+        'type' => 'setType'
     );
 
     public static function setters()
@@ -114,10 +117,11 @@ class WebPage implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'type' => 'getType',
-        'value' => 'getValue',
+        'description' => 'getDescription',
         'url' => 'getUrl',
-        'language' => 'getLanguage'
+        'language' => 'getLanguage',
+        'value' => 'getValue',
+        'type' => 'getType'
     );
 
     public static function getters()
@@ -141,10 +145,11 @@ class WebPage implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -171,22 +176,64 @@ class WebPage implements ArrayAccess
 
 
     /**
-     * Gets type
+     * Gets description
      * @return string
      */
-    public function getType()
+    public function getDescription()
     {
-        return $this->container['type'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets description
+     * @param string $description Web page description.
      * @return $this
      */
-    public function setType($type)
+    public function setDescription($description)
     {
-        $this->container['type'] = $type;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     * @param string $url Web page url.
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets language
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     * @param string $language Language code.
+     * @return $this
+     */
+    public function setLanguage($language)
+    {
+        $this->container['language'] = $language;
 
         return $this;
     }
@@ -213,43 +260,22 @@ class WebPage implements ArrayAccess
     }
 
     /**
-     * Gets url
+     * Gets type
      * @return string
      */
-    public function getUrl()
+    public function getType()
     {
-        return $this->container['url'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets url
-     * @param string $url
+     * Sets type
+     * @param string $type
      * @return $this
      */
-    public function setUrl($url)
+    public function setType($type)
     {
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets language
-     * @return string
-     */
-    public function getLanguage()
-    {
-        return $this->container['language'];
-    }
-
-    /**
-     * Sets language
-     * @param string $language
-     * @return $this
-     */
-    public function setLanguage($language)
-    {
-        $this->container['language'] = $language;
+        $this->container['type'] = $type;
 
         return $this;
     }

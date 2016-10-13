@@ -105,41 +105,135 @@ class ServicesApi
     /**
      * Operation createService
      *
-     * Create a service
+     * Create service
      *
-     * @param string $organizationId Organization id (required)
-     * @param \KuntaAPI\Model\Service $body Service definition (required)
-     * @return \KuntaAPI\Model\Service[]
+     * @param \KuntaAPI\Model\Service $body Payload (required)
+     * @return \KuntaAPI\Model\Service
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function createService($organizationId, $body)
+    public function createService($body)
     {
-        list($response) = $this->createServiceWithHttpInfo($organizationId, $body);
+        list($response) = $this->createServiceWithHttpInfo($body);
         return $response;
     }
 
     /**
      * Operation createServiceWithHttpInfo
      *
-     * Create a service
+     * Create service
      *
-     * @param string $organizationId Organization id (required)
-     * @param \KuntaAPI\Model\Service $body Service definition (required)
-     * @return Array of \KuntaAPI\Model\Service[], HTTP status code, HTTP response headers (array of strings)
+     * @param \KuntaAPI\Model\Service $body Payload (required)
+     * @return Array of \KuntaAPI\Model\Service, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function createServiceWithHttpInfo($organizationId, $body)
+    public function createServiceWithHttpInfo($body)
     {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling createService');
-        }
         // verify the required parameter 'body' is set
         if ($body === null) {
             throw new \InvalidArgumentException('Missing the required parameter $body when calling createService');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/services";
+        $resourcePath = "/services";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\Service',
+                '/services'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Service', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Service', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createServiceElectronicChannel
+     *
+     * creates ElectronicChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\ElectronicChannel $body Payload (required)
+     * @return \KuntaAPI\Model\ElectronicChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function createServiceElectronicChannel($serviceId, $body)
+    {
+        list($response) = $this->createServiceElectronicChannelWithHttpInfo($serviceId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation createServiceElectronicChannelWithHttpInfo
+     *
+     * creates ElectronicChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\ElectronicChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\ElectronicChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function createServiceElectronicChannelWithHttpInfo($serviceId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling createServiceElectronicChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling createServiceElectronicChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/electronicChannels";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -151,10 +245,10 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organizationId !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
@@ -181,15 +275,15 @@ class ServicesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\Service[]',
-                '/organizations/{organizationId}/services'
+                '\KuntaAPI\Model\ElectronicChannel',
+                '/services/{serviceId}/electronicChannels'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Service[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ElectronicChannel', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Service[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ElectronicChannel', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -208,10 +302,6 @@ class ServicesApi
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
-                case 501:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotImplemented', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
             }
 
             throw $e;
@@ -219,43 +309,43 @@ class ServicesApi
     }
 
     /**
-     * Operation deleteService
+     * Operation createServicePhoneChannel
      *
-     * Delete a service
+     * creates PhoneChannel
      *
-     * @param string $organizationId Organization id (required)
-     * @param string $serviceId Service id (required)
-     * @return void
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\PhoneChannel $body Payload (required)
+     * @return \KuntaAPI\Model\PhoneChannel
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function deleteService($organizationId, $serviceId)
+    public function createServicePhoneChannel($serviceId, $body)
     {
-        list($response) = $this->deleteServiceWithHttpInfo($organizationId, $serviceId);
+        list($response) = $this->createServicePhoneChannelWithHttpInfo($serviceId, $body);
         return $response;
     }
 
     /**
-     * Operation deleteServiceWithHttpInfo
+     * Operation createServicePhoneChannelWithHttpInfo
      *
-     * Delete a service
+     * creates PhoneChannel
      *
-     * @param string $organizationId Organization id (required)
-     * @param string $serviceId Service id (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\PhoneChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\PhoneChannel, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function deleteServiceWithHttpInfo($organizationId, $serviceId)
+    public function createServicePhoneChannelWithHttpInfo($serviceId, $body)
     {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling deleteService');
-        }
         // verify the required parameter 'serviceId' is set
         if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling deleteService');
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling createServicePhoneChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling createServicePhoneChannel');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/services/{serviceId}";
+        $resourcePath = "/services/{serviceId}/phoneChannels";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -267,13 +357,117 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organizationId !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\PhoneChannel',
+                '/services/{serviceId}/phoneChannels'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\PhoneChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\PhoneChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createServicePrintableFormChannel
+     *
+     * creates PrintableFormChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\PrintableFormChannel $body Payload (required)
+     * @return \KuntaAPI\Model\PrintableFormChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function createServicePrintableFormChannel($serviceId, $body)
+    {
+        list($response) = $this->createServicePrintableFormChannelWithHttpInfo($serviceId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation createServicePrintableFormChannelWithHttpInfo
+     *
+     * creates PrintableFormChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\PrintableFormChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\PrintableFormChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function createServicePrintableFormChannelWithHttpInfo($serviceId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling createServicePrintableFormChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling createServicePrintableFormChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/printableFormChannels";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
         // path params
         if ($serviceId !== null) {
             $resourcePath = str_replace(
@@ -285,7 +479,12 @@ class ServicesApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -296,17 +495,245 @@ class ServicesApi
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath,
-                'DELETE',
+                'POST',
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                null,
-                '/organizations/{organizationId}/services/{serviceId}'
+                '\KuntaAPI\Model\PrintableFormChannel',
+                '/services/{serviceId}/printableFormChannels'
             );
 
-            return array(null, $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\PrintableFormChannel', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\PrintableFormChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createServiceServiceLocationChannel
+     *
+     * creates ServiceLocationChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\ServiceLocationChannel $body Payload (required)
+     * @return \KuntaAPI\Model\ServiceLocationChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function createServiceServiceLocationChannel($serviceId, $body)
+    {
+        list($response) = $this->createServiceServiceLocationChannelWithHttpInfo($serviceId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation createServiceServiceLocationChannelWithHttpInfo
+     *
+     * creates ServiceLocationChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\ServiceLocationChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\ServiceLocationChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function createServiceServiceLocationChannelWithHttpInfo($serviceId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling createServiceServiceLocationChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling createServiceServiceLocationChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/serviceLocationChannels";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\ServiceLocationChannel',
+                '/services/{serviceId}/serviceLocationChannels'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ServiceLocationChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ServiceLocationChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createServiceWebPageChannel
+     *
+     * creates WebPageChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\WebPageChannel $body Payload (required)
+     * @return \KuntaAPI\Model\WebPageChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function createServiceWebPageChannel($serviceId, $body)
+    {
+        list($response) = $this->createServiceWebPageChannelWithHttpInfo($serviceId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation createServiceWebPageChannelWithHttpInfo
+     *
+     * creates WebPageChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param \KuntaAPI\Model\WebPageChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\WebPageChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function createServiceWebPageChannelWithHttpInfo($serviceId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling createServiceWebPageChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling createServiceWebPageChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/webPageChannels";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\WebPageChannel',
+                '/services/{serviceId}/webPageChannels'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\WebPageChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
                     $e->setResponseObject($data);
@@ -332,41 +759,35 @@ class ServicesApi
     /**
      * Operation findService
      *
-     * Find a service by id
+     * Finds a service by id
      *
-     * @param string $organizationId Organization id (required)
      * @param string $serviceId Service id (required)
      * @return \KuntaAPI\Model\Service
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findService($organizationId, $serviceId)
+    public function findService($serviceId)
     {
-        list($response) = $this->findServiceWithHttpInfo($organizationId, $serviceId);
+        list($response) = $this->findServiceWithHttpInfo($serviceId);
         return $response;
     }
 
     /**
      * Operation findServiceWithHttpInfo
      *
-     * Find a service by id
+     * Finds a service by id
      *
-     * @param string $organizationId Organization id (required)
      * @param string $serviceId Service id (required)
      * @return Array of \KuntaAPI\Model\Service, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWithHttpInfo($organizationId, $serviceId)
+    public function findServiceWithHttpInfo($serviceId)
     {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findService');
-        }
         // verify the required parameter 'serviceId' is set
         if ($serviceId === null) {
             throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findService');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/services/{serviceId}";
+        $resourcePath = "/services/{serviceId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -377,14 +798,6 @@ class ServicesApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
-        // path params
-        if ($organizationId !== null) {
-            $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
-                $resourcePath
-            );
-        }
         // path params
         if ($serviceId !== null) {
             $resourcePath = str_replace(
@@ -412,7 +825,7 @@ class ServicesApi
                 $httpBody,
                 $headerParams,
                 '\KuntaAPI\Model\Service',
-                '/organizations/{organizationId}/services/{serviceId}'
+                '/services/{serviceId}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Service', $httpHeader), $statusCode, $httpHeader);
@@ -445,37 +858,43 @@ class ServicesApi
     }
 
     /**
-     * Operation listServiceClasses
+     * Operation findServiceElectronicChannel
      *
-     * List service classes for an organization
+     * finds ElectronicChannel by electronicChannelId
      *
-     * @param string $organizationId Organization id (required)
-     * @return \KuntaAPI\Model\ServiceClass[]
+     * @param string $serviceId Service id (required)
+     * @param string $electronicChannelId electronicChannel id (required)
+     * @return \KuntaAPI\Model\ElectronicChannel
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceClasses($organizationId)
+    public function findServiceElectronicChannel($serviceId, $electronicChannelId)
     {
-        list($response) = $this->listServiceClassesWithHttpInfo($organizationId);
+        list($response) = $this->findServiceElectronicChannelWithHttpInfo($serviceId, $electronicChannelId);
         return $response;
     }
 
     /**
-     * Operation listServiceClassesWithHttpInfo
+     * Operation findServiceElectronicChannelWithHttpInfo
      *
-     * List service classes for an organization
+     * finds ElectronicChannel by electronicChannelId
      *
-     * @param string $organizationId Organization id (required)
-     * @return Array of \KuntaAPI\Model\ServiceClass[], HTTP status code, HTTP response headers (array of strings)
+     * @param string $serviceId Service id (required)
+     * @param string $electronicChannelId electronicChannel id (required)
+     * @return Array of \KuntaAPI\Model\ElectronicChannel, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceClassesWithHttpInfo($organizationId)
+    public function findServiceElectronicChannelWithHttpInfo($serviceId, $electronicChannelId)
     {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServiceClasses');
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServiceElectronicChannel');
+        }
+        // verify the required parameter 'electronicChannelId' is set
+        if ($electronicChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $electronicChannelId when calling findServiceElectronicChannel');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/serviceClasses/";
+        $resourcePath = "/services/{serviceId}/electronicChannels/{electronicChannelId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -487,10 +906,18 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organizationId !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($electronicChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "electronicChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($electronicChannelId),
                 $resourcePath
             );
         }
@@ -512,15 +939,15 @@ class ServicesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\ServiceClass[]',
-                '/organizations/{organizationId}/serviceClasses/'
+                '\KuntaAPI\Model\ElectronicChannel',
+                '/services/{serviceId}/electronicChannels/{electronicChannelId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ServiceClass[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ElectronicChannel', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ServiceClass[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ElectronicChannel', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -546,43 +973,43 @@ class ServicesApi
     }
 
     /**
-     * Operation listServiceElectornicChannels
+     * Operation findServicePhoneChannel
      *
-     * List service electornic channels
+     * finds PhoneChannel by phoneChannelId
      *
-     * @param string $organizationId Organization id (required)
      * @param string $serviceId Service id (required)
-     * @return \KuntaAPI\Model\ServiceElectronicChannel
+     * @param string $phoneChannelId phoneChannel id (required)
+     * @return \KuntaAPI\Model\PhoneChannel
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceElectornicChannels($organizationId, $serviceId)
+    public function findServicePhoneChannel($serviceId, $phoneChannelId)
     {
-        list($response) = $this->listServiceElectornicChannelsWithHttpInfo($organizationId, $serviceId);
+        list($response) = $this->findServicePhoneChannelWithHttpInfo($serviceId, $phoneChannelId);
         return $response;
     }
 
     /**
-     * Operation listServiceElectornicChannelsWithHttpInfo
+     * Operation findServicePhoneChannelWithHttpInfo
      *
-     * List service electornic channels
+     * finds PhoneChannel by phoneChannelId
      *
-     * @param string $organizationId Organization id (required)
      * @param string $serviceId Service id (required)
-     * @return Array of \KuntaAPI\Model\ServiceElectronicChannel, HTTP status code, HTTP response headers (array of strings)
+     * @param string $phoneChannelId phoneChannel id (required)
+     * @return Array of \KuntaAPI\Model\PhoneChannel, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceElectornicChannelsWithHttpInfo($organizationId, $serviceId)
+    public function findServicePhoneChannelWithHttpInfo($serviceId, $phoneChannelId)
     {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServiceElectornicChannels');
-        }
         // verify the required parameter 'serviceId' is set
         if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceElectornicChannels');
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServicePhoneChannel');
+        }
+        // verify the required parameter 'phoneChannelId' is set
+        if ($phoneChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $phoneChannelId when calling findServicePhoneChannel');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/services/{serviceId}/electronicChannels";
+        $resourcePath = "/services/{serviceId}/phoneChannels/{phoneChannelId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -594,12 +1021,470 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organizationId !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
+        }
+        // path params
+        if ($phoneChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "phoneChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($phoneChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\PhoneChannel',
+                '/services/{serviceId}/phoneChannels/{phoneChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\PhoneChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\PhoneChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation findServicePrintableFormChannel
+     *
+     * finds PrintableFormChannel by printableFormChannelId
+     *
+     * @param string $serviceId Service id (required)
+     * @param string $printableFormChannelId printableFormChannel id (required)
+     * @return \KuntaAPI\Model\PrintableFormChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findServicePrintableFormChannel($serviceId, $printableFormChannelId)
+    {
+        list($response) = $this->findServicePrintableFormChannelWithHttpInfo($serviceId, $printableFormChannelId);
+        return $response;
+    }
+
+    /**
+     * Operation findServicePrintableFormChannelWithHttpInfo
+     *
+     * finds PrintableFormChannel by printableFormChannelId
+     *
+     * @param string $serviceId Service id (required)
+     * @param string $printableFormChannelId printableFormChannel id (required)
+     * @return Array of \KuntaAPI\Model\PrintableFormChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findServicePrintableFormChannelWithHttpInfo($serviceId, $printableFormChannelId)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServicePrintableFormChannel');
+        }
+        // verify the required parameter 'printableFormChannelId' is set
+        if ($printableFormChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $printableFormChannelId when calling findServicePrintableFormChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/printableFormChannels/{printableFormChannelId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($printableFormChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "printableFormChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($printableFormChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\PrintableFormChannel',
+                '/services/{serviceId}/printableFormChannels/{printableFormChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\PrintableFormChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\PrintableFormChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation findServiceServiceLocationChannel
+     *
+     * finds ServiceLocationChannel by serviceLocationChannelId
+     *
+     * @param string $serviceId Service id (required)
+     * @param string $serviceLocationChannelId serviceLocationChannel id (required)
+     * @return \KuntaAPI\Model\ServiceLocationChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findServiceServiceLocationChannel($serviceId, $serviceLocationChannelId)
+    {
+        list($response) = $this->findServiceServiceLocationChannelWithHttpInfo($serviceId, $serviceLocationChannelId);
+        return $response;
+    }
+
+    /**
+     * Operation findServiceServiceLocationChannelWithHttpInfo
+     *
+     * finds ServiceLocationChannel by serviceLocationChannelId
+     *
+     * @param string $serviceId Service id (required)
+     * @param string $serviceLocationChannelId serviceLocationChannel id (required)
+     * @return Array of \KuntaAPI\Model\ServiceLocationChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findServiceServiceLocationChannelWithHttpInfo($serviceId, $serviceLocationChannelId)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServiceServiceLocationChannel');
+        }
+        // verify the required parameter 'serviceLocationChannelId' is set
+        if ($serviceLocationChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceLocationChannelId when calling findServiceServiceLocationChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($serviceLocationChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceLocationChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceLocationChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\ServiceLocationChannel',
+                '/services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ServiceLocationChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ServiceLocationChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation findServiceWebPageChannel
+     *
+     * finds WebPageChannel by webPageChannelId
+     *
+     * @param string $serviceId Service id (required)
+     * @param string $webPageChannelId webPageChannel id (required)
+     * @return \KuntaAPI\Model\WebPageChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findServiceWebPageChannel($serviceId, $webPageChannelId)
+    {
+        list($response) = $this->findServiceWebPageChannelWithHttpInfo($serviceId, $webPageChannelId);
+        return $response;
+    }
+
+    /**
+     * Operation findServiceWebPageChannelWithHttpInfo
+     *
+     * finds WebPageChannel by webPageChannelId
+     *
+     * @param string $serviceId Service id (required)
+     * @param string $webPageChannelId webPageChannel id (required)
+     * @return Array of \KuntaAPI\Model\WebPageChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findServiceWebPageChannelWithHttpInfo($serviceId, $webPageChannelId)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServiceWebPageChannel');
+        }
+        // verify the required parameter 'webPageChannelId' is set
+        if ($webPageChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $webPageChannelId when calling findServiceWebPageChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/webPageChannels/{webPageChannelId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($webPageChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "webPageChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($webPageChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\WebPageChannel',
+                '/services/{serviceId}/webPageChannels/{webPageChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\WebPageChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listServiceElectronicChannels
+     *
+     * Lists ElectronicChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return \KuntaAPI\Model\ElectronicChannel[]
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServiceElectronicChannels($serviceId, $firstResult = null, $maxResults = null)
+    {
+        list($response) = $this->listServiceElectronicChannelsWithHttpInfo($serviceId, $firstResult, $maxResults);
+        return $response;
+    }
+
+    /**
+     * Operation listServiceElectronicChannelsWithHttpInfo
+     *
+     * Lists ElectronicChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return Array of \KuntaAPI\Model\ElectronicChannel[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServiceElectronicChannelsWithHttpInfo($serviceId, $firstResult = null, $maxResults = null)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceElectronicChannels');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/electronicChannels";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
         }
         // path params
         if ($serviceId !== null) {
@@ -627,15 +1512,467 @@ class ServicesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\ServiceElectronicChannel',
-                '/organizations/{organizationId}/services/{serviceId}/electronicChannels'
+                '\KuntaAPI\Model\ElectronicChannel[]',
+                '/services/{serviceId}/electronicChannels'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ServiceElectronicChannel', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ElectronicChannel[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ServiceElectronicChannel', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ElectronicChannel[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listServicePhoneChannels
+     *
+     * Lists PhoneChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return \KuntaAPI\Model\PhoneChannel[]
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServicePhoneChannels($serviceId, $firstResult = null, $maxResults = null)
+    {
+        list($response) = $this->listServicePhoneChannelsWithHttpInfo($serviceId, $firstResult, $maxResults);
+        return $response;
+    }
+
+    /**
+     * Operation listServicePhoneChannelsWithHttpInfo
+     *
+     * Lists PhoneChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return Array of \KuntaAPI\Model\PhoneChannel[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServicePhoneChannelsWithHttpInfo($serviceId, $firstResult = null, $maxResults = null)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServicePhoneChannels');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/phoneChannels";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
+        }
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\PhoneChannel[]',
+                '/services/{serviceId}/phoneChannels'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\PhoneChannel[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\PhoneChannel[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listServicePrintableFormChannels
+     *
+     * Lists PrintableFormChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return \KuntaAPI\Model\PrintableFormChannel[]
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServicePrintableFormChannels($serviceId, $firstResult = null, $maxResults = null)
+    {
+        list($response) = $this->listServicePrintableFormChannelsWithHttpInfo($serviceId, $firstResult, $maxResults);
+        return $response;
+    }
+
+    /**
+     * Operation listServicePrintableFormChannelsWithHttpInfo
+     *
+     * Lists PrintableFormChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return Array of \KuntaAPI\Model\PrintableFormChannel[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServicePrintableFormChannelsWithHttpInfo($serviceId, $firstResult = null, $maxResults = null)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServicePrintableFormChannels');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/printableFormChannels";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
+        }
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\PrintableFormChannel[]',
+                '/services/{serviceId}/printableFormChannels'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\PrintableFormChannel[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\PrintableFormChannel[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listServiceServiceLocationChannels
+     *
+     * Lists ServiceLocationChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return \KuntaAPI\Model\ServiceLocationChannel[]
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServiceServiceLocationChannels($serviceId, $firstResult = null, $maxResults = null)
+    {
+        list($response) = $this->listServiceServiceLocationChannelsWithHttpInfo($serviceId, $firstResult, $maxResults);
+        return $response;
+    }
+
+    /**
+     * Operation listServiceServiceLocationChannelsWithHttpInfo
+     *
+     * Lists ServiceLocationChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return Array of \KuntaAPI\Model\ServiceLocationChannel[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServiceServiceLocationChannelsWithHttpInfo($serviceId, $firstResult = null, $maxResults = null)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceServiceLocationChannels');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/serviceLocationChannels";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
+        }
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\ServiceLocationChannel[]',
+                '/services/{serviceId}/serviceLocationChannels'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ServiceLocationChannel[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ServiceLocationChannel[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listServiceWebPageChannels
+     *
+     * Lists WebPageChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return \KuntaAPI\Model\WebPageChannel[]
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServiceWebPageChannels($serviceId, $firstResult = null, $maxResults = null)
+    {
+        list($response) = $this->listServiceWebPageChannelsWithHttpInfo($serviceId, $firstResult, $maxResults);
+        return $response;
+    }
+
+    /**
+     * Operation listServiceWebPageChannelsWithHttpInfo
+     *
+     * Lists WebPageChannels by serviceId
+     *
+     * @param string $serviceId Service id (required)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
+     * @return Array of \KuntaAPI\Model\WebPageChannel[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listServiceWebPageChannelsWithHttpInfo($serviceId, $firstResult = null, $maxResults = null)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceWebPageChannels');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/webPageChannels";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
+        }
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\WebPageChannel[]',
+                '/services/{serviceId}/webPageChannels'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageChannel[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\WebPageChannel[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -663,37 +2000,33 @@ class ServicesApi
     /**
      * Operation listServices
      *
-     * List services
+     * Service list
      *
-     * @param string $organizationId Organization id (required)
-     * @param string $serviceClassId Filter services by service class id (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\Service[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServices($organizationId, $serviceClassId = null)
+    public function listServices($firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listServicesWithHttpInfo($organizationId, $serviceClassId);
+        list($response) = $this->listServicesWithHttpInfo($firstResult, $maxResults);
         return $response;
     }
 
     /**
      * Operation listServicesWithHttpInfo
      *
-     * List services
+     * Service list
      *
-     * @param string $organizationId Organization id (required)
-     * @param string $serviceClassId Filter services by service class id (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\Service[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServicesWithHttpInfo($organizationId, $serviceClassId = null)
+    public function listServicesWithHttpInfo($firstResult = null, $maxResults = null)
     {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listServices');
-        }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/services";
+        $resourcePath = "/services";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -705,16 +2038,12 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // query params
-        if ($serviceClassId !== null) {
-            $queryParams['serviceClassId'] = $this->apiClient->getSerializer()->toQueryValue($serviceClassId);
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
         }
-        // path params
-        if ($organizationId !== null) {
-            $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
-                $resourcePath
-            );
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -735,7 +2064,7 @@ class ServicesApi
                 $httpBody,
                 $headerParams,
                 '\KuntaAPI\Model\Service[]',
-                '/organizations/{organizationId}/services'
+                '/services'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Service[]', $httpHeader), $statusCode, $httpHeader);
@@ -768,43 +2097,49 @@ class ServicesApi
     }
 
     /**
-     * Operation updateService
+     * Operation updatePhoneChannel
      *
-     * Update a service
+     * Updates PhoneChannel
      *
-     * @param string $organizationId Organization id (required)
-     * @param string $serviceId Service id (required)
-     * @return \KuntaAPI\Model\Service
+     * @param string $serviceId service id (required)
+     * @param string $phoneChannelId phoneChannel id (required)
+     * @param \KuntaAPI\Model\PhoneChannel $body Payload (required)
+     * @return \KuntaAPI\Model\PhoneChannel
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function updateService($organizationId, $serviceId)
+    public function updatePhoneChannel($serviceId, $phoneChannelId, $body)
     {
-        list($response) = $this->updateServiceWithHttpInfo($organizationId, $serviceId);
+        list($response) = $this->updatePhoneChannelWithHttpInfo($serviceId, $phoneChannelId, $body);
         return $response;
     }
 
     /**
-     * Operation updateServiceWithHttpInfo
+     * Operation updatePhoneChannelWithHttpInfo
      *
-     * Update a service
+     * Updates PhoneChannel
      *
-     * @param string $organizationId Organization id (required)
-     * @param string $serviceId Service id (required)
-     * @return Array of \KuntaAPI\Model\Service, HTTP status code, HTTP response headers (array of strings)
+     * @param string $serviceId service id (required)
+     * @param string $phoneChannelId phoneChannel id (required)
+     * @param \KuntaAPI\Model\PhoneChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\PhoneChannel, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function updateServiceWithHttpInfo($organizationId, $serviceId)
+    public function updatePhoneChannelWithHttpInfo($serviceId, $phoneChannelId, $body)
     {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling updateService');
-        }
         // verify the required parameter 'serviceId' is set
         if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updateService');
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updatePhoneChannel');
+        }
+        // verify the required parameter 'phoneChannelId' is set
+        if ($phoneChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $phoneChannelId when calling updatePhoneChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updatePhoneChannel');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/services/{serviceId}";
+        $resourcePath = "/services/{serviceId}/phoneChannels/{phoneChannelId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -816,13 +2151,251 @@ class ServicesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($organizationId !== null) {
+        if ($serviceId !== null) {
             $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
                 $resourcePath
             );
         }
+        // path params
+        if ($phoneChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "phoneChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($phoneChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\PhoneChannel',
+                '/services/{serviceId}/phoneChannels/{phoneChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\PhoneChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\PhoneChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updatePrintableFormChannel
+     *
+     * Updates PrintableFormChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param string $printableFormChannelId printableFormChannel id (required)
+     * @param \KuntaAPI\Model\PrintableFormChannel $body Payload (required)
+     * @return \KuntaAPI\Model\PrintableFormChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updatePrintableFormChannel($serviceId, $printableFormChannelId, $body)
+    {
+        list($response) = $this->updatePrintableFormChannelWithHttpInfo($serviceId, $printableFormChannelId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updatePrintableFormChannelWithHttpInfo
+     *
+     * Updates PrintableFormChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param string $printableFormChannelId printableFormChannel id (required)
+     * @param \KuntaAPI\Model\PrintableFormChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\PrintableFormChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updatePrintableFormChannelWithHttpInfo($serviceId, $printableFormChannelId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updatePrintableFormChannel');
+        }
+        // verify the required parameter 'printableFormChannelId' is set
+        if ($printableFormChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $printableFormChannelId when calling updatePrintableFormChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updatePrintableFormChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/printableFormChannels/{printableFormChannelId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($printableFormChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "printableFormChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($printableFormChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\PrintableFormChannel',
+                '/services/{serviceId}/printableFormChannels/{printableFormChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\PrintableFormChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\PrintableFormChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateService
+     *
+     * Updates service
+     *
+     * @param string $serviceId Organization service id (required)
+     * @param \KuntaAPI\Model\Service $body Payload (required)
+     * @return \KuntaAPI\Model\Service
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateService($serviceId, $body)
+    {
+        list($response) = $this->updateServiceWithHttpInfo($serviceId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateServiceWithHttpInfo
+     *
+     * Updates service
+     *
+     * @param string $serviceId Organization service id (required)
+     * @param \KuntaAPI\Model\Service $body Payload (required)
+     * @return Array of \KuntaAPI\Model\Service, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateServiceWithHttpInfo($serviceId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updateService');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateService');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
         // path params
         if ($serviceId !== null) {
             $resourcePath = str_replace(
@@ -834,7 +2407,12 @@ class ServicesApi
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -850,7 +2428,7 @@ class ServicesApi
                 $httpBody,
                 $headerParams,
                 '\KuntaAPI\Model\Service',
-                '/organizations/{organizationId}/services/{serviceId}'
+                '/services/{serviceId}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Service', $httpHeader), $statusCode, $httpHeader);
@@ -876,8 +2454,382 @@ class ServicesApi
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
-                case 501:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotImplemented', $e->getResponseHeaders());
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateServiceElectronicChannel
+     *
+     * Updates ElectronicChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param string $electronicChannelId electronicChannel id (required)
+     * @param \KuntaAPI\Model\ElectronicChannel $body Payload (required)
+     * @return \KuntaAPI\Model\ElectronicChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateServiceElectronicChannel($serviceId, $electronicChannelId, $body)
+    {
+        list($response) = $this->updateServiceElectronicChannelWithHttpInfo($serviceId, $electronicChannelId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateServiceElectronicChannelWithHttpInfo
+     *
+     * Updates ElectronicChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param string $electronicChannelId electronicChannel id (required)
+     * @param \KuntaAPI\Model\ElectronicChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\ElectronicChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateServiceElectronicChannelWithHttpInfo($serviceId, $electronicChannelId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updateServiceElectronicChannel');
+        }
+        // verify the required parameter 'electronicChannelId' is set
+        if ($electronicChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $electronicChannelId when calling updateServiceElectronicChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateServiceElectronicChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/electronicChannels/{electronicChannelId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($electronicChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "electronicChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($electronicChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\ElectronicChannel',
+                '/services/{serviceId}/electronicChannels/{electronicChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ElectronicChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ElectronicChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateServiceLocationChannel
+     *
+     * Updates ServiceLocationChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param string $serviceLocationChannelId serviceLocationChannel id (required)
+     * @param \KuntaAPI\Model\ServiceLocationChannel $body Payload (required)
+     * @return \KuntaAPI\Model\ServiceLocationChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateServiceLocationChannel($serviceId, $serviceLocationChannelId, $body)
+    {
+        list($response) = $this->updateServiceLocationChannelWithHttpInfo($serviceId, $serviceLocationChannelId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateServiceLocationChannelWithHttpInfo
+     *
+     * Updates ServiceLocationChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param string $serviceLocationChannelId serviceLocationChannel id (required)
+     * @param \KuntaAPI\Model\ServiceLocationChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\ServiceLocationChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateServiceLocationChannelWithHttpInfo($serviceId, $serviceLocationChannelId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updateServiceLocationChannel');
+        }
+        // verify the required parameter 'serviceLocationChannelId' is set
+        if ($serviceLocationChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceLocationChannelId when calling updateServiceLocationChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateServiceLocationChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($serviceLocationChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceLocationChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceLocationChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\ServiceLocationChannel',
+                '/services/{serviceId}/serviceLocationChannels/{serviceLocationChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ServiceLocationChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ServiceLocationChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateWebPageChannel
+     *
+     * Updates WebPageChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param string $webPageChannelId webPageChannel id (required)
+     * @param \KuntaAPI\Model\WebPageChannel $body Payload (required)
+     * @return \KuntaAPI\Model\WebPageChannel
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateWebPageChannel($serviceId, $webPageChannelId, $body)
+    {
+        list($response) = $this->updateWebPageChannelWithHttpInfo($serviceId, $webPageChannelId, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateWebPageChannelWithHttpInfo
+     *
+     * Updates WebPageChannel
+     *
+     * @param string $serviceId service id (required)
+     * @param string $webPageChannelId webPageChannel id (required)
+     * @param \KuntaAPI\Model\WebPageChannel $body Payload (required)
+     * @return Array of \KuntaAPI\Model\WebPageChannel, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function updateWebPageChannelWithHttpInfo($serviceId, $webPageChannelId, $body)
+    {
+        // verify the required parameter 'serviceId' is set
+        if ($serviceId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling updateWebPageChannel');
+        }
+        // verify the required parameter 'webPageChannelId' is set
+        if ($webPageChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $webPageChannelId when calling updateWebPageChannel');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateWebPageChannel');
+        }
+        // parse inputs
+        $resourcePath = "/services/{serviceId}/webPageChannels/{webPageChannelId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($serviceId !== null) {
+            $resourcePath = str_replace(
+                "{" . "serviceId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($webPageChannelId !== null) {
+            $resourcePath = str_replace(
+                "{" . "webPageChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($webPageChannelId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\WebPageChannel',
+                '/services/{serviceId}/webPageChannels/{webPageChannelId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageChannel', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\WebPageChannel', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

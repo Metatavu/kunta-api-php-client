@@ -67,7 +67,8 @@ class LocalizedValue implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'language' => 'string',
-        'value' => 'string'
+        'value' => 'string',
+        'type' => 'string'
     );
 
     public static function swaggerTypes()
@@ -81,7 +82,8 @@ class LocalizedValue implements ArrayAccess
      */
     protected static $attributeMap = array(
         'language' => 'language',
-        'value' => 'value'
+        'value' => 'value',
+        'type' => 'type'
     );
 
     public static function attributeMap()
@@ -95,7 +97,8 @@ class LocalizedValue implements ArrayAccess
      */
     protected static $setters = array(
         'language' => 'setLanguage',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'type' => 'setType'
     );
 
     public static function setters()
@@ -109,7 +112,8 @@ class LocalizedValue implements ArrayAccess
      */
     protected static $getters = array(
         'language' => 'getLanguage',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'type' => 'getType'
     );
 
     public static function getters()
@@ -135,6 +139,7 @@ class LocalizedValue implements ArrayAccess
     {
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -198,6 +203,27 @@ class LocalizedValue implements ArrayAccess
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

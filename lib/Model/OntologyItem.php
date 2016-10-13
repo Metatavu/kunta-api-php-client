@@ -1,6 +1,6 @@
 <?php
 /**
- * ServiceChannelAttachment
+ * OntologyItem
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * ServiceChannelAttachment Class Doc Comment
+ * OntologyItem Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,24 +53,27 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ServiceChannelAttachment implements ArrayAccess
+class OntologyItem implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ServiceChannelAttachment';
+    protected static $swaggerModelName = 'OntologyItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'type' => 'string',
+        'id' => 'string',
+        'system' => 'string',
         'name' => 'string',
-        'description' => 'string',
-        'url' => 'string',
-        'language' => 'string'
+        'code' => 'string',
+        'ontologyType' => 'string',
+        'uri' => 'string',
+        'parentId' => 'string',
+        'parentUri' => 'string'
     );
 
     public static function swaggerTypes()
@@ -83,11 +86,14 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'type' => 'type',
+        'id' => 'id',
+        'system' => 'system',
         'name' => 'name',
-        'description' => 'description',
-        'url' => 'url',
-        'language' => 'language'
+        'code' => 'code',
+        'ontologyType' => 'ontologyType',
+        'uri' => 'uri',
+        'parentId' => 'parentId',
+        'parentUri' => 'parentUri'
     );
 
     public static function attributeMap()
@@ -100,11 +106,14 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'type' => 'setType',
+        'id' => 'setId',
+        'system' => 'setSystem',
         'name' => 'setName',
-        'description' => 'setDescription',
-        'url' => 'setUrl',
-        'language' => 'setLanguage'
+        'code' => 'setCode',
+        'ontologyType' => 'setOntologyType',
+        'uri' => 'setUri',
+        'parentId' => 'setParentId',
+        'parentUri' => 'setParentUri'
     );
 
     public static function setters()
@@ -117,11 +126,14 @@ class ServiceChannelAttachment implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'type' => 'getType',
+        'id' => 'getId',
+        'system' => 'getSystem',
         'name' => 'getName',
-        'description' => 'getDescription',
-        'url' => 'getUrl',
-        'language' => 'getLanguage'
+        'code' => 'getCode',
+        'ontologyType' => 'getOntologyType',
+        'uri' => 'getUri',
+        'parentId' => 'getParentId',
+        'parentUri' => 'getParentUri'
     );
 
     public static function getters()
@@ -145,11 +157,14 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['system'] = isset($data['system']) ? $data['system'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['ontologyType'] = isset($data['ontologyType']) ? $data['ontologyType'] : null;
+        $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
+        $this->container['parentId'] = isset($data['parentId']) ? $data['parentId'] : null;
+        $this->container['parentUri'] = isset($data['parentUri']) ? $data['parentUri'] : null;
     }
 
     /**
@@ -160,18 +175,6 @@ class ServiceChannelAttachment implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 100)) {
-            $invalid_properties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 150)) {
-            $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 150.";
-        }
-
-        if (!is_null($this->container['url']) && (strlen($this->container['url']) > 500)) {
-            $invalid_properties[] = "invalid value for 'url', the character length must be smaller than or equal to 500.";
-        }
-
         return $invalid_properties;
     }
 
@@ -183,36 +186,48 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function valid()
     {
-        if (strlen($this->container['name']) > 100) {
-            return false;
-        }
-        if (strlen($this->container['description']) > 150) {
-            return false;
-        }
-        if (strlen($this->container['url']) > 500) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets type
+     * Gets id
      * @return string
      */
-    public function getType()
+    public function getId()
     {
-        return $this->container['type'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets id
+     * @param string $id
      * @return $this
      */
-    public function setType($type)
+    public function setId($id)
     {
-        $this->container['type'] = $type;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets system
+     * @return string
+     */
+    public function getSystem()
+    {
+        return $this->container['system'];
+    }
+
+    /**
+     * Sets system
+     * @param string $system
+     * @return $this
+     */
+    public function setSystem($system)
+    {
+        $this->container['system'] = $system;
 
         return $this;
     }
@@ -233,79 +248,112 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function setName($name)
     {
-        if (strlen($name) > 100) {
-            throw new \InvalidArgumentException('invalid length for $name when calling ServiceChannelAttachment., must be smaller than or equal to 100.');
-        }
         $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets code
      * @return string
      */
-    public function getDescription()
+    public function getCode()
     {
-        return $this->container['description'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets description
-     * @param string $description
+     * Sets code
+     * @param string $code
      * @return $this
      */
-    public function setDescription($description)
+    public function setCode($code)
     {
-        if (strlen($description) > 150) {
-            throw new \InvalidArgumentException('invalid length for $description when calling ServiceChannelAttachment., must be smaller than or equal to 150.');
-        }
-        $this->container['description'] = $description;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets url
+     * Gets ontologyType
      * @return string
      */
-    public function getUrl()
+    public function getOntologyType()
     {
-        return $this->container['url'];
+        return $this->container['ontologyType'];
     }
 
     /**
-     * Sets url
-     * @param string $url
+     * Sets ontologyType
+     * @param string $ontologyType
      * @return $this
      */
-    public function setUrl($url)
+    public function setOntologyType($ontologyType)
     {
-        if (strlen($url) > 500) {
-            throw new \InvalidArgumentException('invalid length for $url when calling ServiceChannelAttachment., must be smaller than or equal to 500.');
-        }
-        $this->container['url'] = $url;
+        $this->container['ontologyType'] = $ontologyType;
 
         return $this;
     }
 
     /**
-     * Gets language
+     * Gets uri
      * @return string
      */
-    public function getLanguage()
+    public function getUri()
     {
-        return $this->container['language'];
+        return $this->container['uri'];
     }
 
     /**
-     * Sets language
-     * @param string $language
+     * Sets uri
+     * @param string $uri
      * @return $this
      */
-    public function setLanguage($language)
+    public function setUri($uri)
     {
-        $this->container['language'] = $language;
+        $this->container['uri'] = $uri;
+
+        return $this;
+    }
+
+    /**
+     * Gets parentId
+     * @return string
+     */
+    public function getParentId()
+    {
+        return $this->container['parentId'];
+    }
+
+    /**
+     * Sets parentId
+     * @param string $parentId
+     * @return $this
+     */
+    public function setParentId($parentId)
+    {
+        $this->container['parentId'] = $parentId;
+
+        return $this;
+    }
+
+    /**
+     * Gets parentUri
+     * @return string
+     */
+    public function getParentUri()
+    {
+        return $this->container['parentUri'];
+    }
+
+    /**
+     * Sets parentUri
+     * @param string $parentUri
+     * @return $this
+     */
+    public function setParentUri($parentUri)
+    {
+        $this->container['parentUri'] = $parentUri;
 
         return $this;
     }

@@ -1,14 +1,13 @@
-# KuntaAPI\OrganizationsApi
+# KuntaAPI\OrganizationServicesApi
 
 All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createOrganizationService**](OrganizationsApi.md#createOrganizationService) | **POST** /organizations/{organizationId}/organizationServices | Create organization service
-[**findOrganizationService**](OrganizationsApi.md#findOrganizationService) | **GET** /organizations/{organizationId}/organizationServices/{organizationServiceId} | Finds a organization service by id
-[**listOrganizationOrganizationServices**](OrganizationsApi.md#listOrganizationOrganizationServices) | **GET** /organizations/{organizationId}/organizationServices | Organization organization service list
-[**listOrganizations**](OrganizationsApi.md#listOrganizations) | **GET** /organizations | List organizations
-[**updateOrganizationService**](OrganizationsApi.md#updateOrganizationService) | **PUT** /organizations/{organizationId}/organizationServices/{organizationServiceId} | Updates an organization service
+[**createOrganizationService**](OrganizationServicesApi.md#createOrganizationService) | **POST** /organizations/{organizationId}/organizationServices | Create organization service
+[**findOrganizationService**](OrganizationServicesApi.md#findOrganizationService) | **GET** /organizations/{organizationId}/organizationServices/{organizationServiceId} | Finds a organization service by id
+[**listOrganizationOrganizationServices**](OrganizationServicesApi.md#listOrganizationOrganizationServices) | **GET** /organizations/{organizationId}/organizationServices | Organization organization service list
+[**updateOrganizationService**](OrganizationServicesApi.md#updateOrganizationService) | **PUT** /organizations/{organizationId}/organizationServices/{organizationServiceId} | Updates an organization service
 
 
 # **createOrganizationService**
@@ -23,7 +22,7 @@ Create organization service
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new KuntaAPI\Api\OrganizationsApi();
+$api_instance = new KuntaAPI\Api\OrganizationServicesApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $body = new \KuntaAPI\Model\OrganizationService(); // \KuntaAPI\Model\OrganizationService | Payload
 
@@ -31,7 +30,7 @@ try {
     $result = $api_instance->createOrganizationService($organizationId, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrganizationsApi->createOrganizationService: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrganizationServicesApi->createOrganizationService: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -70,7 +69,7 @@ Find an organization service
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new KuntaAPI\Api\OrganizationsApi();
+$api_instance = new KuntaAPI\Api\OrganizationServicesApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $organizationServiceId = "organizationServiceId_example"; // string | Organization service id
 
@@ -78,7 +77,7 @@ try {
     $result = $api_instance->findOrganizationService($organizationId, $organizationServiceId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrganizationsApi->findOrganizationService: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrganizationServicesApi->findOrganizationService: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -117,7 +116,7 @@ Lists organization's organization services
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new KuntaAPI\Api\OrganizationsApi();
+$api_instance = new KuntaAPI\Api\OrganizationServicesApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $firstResult = 789; // int | First result
 $maxResults = 789; // int | Max results
@@ -126,7 +125,7 @@ try {
     $result = $api_instance->listOrganizationOrganizationServices($organizationId, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrganizationsApi->listOrganizationOrganizationServices: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrganizationServicesApi->listOrganizationOrganizationServices: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -154,53 +153,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listOrganizations**
-> \KuntaAPI\Model\Organization[] listOrganizations($businessName, $businessCode)
-
-List organizations
-
-List organizations
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new KuntaAPI\Api\OrganizationsApi();
-$businessName = "businessName_example"; // string | Filter by organization's business name
-$businessCode = "businessCode_example"; // string | Filter by organization's business code
-
-try {
-    $result = $api_instance->listOrganizations($businessName, $businessCode);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrganizationsApi->listOrganizations: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **businessName** | **string**| Filter by organization&#39;s business name | [optional]
- **businessCode** | **string**| Filter by organization&#39;s business code | [optional]
-
-### Return type
-
-[**\KuntaAPI\Model\Organization[]**](../Model/Organization.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **updateOrganizationService**
 > \KuntaAPI\Model\OrganizationService updateOrganizationService($organizationId, $organizationServiceId, $body)
 
@@ -213,7 +165,7 @@ Updates organization service
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new KuntaAPI\Api\OrganizationsApi();
+$api_instance = new KuntaAPI\Api\OrganizationServicesApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $organizationServiceId = "organizationServiceId_example"; // string | Organization service id
 $body = new \KuntaAPI\Model\OrganizationService(); // \KuntaAPI\Model\OrganizationService | Payload
@@ -222,7 +174,7 @@ try {
     $result = $api_instance->updateOrganizationService($organizationId, $organizationServiceId, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrganizationsApi->updateOrganizationService: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrganizationServicesApi->updateOrganizationService: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
