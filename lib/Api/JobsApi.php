@@ -1,6 +1,6 @@
 <?php
 /**
- * FilesApi
+ * JobsApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \KuntaAPI\ApiException;
 use \KuntaAPI\ObjectSerializer;
 
 /**
- * FilesApi Class Doc Comment
+ * JobsApi Class Doc Comment
  *
  * @category Class
  * @package  KuntaAPI
@@ -54,7 +54,7 @@ use \KuntaAPI\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FilesApi
+class JobsApi
 {
 
     /**
@@ -94,7 +94,7 @@ class FilesApi
      *
      * @param \KuntaAPI\ApiClient $apiClient set the API client
      *
-     * @return FilesApi
+     * @return JobsApi
      */
     public function setApiClient(\KuntaAPI\ApiClient $apiClient)
     {
@@ -103,43 +103,43 @@ class FilesApi
     }
 
     /**
-     * Operation findOrganizationFile
+     * Operation findOrganizationJob
      *
-     * Finds organizations file
+     * Finds organizations job
      *
      * @param string $organizationId Organization id (required)
-     * @param string $fileId file id (required)
-     * @return \KuntaAPI\Model\Page
+     * @param string $jobId job id (required)
+     * @return \KuntaAPI\Model\Job
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findOrganizationFile($organizationId, $fileId)
+    public function findOrganizationJob($organizationId, $jobId)
     {
-        list($response) = $this->findOrganizationFileWithHttpInfo($organizationId, $fileId);
+        list($response) = $this->findOrganizationJobWithHttpInfo($organizationId, $jobId);
         return $response;
     }
 
     /**
-     * Operation findOrganizationFileWithHttpInfo
+     * Operation findOrganizationJobWithHttpInfo
      *
-     * Finds organizations file
+     * Finds organizations job
      *
      * @param string $organizationId Organization id (required)
-     * @param string $fileId file id (required)
-     * @return Array of \KuntaAPI\Model\Page, HTTP status code, HTTP response headers (array of strings)
+     * @param string $jobId job id (required)
+     * @return Array of \KuntaAPI\Model\Job, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findOrganizationFileWithHttpInfo($organizationId, $fileId)
+    public function findOrganizationJobWithHttpInfo($organizationId, $jobId)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationFile');
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationJob');
         }
-        // verify the required parameter 'fileId' is set
-        if ($fileId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fileId when calling findOrganizationFile');
+        // verify the required parameter 'jobId' is set
+        if ($jobId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $jobId when calling findOrganizationJob');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/files/{fileId}";
+        $resourcePath = "/organizations/{organizationId}/jobs/{jobId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -159,10 +159,10 @@ class FilesApi
             );
         }
         // path params
-        if ($fileId !== null) {
+        if ($jobId !== null) {
             $resourcePath = str_replace(
-                "{" . "fileId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($fileId),
+                "{" . "jobId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($jobId),
                 $resourcePath
             );
         }
@@ -184,15 +184,15 @@ class FilesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\Page',
-                '/organizations/{organizationId}/files/{fileId}'
+                '\KuntaAPI\Model\Job',
+                '/organizations/{organizationId}/jobs/{jobId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Page', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Job', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Page', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Job', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -214,150 +214,41 @@ class FilesApi
     }
 
     /**
-     * Operation getOrganizationFileData
+     * Operation listOrganizationJobs
      *
-     * Returns an organization file data
+     * Lists organizations jobs
      *
      * @param string $organizationId Organization id (required)
-     * @param string $fileId file id (required)
-     * @return string
+     * @param string $sortBy PUBLICATION_START or PUBLICATION_END (optional)
+     * @param string $sortDir ASC or DESC (optional)
+     * @return \KuntaAPI\Model\Job[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function getOrganizationFileData($organizationId, $fileId)
+    public function listOrganizationJobs($organizationId, $sortBy = null, $sortDir = null)
     {
-        list($response) = $this->getOrganizationFileDataWithHttpInfo($organizationId, $fileId);
+        list($response) = $this->listOrganizationJobsWithHttpInfo($organizationId, $sortBy, $sortDir);
         return $response;
     }
 
     /**
-     * Operation getOrganizationFileDataWithHttpInfo
+     * Operation listOrganizationJobsWithHttpInfo
      *
-     * Returns an organization file data
+     * Lists organizations jobs
      *
      * @param string $organizationId Organization id (required)
-     * @param string $fileId file id (required)
-     * @return Array of string, HTTP status code, HTTP response headers (array of strings)
+     * @param string $sortBy PUBLICATION_START or PUBLICATION_END (optional)
+     * @param string $sortDir ASC or DESC (optional)
+     * @return Array of \KuntaAPI\Model\Job[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function getOrganizationFileDataWithHttpInfo($organizationId, $fileId)
+    public function listOrganizationJobsWithHttpInfo($organizationId, $sortBy = null, $sortDir = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling getOrganizationFileData');
-        }
-        // verify the required parameter 'fileId' is set
-        if ($fileId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $fileId when calling getOrganizationFileData');
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listOrganizationJobs');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/files/{fileId}/data";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/octet-stream'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
-
-        // path params
-        if ($organizationId !== null) {
-            $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($fileId !== null) {
-            $resourcePath = str_replace(
-                "{" . "fileId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($fileId),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                'string',
-                '/organizations/{organizationId}/files/{fileId}/data'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listOrganizationFiles
-     *
-     * Lists organizations files
-     *
-     * @param string $organizationId Organization id (required)
-     * @param string $pageId Filter with page (optional)
-     * @return \KuntaAPI\Model\File[]
-     * @throws \KuntaAPI\ApiException on non-2xx response
-     */
-    public function listOrganizationFiles($organizationId, $pageId = null)
-    {
-        list($response) = $this->listOrganizationFilesWithHttpInfo($organizationId, $pageId);
-        return $response;
-    }
-
-    /**
-     * Operation listOrganizationFilesWithHttpInfo
-     *
-     * Lists organizations files
-     *
-     * @param string $organizationId Organization id (required)
-     * @param string $pageId Filter with page (optional)
-     * @return Array of \KuntaAPI\Model\File[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \KuntaAPI\ApiException on non-2xx response
-     */
-    public function listOrganizationFilesWithHttpInfo($organizationId, $pageId = null)
-    {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listOrganizationFiles');
-        }
-        // parse inputs
-        $resourcePath = "/organizations/{organizationId}/files";
+        $resourcePath = "/organizations/{organizationId}/jobs";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -369,8 +260,12 @@ class FilesApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // query params
-        if ($pageId !== null) {
-            $queryParams['pageId'] = $this->apiClient->getSerializer()->toQueryValue($pageId);
+        if ($sortBy !== null) {
+            $queryParams['sortBy'] = $this->apiClient->getSerializer()->toQueryValue($sortBy);
+        }
+        // query params
+        if ($sortDir !== null) {
+            $queryParams['sortDir'] = $this->apiClient->getSerializer()->toQueryValue($sortDir);
         }
         // path params
         if ($organizationId !== null) {
@@ -398,15 +293,15 @@ class FilesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\File[]',
-                '/organizations/{organizationId}/files'
+                '\KuntaAPI\Model\Job[]',
+                '/organizations/{organizationId}/jobs'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\File[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Job[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\File[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Job[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

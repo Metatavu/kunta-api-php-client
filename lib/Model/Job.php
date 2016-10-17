@@ -1,6 +1,6 @@
 <?php
 /**
- * NewsArticle
+ * Job
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * NewsArticle Class Doc Comment
+ * Job Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NewsArticle implements ArrayAccess
+class Job implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NewsArticle';
+    protected static $swaggerModelName = 'Job';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -68,9 +68,15 @@ class NewsArticle implements ArrayAccess
     protected static $swaggerTypes = array(
         'id' => 'string',
         'title' => 'string',
-        'abstract' => 'string',
-        'contents' => 'string',
-        'published' => '\DateTime'
+        'employmentType' => 'string',
+        'description' => 'string',
+        'location' => 'string',
+        'organisationalUnit' => 'string',
+        'duration' => 'string',
+        'taskArea' => 'string',
+        'publicationStart' => 'string',
+        'publicationEnd' => 'string',
+        'link' => 'string'
     );
 
     public static function swaggerTypes()
@@ -85,9 +91,15 @@ class NewsArticle implements ArrayAccess
     protected static $attributeMap = array(
         'id' => 'id',
         'title' => 'title',
-        'abstract' => 'abstract',
-        'contents' => 'contents',
-        'published' => 'published'
+        'employmentType' => 'employmentType',
+        'description' => 'description',
+        'location' => 'location',
+        'organisationalUnit' => 'organisationalUnit',
+        'duration' => 'duration',
+        'taskArea' => 'taskArea',
+        'publicationStart' => 'publicationStart',
+        'publicationEnd' => 'publicationEnd',
+        'link' => 'link'
     );
 
     public static function attributeMap()
@@ -102,9 +114,15 @@ class NewsArticle implements ArrayAccess
     protected static $setters = array(
         'id' => 'setId',
         'title' => 'setTitle',
-        'abstract' => 'setAbstract',
-        'contents' => 'setContents',
-        'published' => 'setPublished'
+        'employmentType' => 'setEmploymentType',
+        'description' => 'setDescription',
+        'location' => 'setLocation',
+        'organisationalUnit' => 'setOrganisationalUnit',
+        'duration' => 'setDuration',
+        'taskArea' => 'setTaskArea',
+        'publicationStart' => 'setPublicationStart',
+        'publicationEnd' => 'setPublicationEnd',
+        'link' => 'setLink'
     );
 
     public static function setters()
@@ -119,9 +137,15 @@ class NewsArticle implements ArrayAccess
     protected static $getters = array(
         'id' => 'getId',
         'title' => 'getTitle',
-        'abstract' => 'getAbstract',
-        'contents' => 'getContents',
-        'published' => 'getPublished'
+        'employmentType' => 'getEmploymentType',
+        'description' => 'getDescription',
+        'location' => 'getLocation',
+        'organisationalUnit' => 'getOrganisationalUnit',
+        'duration' => 'getDuration',
+        'taskArea' => 'getTaskArea',
+        'publicationStart' => 'getPublicationStart',
+        'publicationEnd' => 'getPublicationEnd',
+        'link' => 'getLink'
     );
 
     public static function getters()
@@ -147,9 +171,15 @@ class NewsArticle implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['abstract'] = isset($data['abstract']) ? $data['abstract'] : null;
-        $this->container['contents'] = isset($data['contents']) ? $data['contents'] : null;
-        $this->container['published'] = isset($data['published']) ? $data['published'] : null;
+        $this->container['employmentType'] = isset($data['employmentType']) ? $data['employmentType'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['organisationalUnit'] = isset($data['organisationalUnit']) ? $data['organisationalUnit'] : null;
+        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['taskArea'] = isset($data['taskArea']) ? $data['taskArea'] : null;
+        $this->container['publicationStart'] = isset($data['publicationStart']) ? $data['publicationStart'] : null;
+        $this->container['publicationEnd'] = isset($data['publicationEnd']) ? $data['publicationEnd'] : null;
+        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
     }
 
     /**
@@ -218,64 +248,190 @@ class NewsArticle implements ArrayAccess
     }
 
     /**
-     * Gets abstract
+     * Gets employmentType
      * @return string
      */
-    public function getAbstract()
+    public function getEmploymentType()
     {
-        return $this->container['abstract'];
+        return $this->container['employmentType'];
     }
 
     /**
-     * Sets abstract
-     * @param string $abstract
+     * Sets employmentType
+     * @param string $employmentType
      * @return $this
      */
-    public function setAbstract($abstract)
+    public function setEmploymentType($employmentType)
     {
-        $this->container['abstract'] = $abstract;
+        $this->container['employmentType'] = $employmentType;
 
         return $this;
     }
 
     /**
-     * Gets contents
+     * Gets description
      * @return string
      */
-    public function getContents()
+    public function getDescription()
     {
-        return $this->container['contents'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets contents
-     * @param string $contents
+     * Sets description
+     * @param string $description
      * @return $this
      */
-    public function setContents($contents)
+    public function setDescription($description)
     {
-        $this->container['contents'] = $contents;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets published
-     * @return \DateTime
+     * Gets location
+     * @return string
      */
-    public function getPublished()
+    public function getLocation()
     {
-        return $this->container['published'];
+        return $this->container['location'];
     }
 
     /**
-     * Sets published
-     * @param \DateTime $published
+     * Sets location
+     * @param string $location
      * @return $this
      */
-    public function setPublished($published)
+    public function setLocation($location)
     {
-        $this->container['published'] = $published;
+        $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets organisationalUnit
+     * @return string
+     */
+    public function getOrganisationalUnit()
+    {
+        return $this->container['organisationalUnit'];
+    }
+
+    /**
+     * Sets organisationalUnit
+     * @param string $organisationalUnit
+     * @return $this
+     */
+    public function setOrganisationalUnit($organisationalUnit)
+    {
+        $this->container['organisationalUnit'] = $organisationalUnit;
+
+        return $this;
+    }
+
+    /**
+     * Gets duration
+     * @return string
+     */
+    public function getDuration()
+    {
+        return $this->container['duration'];
+    }
+
+    /**
+     * Sets duration
+     * @param string $duration
+     * @return $this
+     */
+    public function setDuration($duration)
+    {
+        $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets taskArea
+     * @return string
+     */
+    public function getTaskArea()
+    {
+        return $this->container['taskArea'];
+    }
+
+    /**
+     * Sets taskArea
+     * @param string $taskArea
+     * @return $this
+     */
+    public function setTaskArea($taskArea)
+    {
+        $this->container['taskArea'] = $taskArea;
+
+        return $this;
+    }
+
+    /**
+     * Gets publicationStart
+     * @return string
+     */
+    public function getPublicationStart()
+    {
+        return $this->container['publicationStart'];
+    }
+
+    /**
+     * Sets publicationStart
+     * @param string $publicationStart
+     * @return $this
+     */
+    public function setPublicationStart($publicationStart)
+    {
+        $this->container['publicationStart'] = $publicationStart;
+
+        return $this;
+    }
+
+    /**
+     * Gets publicationEnd
+     * @return string
+     */
+    public function getPublicationEnd()
+    {
+        return $this->container['publicationEnd'];
+    }
+
+    /**
+     * Sets publicationEnd
+     * @param string $publicationEnd
+     * @return $this
+     */
+    public function setPublicationEnd($publicationEnd)
+    {
+        $this->container['publicationEnd'] = $publicationEnd;
+
+        return $this;
+    }
+
+    /**
+     * Gets link
+     * @return string
+     */
+    public function getLink()
+    {
+        return $this->container['link'];
+    }
+
+    /**
+     * Sets link
+     * @param string $link
+     * @return $this
+     */
+    public function setLink($link)
+    {
+        $this->container['link'] = $link;
 
         return $this;
     }
