@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional] 
 **serviceId** | **string** |  | [optional] 
 **organizationId** | **string** |  | [optional] 
 **roleType** | **string** |  | [optional] 

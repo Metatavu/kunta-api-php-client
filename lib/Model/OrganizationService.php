@@ -66,6 +66,7 @@ class OrganizationService implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
+        'id' => 'string',
         'serviceId' => 'string',
         'organizationId' => 'string',
         'roleType' => 'string',
@@ -84,6 +85,7 @@ class OrganizationService implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
+        'id' => 'id',
         'serviceId' => 'serviceId',
         'organizationId' => 'organizationId',
         'roleType' => 'roleType',
@@ -102,6 +104,7 @@ class OrganizationService implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
+        'id' => 'setId',
         'serviceId' => 'setServiceId',
         'organizationId' => 'setOrganizationId',
         'roleType' => 'setRoleType',
@@ -120,6 +123,7 @@ class OrganizationService implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
+        'id' => 'getId',
         'serviceId' => 'getServiceId',
         'organizationId' => 'getOrganizationId',
         'roleType' => 'getRoleType',
@@ -149,6 +153,7 @@ class OrganizationService implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['serviceId'] = isset($data['serviceId']) ? $data['serviceId'] : null;
         $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['roleType'] = isset($data['roleType']) ? $data['roleType'] : null;
@@ -179,6 +184,27 @@ class OrganizationService implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets id
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     * @param string $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets serviceId
