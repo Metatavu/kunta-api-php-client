@@ -74,8 +74,8 @@ class Job implements ArrayAccess
         'organisationalUnit' => 'string',
         'duration' => 'string',
         'taskArea' => 'string',
-        'publicationStart' => 'string',
-        'publicationEnd' => 'string',
+        'publicationStart' => '\DateTime',
+        'publicationEnd' => '\DateTime',
         'link' => 'string'
     );
 
@@ -375,7 +375,7 @@ class Job implements ArrayAccess
 
     /**
      * Gets publicationStart
-     * @return string
+     * @return \DateTime
      */
     public function getPublicationStart()
     {
@@ -384,7 +384,7 @@ class Job implements ArrayAccess
 
     /**
      * Sets publicationStart
-     * @param string $publicationStart
+     * @param \DateTime $publicationStart
      * @return $this
      */
     public function setPublicationStart($publicationStart)
@@ -396,7 +396,7 @@ class Job implements ArrayAccess
 
     /**
      * Gets publicationEnd
-     * @return string
+     * @return \DateTime
      */
     public function getPublicationEnd()
     {
@@ -405,7 +405,7 @@ class Job implements ArrayAccess
 
     /**
      * Sets publicationEnd
-     * @param string $publicationEnd
+     * @param \DateTime $publicationEnd
      * @return $this
      */
     public function setPublicationEnd($publicationEnd)

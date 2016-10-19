@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **organisationalUnit** | **string** |  | [optional] 
 **duration** | **string** |  | [optional] 
 **taskArea** | **string** |  | [optional] 
-**publicationStart** | **string** |  | [optional] 
-**publicationEnd** | **string** |  | [optional] 
+**publicationStart** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**publicationEnd** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **link** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
