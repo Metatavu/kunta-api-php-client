@@ -160,18 +160,6 @@ class ServiceChannelAttachment implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 100)) {
-            $invalid_properties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 150)) {
-            $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 150.";
-        }
-
-        if (!is_null($this->container['url']) && (strlen($this->container['url']) > 500)) {
-            $invalid_properties[] = "invalid value for 'url', the character length must be smaller than or equal to 500.";
-        }
-
         return $invalid_properties;
     }
 
@@ -183,15 +171,6 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function valid()
     {
-        if (strlen($this->container['name']) > 100) {
-            return false;
-        }
-        if (strlen($this->container['description']) > 150) {
-            return false;
-        }
-        if (strlen($this->container['url']) > 500) {
-            return false;
-        }
         return true;
     }
 
@@ -233,9 +212,6 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function setName($name)
     {
-        if (strlen($name) > 100) {
-            throw new \InvalidArgumentException('invalid length for $name when calling ServiceChannelAttachment., must be smaller than or equal to 100.');
-        }
         $this->container['name'] = $name;
 
         return $this;
@@ -257,9 +233,6 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function setDescription($description)
     {
-        if (strlen($description) > 150) {
-            throw new \InvalidArgumentException('invalid length for $description when calling ServiceChannelAttachment., must be smaller than or equal to 150.');
-        }
         $this->container['description'] = $description;
 
         return $this;
@@ -281,9 +254,6 @@ class ServiceChannelAttachment implements ArrayAccess
      */
     public function setUrl($url)
     {
-        if (strlen($url) > 500) {
-            throw new \InvalidArgumentException('invalid length for $url when calling ServiceChannelAttachment., must be smaller than or equal to 500.');
-        }
         $this->container['url'] = $url;
 
         return $this;
