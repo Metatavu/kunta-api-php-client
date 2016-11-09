@@ -201,7 +201,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizations**
-> \KuntaAPI\Model\Organization[] listOrganizations($businessName, $businessCode)
+> \KuntaAPI\Model\Organization[] listOrganizations($businessName, $businessCode, $search, $firstResult, $maxResults)
 
 List organizations
 
@@ -215,9 +215,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new KuntaAPI\Api\OrganizationsApi();
 $businessName = "businessName_example"; // string | Filter by organization's business name
 $businessCode = "businessCode_example"; // string | Filter by organization's business code
+$search = "search_example"; // string | Search organizations by free-text query
+$firstResult = 789; // int | First result
+$maxResults = 789; // int | Max results
 
 try {
-    $result = $api_instance->listOrganizations($businessName, $businessCode);
+    $result = $api_instance->listOrganizations($businessName, $businessCode, $search, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationsApi->listOrganizations: ', $e->getMessage(), PHP_EOL;
@@ -231,6 +234,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **businessName** | **string**| Filter by organization&#39;s business name | [optional]
  **businessCode** | **string**| Filter by organization&#39;s business code | [optional]
+ **search** | **string**| Search organizations by free-text query | [optional]
+ **firstResult** | **int**| First result | [optional]
+ **maxResults** | **int**| Max results | [optional]
 
 ### Return type
 

@@ -254,7 +254,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationPages**
-> \KuntaAPI\Model\Page[] listOrganizationPages($organizationId, $parentId, $path)
+> \KuntaAPI\Model\Page[] listOrganizationPages($organizationId, $parentId, $path, $search, $firstResult, $maxResults)
 
 Lists organizations pages
 
@@ -269,9 +269,12 @@ $api_instance = new KuntaAPI\Api\PagesApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $parentId = "parentId_example"; // string | Filter results by parent id
 $path = "path_example"; // string | Filter results by page path
+$search = "search_example"; // string | Search pages by free-text query
+$firstResult = 789; // int | First result
+$maxResults = 789; // int | Max results
 
 try {
-    $result = $api_instance->listOrganizationPages($organizationId, $parentId, $path);
+    $result = $api_instance->listOrganizationPages($organizationId, $parentId, $path, $search, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PagesApi->listOrganizationPages: ', $e->getMessage(), PHP_EOL;
@@ -286,6 +289,9 @@ Name | Type | Description  | Notes
  **organizationId** | **string**| Organization id |
  **parentId** | **string**| Filter results by parent id | [optional]
  **path** | **string**| Filter results by page path | [optional]
+ **search** | **string**| Search pages by free-text query | [optional]
+ **firstResult** | **int**| First result | [optional]
+ **maxResults** | **int**| Max results | [optional]
 
 ### Return type
 

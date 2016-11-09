@@ -542,12 +542,15 @@ class OrganizationsApi
      *
      * @param string $businessName Filter by organization&#39;s business name (optional)
      * @param string $businessCode Filter by organization&#39;s business code (optional)
+     * @param string $search Search organizations by free-text query (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\Organization[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizations($businessName = null, $businessCode = null)
+    public function listOrganizations($businessName = null, $businessCode = null, $search = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listOrganizationsWithHttpInfo($businessName, $businessCode);
+        list($response) = $this->listOrganizationsWithHttpInfo($businessName, $businessCode, $search, $firstResult, $maxResults);
         return $response;
     }
 
@@ -558,10 +561,13 @@ class OrganizationsApi
      *
      * @param string $businessName Filter by organization&#39;s business name (optional)
      * @param string $businessCode Filter by organization&#39;s business code (optional)
+     * @param string $search Search organizations by free-text query (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\Organization[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationsWithHttpInfo($businessName = null, $businessCode = null)
+    public function listOrganizationsWithHttpInfo($businessName = null, $businessCode = null, $search = null, $firstResult = null, $maxResults = null)
     {
         // parse inputs
         $resourcePath = "/organizations";
@@ -582,6 +588,18 @@ class OrganizationsApi
         // query params
         if ($businessCode !== null) {
             $queryParams['businessCode'] = $this->apiClient->getSerializer()->toQueryValue($businessCode);
+        }
+        // query params
+        if ($search !== null) {
+            $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
+        }
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);

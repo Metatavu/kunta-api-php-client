@@ -836,7 +836,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServices**
-> \KuntaAPI\Model\Service[] listServices($firstResult, $maxResults, $search)
+> \KuntaAPI\Model\Service[] listServices($search, $firstResult, $maxResults)
 
 Service list
 
@@ -848,12 +848,12 @@ Lists services
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServicesApi();
+$search = "search_example"; // string | Search services by free-text query
 $firstResult = 789; // int | First result
 $maxResults = 789; // int | Max results
-$search = "search_example"; // string | Search services by free-text query
 
 try {
-    $result = $api_instance->listServices($firstResult, $maxResults, $search);
+    $result = $api_instance->listServices($search, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServicesApi->listServices: ', $e->getMessage(), PHP_EOL;
@@ -865,9 +865,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **search** | **string**| Search services by free-text query | [optional]
  **firstResult** | **int**| First result | [optional]
  **maxResults** | **int**| Max results | [optional]
- **search** | **string**| Search services by free-text query | [optional]
 
 ### Return type
 
