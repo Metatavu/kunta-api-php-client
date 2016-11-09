@@ -2004,12 +2004,13 @@ class ServicesApi
      *
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
+     * @param string $search Search services by free-text query (optional)
      * @return \KuntaAPI\Model\Service[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServices($firstResult = null, $maxResults = null)
+    public function listServices($firstResult = null, $maxResults = null, $search = null)
     {
-        list($response) = $this->listServicesWithHttpInfo($firstResult, $maxResults);
+        list($response) = $this->listServicesWithHttpInfo($firstResult, $maxResults, $search);
         return $response;
     }
 
@@ -2020,10 +2021,11 @@ class ServicesApi
      *
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
+     * @param string $search Search services by free-text query (optional)
      * @return Array of \KuntaAPI\Model\Service[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServicesWithHttpInfo($firstResult = null, $maxResults = null)
+    public function listServicesWithHttpInfo($firstResult = null, $maxResults = null, $search = null)
     {
         // parse inputs
         $resourcePath = "/services";
@@ -2044,6 +2046,10 @@ class ServicesApi
         // query params
         if ($maxResults !== null) {
             $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
+        }
+        // query params
+        if ($search !== null) {
+            $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
