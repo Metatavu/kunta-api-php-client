@@ -221,12 +221,14 @@ class JobsApi
      * @param string $organizationId Organization id (required)
      * @param string $sortBy PUBLICATION_START or PUBLICATION_END (optional)
      * @param string $sortDir ASC or DESC (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\Job[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationJobs($organizationId, $sortBy = null, $sortDir = null)
+    public function listOrganizationJobs($organizationId, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listOrganizationJobsWithHttpInfo($organizationId, $sortBy, $sortDir);
+        list($response) = $this->listOrganizationJobsWithHttpInfo($organizationId, $sortBy, $sortDir, $firstResult, $maxResults);
         return $response;
     }
 
@@ -238,10 +240,12 @@ class JobsApi
      * @param string $organizationId Organization id (required)
      * @param string $sortBy PUBLICATION_START or PUBLICATION_END (optional)
      * @param string $sortDir ASC or DESC (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\Job[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationJobsWithHttpInfo($organizationId, $sortBy = null, $sortDir = null)
+    public function listOrganizationJobsWithHttpInfo($organizationId, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -266,6 +270,14 @@ class JobsApi
         // query params
         if ($sortDir !== null) {
             $queryParams['sortDir'] = $this->apiClient->getSerializer()->toQueryValue($sortDir);
+        }
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
         }
         // path params
         if ($organizationId !== null) {

@@ -56,7 +56,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationJobs**
-> \KuntaAPI\Model\Job[] listOrganizationJobs($organizationId, $sortBy, $sortDir)
+> \KuntaAPI\Model\Job[] listOrganizationJobs($organizationId, $sortBy, $sortDir, $firstResult, $maxResults)
 
 Lists organizations jobs
 
@@ -71,9 +71,11 @@ $api_instance = new KuntaAPI\Api\JobsApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $sortBy = "sortBy_example"; // string | PUBLICATION_START or PUBLICATION_END
 $sortDir = "sortDir_example"; // string | ASC or DESC
+$firstResult = 789; // int | First result
+$maxResults = 789; // int | Max results
 
 try {
-    $result = $api_instance->listOrganizationJobs($organizationId, $sortBy, $sortDir);
+    $result = $api_instance->listOrganizationJobs($organizationId, $sortBy, $sortDir, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->listOrganizationJobs: ', $e->getMessage(), PHP_EOL;
@@ -88,6 +90,8 @@ Name | Type | Description  | Notes
  **organizationId** | **string**| Organization id |
  **sortBy** | **string**| PUBLICATION_START or PUBLICATION_END | [optional]
  **sortDir** | **string**| ASC or DESC | [optional]
+ **firstResult** | **int**| First result | [optional]
+ **maxResults** | **int**| Max results | [optional]
 
 ### Return type
 
