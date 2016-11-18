@@ -331,12 +331,15 @@ class FilesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $pageId Filter with page (optional)
+     * @param string $search Search files by free-text query (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\File[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationFiles($organizationId, $pageId = null)
+    public function listOrganizationFiles($organizationId, $pageId = null, $search = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listOrganizationFilesWithHttpInfo($organizationId, $pageId);
+        list($response) = $this->listOrganizationFilesWithHttpInfo($organizationId, $pageId, $search, $firstResult, $maxResults);
         return $response;
     }
 
@@ -347,10 +350,13 @@ class FilesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $pageId Filter with page (optional)
+     * @param string $search Search files by free-text query (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\File[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationFilesWithHttpInfo($organizationId, $pageId = null)
+    public function listOrganizationFilesWithHttpInfo($organizationId, $pageId = null, $search = null, $firstResult = null, $maxResults = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -371,6 +377,18 @@ class FilesApi
         // query params
         if ($pageId !== null) {
             $queryParams['pageId'] = $this->apiClient->getSerializer()->toQueryValue($pageId);
+        }
+        // query params
+        if ($search !== null) {
+            $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
+        }
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
         }
         // path params
         if ($organizationId !== null) {
