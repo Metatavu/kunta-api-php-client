@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **findOrganizationFile**
-> \KuntaAPI\Model\Page findOrganizationFile($organizationId, $fileId)
+> \KuntaAPI\Model\FileDef findOrganizationFile($organizationId, $fileId)
 
 Finds organizations file
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\KuntaAPI\Model\Page**](../Model/Page.md)
+[**\KuntaAPI\Model\FileDef**](../Model/FileDef.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationFiles**
-> \KuntaAPI\Model\File[] listOrganizationFiles($organizationId, $pageId, $search, $firstResult, $maxResults)
+> \KuntaAPI\Model\FileDef[] listOrganizationFiles($organizationId, $pageId, $search, $firstResult, $maxResults)
 
 Lists organizations files
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\KuntaAPI\Model\File[]**](../Model/File.md)
+[**\KuntaAPI\Model\FileDef[]**](../Model/FileDef.md)
 
 ### Authorization
 

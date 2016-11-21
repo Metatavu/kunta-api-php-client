@@ -109,7 +109,7 @@ class FilesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $fileId file id (required)
-     * @return \KuntaAPI\Model\Page
+     * @return \KuntaAPI\Model\FileDef
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function findOrganizationFile($organizationId, $fileId)
@@ -125,7 +125,7 @@ class FilesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $fileId file id (required)
-     * @return Array of \KuntaAPI\Model\Page, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \KuntaAPI\Model\FileDef, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function findOrganizationFileWithHttpInfo($organizationId, $fileId)
@@ -184,15 +184,15 @@ class FilesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\Page',
+                '\KuntaAPI\Model\FileDef',
                 '/organizations/{organizationId}/files/{fileId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Page', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\FileDef', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Page', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\FileDef', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -334,7 +334,7 @@ class FilesApi
      * @param string $search Search files by free-text query (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
-     * @return \KuntaAPI\Model\File[]
+     * @return \KuntaAPI\Model\FileDef[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function listOrganizationFiles($organizationId, $pageId = null, $search = null, $firstResult = null, $maxResults = null)
@@ -353,7 +353,7 @@ class FilesApi
      * @param string $search Search files by free-text query (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
-     * @return Array of \KuntaAPI\Model\File[], HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \KuntaAPI\Model\FileDef[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function listOrganizationFilesWithHttpInfo($organizationId, $pageId = null, $search = null, $firstResult = null, $maxResults = null)
@@ -416,15 +416,15 @@ class FilesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\File[]',
+                '\KuntaAPI\Model\FileDef[]',
                 '/organizations/{organizationId}/files'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\File[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\FileDef[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\File[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\FileDef[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
