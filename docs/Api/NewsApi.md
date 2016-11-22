@@ -261,7 +261,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationNews**
-> \KuntaAPI\Model\NewsArticle[] listOrganizationNews($organizationId, $publishedBefore, $publishedAfter, $firstResult, $maxResults)
+> \KuntaAPI\Model\NewsArticle[] listOrganizationNews($organizationId, $slug, $publishedBefore, $publishedAfter, $firstResult, $maxResults)
 
 Lists organizations news
 
@@ -274,13 +274,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\NewsApi();
 $organizationId = "organizationId_example"; // string | Organization id
+$slug = "slug_example"; // string | Filter with slug
 $publishedBefore = "publishedBefore_example"; // string | return only news published before the date
 $publishedAfter = "publishedAfter_example"; // string | return only news published after the date
 $firstResult = 56; // int | first index of results
 $maxResults = 56; // int | maximum number of results
 
 try {
-    $result = $api_instance->listOrganizationNews($organizationId, $publishedBefore, $publishedAfter, $firstResult, $maxResults);
+    $result = $api_instance->listOrganizationNews($organizationId, $slug, $publishedBefore, $publishedAfter, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NewsApi->listOrganizationNews: ', $e->getMessage(), PHP_EOL;
@@ -293,6 +294,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
+ **slug** | **string**| Filter with slug | [optional]
  **publishedBefore** | **string**| return only news published before the date | [optional]
  **publishedAfter** | **string**| return only news published after the date | [optional]
  **firstResult** | **int**| first index of results | [optional]

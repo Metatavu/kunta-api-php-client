@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional] 
 **title** | **string** |  | [optional] 
 **abstract** | **string** |  | [optional] 
+**slug** | **string** |  | [optional] 
 **contents** | **string** |  | [optional] 
 **published** | [**\DateTime**](\DateTime.md) |  | [optional] 
 
