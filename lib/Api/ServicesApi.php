@@ -2002,15 +2002,16 @@ class ServicesApi
      *
      * Service list
      *
+     * @param string $organizationId Return only services belonging to specified organization (optional)
      * @param string $search Search services by free-text query (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\Service[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServices($search = null, $firstResult = null, $maxResults = null)
+    public function listServices($organizationId = null, $search = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listServicesWithHttpInfo($search, $firstResult, $maxResults);
+        list($response) = $this->listServicesWithHttpInfo($organizationId, $search, $firstResult, $maxResults);
         return $response;
     }
 
@@ -2019,13 +2020,14 @@ class ServicesApi
      *
      * Service list
      *
+     * @param string $organizationId Return only services belonging to specified organization (optional)
      * @param string $search Search services by free-text query (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\Service[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServicesWithHttpInfo($search = null, $firstResult = null, $maxResults = null)
+    public function listServicesWithHttpInfo($organizationId = null, $search = null, $firstResult = null, $maxResults = null)
     {
         // parse inputs
         $resourcePath = "/services";
@@ -2039,6 +2041,10 @@ class ServicesApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
+        // query params
+        if ($organizationId !== null) {
+            $queryParams['organizationId'] = $this->apiClient->getSerializer()->toQueryValue($organizationId);
+        }
         // query params
         if ($search !== null) {
             $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
