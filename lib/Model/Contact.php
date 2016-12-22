@@ -1,6 +1,6 @@
 <?php
 /**
- * Job
+ * Contact
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * Job Class Doc Comment
+ * Contact Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Job implements ArrayAccess
+class Contact implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Job';
+    protected static $swaggerModelName = 'Contact';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,16 +67,17 @@ class Job implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
+        'displayName' => 'string',
+        'firstName' => 'string',
+        'lastName' => 'string',
         'title' => 'string',
-        'employmentType' => 'string',
-        'description' => 'string',
-        'location' => 'string',
-        'organisationalUnit' => 'string',
-        'duration' => 'string',
-        'taskArea' => 'string',
-        'publicationStart' => '\DateTime',
-        'publicationEnd' => '\DateTime',
-        'link' => 'string'
+        'organization' => 'string',
+        'organizationUnits' => 'string[]',
+        'additionalInformations' => 'string[]',
+        'emails' => 'string[]',
+        'phones' => '\KuntaAPI\Model\ContactPhone[]',
+        'addresses' => '\KuntaAPI\Model\Address[]',
+        'statuses' => '\KuntaAPI\Model\ContactStatus[]'
     );
 
     public static function swaggerTypes()
@@ -90,16 +91,17 @@ class Job implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
+        'displayName' => 'displayName',
+        'firstName' => 'firstName',
+        'lastName' => 'lastName',
         'title' => 'title',
-        'employmentType' => 'employmentType',
-        'description' => 'description',
-        'location' => 'location',
-        'organisationalUnit' => 'organisationalUnit',
-        'duration' => 'duration',
-        'taskArea' => 'taskArea',
-        'publicationStart' => 'publicationStart',
-        'publicationEnd' => 'publicationEnd',
-        'link' => 'link'
+        'organization' => 'organization',
+        'organizationUnits' => 'organizationUnits',
+        'additionalInformations' => 'additionalInformations',
+        'emails' => 'emails',
+        'phones' => 'phones',
+        'addresses' => 'addresses',
+        'statuses' => 'statuses'
     );
 
     public static function attributeMap()
@@ -113,16 +115,17 @@ class Job implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
+        'displayName' => 'setDisplayName',
+        'firstName' => 'setFirstName',
+        'lastName' => 'setLastName',
         'title' => 'setTitle',
-        'employmentType' => 'setEmploymentType',
-        'description' => 'setDescription',
-        'location' => 'setLocation',
-        'organisationalUnit' => 'setOrganisationalUnit',
-        'duration' => 'setDuration',
-        'taskArea' => 'setTaskArea',
-        'publicationStart' => 'setPublicationStart',
-        'publicationEnd' => 'setPublicationEnd',
-        'link' => 'setLink'
+        'organization' => 'setOrganization',
+        'organizationUnits' => 'setOrganizationUnits',
+        'additionalInformations' => 'setAdditionalInformations',
+        'emails' => 'setEmails',
+        'phones' => 'setPhones',
+        'addresses' => 'setAddresses',
+        'statuses' => 'setStatuses'
     );
 
     public static function setters()
@@ -136,16 +139,17 @@ class Job implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
+        'displayName' => 'getDisplayName',
+        'firstName' => 'getFirstName',
+        'lastName' => 'getLastName',
         'title' => 'getTitle',
-        'employmentType' => 'getEmploymentType',
-        'description' => 'getDescription',
-        'location' => 'getLocation',
-        'organisationalUnit' => 'getOrganisationalUnit',
-        'duration' => 'getDuration',
-        'taskArea' => 'getTaskArea',
-        'publicationStart' => 'getPublicationStart',
-        'publicationEnd' => 'getPublicationEnd',
-        'link' => 'getLink'
+        'organization' => 'getOrganization',
+        'organizationUnits' => 'getOrganizationUnits',
+        'additionalInformations' => 'getAdditionalInformations',
+        'emails' => 'getEmails',
+        'phones' => 'getPhones',
+        'addresses' => 'getAddresses',
+        'statuses' => 'getStatuses'
     );
 
     public static function getters()
@@ -170,16 +174,17 @@ class Job implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
+        $this->container['firstName'] = isset($data['firstName']) ? $data['firstName'] : null;
+        $this->container['lastName'] = isset($data['lastName']) ? $data['lastName'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['employmentType'] = isset($data['employmentType']) ? $data['employmentType'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
-        $this->container['organisationalUnit'] = isset($data['organisationalUnit']) ? $data['organisationalUnit'] : null;
-        $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['taskArea'] = isset($data['taskArea']) ? $data['taskArea'] : null;
-        $this->container['publicationStart'] = isset($data['publicationStart']) ? $data['publicationStart'] : null;
-        $this->container['publicationEnd'] = isset($data['publicationEnd']) ? $data['publicationEnd'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
+        $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
+        $this->container['organizationUnits'] = isset($data['organizationUnits']) ? $data['organizationUnits'] : null;
+        $this->container['additionalInformations'] = isset($data['additionalInformations']) ? $data['additionalInformations'] : null;
+        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
+        $this->container['phones'] = isset($data['phones']) ? $data['phones'] : null;
+        $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
+        $this->container['statuses'] = isset($data['statuses']) ? $data['statuses'] : null;
     }
 
     /**
@@ -227,6 +232,69 @@ class Job implements ArrayAccess
     }
 
     /**
+     * Gets displayName
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->container['displayName'];
+    }
+
+    /**
+     * Sets displayName
+     * @param string $displayName
+     * @return $this
+     */
+    public function setDisplayName($displayName)
+    {
+        $this->container['displayName'] = $displayName;
+
+        return $this;
+    }
+
+    /**
+     * Gets firstName
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->container['firstName'];
+    }
+
+    /**
+     * Sets firstName
+     * @param string $firstName
+     * @return $this
+     */
+    public function setFirstName($firstName)
+    {
+        $this->container['firstName'] = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastName
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->container['lastName'];
+    }
+
+    /**
+     * Sets lastName
+     * @param string $lastName
+     * @return $this
+     */
+    public function setLastName($lastName)
+    {
+        $this->container['lastName'] = $lastName;
+
+        return $this;
+    }
+
+    /**
      * Gets title
      * @return string
      */
@@ -248,190 +316,148 @@ class Job implements ArrayAccess
     }
 
     /**
-     * Gets employmentType
+     * Gets organization
      * @return string
      */
-    public function getEmploymentType()
+    public function getOrganization()
     {
-        return $this->container['employmentType'];
+        return $this->container['organization'];
     }
 
     /**
-     * Sets employmentType
-     * @param string $employmentType
+     * Sets organization
+     * @param string $organization
      * @return $this
      */
-    public function setEmploymentType($employmentType)
+    public function setOrganization($organization)
     {
-        $this->container['employmentType'] = $employmentType;
+        $this->container['organization'] = $organization;
 
         return $this;
     }
 
     /**
-     * Gets description
-     * @return string
+     * Gets organizationUnits
+     * @return string[]
      */
-    public function getDescription()
+    public function getOrganizationUnits()
     {
-        return $this->container['description'];
+        return $this->container['organizationUnits'];
     }
 
     /**
-     * Sets description
-     * @param string $description
+     * Sets organizationUnits
+     * @param string[] $organizationUnits
      * @return $this
      */
-    public function setDescription($description)
+    public function setOrganizationUnits($organizationUnits)
     {
-        $this->container['description'] = $description;
+        $this->container['organizationUnits'] = $organizationUnits;
 
         return $this;
     }
 
     /**
-     * Gets location
-     * @return string
+     * Gets additionalInformations
+     * @return string[]
      */
-    public function getLocation()
+    public function getAdditionalInformations()
     {
-        return $this->container['location'];
+        return $this->container['additionalInformations'];
     }
 
     /**
-     * Sets location
-     * @param string $location
+     * Sets additionalInformations
+     * @param string[] $additionalInformations
      * @return $this
      */
-    public function setLocation($location)
+    public function setAdditionalInformations($additionalInformations)
     {
-        $this->container['location'] = $location;
+        $this->container['additionalInformations'] = $additionalInformations;
 
         return $this;
     }
 
     /**
-     * Gets organisationalUnit
-     * @return string
+     * Gets emails
+     * @return string[]
      */
-    public function getOrganisationalUnit()
+    public function getEmails()
     {
-        return $this->container['organisationalUnit'];
+        return $this->container['emails'];
     }
 
     /**
-     * Sets organisationalUnit
-     * @param string $organisationalUnit
+     * Sets emails
+     * @param string[] $emails
      * @return $this
      */
-    public function setOrganisationalUnit($organisationalUnit)
+    public function setEmails($emails)
     {
-        $this->container['organisationalUnit'] = $organisationalUnit;
+        $this->container['emails'] = $emails;
 
         return $this;
     }
 
     /**
-     * Gets duration
-     * @return string
+     * Gets phones
+     * @return \KuntaAPI\Model\ContactPhone[]
      */
-    public function getDuration()
+    public function getPhones()
     {
-        return $this->container['duration'];
+        return $this->container['phones'];
     }
 
     /**
-     * Sets duration
-     * @param string $duration
+     * Sets phones
+     * @param \KuntaAPI\Model\ContactPhone[] $phones
      * @return $this
      */
-    public function setDuration($duration)
+    public function setPhones($phones)
     {
-        $this->container['duration'] = $duration;
+        $this->container['phones'] = $phones;
 
         return $this;
     }
 
     /**
-     * Gets taskArea
-     * @return string
+     * Gets addresses
+     * @return \KuntaAPI\Model\Address[]
      */
-    public function getTaskArea()
+    public function getAddresses()
     {
-        return $this->container['taskArea'];
+        return $this->container['addresses'];
     }
 
     /**
-     * Sets taskArea
-     * @param string $taskArea
+     * Sets addresses
+     * @param \KuntaAPI\Model\Address[] $addresses
      * @return $this
      */
-    public function setTaskArea($taskArea)
+    public function setAddresses($addresses)
     {
-        $this->container['taskArea'] = $taskArea;
+        $this->container['addresses'] = $addresses;
 
         return $this;
     }
 
     /**
-     * Gets publicationStart
-     * @return \DateTime
+     * Gets statuses
+     * @return \KuntaAPI\Model\ContactStatus[]
      */
-    public function getPublicationStart()
+    public function getStatuses()
     {
-        return $this->container['publicationStart'];
+        return $this->container['statuses'];
     }
 
     /**
-     * Sets publicationStart
-     * @param \DateTime $publicationStart
+     * Sets statuses
+     * @param \KuntaAPI\Model\ContactStatus[] $statuses
      * @return $this
      */
-    public function setPublicationStart($publicationStart)
+    public function setStatuses($statuses)
     {
-        $this->container['publicationStart'] = $publicationStart;
-
-        return $this;
-    }
-
-    /**
-     * Gets publicationEnd
-     * @return \DateTime
-     */
-    public function getPublicationEnd()
-    {
-        return $this->container['publicationEnd'];
-    }
-
-    /**
-     * Sets publicationEnd
-     * @param \DateTime $publicationEnd
-     * @return $this
-     */
-    public function setPublicationEnd($publicationEnd)
-    {
-        $this->container['publicationEnd'] = $publicationEnd;
-
-        return $this;
-    }
-
-    /**
-     * Gets link
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     * @param string $link
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
+        $this->container['statuses'] = $statuses;
 
         return $this;
     }

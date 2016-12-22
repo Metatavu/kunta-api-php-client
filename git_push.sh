@@ -25,9 +25,9 @@ if [ "$git_remote" = "" ]; then # git remote not defined
 
     if [ "$GIT_TOKEN" = "" ]; then
         echo "[INFO] \$GIT_TOKEN (environment variable) is not set. Using the git crediential in your environment."
-        git remote add origin git@github.com:otavanopisto/kunta-api-php-client.git
+        git remote add origin git@github.com:Metatavu/kunta-api-php-client.git
     else
-        git remote add origin git@github.com:otavanopisto/kunta-api-php-client.git
+        git remote add origin git@github.com:Metatavu/kunta-api-php-client.git
     fi
 
 fi
@@ -35,6 +35,6 @@ fi
 git pull origin master
 
 # Pushes (Forces) the changes in the local repository up to the remote repository
-echo "Git pushing to git@github.com:otavanopisto/kunta-api-php-client.git"
+echo "Git pushing to git@github.com:Metatavu/kunta-api-php-client.git"
 git push origin master
 

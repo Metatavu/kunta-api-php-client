@@ -1,6 +1,6 @@
 <?php
 /**
- * BannersApi
+ * ContactsApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \KuntaAPI\ApiException;
 use \KuntaAPI\ObjectSerializer;
 
 /**
- * BannersApi Class Doc Comment
+ * ContactsApi Class Doc Comment
  *
  * @category Class
  * @package  KuntaAPI
@@ -54,7 +54,7 @@ use \KuntaAPI\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BannersApi
+class ContactsApi
 {
 
     /**
@@ -94,7 +94,7 @@ class BannersApi
      *
      * @param \KuntaAPI\ApiClient $apiClient set the API client
      *
-     * @return BannersApi
+     * @return ContactsApi
      */
     public function setApiClient(\KuntaAPI\ApiClient $apiClient)
     {
@@ -103,43 +103,43 @@ class BannersApi
     }
 
     /**
-     * Operation findOrganizationBanner
+     * Operation findOrganizationContact
      *
-     * Finds organizations banner
+     * Finds an organizations contact
      *
      * @param string $organizationId Organization id (required)
-     * @param string $bannerId banner id (required)
-     * @return \KuntaAPI\Model\NewsArticle
+     * @param string $contactId Contact id (required)
+     * @return \KuntaAPI\Model\Contact
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findOrganizationBanner($organizationId, $bannerId)
+    public function findOrganizationContact($organizationId, $contactId)
     {
-        list($response) = $this->findOrganizationBannerWithHttpInfo($organizationId, $bannerId);
+        list($response) = $this->findOrganizationContactWithHttpInfo($organizationId, $contactId);
         return $response;
     }
 
     /**
-     * Operation findOrganizationBannerWithHttpInfo
+     * Operation findOrganizationContactWithHttpInfo
      *
-     * Finds organizations banner
+     * Finds an organizations contact
      *
      * @param string $organizationId Organization id (required)
-     * @param string $bannerId banner id (required)
-     * @return Array of \KuntaAPI\Model\NewsArticle, HTTP status code, HTTP response headers (array of strings)
+     * @param string $contactId Contact id (required)
+     * @return Array of \KuntaAPI\Model\Contact, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findOrganizationBannerWithHttpInfo($organizationId, $bannerId)
+    public function findOrganizationContactWithHttpInfo($organizationId, $contactId)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationBanner');
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationContact');
         }
-        // verify the required parameter 'bannerId' is set
-        if ($bannerId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $bannerId when calling findOrganizationBanner');
+        // verify the required parameter 'contactId' is set
+        if ($contactId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $contactId when calling findOrganizationContact');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/banners/{bannerId}";
+        $resourcePath = "/organizations/{organizationId}/contacts/{contactId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -159,10 +159,10 @@ class BannersApi
             );
         }
         // path params
-        if ($bannerId !== null) {
+        if ($contactId !== null) {
             $resourcePath = str_replace(
-                "{" . "bannerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($bannerId),
+                "{" . "contactId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($contactId),
                 $resourcePath
             );
         }
@@ -184,15 +184,15 @@ class BannersApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\NewsArticle',
-                '/organizations/{organizationId}/banners/{bannerId}'
+                '\KuntaAPI\Model\Contact',
+                '/organizations/{organizationId}/contacts/{contactId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\NewsArticle', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Contact', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NewsArticle', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Contact', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -214,148 +214,37 @@ class BannersApi
     }
 
     /**
-     * Operation listOrganizationBannerImages
+     * Operation listOrganizationContacts
      *
-     * Returns a list of organization banner images
+     * Lists organizations contacts
      *
      * @param string $organizationId Organization id (required)
-     * @param string $bannerId Banner id (required)
-     * @return \KuntaAPI\Model\Attachment[]
+     * @return \KuntaAPI\Model\Contact[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationBannerImages($organizationId, $bannerId)
+    public function listOrganizationContacts($organizationId)
     {
-        list($response) = $this->listOrganizationBannerImagesWithHttpInfo($organizationId, $bannerId);
+        list($response) = $this->listOrganizationContactsWithHttpInfo($organizationId);
         return $response;
     }
 
     /**
-     * Operation listOrganizationBannerImagesWithHttpInfo
+     * Operation listOrganizationContactsWithHttpInfo
      *
-     * Returns a list of organization banner images
+     * Lists organizations contacts
      *
      * @param string $organizationId Organization id (required)
-     * @param string $bannerId Banner id (required)
-     * @return Array of \KuntaAPI\Model\Attachment[], HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \KuntaAPI\Model\Contact[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationBannerImagesWithHttpInfo($organizationId, $bannerId)
+    public function listOrganizationContactsWithHttpInfo($organizationId)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listOrganizationBannerImages');
-        }
-        // verify the required parameter 'bannerId' is set
-        if ($bannerId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $bannerId when calling listOrganizationBannerImages');
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listOrganizationContacts');
         }
         // parse inputs
-        $resourcePath = "/organizations/{organizationId}/banners/{bannerId}/images";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
-
-        // path params
-        if ($organizationId !== null) {
-            $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($bannerId !== null) {
-            $resourcePath = str_replace(
-                "{" . "bannerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($bannerId),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\KuntaAPI\Model\Attachment[]',
-                '/organizations/{organizationId}/banners/{bannerId}/images'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Attachment[]', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Attachment[]', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listOrganizationBanners
-     *
-     * Lists organizations banners
-     *
-     * @param string $organizationId Organization id (required)
-     * @return \KuntaAPI\Model\Banner[]
-     * @throws \KuntaAPI\ApiException on non-2xx response
-     */
-    public function listOrganizationBanners($organizationId)
-    {
-        list($response) = $this->listOrganizationBannersWithHttpInfo($organizationId);
-        return $response;
-    }
-
-    /**
-     * Operation listOrganizationBannersWithHttpInfo
-     *
-     * Lists organizations banners
-     *
-     * @param string $organizationId Organization id (required)
-     * @return Array of \KuntaAPI\Model\Banner[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \KuntaAPI\ApiException on non-2xx response
-     */
-    public function listOrganizationBannersWithHttpInfo($organizationId)
-    {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listOrganizationBanners');
-        }
-        // parse inputs
-        $resourcePath = "/organizations/{organizationId}/banners";
+        $resourcePath = "/organizations/{organizationId}/contacts";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -392,15 +281,15 @@ class BannersApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\Banner[]',
-                '/organizations/{organizationId}/banners'
+                '\KuntaAPI\Model\Contact[]',
+                '/organizations/{organizationId}/contacts'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Banner[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Contact[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Banner[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Contact[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

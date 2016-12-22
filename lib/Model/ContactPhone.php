@@ -1,6 +1,6 @@
 <?php
 /**
- * InternalServerError
+ * ContactPhone
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * InternalServerError Class Doc Comment
+ * ContactPhone Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,21 +53,21 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InternalServerError implements ArrayAccess
+class ContactPhone implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'InternalServerError';
+    protected static $swaggerModelName = 'ContactPhone';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'code' => 'int',
-        'message' => 'string'
+        'type' => 'string',
+        'number' => 'string'
     );
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class InternalServerError implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'code' => 'code',
-        'message' => 'message'
+        'type' => 'type',
+        'number' => 'number'
     );
 
     public static function attributeMap()
@@ -94,8 +94,8 @@ class InternalServerError implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'code' => 'setCode',
-        'message' => 'setMessage'
+        'type' => 'setType',
+        'number' => 'setNumber'
     );
 
     public static function setters()
@@ -108,8 +108,8 @@ class InternalServerError implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'code' => 'getCode',
-        'message' => 'getMessage'
+        'type' => 'getType',
+        'number' => 'getNumber'
     );
 
     public static function getters()
@@ -133,8 +133,8 @@ class InternalServerError implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
     }
 
     /**
@@ -161,43 +161,43 @@ class InternalServerError implements ArrayAccess
 
 
     /**
-     * Gets code
-     * @return int
+     * Gets type
+     * @return string
      */
-    public function getCode()
+    public function getType()
     {
-        return $this->container['code'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets code
-     * @param int $code
+     * Sets type
+     * @param string $type
      * @return $this
      */
-    public function setCode($code)
+    public function setType($type)
     {
-        $this->container['code'] = $code;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets number
      * @return string
      */
-    public function getMessage()
+    public function getNumber()
     {
-        return $this->container['message'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets message
-     * @param string $message
+     * Sets number
+     * @param string $number
      * @return $this
      */
-    public function setMessage($message)
+    public function setNumber($number)
     {
-        $this->container['message'] = $message;
+        $this->container['number'] = $number;
 
         return $this;
     }

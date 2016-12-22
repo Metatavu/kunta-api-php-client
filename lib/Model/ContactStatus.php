@@ -1,6 +1,6 @@
 <?php
 /**
- * InternalServerError
+ * ContactStatus
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * InternalServerError Class Doc Comment
+ * ContactStatus Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,21 +53,22 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InternalServerError implements ArrayAccess
+class ContactStatus implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'InternalServerError';
+    protected static $swaggerModelName = 'ContactStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'code' => 'int',
-        'message' => 'string'
+        'text' => 'string',
+        'start' => '\DateTime',
+        'end' => '\DateTime'
     );
 
     public static function swaggerTypes()
@@ -80,8 +81,9 @@ class InternalServerError implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'code' => 'code',
-        'message' => 'message'
+        'text' => 'text',
+        'start' => 'start',
+        'end' => 'end'
     );
 
     public static function attributeMap()
@@ -94,8 +96,9 @@ class InternalServerError implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'code' => 'setCode',
-        'message' => 'setMessage'
+        'text' => 'setText',
+        'start' => 'setStart',
+        'end' => 'setEnd'
     );
 
     public static function setters()
@@ -108,8 +111,9 @@ class InternalServerError implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'code' => 'getCode',
-        'message' => 'getMessage'
+        'text' => 'getText',
+        'start' => 'getStart',
+        'end' => 'getEnd'
     );
 
     public static function getters()
@@ -133,8 +137,9 @@ class InternalServerError implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['start'] = isset($data['start']) ? $data['start'] : null;
+        $this->container['end'] = isset($data['end']) ? $data['end'] : null;
     }
 
     /**
@@ -161,43 +166,64 @@ class InternalServerError implements ArrayAccess
 
 
     /**
-     * Gets code
-     * @return int
+     * Gets text
+     * @return string
      */
-    public function getCode()
+    public function getText()
     {
-        return $this->container['code'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets code
-     * @param int $code
+     * Sets text
+     * @param string $text
      * @return $this
      */
-    public function setCode($code)
+    public function setText($text)
     {
-        $this->container['code'] = $code;
+        $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets message
-     * @return string
+     * Gets start
+     * @return \DateTime
      */
-    public function getMessage()
+    public function getStart()
     {
-        return $this->container['message'];
+        return $this->container['start'];
     }
 
     /**
-     * Sets message
-     * @param string $message
+     * Sets start
+     * @param \DateTime $start
      * @return $this
      */
-    public function setMessage($message)
+    public function setStart($start)
     {
-        $this->container['message'] = $message;
+        $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets end
+     * @return \DateTime
+     */
+    public function getEnd()
+    {
+        return $this->container['end'];
+    }
+
+    /**
+     * Sets end
+     * @param \DateTime $end
+     * @return $this
+     */
+    public function setEnd($end)
+    {
+        $this->container['end'] = $end;
 
         return $this;
     }
