@@ -67,6 +67,7 @@ class Announcement implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
+        'slug' => 'string',
         'title' => 'string',
         'abstract' => 'string',
         'contents' => 'string',
@@ -84,6 +85,7 @@ class Announcement implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
+        'slug' => 'slug',
         'title' => 'title',
         'abstract' => 'abstract',
         'contents' => 'contents',
@@ -101,6 +103,7 @@ class Announcement implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
+        'slug' => 'setSlug',
         'title' => 'setTitle',
         'abstract' => 'setAbstract',
         'contents' => 'setContents',
@@ -118,6 +121,7 @@ class Announcement implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
+        'slug' => 'getSlug',
         'title' => 'getTitle',
         'abstract' => 'getAbstract',
         'contents' => 'getContents',
@@ -146,6 +150,7 @@ class Announcement implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['abstract'] = isset($data['abstract']) ? $data['abstract'] : null;
         $this->container['contents'] = isset($data['contents']) ? $data['contents'] : null;
@@ -192,6 +197,27 @@ class Announcement implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     * @param string $slug
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->container['slug'] = $slug;
 
         return $this;
     }

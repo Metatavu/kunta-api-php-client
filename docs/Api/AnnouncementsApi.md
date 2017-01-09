@@ -56,7 +56,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationAnnouncements**
-> \KuntaAPI\Model\Announcement[] listOrganizationAnnouncements($organizationId, $firstResult, $maxResults, $sortBy, $sortDir)
+> \KuntaAPI\Model\Announcement[] listOrganizationAnnouncements($organizationId, $slug, $firstResult, $maxResults, $sortBy, $sortDir)
 
 Lists organizations announcements
 
@@ -69,13 +69,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\AnnouncementsApi();
 $organizationId = "organizationId_example"; // string | Organization id
+$slug = "slug_example"; // string | Filter with slug
 $firstResult = 56; // int | first index of results
 $maxResults = 56; // int | maximum number of results
 $sortBy = "sortBy_example"; // string | PUBLICATION_DATE
 $sortDir = "sortDir_example"; // string | ASC or DESC
 
 try {
-    $result = $api_instance->listOrganizationAnnouncements($organizationId, $firstResult, $maxResults, $sortBy, $sortDir);
+    $result = $api_instance->listOrganizationAnnouncements($organizationId, $slug, $firstResult, $maxResults, $sortBy, $sortDir);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementsApi->listOrganizationAnnouncements: ', $e->getMessage(), PHP_EOL;
@@ -88,6 +89,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
+ **slug** | **string**| Filter with slug | [optional]
  **firstResult** | **int**| first index of results | [optional]
  **maxResults** | **int**| maximum number of results | [optional]
  **sortBy** | **string**| PUBLICATION_DATE | [optional]

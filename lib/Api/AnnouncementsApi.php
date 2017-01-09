@@ -219,6 +219,7 @@ class AnnouncementsApi
      * Lists organizations announcements
      *
      * @param string $organizationId Organization id (required)
+     * @param string $slug Filter with slug (optional)
      * @param int $firstResult first index of results (optional)
      * @param int $maxResults maximum number of results (optional)
      * @param string $sortBy PUBLICATION_DATE (optional)
@@ -226,9 +227,9 @@ class AnnouncementsApi
      * @return \KuntaAPI\Model\Announcement[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationAnnouncements($organizationId, $firstResult = null, $maxResults = null, $sortBy = null, $sortDir = null)
+    public function listOrganizationAnnouncements($organizationId, $slug = null, $firstResult = null, $maxResults = null, $sortBy = null, $sortDir = null)
     {
-        list($response) = $this->listOrganizationAnnouncementsWithHttpInfo($organizationId, $firstResult, $maxResults, $sortBy, $sortDir);
+        list($response) = $this->listOrganizationAnnouncementsWithHttpInfo($organizationId, $slug, $firstResult, $maxResults, $sortBy, $sortDir);
         return $response;
     }
 
@@ -238,6 +239,7 @@ class AnnouncementsApi
      * Lists organizations announcements
      *
      * @param string $organizationId Organization id (required)
+     * @param string $slug Filter with slug (optional)
      * @param int $firstResult first index of results (optional)
      * @param int $maxResults maximum number of results (optional)
      * @param string $sortBy PUBLICATION_DATE (optional)
@@ -245,7 +247,7 @@ class AnnouncementsApi
      * @return Array of \KuntaAPI\Model\Announcement[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationAnnouncementsWithHttpInfo($organizationId, $firstResult = null, $maxResults = null, $sortBy = null, $sortDir = null)
+    public function listOrganizationAnnouncementsWithHttpInfo($organizationId, $slug = null, $firstResult = null, $maxResults = null, $sortBy = null, $sortDir = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -263,6 +265,10 @@ class AnnouncementsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
+        // query params
+        if ($slug !== null) {
+            $queryParams['slug'] = $this->apiClient->getSerializer()->toQueryValue($slug);
+        }
         // query params
         if ($firstResult !== null) {
             $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
