@@ -1,6 +1,6 @@
 <?php
 /**
- * Page
+ * PageMeta
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * Page Class Doc Comment
+ * PageMeta Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,24 +53,20 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Page implements ArrayAccess
+class PageMeta implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Page';
+    protected static $swaggerModelName = 'PageMeta';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'id' => 'string',
-        'slug' => 'string',
-        'titles' => '\KuntaAPI\Model\LocalizedValue[]',
-        'parentId' => 'string',
-        'meta' => '\KuntaAPI\Model\PageMeta'
+        'hideMenuChildren' => 'bool'
     );
 
     public static function swaggerTypes()
@@ -83,11 +79,7 @@ class Page implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'id' => 'id',
-        'slug' => 'slug',
-        'titles' => 'titles',
-        'parentId' => 'parentId',
-        'meta' => 'meta'
+        'hideMenuChildren' => 'hideMenuChildren'
     );
 
     public static function attributeMap()
@@ -100,11 +92,7 @@ class Page implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'id' => 'setId',
-        'slug' => 'setSlug',
-        'titles' => 'setTitles',
-        'parentId' => 'setParentId',
-        'meta' => 'setMeta'
+        'hideMenuChildren' => 'setHideMenuChildren'
     );
 
     public static function setters()
@@ -117,11 +105,7 @@ class Page implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'id' => 'getId',
-        'slug' => 'getSlug',
-        'titles' => 'getTitles',
-        'parentId' => 'getParentId',
-        'meta' => 'getMeta'
+        'hideMenuChildren' => 'getHideMenuChildren'
     );
 
     public static function getters()
@@ -145,11 +129,7 @@ class Page implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
-        $this->container['titles'] = isset($data['titles']) ? $data['titles'] : null;
-        $this->container['parentId'] = isset($data['parentId']) ? $data['parentId'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['hideMenuChildren'] = isset($data['hideMenuChildren']) ? $data['hideMenuChildren'] : null;
     }
 
     /**
@@ -176,106 +156,22 @@ class Page implements ArrayAccess
 
 
     /**
-     * Gets id
-     * @return string
+     * Gets hideMenuChildren
+     * @return bool
      */
-    public function getId()
+    public function getHideMenuChildren()
     {
-        return $this->container['id'];
+        return $this->container['hideMenuChildren'];
     }
 
     /**
-     * Sets id
-     * @param string $id
+     * Sets hideMenuChildren
+     * @param bool $hideMenuChildren
      * @return $this
      */
-    public function setId($id)
+    public function setHideMenuChildren($hideMenuChildren)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     * @param string $slug
-     * @return $this
-     */
-    public function setSlug($slug)
-    {
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets titles
-     * @return \KuntaAPI\Model\LocalizedValue[]
-     */
-    public function getTitles()
-    {
-        return $this->container['titles'];
-    }
-
-    /**
-     * Sets titles
-     * @param \KuntaAPI\Model\LocalizedValue[] $titles
-     * @return $this
-     */
-    public function setTitles($titles)
-    {
-        $this->container['titles'] = $titles;
-
-        return $this;
-    }
-
-    /**
-     * Gets parentId
-     * @return string
-     */
-    public function getParentId()
-    {
-        return $this->container['parentId'];
-    }
-
-    /**
-     * Sets parentId
-     * @param string $parentId
-     * @return $this
-     */
-    public function setParentId($parentId)
-    {
-        $this->container['parentId'] = $parentId;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     * @return \KuntaAPI\Model\PageMeta
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     * @param \KuntaAPI\Model\PageMeta $meta
-     * @return $this
-     */
-    public function setMeta($meta)
-    {
-        $this->container['meta'] = $meta;
+        $this->container['hideMenuChildren'] = $hideMenuChildren;
 
         return $this;
     }
