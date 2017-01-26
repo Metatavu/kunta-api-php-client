@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
+**pageId** | **string** |  | [optional] 
 **slug** | **string** |  | [optional] 
 **title** | **string** |  | [optional] 
 **contentType** | **string** |  | [optional] 

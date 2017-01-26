@@ -67,6 +67,7 @@ class FileDef implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
+        'pageId' => 'string',
         'slug' => 'string',
         'title' => 'string',
         'contentType' => 'string',
@@ -84,6 +85,7 @@ class FileDef implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
+        'pageId' => 'pageId',
         'slug' => 'slug',
         'title' => 'title',
         'contentType' => 'contentType',
@@ -101,6 +103,7 @@ class FileDef implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
+        'pageId' => 'setPageId',
         'slug' => 'setSlug',
         'title' => 'setTitle',
         'contentType' => 'setContentType',
@@ -118,6 +121,7 @@ class FileDef implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
+        'pageId' => 'getPageId',
         'slug' => 'getSlug',
         'title' => 'getTitle',
         'contentType' => 'getContentType',
@@ -146,6 +150,7 @@ class FileDef implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['pageId'] = isset($data['pageId']) ? $data['pageId'] : null;
         $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['contentType'] = isset($data['contentType']) ? $data['contentType'] : null;
@@ -192,6 +197,27 @@ class FileDef implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pageId
+     * @return string
+     */
+    public function getPageId()
+    {
+        return $this->container['pageId'];
+    }
+
+    /**
+     * Sets pageId
+     * @param string $pageId
+     * @return $this
+     */
+    public function setPageId($pageId)
+    {
+        $this->container['pageId'] = $pageId;
 
         return $this;
     }
