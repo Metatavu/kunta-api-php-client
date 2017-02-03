@@ -69,7 +69,9 @@ class Banner implements ArrayAccess
         'id' => 'string',
         'title' => 'string',
         'contents' => 'string',
-        'link' => 'string'
+        'link' => 'string',
+        'textColor' => 'string',
+        'backgroundColor' => 'string'
     );
 
     public static function swaggerTypes()
@@ -85,7 +87,9 @@ class Banner implements ArrayAccess
         'id' => 'id',
         'title' => 'title',
         'contents' => 'contents',
-        'link' => 'link'
+        'link' => 'link',
+        'textColor' => 'textColor',
+        'backgroundColor' => 'backgroundColor'
     );
 
     public static function attributeMap()
@@ -101,7 +105,9 @@ class Banner implements ArrayAccess
         'id' => 'setId',
         'title' => 'setTitle',
         'contents' => 'setContents',
-        'link' => 'setLink'
+        'link' => 'setLink',
+        'textColor' => 'setTextColor',
+        'backgroundColor' => 'setBackgroundColor'
     );
 
     public static function setters()
@@ -117,7 +123,9 @@ class Banner implements ArrayAccess
         'id' => 'getId',
         'title' => 'getTitle',
         'contents' => 'getContents',
-        'link' => 'getLink'
+        'link' => 'getLink',
+        'textColor' => 'getTextColor',
+        'backgroundColor' => 'getBackgroundColor'
     );
 
     public static function getters()
@@ -145,6 +153,8 @@ class Banner implements ArrayAccess
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['contents'] = isset($data['contents']) ? $data['contents'] : null;
         $this->container['link'] = isset($data['link']) ? $data['link'] : null;
+        $this->container['textColor'] = isset($data['textColor']) ? $data['textColor'] : null;
+        $this->container['backgroundColor'] = isset($data['backgroundColor']) ? $data['backgroundColor'] : null;
     }
 
     /**
@@ -250,6 +260,48 @@ class Banner implements ArrayAccess
     public function setLink($link)
     {
         $this->container['link'] = $link;
+
+        return $this;
+    }
+
+    /**
+     * Gets textColor
+     * @return string
+     */
+    public function getTextColor()
+    {
+        return $this->container['textColor'];
+    }
+
+    /**
+     * Sets textColor
+     * @param string $textColor
+     * @return $this
+     */
+    public function setTextColor($textColor)
+    {
+        $this->container['textColor'] = $textColor;
+
+        return $this;
+    }
+
+    /**
+     * Gets backgroundColor
+     * @return string
+     */
+    public function getBackgroundColor()
+    {
+        return $this->container['backgroundColor'];
+    }
+
+    /**
+     * Sets backgroundColor
+     * @param string $backgroundColor
+     * @return $this
+     */
+    public function setBackgroundColor($backgroundColor)
+    {
+        $this->container['backgroundColor'] = $backgroundColor;
 
         return $this;
     }
