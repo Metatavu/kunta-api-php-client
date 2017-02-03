@@ -68,7 +68,8 @@ class Attachment implements ArrayAccess
     protected static $swaggerTypes = array(
         'id' => 'string',
         'contentType' => 'string',
-        'size' => 'int'
+        'size' => 'int',
+        'type' => 'string'
     );
 
     public static function swaggerTypes()
@@ -83,7 +84,8 @@ class Attachment implements ArrayAccess
     protected static $attributeMap = array(
         'id' => 'id',
         'contentType' => 'contentType',
-        'size' => 'size'
+        'size' => 'size',
+        'type' => 'type'
     );
 
     public static function attributeMap()
@@ -98,7 +100,8 @@ class Attachment implements ArrayAccess
     protected static $setters = array(
         'id' => 'setId',
         'contentType' => 'setContentType',
-        'size' => 'setSize'
+        'size' => 'setSize',
+        'type' => 'setType'
     );
 
     public static function setters()
@@ -113,7 +116,8 @@ class Attachment implements ArrayAccess
     protected static $getters = array(
         'id' => 'getId',
         'contentType' => 'getContentType',
-        'size' => 'getSize'
+        'size' => 'getSize',
+        'type' => 'getType'
     );
 
     public static function getters()
@@ -140,6 +144,7 @@ class Attachment implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['contentType'] = isset($data['contentType']) ? $data['contentType'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -224,6 +229,27 @@ class Attachment implements ArrayAccess
     public function setSize($size)
     {
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

@@ -207,7 +207,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationPageImages**
-> \KuntaAPI\Model\Attachment[] listOrganizationPageImages($organizationId, $pageId)
+> \KuntaAPI\Model\Attachment[] listOrganizationPageImages($organizationId, $pageId, $type)
 
 Returns a list of organization page images
 
@@ -221,9 +221,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new KuntaAPI\Api\PagesApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $pageId = "pageId_example"; // string | Page id
+$type = "type_example"; // string | Filter by type
 
 try {
-    $result = $api_instance->listOrganizationPageImages($organizationId, $pageId);
+    $result = $api_instance->listOrganizationPageImages($organizationId, $pageId, $type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PagesApi->listOrganizationPageImages: ', $e->getMessage(), PHP_EOL;
@@ -237,6 +238,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
  **pageId** | **string**| Page id |
+ **type** | **string**| Filter by type | [optional]
 
 ### Return type
 

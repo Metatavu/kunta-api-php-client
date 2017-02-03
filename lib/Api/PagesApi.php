@@ -587,12 +587,13 @@ class PagesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $pageId Page id (required)
+     * @param string $type Filter by type (optional)
      * @return \KuntaAPI\Model\Attachment[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationPageImages($organizationId, $pageId)
+    public function listOrganizationPageImages($organizationId, $pageId, $type = null)
     {
-        list($response) = $this->listOrganizationPageImagesWithHttpInfo($organizationId, $pageId);
+        list($response) = $this->listOrganizationPageImagesWithHttpInfo($organizationId, $pageId, $type);
         return $response;
     }
 
@@ -603,10 +604,11 @@ class PagesApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $pageId Page id (required)
+     * @param string $type Filter by type (optional)
      * @return Array of \KuntaAPI\Model\Attachment[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationPageImagesWithHttpInfo($organizationId, $pageId)
+    public function listOrganizationPageImagesWithHttpInfo($organizationId, $pageId, $type = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -628,6 +630,10 @@ class PagesApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
+        // query params
+        if ($type !== null) {
+            $queryParams['type'] = $this->apiClient->getSerializer()->toQueryValue($type);
+        }
         // path params
         if ($organizationId !== null) {
             $resourcePath = str_replace(
