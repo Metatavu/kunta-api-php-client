@@ -325,117 +325,6 @@ class PublicTransportApi
     }
 
     /**
-     * Operation findOrganizationPublicTransportRouteStop
-     *
-     * Finds a stop of organizations public transport route
-     *
-     * @param string $organizationId Organization id (required)
-     * @param string $stopId Stop id (required)
-     * @return \KuntaAPI\Model\Stop
-     * @throws \KuntaAPI\ApiException on non-2xx response
-     */
-    public function findOrganizationPublicTransportRouteStop($organizationId, $stopId)
-    {
-        list($response) = $this->findOrganizationPublicTransportRouteStopWithHttpInfo($organizationId, $stopId);
-        return $response;
-    }
-
-    /**
-     * Operation findOrganizationPublicTransportRouteStopWithHttpInfo
-     *
-     * Finds a stop of organizations public transport route
-     *
-     * @param string $organizationId Organization id (required)
-     * @param string $stopId Stop id (required)
-     * @return Array of \KuntaAPI\Model\Stop, HTTP status code, HTTP response headers (array of strings)
-     * @throws \KuntaAPI\ApiException on non-2xx response
-     */
-    public function findOrganizationPublicTransportRouteStopWithHttpInfo($organizationId, $stopId)
-    {
-        // verify the required parameter 'organizationId' is set
-        if ($organizationId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationPublicTransportRouteStop');
-        }
-        // verify the required parameter 'stopId' is set
-        if ($stopId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $stopId when calling findOrganizationPublicTransportRouteStop');
-        }
-        // parse inputs
-        $resourcePath = "/organizations/{organizationId}/transportStops/{stopId}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
-
-        // path params
-        if ($organizationId !== null) {
-            $resourcePath = str_replace(
-                "{" . "organizationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($organizationId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($stopId !== null) {
-            $resourcePath = str_replace(
-                "{" . "stopId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($stopId),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\KuntaAPI\Model\Stop',
-                '/organizations/{organizationId}/transportStops/{stopId}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Stop', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Stop', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
      * Operation findOrganizationPublicTransportSchedule
      *
      * Finds organizations public transport schedule
@@ -526,6 +415,117 @@ class PublicTransportApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Schedule', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\BadRequest', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\InternalServerError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation findOrganizationPublicTransportStop
+     *
+     * Finds a stop of organizations public transport route
+     *
+     * @param string $organizationId Organization id (required)
+     * @param string $stopId Stop id (required)
+     * @return \KuntaAPI\Model\Stop
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findOrganizationPublicTransportStop($organizationId, $stopId)
+    {
+        list($response) = $this->findOrganizationPublicTransportStopWithHttpInfo($organizationId, $stopId);
+        return $response;
+    }
+
+    /**
+     * Operation findOrganizationPublicTransportStopWithHttpInfo
+     *
+     * Finds a stop of organizations public transport route
+     *
+     * @param string $organizationId Organization id (required)
+     * @param string $stopId Stop id (required)
+     * @return Array of \KuntaAPI\Model\Stop, HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function findOrganizationPublicTransportStopWithHttpInfo($organizationId, $stopId)
+    {
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationPublicTransportStop');
+        }
+        // verify the required parameter 'stopId' is set
+        if ($stopId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $stopId when calling findOrganizationPublicTransportStop');
+        }
+        // parse inputs
+        $resourcePath = "/organizations/{organizationId}/transportStops/{stopId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json;charset=utf-8'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
+
+        // path params
+        if ($organizationId !== null) {
+            $resourcePath = str_replace(
+                "{" . "organizationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($stopId !== null) {
+            $resourcePath = str_replace(
+                "{" . "stopId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($stopId),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\KuntaAPI\Model\Stop',
+                '/organizations/{organizationId}/transportStops/{stopId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Stop', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Stop', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findOrganizationPublicTransportAgency**](PublicTransportApi.md#findOrganizationPublicTransportAgency) | **GET** /organizations/{organizationId}/transportAgencies/{agencyId} | Finds an organizations public transport agency
 [**findOrganizationPublicTransportRoute**](PublicTransportApi.md#findOrganizationPublicTransportRoute) | **GET** /organizations/{organizationId}/transportRoutes/{routeId} | Finds an organizations public transport route
-[**findOrganizationPublicTransportRouteStop**](PublicTransportApi.md#findOrganizationPublicTransportRouteStop) | **GET** /organizations/{organizationId}/transportStops/{stopId} | Finds a stop of organizations public transport route
 [**findOrganizationPublicTransportSchedule**](PublicTransportApi.md#findOrganizationPublicTransportSchedule) | **GET** /organizations/{organizationId}/transportSchedules/{scheduleId} | Finds organizations public transport schedule
+[**findOrganizationPublicTransportStop**](PublicTransportApi.md#findOrganizationPublicTransportStop) | **GET** /organizations/{organizationId}/transportStops/{stopId} | Finds a stop of organizations public transport route
 [**findOrganizationPublicTransportStopTime**](PublicTransportApi.md#findOrganizationPublicTransportStopTime) | **GET** /organizations/{organizationId}/transportStopTimes/{stopTimeId} | Finds organizations public transport stopTime
 [**findOrganizationPublicTransportTrip**](PublicTransportApi.md#findOrganizationPublicTransportTrip) | **GET** /organizations/{organizationId}/transportTrips/{tripId} | Finds organizations public transport trip
 [**listOrganizationPublicTransportAgencies**](PublicTransportApi.md#listOrganizationPublicTransportAgencies) | **GET** /organizations/{organizationId}/transportAgencies | Lists organizations public transport agencies
@@ -112,53 +112,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **findOrganizationPublicTransportRouteStop**
-> \KuntaAPI\Model\Stop findOrganizationPublicTransportRouteStop($organizationId, $stopId)
-
-Finds a stop of organizations public transport route
-
-Finds a stop of organizations public transport route
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new KuntaAPI\Api\PublicTransportApi();
-$organizationId = "organizationId_example"; // string | Organization id
-$stopId = "stopId_example"; // string | Stop id
-
-try {
-    $result = $api_instance->findOrganizationPublicTransportRouteStop($organizationId, $stopId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PublicTransportApi->findOrganizationPublicTransportRouteStop: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **string**| Organization id |
- **stopId** | **string**| Stop id |
-
-### Return type
-
-[**\KuntaAPI\Model\Stop**](../Model/Stop.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **findOrganizationPublicTransportSchedule**
 > \KuntaAPI\Model\Schedule findOrganizationPublicTransportSchedule($organizationId, $scheduleId)
 
@@ -194,6 +147,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\KuntaAPI\Model\Schedule**](../Model/Schedule.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **findOrganizationPublicTransportStop**
+> \KuntaAPI\Model\Stop findOrganizationPublicTransportStop($organizationId, $stopId)
+
+Finds a stop of organizations public transport route
+
+Finds a stop of organizations public transport route
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new KuntaAPI\Api\PublicTransportApi();
+$organizationId = "organizationId_example"; // string | Organization id
+$stopId = "stopId_example"; // string | Stop id
+
+try {
+    $result = $api_instance->findOrganizationPublicTransportStop($organizationId, $stopId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PublicTransportApi->findOrganizationPublicTransportStop: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| Organization id |
+ **stopId** | **string**| Stop id |
+
+### Return type
+
+[**\KuntaAPI\Model\Stop**](../Model/Stop.md)
 
 ### Authorization
 
