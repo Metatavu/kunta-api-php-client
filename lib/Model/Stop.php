@@ -68,8 +68,8 @@ class Stop implements ArrayAccess
     protected static $swaggerTypes = array(
         'id' => 'string',
         'name' => 'string',
-        'lat' => 'float',
-        'lng' => 'float'
+        'lat' => 'double',
+        'lng' => 'double'
     );
 
     public static function swaggerTypes()
@@ -214,7 +214,7 @@ class Stop implements ArrayAccess
 
     /**
      * Gets lat
-     * @return float
+     * @return double
      */
     public function getLat()
     {
@@ -223,7 +223,7 @@ class Stop implements ArrayAccess
 
     /**
      * Sets lat
-     * @param float $lat
+     * @param double $lat
      * @return $this
      */
     public function setLat($lat)
@@ -235,7 +235,7 @@ class Stop implements ArrayAccess
 
     /**
      * Gets lng
-     * @return float
+     * @return double
      */
     public function getLng()
     {
@@ -244,7 +244,7 @@ class Stop implements ArrayAccess
 
     /**
      * Sets lng
-     * @param float $lng
+     * @param double $lng
      * @return $this
      */
     public function setLng($lng)
