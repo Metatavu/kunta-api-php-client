@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **agencyId** | **string** |  | [optional] 
 **shortName** | **string** |  | [optional] 
 **longName** | **string** |  | [optional] 
-**schedules** | **string[]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

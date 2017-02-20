@@ -69,8 +69,7 @@ class Route implements ArrayAccess
         'id' => 'string',
         'agencyId' => 'string',
         'shortName' => 'string',
-        'longName' => 'string',
-        'schedules' => 'string[]'
+        'longName' => 'string'
     );
 
     public static function swaggerTypes()
@@ -86,8 +85,7 @@ class Route implements ArrayAccess
         'id' => 'id',
         'agencyId' => 'agencyId',
         'shortName' => 'shortName',
-        'longName' => 'longName',
-        'schedules' => 'schedules'
+        'longName' => 'longName'
     );
 
     public static function attributeMap()
@@ -103,8 +101,7 @@ class Route implements ArrayAccess
         'id' => 'setId',
         'agencyId' => 'setAgencyId',
         'shortName' => 'setShortName',
-        'longName' => 'setLongName',
-        'schedules' => 'setSchedules'
+        'longName' => 'setLongName'
     );
 
     public static function setters()
@@ -120,8 +117,7 @@ class Route implements ArrayAccess
         'id' => 'getId',
         'agencyId' => 'getAgencyId',
         'shortName' => 'getShortName',
-        'longName' => 'getLongName',
-        'schedules' => 'getSchedules'
+        'longName' => 'getLongName'
     );
 
     public static function getters()
@@ -149,7 +145,6 @@ class Route implements ArrayAccess
         $this->container['agencyId'] = isset($data['agencyId']) ? $data['agencyId'] : null;
         $this->container['shortName'] = isset($data['shortName']) ? $data['shortName'] : null;
         $this->container['longName'] = isset($data['longName']) ? $data['longName'] : null;
-        $this->container['schedules'] = isset($data['schedules']) ? $data['schedules'] : null;
     }
 
     /**
@@ -255,27 +250,6 @@ class Route implements ArrayAccess
     public function setLongName($longName)
     {
         $this->container['longName'] = $longName;
-
-        return $this;
-    }
-
-    /**
-     * Gets schedules
-     * @return string[]
-     */
-    public function getSchedules()
-    {
-        return $this->container['schedules'];
-    }
-
-    /**
-     * Sets schedules
-     * @param string[] $schedules
-     * @return $this
-     */
-    public function setSchedules($schedules)
-    {
-        $this->container['schedules'] = $schedules;
 
         return $this;
     }
