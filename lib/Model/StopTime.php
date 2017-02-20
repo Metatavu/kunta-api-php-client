@@ -69,9 +69,9 @@ class StopTime implements ArrayAccess
         'id' => 'string',
         'tripId' => 'string',
         'stopId' => 'string',
-        'arrivalTime' => 'float',
-        'departureTime' => 'float',
-        'sequency' => 'float',
+        'arrivalTime' => 'int',
+        'departureTime' => 'int',
+        'sequency' => 'int',
         'distanceTraveled' => 'double'
     );
 
@@ -250,7 +250,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Gets arrivalTime
-     * @return float
+     * @return int
      */
     public function getArrivalTime()
     {
@@ -259,7 +259,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Sets arrivalTime
-     * @param float $arrivalTime
+     * @param int $arrivalTime
      * @return $this
      */
     public function setArrivalTime($arrivalTime)
@@ -271,7 +271,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Gets departureTime
-     * @return float
+     * @return int
      */
     public function getDepartureTime()
     {
@@ -280,7 +280,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Sets departureTime
-     * @param float $departureTime
+     * @param int $departureTime
      * @return $this
      */
     public function setDepartureTime($departureTime)
@@ -292,7 +292,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Gets sequency
-     * @return float
+     * @return int
      */
     public function getSequency()
     {
@@ -301,7 +301,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Sets sequency
-     * @param float $sequency
+     * @param int $sequency
      * @return $this
      */
     public function setSequency($sequency)
