@@ -69,10 +69,10 @@ class StopTime implements ArrayAccess
         'id' => 'string',
         'tripId' => 'string',
         'stopId' => 'string',
-        'arrivalTime' => 'string',
-        'departureTime' => 'string',
+        'arrivalTime' => 'float',
+        'departureTime' => 'float',
         'sequency' => 'float',
-        'distanceTraveled' => 'float'
+        'distanceTraveled' => 'double'
     );
 
     public static function swaggerTypes()
@@ -250,7 +250,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Gets arrivalTime
-     * @return string
+     * @return float
      */
     public function getArrivalTime()
     {
@@ -259,7 +259,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Sets arrivalTime
-     * @param string $arrivalTime
+     * @param float $arrivalTime
      * @return $this
      */
     public function setArrivalTime($arrivalTime)
@@ -271,7 +271,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Gets departureTime
-     * @return string
+     * @return float
      */
     public function getDepartureTime()
     {
@@ -280,7 +280,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Sets departureTime
-     * @param string $departureTime
+     * @param float $departureTime
      * @return $this
      */
     public function setDepartureTime($departureTime)
@@ -313,7 +313,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Gets distanceTraveled
-     * @return float
+     * @return double
      */
     public function getDistanceTraveled()
     {
@@ -322,7 +322,7 @@ class StopTime implements ArrayAccess
 
     /**
      * Sets distanceTraveled
-     * @param float $distanceTraveled
+     * @param double $distanceTraveled
      * @return $this
      */
     public function setDistanceTraveled($distanceTraveled)
