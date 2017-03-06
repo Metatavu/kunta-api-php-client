@@ -436,7 +436,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationPublicTransportStopTimes**
+<<<<<<< HEAD
 > \KuntaAPI\Model\StopTime[] listOrganizationPublicTransportStopTimes($organizationId, $stopId, $departureTime, $sortBy, $sortDir)
+=======
+> \KuntaAPI\Model\StopTime[] listOrganizationPublicTransportStopTimes($organizationId)
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
 
 Lists stopTimes of organization's public transport stopTimes
 
@@ -449,6 +453,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\PublicTransportApi();
 $organizationId = "organizationId_example"; // string | Organization id
+<<<<<<< HEAD
 $stopId = "stopId_example"; // string | Filter stop times by stopId
 $departureTime = 56; // int | Filter stop times that depart in or after specified time. Value is defined in seconds since midnight
 $sortBy = "sortBy_example"; // string | DEPARTURE_TIME
@@ -456,6 +461,11 @@ $sortDir = "sortDir_example"; // string | ASC or DESC
 
 try {
     $result = $api_instance->listOrganizationPublicTransportStopTimes($organizationId, $stopId, $departureTime, $sortBy, $sortDir);
+=======
+
+try {
+    $result = $api_instance->listOrganizationPublicTransportStopTimes($organizationId);
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicTransportApi->listOrganizationPublicTransportStopTimes: ', $e->getMessage(), PHP_EOL;
@@ -468,10 +478,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
+<<<<<<< HEAD
  **stopId** | **string**| Filter stop times by stopId | [optional]
  **departureTime** | **int**| Filter stop times that depart in or after specified time. Value is defined in seconds since midnight | [optional]
  **sortBy** | **string**| DEPARTURE_TIME | [optional]
  **sortDir** | **string**| ASC or DESC | [optional]
+=======
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
 
 ### Return type
 

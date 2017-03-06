@@ -1065,6 +1065,7 @@ class PublicTransportApi
      * Lists stopTimes of organization's public transport stopTimes
      *
      * @param string $organizationId Organization id (required)
+<<<<<<< HEAD
      * @param string $stopId Filter stop times by stopId (optional)
      * @param int $departureTime Filter stop times that depart in or after specified time. Value is defined in seconds since midnight (optional)
      * @param string $sortBy DEPARTURE_TIME (optional)
@@ -1075,6 +1076,14 @@ class PublicTransportApi
     public function listOrganizationPublicTransportStopTimes($organizationId, $stopId = null, $departureTime = null, $sortBy = null, $sortDir = null)
     {
         list($response) = $this->listOrganizationPublicTransportStopTimesWithHttpInfo($organizationId, $stopId, $departureTime, $sortBy, $sortDir);
+=======
+     * @return \KuntaAPI\Model\StopTime[]
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listOrganizationPublicTransportStopTimes($organizationId)
+    {
+        list($response) = $this->listOrganizationPublicTransportStopTimesWithHttpInfo($organizationId);
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
         return $response;
     }
 
@@ -1084,6 +1093,7 @@ class PublicTransportApi
      * Lists stopTimes of organization's public transport stopTimes
      *
      * @param string $organizationId Organization id (required)
+<<<<<<< HEAD
      * @param string $stopId Filter stop times by stopId (optional)
      * @param int $departureTime Filter stop times that depart in or after specified time. Value is defined in seconds since midnight (optional)
      * @param string $sortBy DEPARTURE_TIME (optional)
@@ -1092,6 +1102,12 @@ class PublicTransportApi
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function listOrganizationPublicTransportStopTimesWithHttpInfo($organizationId, $stopId = null, $departureTime = null, $sortBy = null, $sortDir = null)
+=======
+     * @return Array of \KuntaAPI\Model\StopTime[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \KuntaAPI\ApiException on non-2xx response
+     */
+    public function listOrganizationPublicTransportStopTimesWithHttpInfo($organizationId)
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -1109,6 +1125,7 @@ class PublicTransportApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
+<<<<<<< HEAD
         // query params
         if ($stopId !== null) {
             $queryParams['stopId'] = $this->apiClient->getSerializer()->toQueryValue($stopId);
@@ -1125,6 +1142,8 @@ class PublicTransportApi
         if ($sortDir !== null) {
             $queryParams['sortDir'] = $this->apiClient->getSerializer()->toQueryValue($sortDir);
         }
+=======
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
         // path params
         if ($organizationId !== null) {
             $resourcePath = str_replace(

@@ -127,4 +127,15 @@ class RouteTest extends \PHPUnit_Framework_TestCase
 
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Test attribute "schedules"
+     */
+    public function testPropertySchedules()
+    {
+
+    }
+
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
 }

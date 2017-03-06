@@ -112,6 +112,7 @@ class PublicTransportApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
      * Test case for findOrganizationPublicTransportSchedule
      *
      * Finds organizations public transport schedule.
@@ -124,44 +125,78 @@ class PublicTransportApiTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Test case for findOrganizationPublicTransportStop
+=======
+     * Test case for findOrganizationPublicTransportRouteStop
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
      *
      * Finds a stop of organizations public transport route.
      *
      */
+<<<<<<< HEAD
     public function testFindOrganizationPublicTransportStop()
+=======
+    public function testFindOrganizationPublicTransportRouteStop()
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
     {
 
     }
 
     /**
+<<<<<<< HEAD
      * Test case for findOrganizationPublicTransportStopTime
      *
      * Finds organizations public transport stopTime.
      *
      */
     public function testFindOrganizationPublicTransportStopTime()
+=======
+     * Test case for findOrganizationPublicTransportSchedule
+     *
+     * Finds organizations public transport schedule.
+     *
+     */
+    public function testFindOrganizationPublicTransportSchedule()
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
     {
 
     }
 
     /**
+<<<<<<< HEAD
      * Test case for findOrganizationPublicTransportTrip
      *
      * Finds organizations public transport trip.
      *
      */
     public function testFindOrganizationPublicTransportTrip()
-    {
-
-    }
-
-    /**
+=======
      * Test case for listOrganizationPublicTransportAgencies
      *
      * Lists organizations public transport agencies.
      *
      */
     public function testListOrganizationPublicTransportAgencies()
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
+    {
+
+    }
+
+    /**
+<<<<<<< HEAD
+     * Test case for listOrganizationPublicTransportAgencies
+     *
+     * Lists organizations public transport agencies.
+     *
+     */
+    public function testListOrganizationPublicTransportAgencies()
+=======
+     * Test case for listOrganizationPublicTransportRouteStops
+     *
+     * Lists stops of organizations public transport route.
+     *
+     */
+    public function testListOrganizationPublicTransportRouteStops()
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
     {
 
     }
@@ -188,6 +223,7 @@ class PublicTransportApiTest extends \PHPUnit_Framework_TestCase
 
     }
 
+<<<<<<< HEAD
     /**
      * Test case for listOrganizationPublicTransportStopTimes
      *
@@ -221,4 +257,6 @@ class PublicTransportApiTest extends \PHPUnit_Framework_TestCase
 
     }
 
+=======
+>>>>>>> ba21ff813759009af1563b019ea5fcca06518c94
 }
