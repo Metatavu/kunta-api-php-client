@@ -1,6 +1,6 @@
 <?php
 /**
- * WebPageChannelsApi
+ * WebPageServiceChannelsApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \KuntaAPI\ApiException;
 use \KuntaAPI\ObjectSerializer;
 
 /**
- * WebPageChannelsApi Class Doc Comment
+ * WebPageServiceChannelsApi Class Doc Comment
  *
  * @category Class
  * @package  KuntaAPI
@@ -54,7 +54,7 @@ use \KuntaAPI\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebPageChannelsApi
+class WebPageServiceChannelsApi
 {
 
     /**
@@ -94,7 +94,7 @@ class WebPageChannelsApi
      *
      * @param \KuntaAPI\ApiClient $apiClient set the API client
      *
-     * @return WebPageChannelsApi
+     * @return WebPageServiceChannelsApi
      */
     public function setApiClient(\KuntaAPI\ApiClient $apiClient)
     {
@@ -103,43 +103,37 @@ class WebPageChannelsApi
     }
 
     /**
-     * Operation findServiceWebPageChannel
+     * Operation findWebPageServiceChannel
      *
-     * finds WebPageChannel by webPageChannelId
+     * Finds a web page service channel by id
      *
-     * @param string $serviceId Service id (required)
-     * @param string $webPageChannelId webPageChannel id (required)
+     * @param string $webPageServiceChannelId webPageChannel id (required)
      * @return \KuntaAPI\Model\WebPageServiceChannel
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWebPageChannel($serviceId, $webPageChannelId)
+    public function findWebPageServiceChannel($webPageServiceChannelId)
     {
-        list($response) = $this->findServiceWebPageChannelWithHttpInfo($serviceId, $webPageChannelId);
+        list($response) = $this->findWebPageServiceChannelWithHttpInfo($webPageServiceChannelId);
         return $response;
     }
 
     /**
-     * Operation findServiceWebPageChannelWithHttpInfo
+     * Operation findWebPageServiceChannelWithHttpInfo
      *
-     * finds WebPageChannel by webPageChannelId
+     * Finds a web page service channel by id
      *
-     * @param string $serviceId Service id (required)
-     * @param string $webPageChannelId webPageChannel id (required)
+     * @param string $webPageServiceChannelId webPageChannel id (required)
      * @return Array of \KuntaAPI\Model\WebPageServiceChannel, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWebPageChannelWithHttpInfo($serviceId, $webPageChannelId)
+    public function findWebPageServiceChannelWithHttpInfo($webPageServiceChannelId)
     {
-        // verify the required parameter 'serviceId' is set
-        if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServiceWebPageChannel');
-        }
-        // verify the required parameter 'webPageChannelId' is set
-        if ($webPageChannelId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webPageChannelId when calling findServiceWebPageChannel');
+        // verify the required parameter 'webPageServiceChannelId' is set
+        if ($webPageServiceChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $webPageServiceChannelId when calling findWebPageServiceChannel');
         }
         // parse inputs
-        $resourcePath = "/services/{serviceId}/webPageChannels/{webPageChannelId}";
+        $resourcePath = "/webPageServiceChannels/{webPageServiceChannelId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -151,18 +145,10 @@ class WebPageChannelsApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($serviceId !== null) {
+        if ($webPageServiceChannelId !== null) {
             $resourcePath = str_replace(
-                "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($serviceId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($webPageChannelId !== null) {
-            $resourcePath = str_replace(
-                "{" . "webPageChannelId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($webPageChannelId),
+                "{" . "webPageServiceChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($webPageServiceChannelId),
                 $resourcePath
             );
         }
@@ -185,7 +171,7 @@ class WebPageChannelsApi
                 $httpBody,
                 $headerParams,
                 '\KuntaAPI\Model\WebPageServiceChannel',
-                '/services/{serviceId}/webPageChannels/{webPageChannelId}'
+                '/webPageServiceChannels/{webPageServiceChannelId}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageServiceChannel', $httpHeader), $statusCode, $httpHeader);
@@ -218,41 +204,35 @@ class WebPageChannelsApi
     }
 
     /**
-     * Operation listServiceWebPageChannels
+     * Operation listWebPageServiceChannels
      *
-     * Lists WebPageChannels by serviceId
+     * Lists web page service channels
      *
-     * @param string $serviceId Service id (required)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\WebPageServiceChannel[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceWebPageChannels($serviceId, $firstResult = null, $maxResults = null)
+    public function listWebPageServiceChannels($firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listServiceWebPageChannelsWithHttpInfo($serviceId, $firstResult, $maxResults);
+        list($response) = $this->listWebPageServiceChannelsWithHttpInfo($firstResult, $maxResults);
         return $response;
     }
 
     /**
-     * Operation listServiceWebPageChannelsWithHttpInfo
+     * Operation listWebPageServiceChannelsWithHttpInfo
      *
-     * Lists WebPageChannels by serviceId
+     * Lists web page service channels
      *
-     * @param string $serviceId Service id (required)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\WebPageServiceChannel[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceWebPageChannelsWithHttpInfo($serviceId, $firstResult = null, $maxResults = null)
+    public function listWebPageServiceChannelsWithHttpInfo($firstResult = null, $maxResults = null)
     {
-        // verify the required parameter 'serviceId' is set
-        if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceWebPageChannels');
-        }
         // parse inputs
-        $resourcePath = "/services/{serviceId}/webPageChannels";
+        $resourcePath = "/webPageServiceChannels";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -270,14 +250,6 @@ class WebPageChannelsApi
         // query params
         if ($maxResults !== null) {
             $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
-        }
-        // path params
-        if ($serviceId !== null) {
-            $resourcePath = str_replace(
-                "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($serviceId),
-                $resourcePath
-            );
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -298,7 +270,7 @@ class WebPageChannelsApi
                 $httpBody,
                 $headerParams,
                 '\KuntaAPI\Model\WebPageServiceChannel[]',
-                '/services/{serviceId}/webPageChannels'
+                '/webPageServiceChannels'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageServiceChannel[]', $httpHeader), $statusCode, $httpHeader);

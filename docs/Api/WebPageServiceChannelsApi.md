@@ -1,34 +1,33 @@
-# KuntaAPI\WebPageChannelsApi
+# KuntaAPI\WebPageServiceChannelsApi
 
 All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findServiceWebPageChannel**](WebPageChannelsApi.md#findServiceWebPageChannel) | **GET** /services/{serviceId}/webPageChannels/{webPageChannelId} | finds WebPageChannel by webPageChannelId
-[**listServiceWebPageChannels**](WebPageChannelsApi.md#listServiceWebPageChannels) | **GET** /services/{serviceId}/webPageChannels | Lists WebPageChannels by serviceId
+[**findWebPageServiceChannel**](WebPageServiceChannelsApi.md#findWebPageServiceChannel) | **GET** /webPageServiceChannels/{webPageServiceChannelId} | Finds a web page service channel by id
+[**listWebPageServiceChannels**](WebPageServiceChannelsApi.md#listWebPageServiceChannels) | **GET** /webPageServiceChannels | Lists web page service channels
 
 
-# **findServiceWebPageChannel**
-> \KuntaAPI\Model\WebPageServiceChannel findServiceWebPageChannel($serviceId, $webPageChannelId)
+# **findWebPageServiceChannel**
+> \KuntaAPI\Model\WebPageServiceChannel findWebPageServiceChannel($webPageServiceChannelId)
 
-finds WebPageChannel by webPageChannelId
+Finds a web page service channel by id
 
-finds WebPageChannels by webPageChannelId
+Finds a web page service channel by id
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new KuntaAPI\Api\WebPageChannelsApi();
-$serviceId = "serviceId_example"; // string | Service id
-$webPageChannelId = "webPageChannelId_example"; // string | webPageChannel id
+$api_instance = new KuntaAPI\Api\WebPageServiceChannelsApi();
+$webPageServiceChannelId = "webPageServiceChannelId_example"; // string | webPageChannel id
 
 try {
-    $result = $api_instance->findServiceWebPageChannel($serviceId, $webPageChannelId);
+    $result = $api_instance->findWebPageServiceChannel($webPageServiceChannelId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebPageChannelsApi->findServiceWebPageChannel: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebPageServiceChannelsApi->findWebPageServiceChannel: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -37,8 +36,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceId** | **string**| Service id |
- **webPageChannelId** | **string**| webPageChannel id |
+ **webPageServiceChannelId** | **string**| webPageChannel id |
 
 ### Return type
 
@@ -55,28 +53,27 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listServiceWebPageChannels**
-> \KuntaAPI\Model\WebPageServiceChannel[] listServiceWebPageChannels($serviceId, $firstResult, $maxResults)
+# **listWebPageServiceChannels**
+> \KuntaAPI\Model\WebPageServiceChannel[] listWebPageServiceChannels($firstResult, $maxResults)
 
-Lists WebPageChannels by serviceId
+Lists web page service channels
 
-Lists WebPageChannels by serviceId
+Lists web page service channels
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new KuntaAPI\Api\WebPageChannelsApi();
-$serviceId = "serviceId_example"; // string | Service id
+$api_instance = new KuntaAPI\Api\WebPageServiceChannelsApi();
 $firstResult = 789; // int | First result
 $maxResults = 789; // int | Max results
 
 try {
-    $result = $api_instance->listServiceWebPageChannels($serviceId, $firstResult, $maxResults);
+    $result = $api_instance->listWebPageServiceChannels($firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebPageChannelsApi->listServiceWebPageChannels: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebPageServiceChannelsApi->listWebPageServiceChannels: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -85,7 +82,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceId** | **string**| Service id |
  **firstResult** | **int**| First result | [optional]
  **maxResults** | **int**| Max results | [optional]
 
