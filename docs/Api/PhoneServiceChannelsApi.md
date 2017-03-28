@@ -1,34 +1,33 @@
-# KuntaAPI\PhoneChannelsApi
+# KuntaAPI\PhoneServiceChannelsApi
 
 All URIs are relative to *https://demo.kuntaapi.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findServicePhoneChannel**](PhoneChannelsApi.md#findServicePhoneChannel) | **GET** /services/{serviceId}/phoneChannels/{phoneChannelId} | finds PhoneChannel by phoneChannelId
-[**listServicePhoneChannels**](PhoneChannelsApi.md#listServicePhoneChannels) | **GET** /services/{serviceId}/phoneChannels | Lists PhoneChannels by serviceId
+[**findPhoneServiceChannel**](PhoneServiceChannelsApi.md#findPhoneServiceChannel) | **GET** /phoneServiceChannels/{phoneServiceChannelId} | Finds a phone service channel by id
+[**listPhoneServiceChannels**](PhoneServiceChannelsApi.md#listPhoneServiceChannels) | **GET** /phoneServiceChannels | Lists phone service channels
 
 
-# **findServicePhoneChannel**
-> \KuntaAPI\Model\PhoneServiceChannel findServicePhoneChannel($serviceId, $phoneChannelId)
+# **findPhoneServiceChannel**
+> \KuntaAPI\Model\PhoneServiceChannel findPhoneServiceChannel($phoneServiceChannelId)
 
-finds PhoneChannel by phoneChannelId
+Finds a phone service channel by id
 
-finds PhoneChannels by phoneChannelId
+Finds a phone service channel by id
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new KuntaAPI\Api\PhoneChannelsApi();
-$serviceId = "serviceId_example"; // string | Service id
-$phoneChannelId = "phoneChannelId_example"; // string | phoneChannel id
+$api_instance = new KuntaAPI\Api\PhoneServiceChannelsApi();
+$phoneServiceChannelId = "phoneServiceChannelId_example"; // string | Phone service channel id
 
 try {
-    $result = $api_instance->findServicePhoneChannel($serviceId, $phoneChannelId);
+    $result = $api_instance->findPhoneServiceChannel($phoneServiceChannelId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PhoneChannelsApi->findServicePhoneChannel: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PhoneServiceChannelsApi->findPhoneServiceChannel: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -37,8 +36,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceId** | **string**| Service id |
- **phoneChannelId** | **string**| phoneChannel id |
+ **phoneServiceChannelId** | **string**| Phone service channel id |
 
 ### Return type
 
@@ -55,28 +53,27 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **listServicePhoneChannels**
-> \KuntaAPI\Model\PhoneServiceChannel[] listServicePhoneChannels($serviceId, $firstResult, $maxResults)
+# **listPhoneServiceChannels**
+> \KuntaAPI\Model\PhoneServiceChannel[] listPhoneServiceChannels($firstResult, $maxResults)
 
-Lists PhoneChannels by serviceId
+Lists phone service channels
 
-Lists PhoneChannels by serviceId
+Lists phone service channels
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new KuntaAPI\Api\PhoneChannelsApi();
-$serviceId = "serviceId_example"; // string | Service id
+$api_instance = new KuntaAPI\Api\PhoneServiceChannelsApi();
 $firstResult = 789; // int | First result
 $maxResults = 789; // int | Max results
 
 try {
-    $result = $api_instance->listServicePhoneChannels($serviceId, $firstResult, $maxResults);
+    $result = $api_instance->listPhoneServiceChannels($firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PhoneChannelsApi->listServicePhoneChannels: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PhoneServiceChannelsApi->listPhoneServiceChannels: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -85,7 +82,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceId** | **string**| Service id |
  **firstResult** | **int**| First result | [optional]
  **maxResults** | **int**| Max results | [optional]
 

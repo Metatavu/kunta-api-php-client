@@ -1,6 +1,6 @@
 <?php
 /**
- * WebPageChannelsApi
+ * ShortlinksApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \KuntaAPI\ApiException;
 use \KuntaAPI\ObjectSerializer;
 
 /**
- * WebPageChannelsApi Class Doc Comment
+ * ShortlinksApi Class Doc Comment
  *
  * @category Class
  * @package  KuntaAPI
@@ -54,7 +54,7 @@ use \KuntaAPI\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebPageChannelsApi
+class ShortlinksApi
 {
 
     /**
@@ -94,7 +94,7 @@ class WebPageChannelsApi
      *
      * @param \KuntaAPI\ApiClient $apiClient set the API client
      *
-     * @return WebPageChannelsApi
+     * @return ShortlinksApi
      */
     public function setApiClient(\KuntaAPI\ApiClient $apiClient)
     {
@@ -103,43 +103,43 @@ class WebPageChannelsApi
     }
 
     /**
-     * Operation findServiceWebPageChannel
+     * Operation findOrganizationShortlink
      *
-     * finds WebPageChannel by webPageChannelId
+     * Finds organization shortlink
      *
-     * @param string $serviceId Service id (required)
-     * @param string $webPageChannelId webPageChannel id (required)
-     * @return \KuntaAPI\Model\WebPageServiceChannel
+     * @param string $organizationId Organization id (required)
+     * @param string $shortlinkId shortlink id (required)
+     * @return \KuntaAPI\Model\Shortlink
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWebPageChannel($serviceId, $webPageChannelId)
+    public function findOrganizationShortlink($organizationId, $shortlinkId)
     {
-        list($response) = $this->findServiceWebPageChannelWithHttpInfo($serviceId, $webPageChannelId);
+        list($response) = $this->findOrganizationShortlinkWithHttpInfo($organizationId, $shortlinkId);
         return $response;
     }
 
     /**
-     * Operation findServiceWebPageChannelWithHttpInfo
+     * Operation findOrganizationShortlinkWithHttpInfo
      *
-     * finds WebPageChannel by webPageChannelId
+     * Finds organization shortlink
      *
-     * @param string $serviceId Service id (required)
-     * @param string $webPageChannelId webPageChannel id (required)
-     * @return Array of \KuntaAPI\Model\WebPageServiceChannel, HTTP status code, HTTP response headers (array of strings)
+     * @param string $organizationId Organization id (required)
+     * @param string $shortlinkId shortlink id (required)
+     * @return Array of \KuntaAPI\Model\Shortlink, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWebPageChannelWithHttpInfo($serviceId, $webPageChannelId)
+    public function findOrganizationShortlinkWithHttpInfo($organizationId, $shortlinkId)
     {
-        // verify the required parameter 'serviceId' is set
-        if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServiceWebPageChannel');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling findOrganizationShortlink');
         }
-        // verify the required parameter 'webPageChannelId' is set
-        if ($webPageChannelId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webPageChannelId when calling findServiceWebPageChannel');
+        // verify the required parameter 'shortlinkId' is set
+        if ($shortlinkId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shortlinkId when calling findOrganizationShortlink');
         }
         // parse inputs
-        $resourcePath = "/services/{serviceId}/webPageChannels/{webPageChannelId}";
+        $resourcePath = "/organizations/{organizationId}/shortlinks/{shortlinkId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -151,18 +151,18 @@ class WebPageChannelsApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($serviceId !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
-                "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                "{" . "organizationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
         // path params
-        if ($webPageChannelId !== null) {
+        if ($shortlinkId !== null) {
             $resourcePath = str_replace(
-                "{" . "webPageChannelId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($webPageChannelId),
+                "{" . "shortlinkId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($shortlinkId),
                 $resourcePath
             );
         }
@@ -184,15 +184,15 @@ class WebPageChannelsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\WebPageServiceChannel',
-                '/services/{serviceId}/webPageChannels/{webPageChannelId}'
+                '\KuntaAPI\Model\Shortlink',
+                '/organizations/{organizationId}/shortlinks/{shortlinkId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageServiceChannel', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Shortlink', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\WebPageServiceChannel', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Shortlink', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -201,10 +201,6 @@ class WebPageChannelsApi
                     break;
                 case 403:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
@@ -218,41 +214,43 @@ class WebPageChannelsApi
     }
 
     /**
-     * Operation listServiceWebPageChannels
+     * Operation listOrganizationShortlinks
      *
-     * Lists WebPageChannels by serviceId
+     * Lists organizations shortlinks
      *
-     * @param string $serviceId Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $path Filter results by path (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
-     * @return \KuntaAPI\Model\WebPageServiceChannel[]
+     * @return \KuntaAPI\Model\Shortlink[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceWebPageChannels($serviceId, $firstResult = null, $maxResults = null)
+    public function listOrganizationShortlinks($organizationId, $path = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listServiceWebPageChannelsWithHttpInfo($serviceId, $firstResult, $maxResults);
+        list($response) = $this->listOrganizationShortlinksWithHttpInfo($organizationId, $path, $firstResult, $maxResults);
         return $response;
     }
 
     /**
-     * Operation listServiceWebPageChannelsWithHttpInfo
+     * Operation listOrganizationShortlinksWithHttpInfo
      *
-     * Lists WebPageChannels by serviceId
+     * Lists organizations shortlinks
      *
-     * @param string $serviceId Service id (required)
+     * @param string $organizationId Organization id (required)
+     * @param string $path Filter results by path (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
-     * @return Array of \KuntaAPI\Model\WebPageServiceChannel[], HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \KuntaAPI\Model\Shortlink[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceWebPageChannelsWithHttpInfo($serviceId, $firstResult = null, $maxResults = null)
+    public function listOrganizationShortlinksWithHttpInfo($organizationId, $path = null, $firstResult = null, $maxResults = null)
     {
-        // verify the required parameter 'serviceId' is set
-        if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceWebPageChannels');
+        // verify the required parameter 'organizationId' is set
+        if ($organizationId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $organizationId when calling listOrganizationShortlinks');
         }
         // parse inputs
-        $resourcePath = "/services/{serviceId}/webPageChannels";
+        $resourcePath = "/organizations/{organizationId}/shortlinks";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -264,6 +262,10 @@ class WebPageChannelsApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // query params
+        if ($path !== null) {
+            $queryParams['path'] = $this->apiClient->getSerializer()->toQueryValue($path);
+        }
+        // query params
         if ($firstResult !== null) {
             $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
         }
@@ -272,10 +274,10 @@ class WebPageChannelsApi
             $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
         }
         // path params
-        if ($serviceId !== null) {
+        if ($organizationId !== null) {
             $resourcePath = str_replace(
-                "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($serviceId),
+                "{" . "organizationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($organizationId),
                 $resourcePath
             );
         }
@@ -297,15 +299,15 @@ class WebPageChannelsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\WebPageServiceChannel[]',
-                '/services/{serviceId}/webPageChannels'
+                '\KuntaAPI\Model\Shortlink[]',
+                '/organizations/{organizationId}/shortlinks'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageServiceChannel[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Shortlink[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\WebPageServiceChannel[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Shortlink[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -314,10 +316,6 @@ class WebPageChannelsApi
                     break;
                 case 403:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Forbidden', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\NotFound', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:

@@ -1065,12 +1065,18 @@ class PublicTransportApi
      * Lists stopTimes of organization's public transport stopTimes
      *
      * @param string $organizationId Organization id (required)
+     * @param string $stopId Filter stop times by stopId (optional)
+     * @param int $departureTime Filter stop times that depart in or after specified time. Value is defined in seconds since midnight (optional)
+     * @param string $sortBy DEPARTURE_TIME (optional)
+     * @param string $sortDir ASC or DESC (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\StopTime[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationPublicTransportStopTimes($organizationId)
+    public function listOrganizationPublicTransportStopTimes($organizationId, $stopId = null, $departureTime = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listOrganizationPublicTransportStopTimesWithHttpInfo($organizationId);
+        list($response) = $this->listOrganizationPublicTransportStopTimesWithHttpInfo($organizationId, $stopId, $departureTime, $sortBy, $sortDir, $firstResult, $maxResults);
         return $response;
     }
 
@@ -1080,10 +1086,16 @@ class PublicTransportApi
      * Lists stopTimes of organization's public transport stopTimes
      *
      * @param string $organizationId Organization id (required)
+     * @param string $stopId Filter stop times by stopId (optional)
+     * @param int $departureTime Filter stop times that depart in or after specified time. Value is defined in seconds since midnight (optional)
+     * @param string $sortBy DEPARTURE_TIME (optional)
+     * @param string $sortDir ASC or DESC (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\StopTime[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationPublicTransportStopTimesWithHttpInfo($organizationId)
+    public function listOrganizationPublicTransportStopTimesWithHttpInfo($organizationId, $stopId = null, $departureTime = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -1101,6 +1113,30 @@ class PublicTransportApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
+        // query params
+        if ($stopId !== null) {
+            $queryParams['stopId'] = $this->apiClient->getSerializer()->toQueryValue($stopId);
+        }
+        // query params
+        if ($departureTime !== null) {
+            $queryParams['departureTime'] = $this->apiClient->getSerializer()->toQueryValue($departureTime);
+        }
+        // query params
+        if ($sortBy !== null) {
+            $queryParams['sortBy'] = $this->apiClient->getSerializer()->toQueryValue($sortBy);
+        }
+        // query params
+        if ($sortDir !== null) {
+            $queryParams['sortDir'] = $this->apiClient->getSerializer()->toQueryValue($sortDir);
+        }
+        // query params
+        if ($firstResult !== null) {
+            $queryParams['firstResult'] = $this->apiClient->getSerializer()->toQueryValue($firstResult);
+        }
+        // query params
+        if ($maxResults !== null) {
+            $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
+        }
         // path params
         if ($organizationId !== null) {
             $resourcePath = str_replace(

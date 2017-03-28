@@ -436,7 +436,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationPublicTransportStopTimes**
-> \KuntaAPI\Model\StopTime[] listOrganizationPublicTransportStopTimes($organizationId)
+> \KuntaAPI\Model\StopTime[] listOrganizationPublicTransportStopTimes($organizationId, $stopId, $departureTime, $sortBy, $sortDir, $firstResult, $maxResults)
 
 Lists stopTimes of organization's public transport stopTimes
 
@@ -449,9 +449,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\PublicTransportApi();
 $organizationId = "organizationId_example"; // string | Organization id
+$stopId = "stopId_example"; // string | Filter stop times by stopId
+$departureTime = 56; // int | Filter stop times that depart in or after specified time. Value is defined in seconds since midnight
+$sortBy = "sortBy_example"; // string | DEPARTURE_TIME
+$sortDir = "sortDir_example"; // string | ASC or DESC
+$firstResult = 789; // int | First result
+$maxResults = 789; // int | Max results
 
 try {
-    $result = $api_instance->listOrganizationPublicTransportStopTimes($organizationId);
+    $result = $api_instance->listOrganizationPublicTransportStopTimes($organizationId, $stopId, $departureTime, $sortBy, $sortDir, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PublicTransportApi->listOrganizationPublicTransportStopTimes: ', $e->getMessage(), PHP_EOL;
@@ -464,6 +470,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
+ **stopId** | **string**| Filter stop times by stopId | [optional]
+ **departureTime** | **int**| Filter stop times that depart in or after specified time. Value is defined in seconds since midnight | [optional]
+ **sortBy** | **string**| DEPARTURE_TIME | [optional]
+ **sortDir** | **string**| ASC or DESC | [optional]
+ **firstResult** | **int**| First result | [optional]
+ **maxResults** | **int**| Max results | [optional]
 
 ### Return type
 

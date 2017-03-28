@@ -1,6 +1,6 @@
 <?php
 /**
- * WebPageChannelsApi
+ * ServiceLocationServiceChannelsApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \KuntaAPI\ApiException;
 use \KuntaAPI\ObjectSerializer;
 
 /**
- * WebPageChannelsApi Class Doc Comment
+ * ServiceLocationServiceChannelsApi Class Doc Comment
  *
  * @category Class
  * @package  KuntaAPI
@@ -54,7 +54,7 @@ use \KuntaAPI\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebPageChannelsApi
+class ServiceLocationServiceChannelsApi
 {
 
     /**
@@ -94,7 +94,7 @@ class WebPageChannelsApi
      *
      * @param \KuntaAPI\ApiClient $apiClient set the API client
      *
-     * @return WebPageChannelsApi
+     * @return ServiceLocationServiceChannelsApi
      */
     public function setApiClient(\KuntaAPI\ApiClient $apiClient)
     {
@@ -103,43 +103,37 @@ class WebPageChannelsApi
     }
 
     /**
-     * Operation findServiceWebPageChannel
+     * Operation findServiceLocationServiceChannel
      *
-     * finds WebPageChannel by webPageChannelId
+     * Finds a service location service by id
      *
-     * @param string $serviceId Service id (required)
-     * @param string $webPageChannelId webPageChannel id (required)
-     * @return \KuntaAPI\Model\WebPageServiceChannel
+     * @param string $serviceLocationServiceChannelId serviceLocationChannel id (required)
+     * @return \KuntaAPI\Model\ServiceLocationServiceChannel
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWebPageChannel($serviceId, $webPageChannelId)
+    public function findServiceLocationServiceChannel($serviceLocationServiceChannelId)
     {
-        list($response) = $this->findServiceWebPageChannelWithHttpInfo($serviceId, $webPageChannelId);
+        list($response) = $this->findServiceLocationServiceChannelWithHttpInfo($serviceLocationServiceChannelId);
         return $response;
     }
 
     /**
-     * Operation findServiceWebPageChannelWithHttpInfo
+     * Operation findServiceLocationServiceChannelWithHttpInfo
      *
-     * finds WebPageChannel by webPageChannelId
+     * Finds a service location service by id
      *
-     * @param string $serviceId Service id (required)
-     * @param string $webPageChannelId webPageChannel id (required)
-     * @return Array of \KuntaAPI\Model\WebPageServiceChannel, HTTP status code, HTTP response headers (array of strings)
+     * @param string $serviceLocationServiceChannelId serviceLocationChannel id (required)
+     * @return Array of \KuntaAPI\Model\ServiceLocationServiceChannel, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function findServiceWebPageChannelWithHttpInfo($serviceId, $webPageChannelId)
+    public function findServiceLocationServiceChannelWithHttpInfo($serviceLocationServiceChannelId)
     {
-        // verify the required parameter 'serviceId' is set
-        if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling findServiceWebPageChannel');
-        }
-        // verify the required parameter 'webPageChannelId' is set
-        if ($webPageChannelId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webPageChannelId when calling findServiceWebPageChannel');
+        // verify the required parameter 'serviceLocationServiceChannelId' is set
+        if ($serviceLocationServiceChannelId === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $serviceLocationServiceChannelId when calling findServiceLocationServiceChannel');
         }
         // parse inputs
-        $resourcePath = "/services/{serviceId}/webPageChannels/{webPageChannelId}";
+        $resourcePath = "/serviceLocationServiceChannels/{serviceLocationServiceChannelId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -151,18 +145,10 @@ class WebPageChannelsApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
         // path params
-        if ($serviceId !== null) {
+        if ($serviceLocationServiceChannelId !== null) {
             $resourcePath = str_replace(
-                "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($serviceId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($webPageChannelId !== null) {
-            $resourcePath = str_replace(
-                "{" . "webPageChannelId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($webPageChannelId),
+                "{" . "serviceLocationServiceChannelId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($serviceLocationServiceChannelId),
                 $resourcePath
             );
         }
@@ -184,15 +170,15 @@ class WebPageChannelsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\WebPageServiceChannel',
-                '/services/{serviceId}/webPageChannels/{webPageChannelId}'
+                '\KuntaAPI\Model\ServiceLocationServiceChannel',
+                '/serviceLocationServiceChannels/{serviceLocationServiceChannelId}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageServiceChannel', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ServiceLocationServiceChannel', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\WebPageServiceChannel', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ServiceLocationServiceChannel', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -218,41 +204,35 @@ class WebPageChannelsApi
     }
 
     /**
-     * Operation listServiceWebPageChannels
+     * Operation listServiceLocationServiceChannels
      *
-     * Lists WebPageChannels by serviceId
+     * Lists service location service channels
      *
-     * @param string $serviceId Service id (required)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
-     * @return \KuntaAPI\Model\WebPageServiceChannel[]
+     * @return \KuntaAPI\Model\ServiceLocationServiceChannel[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceWebPageChannels($serviceId, $firstResult = null, $maxResults = null)
+    public function listServiceLocationServiceChannels($firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listServiceWebPageChannelsWithHttpInfo($serviceId, $firstResult, $maxResults);
+        list($response) = $this->listServiceLocationServiceChannelsWithHttpInfo($firstResult, $maxResults);
         return $response;
     }
 
     /**
-     * Operation listServiceWebPageChannelsWithHttpInfo
+     * Operation listServiceLocationServiceChannelsWithHttpInfo
      *
-     * Lists WebPageChannels by serviceId
+     * Lists service location service channels
      *
-     * @param string $serviceId Service id (required)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
-     * @return Array of \KuntaAPI\Model\WebPageServiceChannel[], HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \KuntaAPI\Model\ServiceLocationServiceChannel[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceWebPageChannelsWithHttpInfo($serviceId, $firstResult = null, $maxResults = null)
+    public function listServiceLocationServiceChannelsWithHttpInfo($firstResult = null, $maxResults = null)
     {
-        // verify the required parameter 'serviceId' is set
-        if ($serviceId === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $serviceId when calling listServiceWebPageChannels');
-        }
         // parse inputs
-        $resourcePath = "/services/{serviceId}/webPageChannels";
+        $resourcePath = "/serviceLocationServiceChannels";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -270,14 +250,6 @@ class WebPageChannelsApi
         // query params
         if ($maxResults !== null) {
             $queryParams['maxResults'] = $this->apiClient->getSerializer()->toQueryValue($maxResults);
-        }
-        // path params
-        if ($serviceId !== null) {
-            $resourcePath = str_replace(
-                "{" . "serviceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($serviceId),
-                $resourcePath
-            );
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -297,15 +269,15 @@ class WebPageChannelsApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\WebPageServiceChannel[]',
-                '/services/{serviceId}/webPageChannels'
+                '\KuntaAPI\Model\ServiceLocationServiceChannel[]',
+                '/serviceLocationServiceChannels'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\WebPageServiceChannel[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\ServiceLocationServiceChannel[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\WebPageServiceChannel[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\ServiceLocationServiceChannel[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

@@ -1,6 +1,6 @@
 <?php
 /**
- * NewsArticle
+ * Shortlink
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * NewsArticle Class Doc Comment
+ * Shortlink Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NewsArticle implements ArrayAccess
+class Shortlink implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NewsArticle';
+    protected static $swaggerModelName = 'Shortlink';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,12 +67,9 @@ class NewsArticle implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'title' => 'string',
-        'abstract' => 'string',
-        'slug' => 'string',
-        'contents' => 'string',
-        'published' => '\DateTime',
-        'tags' => 'string[]'
+        'name' => 'string',
+        'path' => 'string',
+        'url' => 'string'
     );
 
     public static function swaggerTypes()
@@ -86,12 +83,9 @@ class NewsArticle implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'title' => 'title',
-        'abstract' => 'abstract',
-        'slug' => 'slug',
-        'contents' => 'contents',
-        'published' => 'published',
-        'tags' => 'tags'
+        'name' => 'name',
+        'path' => 'path',
+        'url' => 'url'
     );
 
     public static function attributeMap()
@@ -105,12 +99,9 @@ class NewsArticle implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'title' => 'setTitle',
-        'abstract' => 'setAbstract',
-        'slug' => 'setSlug',
-        'contents' => 'setContents',
-        'published' => 'setPublished',
-        'tags' => 'setTags'
+        'name' => 'setName',
+        'path' => 'setPath',
+        'url' => 'setUrl'
     );
 
     public static function setters()
@@ -124,12 +115,9 @@ class NewsArticle implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'title' => 'getTitle',
-        'abstract' => 'getAbstract',
-        'slug' => 'getSlug',
-        'contents' => 'getContents',
-        'published' => 'getPublished',
-        'tags' => 'getTags'
+        'name' => 'getName',
+        'path' => 'getPath',
+        'url' => 'getUrl'
     );
 
     public static function getters()
@@ -154,12 +142,9 @@ class NewsArticle implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['abstract'] = isset($data['abstract']) ? $data['abstract'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
-        $this->container['contents'] = isset($data['contents']) ? $data['contents'] : null;
-        $this->container['published'] = isset($data['published']) ? $data['published'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -207,127 +192,64 @@ class NewsArticle implements ArrayAccess
     }
 
     /**
-     * Gets title
+     * Gets name
      * @return string
      */
-    public function getTitle()
+    public function getName()
     {
-        return $this->container['title'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets title
-     * @param string $title
+     * Sets name
+     * @param string $name
      * @return $this
      */
-    public function setTitle($title)
+    public function setName($name)
     {
-        $this->container['title'] = $title;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets abstract
+     * Gets path
      * @return string
      */
-    public function getAbstract()
+    public function getPath()
     {
-        return $this->container['abstract'];
+        return $this->container['path'];
     }
 
     /**
-     * Sets abstract
-     * @param string $abstract
+     * Sets path
+     * @param string $path
      * @return $this
      */
-    public function setAbstract($abstract)
+    public function setPath($path)
     {
-        $this->container['abstract'] = $abstract;
+        $this->container['path'] = $path;
 
         return $this;
     }
 
     /**
-     * Gets slug
+     * Gets url
      * @return string
      */
-    public function getSlug()
+    public function getUrl()
     {
-        return $this->container['slug'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets slug
-     * @param string $slug
+     * Sets url
+     * @param string $url
      * @return $this
      */
-    public function setSlug($slug)
+    public function setUrl($url)
     {
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets contents
-     * @return string
-     */
-    public function getContents()
-    {
-        return $this->container['contents'];
-    }
-
-    /**
-     * Sets contents
-     * @param string $contents
-     * @return $this
-     */
-    public function setContents($contents)
-    {
-        $this->container['contents'] = $contents;
-
-        return $this;
-    }
-
-    /**
-     * Gets published
-     * @return \DateTime
-     */
-    public function getPublished()
-    {
-        return $this->container['published'];
-    }
-
-    /**
-     * Sets published
-     * @param \DateTime $published
-     * @return $this
-     */
-    public function setPublished($published)
-    {
-        $this->container['published'] = $published;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     * @return string[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     * @param string[] $tags
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
+        $this->container['url'] = $url;
 
         return $this;
     }
