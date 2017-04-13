@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **formReceiver** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) | List of localized form receiver. One per language. | [optional] 
 **deliveryAddress** | [**\KuntaAPI\Model\Address**](Address.md) | Form delivery address. | [optional] 
 **channelUrls** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) | List of localized channel urls. | [optional] 
-**attachments** | [**\KuntaAPI\Model\Attachment[]**](Attachment.md) | List of attachments. | [optional] 
+**attachments** | [**\KuntaAPI\Model\ServiceChannelAttachment[]**](ServiceChannelAttachment.md) | List of attachments. | [optional] 
 **supportPhones** | [**\KuntaAPI\Model\Phone[]**](Phone.md) | List of support phone numbers for the service channel. | [optional] 
 **supportEmails** | [**\KuntaAPI\Model\Email[]**](Email.md) | List of support email addresses for the service channel. | [optional] 
 **languages** | **string[]** | List of languages the service channel is available in (two letter language code). | [optional] 

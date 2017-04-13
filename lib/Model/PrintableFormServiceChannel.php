@@ -74,7 +74,7 @@ class PrintableFormServiceChannel implements ArrayAccess
         'formReceiver' => '\KuntaAPI\Model\LocalizedValue[]',
         'deliveryAddress' => '\KuntaAPI\Model\Address',
         'channelUrls' => '\KuntaAPI\Model\LocalizedValue[]',
-        'attachments' => '\KuntaAPI\Model\Attachment[]',
+        'attachments' => '\KuntaAPI\Model\ServiceChannelAttachment[]',
         'supportPhones' => '\KuntaAPI\Model\Phone[]',
         'supportEmails' => '\KuntaAPI\Model\Email[]',
         'languages' => 'string[]',
@@ -395,7 +395,7 @@ class PrintableFormServiceChannel implements ArrayAccess
 
     /**
      * Gets attachments
-     * @return \KuntaAPI\Model\Attachment[]
+     * @return \KuntaAPI\Model\ServiceChannelAttachment[]
      */
     public function getAttachments()
     {
@@ -404,7 +404,7 @@ class PrintableFormServiceChannel implements ArrayAccess
 
     /**
      * Sets attachments
-     * @param \KuntaAPI\Model\Attachment[] $attachments List of attachments.
+     * @param \KuntaAPI\Model\ServiceChannelAttachment[] $attachments List of attachments.
      * @return $this
      */
     public function setAttachments($attachments)
