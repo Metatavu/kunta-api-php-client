@@ -81,7 +81,7 @@ class Organization implements ArrayAccess
         'addresses' => '\KuntaAPI\Model\Address[]',
         'publishingStatus' => 'string',
         'parentOrganization' => 'string',
-        'services' => '\KuntaAPI\Model\Service[]'
+        'services' => '\KuntaAPI\Model\OrganizationService[]'
     );
 
     public static function swaggerTypes()
@@ -533,7 +533,7 @@ class Organization implements ArrayAccess
 
     /**
      * Gets services
-     * @return \KuntaAPI\Model\Service[]
+     * @return \KuntaAPI\Model\OrganizationService[]
      */
     public function getServices()
     {
@@ -542,7 +542,7 @@ class Organization implements ArrayAccess
 
     /**
      * Sets services
-     * @param \KuntaAPI\Model\Service[] $services List of organizations services.
+     * @param \KuntaAPI\Model\OrganizationService[] $services List of organizations services.
      * @return $this
      */
     public function setServices($services)

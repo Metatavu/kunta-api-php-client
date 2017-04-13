@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **addresses** | [**\KuntaAPI\Model\Address[]**](Address.md) | List of organizations addresses. | [optional] 
 **publishingStatus** | **string** | Publishing status (Draft, Published, Deleted, Modified and OldPublished). | [optional] 
 **parentOrganization** | **string** | Organizations parent organization identifier if exists. | [optional] 
-**services** | [**\KuntaAPI\Model\Service[]**](Service.md) | List of organizations services. | [optional] 
+**services** | [**\KuntaAPI\Model\OrganizationService[]**](OrganizationService.md) | List of organizations services. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
