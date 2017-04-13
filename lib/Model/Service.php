@@ -84,7 +84,6 @@ class Service implements ArrayAccess
         'requirements' => '\KuntaAPI\Model\LocalizedValue[]',
         'publishingStatus' => 'string',
         'chargeType' => 'string',
-        'additionalInformations' => '\KuntaAPI\Model\LocalizedValue[]',
         'electronicServiceChannelIds' => 'string[]',
         'phoneServiceChannelIds' => 'string[]',
         'printableFormServiceChannelIds' => 'string[]',
@@ -120,7 +119,6 @@ class Service implements ArrayAccess
         'requirements' => 'requirements',
         'publishingStatus' => 'publishingStatus',
         'chargeType' => 'chargeType',
-        'additionalInformations' => 'additionalInformations',
         'electronicServiceChannelIds' => 'electronicServiceChannelIds',
         'phoneServiceChannelIds' => 'phoneServiceChannelIds',
         'printableFormServiceChannelIds' => 'printableFormServiceChannelIds',
@@ -156,7 +154,6 @@ class Service implements ArrayAccess
         'requirements' => 'setRequirements',
         'publishingStatus' => 'setPublishingStatus',
         'chargeType' => 'setChargeType',
-        'additionalInformations' => 'setAdditionalInformations',
         'electronicServiceChannelIds' => 'setElectronicServiceChannelIds',
         'phoneServiceChannelIds' => 'setPhoneServiceChannelIds',
         'printableFormServiceChannelIds' => 'setPrintableFormServiceChannelIds',
@@ -192,7 +189,6 @@ class Service implements ArrayAccess
         'requirements' => 'getRequirements',
         'publishingStatus' => 'getPublishingStatus',
         'chargeType' => 'getChargeType',
-        'additionalInformations' => 'getAdditionalInformations',
         'electronicServiceChannelIds' => 'getElectronicServiceChannelIds',
         'phoneServiceChannelIds' => 'getPhoneServiceChannelIds',
         'printableFormServiceChannelIds' => 'getPrintableFormServiceChannelIds',
@@ -239,7 +235,6 @@ class Service implements ArrayAccess
         $this->container['requirements'] = isset($data['requirements']) ? $data['requirements'] : null;
         $this->container['publishingStatus'] = isset($data['publishingStatus']) ? $data['publishingStatus'] : null;
         $this->container['chargeType'] = isset($data['chargeType']) ? $data['chargeType'] : null;
-        $this->container['additionalInformations'] = isset($data['additionalInformations']) ? $data['additionalInformations'] : null;
         $this->container['electronicServiceChannelIds'] = isset($data['electronicServiceChannelIds']) ? $data['electronicServiceChannelIds'] : null;
         $this->container['phoneServiceChannelIds'] = isset($data['phoneServiceChannelIds']) ? $data['phoneServiceChannelIds'] : null;
         $this->container['printableFormServiceChannelIds'] = isset($data['printableFormServiceChannelIds']) ? $data['printableFormServiceChannelIds'] : null;
@@ -644,27 +639,6 @@ class Service implements ArrayAccess
     public function setChargeType($chargeType)
     {
         $this->container['chargeType'] = $chargeType;
-
-        return $this;
-    }
-
-    /**
-     * Gets additionalInformations
-     * @return \KuntaAPI\Model\LocalizedValue[]
-     */
-    public function getAdditionalInformations()
-    {
-        return $this->container['additionalInformations'];
-    }
-
-    /**
-     * Sets additionalInformations
-     * @param \KuntaAPI\Model\LocalizedValue[] $additionalInformations
-     * @return $this
-     */
-    public function setAdditionalInformations($additionalInformations)
-    {
-        $this->container['additionalInformations'] = $additionalInformations;
 
         return $this;
     }
