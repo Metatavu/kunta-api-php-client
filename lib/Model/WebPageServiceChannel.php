@@ -73,7 +73,8 @@ class WebPageServiceChannel implements ArrayAccess
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'urls' => '\KuntaAPI\Model\LocalizedValue[]',
         'attachments' => '\KuntaAPI\Model\ServiceChannelAttachment[]',
-        'supportContacts' => '\KuntaAPI\Model\SupportContact[]',
+        'supportPhones' => '\KuntaAPI\Model\Phone[]',
+        'supportEmails' => '\KuntaAPI\Model\Email[]',
         'languages' => 'string[]',
         'webPages' => '\KuntaAPI\Model\WebPage[]',
         'serviceHours' => '\KuntaAPI\Model\ServiceHour[]',
@@ -97,7 +98,8 @@ class WebPageServiceChannel implements ArrayAccess
         'descriptions' => 'descriptions',
         'urls' => 'urls',
         'attachments' => 'attachments',
-        'supportContacts' => 'supportContacts',
+        'supportPhones' => 'supportPhones',
+        'supportEmails' => 'supportEmails',
         'languages' => 'languages',
         'webPages' => 'webPages',
         'serviceHours' => 'serviceHours',
@@ -121,7 +123,8 @@ class WebPageServiceChannel implements ArrayAccess
         'descriptions' => 'setDescriptions',
         'urls' => 'setUrls',
         'attachments' => 'setAttachments',
-        'supportContacts' => 'setSupportContacts',
+        'supportPhones' => 'setSupportPhones',
+        'supportEmails' => 'setSupportEmails',
         'languages' => 'setLanguages',
         'webPages' => 'setWebPages',
         'serviceHours' => 'setServiceHours',
@@ -145,7 +148,8 @@ class WebPageServiceChannel implements ArrayAccess
         'descriptions' => 'getDescriptions',
         'urls' => 'getUrls',
         'attachments' => 'getAttachments',
-        'supportContacts' => 'getSupportContacts',
+        'supportPhones' => 'getSupportPhones',
+        'supportEmails' => 'getSupportEmails',
         'languages' => 'getLanguages',
         'webPages' => 'getWebPages',
         'serviceHours' => 'getServiceHours',
@@ -180,7 +184,8 @@ class WebPageServiceChannel implements ArrayAccess
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
-        $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
+        $this->container['supportPhones'] = isset($data['supportPhones']) ? $data['supportPhones'] : null;
+        $this->container['supportEmails'] = isset($data['supportEmails']) ? $data['supportEmails'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
         $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
         $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
@@ -358,22 +363,43 @@ class WebPageServiceChannel implements ArrayAccess
     }
 
     /**
-     * Gets supportContacts
-     * @return \KuntaAPI\Model\SupportContact[]
+     * Gets supportPhones
+     * @return \KuntaAPI\Model\Phone[]
      */
-    public function getSupportContacts()
+    public function getSupportPhones()
     {
-        return $this->container['supportContacts'];
+        return $this->container['supportPhones'];
     }
 
     /**
-     * Sets supportContacts
-     * @param \KuntaAPI\Model\SupportContact[] $supportContacts
+     * Sets supportPhones
+     * @param \KuntaAPI\Model\Phone[] $supportPhones List of support phone numbers for the service channel.
      * @return $this
      */
-    public function setSupportContacts($supportContacts)
+    public function setSupportPhones($supportPhones)
     {
-        $this->container['supportContacts'] = $supportContacts;
+        $this->container['supportPhones'] = $supportPhones;
+
+        return $this;
+    }
+
+    /**
+     * Gets supportEmails
+     * @return \KuntaAPI\Model\Email[]
+     */
+    public function getSupportEmails()
+    {
+        return $this->container['supportEmails'];
+    }
+
+    /**
+     * Sets supportEmails
+     * @param \KuntaAPI\Model\Email[] $supportEmails List of support email addresses for the service channel.
+     * @return $this
+     */
+    public function setSupportEmails($supportEmails)
+    {
+        $this->container['supportEmails'] = $supportEmails;
 
         return $this;
     }

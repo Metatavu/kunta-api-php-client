@@ -73,7 +73,8 @@ class PrintableFormServiceChannel implements ArrayAccess
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'formIdentifier' => 'string',
         'formReceiver' => 'string',
-        'supportContacts' => '\KuntaAPI\Model\SupportContact[]',
+        'supportPhones' => '\KuntaAPI\Model\Phone[]',
+        'supportEmails' => '\KuntaAPI\Model\Email[]',
         'deliveryAddress' => '\KuntaAPI\Model\Address',
         'channelUrls' => '\KuntaAPI\Model\LocalizedValue[]',
         'languages' => 'string[]',
@@ -101,7 +102,8 @@ class PrintableFormServiceChannel implements ArrayAccess
         'descriptions' => 'descriptions',
         'formIdentifier' => 'formIdentifier',
         'formReceiver' => 'formReceiver',
-        'supportContacts' => 'supportContacts',
+        'supportPhones' => 'supportPhones',
+        'supportEmails' => 'supportEmails',
         'deliveryAddress' => 'deliveryAddress',
         'channelUrls' => 'channelUrls',
         'languages' => 'languages',
@@ -129,7 +131,8 @@ class PrintableFormServiceChannel implements ArrayAccess
         'descriptions' => 'setDescriptions',
         'formIdentifier' => 'setFormIdentifier',
         'formReceiver' => 'setFormReceiver',
-        'supportContacts' => 'setSupportContacts',
+        'supportPhones' => 'setSupportPhones',
+        'supportEmails' => 'setSupportEmails',
         'deliveryAddress' => 'setDeliveryAddress',
         'channelUrls' => 'setChannelUrls',
         'languages' => 'setLanguages',
@@ -157,7 +160,8 @@ class PrintableFormServiceChannel implements ArrayAccess
         'descriptions' => 'getDescriptions',
         'formIdentifier' => 'getFormIdentifier',
         'formReceiver' => 'getFormReceiver',
-        'supportContacts' => 'getSupportContacts',
+        'supportPhones' => 'getSupportPhones',
+        'supportEmails' => 'getSupportEmails',
         'deliveryAddress' => 'getDeliveryAddress',
         'channelUrls' => 'getChannelUrls',
         'languages' => 'getLanguages',
@@ -196,7 +200,8 @@ class PrintableFormServiceChannel implements ArrayAccess
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
         $this->container['formIdentifier'] = isset($data['formIdentifier']) ? $data['formIdentifier'] : null;
         $this->container['formReceiver'] = isset($data['formReceiver']) ? $data['formReceiver'] : null;
-        $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
+        $this->container['supportPhones'] = isset($data['supportPhones']) ? $data['supportPhones'] : null;
+        $this->container['supportEmails'] = isset($data['supportEmails']) ? $data['supportEmails'] : null;
         $this->container['deliveryAddress'] = isset($data['deliveryAddress']) ? $data['deliveryAddress'] : null;
         $this->container['channelUrls'] = isset($data['channelUrls']) ? $data['channelUrls'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
@@ -378,22 +383,43 @@ class PrintableFormServiceChannel implements ArrayAccess
     }
 
     /**
-     * Gets supportContacts
-     * @return \KuntaAPI\Model\SupportContact[]
+     * Gets supportPhones
+     * @return \KuntaAPI\Model\Phone[]
      */
-    public function getSupportContacts()
+    public function getSupportPhones()
     {
-        return $this->container['supportContacts'];
+        return $this->container['supportPhones'];
     }
 
     /**
-     * Sets supportContacts
-     * @param \KuntaAPI\Model\SupportContact[] $supportContacts
+     * Sets supportPhones
+     * @param \KuntaAPI\Model\Phone[] $supportPhones List of support phone numbers for the service channel.
      * @return $this
      */
-    public function setSupportContacts($supportContacts)
+    public function setSupportPhones($supportPhones)
     {
-        $this->container['supportContacts'] = $supportContacts;
+        $this->container['supportPhones'] = $supportPhones;
+
+        return $this;
+    }
+
+    /**
+     * Gets supportEmails
+     * @return \KuntaAPI\Model\Email[]
+     */
+    public function getSupportEmails()
+    {
+        return $this->container['supportEmails'];
+    }
+
+    /**
+     * Sets supportEmails
+     * @param \KuntaAPI\Model\Email[] $supportEmails List of support email addresses for the service channel.
+     * @return $this
+     */
+    public function setSupportEmails($supportEmails)
+    {
+        $this->container['supportEmails'] = $supportEmails;
 
         return $this;
     }

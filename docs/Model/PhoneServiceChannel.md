@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **descriptions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **phoneType** | **string** |  | [optional] 
 **chargeTypes** | **string[]** |  | [optional] 
-**supportContacts** | [**\KuntaAPI\Model\SupportContact[]**](SupportContact.md) |  | [optional] 
+**supportEmails** | [**\KuntaAPI\Model\Email[]**](Email.md) | List of support email addresses for the service channel. | [optional] 
 **phoneNumbers** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **languages** | **string[]** |  | [optional] 
 **phoneChargeDescriptions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 

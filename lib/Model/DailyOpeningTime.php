@@ -1,6 +1,6 @@
 <?php
 /**
- * ServiceHour
+ * DailyOpeningTime
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * ServiceHour Class Doc Comment
+ * DailyOpeningTime Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,26 +53,24 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ServiceHour implements ArrayAccess
+class DailyOpeningTime implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ServiceHour';
+    protected static $swaggerModelName = 'DailyOpeningTime';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'serviceHourType' => 'string',
-        'validFrom' => '\DateTime',
-        'validTo' => '\DateTime',
-        'isClosed' => 'bool',
-        'validForNow' => 'bool',
-        'additionalInformation' => '\KuntaAPI\Model\LocalizedValue[]',
-        'openingHour' => '\KuntaAPI\Model\DailyOpeningTime[]'
+        'dayFrom' => 'int',
+        'dayTo' => 'int',
+        'from' => 'string',
+        'to' => 'string',
+        'isExtra' => 'bool'
     );
 
     public static function swaggerTypes()
@@ -85,13 +83,11 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'serviceHourType' => 'serviceHourType',
-        'validFrom' => 'validFrom',
-        'validTo' => 'validTo',
-        'isClosed' => 'isClosed',
-        'validForNow' => 'validForNow',
-        'additionalInformation' => 'additionalInformation',
-        'openingHour' => 'openingHour'
+        'dayFrom' => 'dayFrom',
+        'dayTo' => 'dayTo',
+        'from' => 'from',
+        'to' => 'to',
+        'isExtra' => 'isExtra'
     );
 
     public static function attributeMap()
@@ -104,13 +100,11 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'serviceHourType' => 'setServiceHourType',
-        'validFrom' => 'setValidFrom',
-        'validTo' => 'setValidTo',
-        'isClosed' => 'setIsClosed',
-        'validForNow' => 'setValidForNow',
-        'additionalInformation' => 'setAdditionalInformation',
-        'openingHour' => 'setOpeningHour'
+        'dayFrom' => 'setDayFrom',
+        'dayTo' => 'setDayTo',
+        'from' => 'setFrom',
+        'to' => 'setTo',
+        'isExtra' => 'setIsExtra'
     );
 
     public static function setters()
@@ -123,13 +117,11 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'serviceHourType' => 'getServiceHourType',
-        'validFrom' => 'getValidFrom',
-        'validTo' => 'getValidTo',
-        'isClosed' => 'getIsClosed',
-        'validForNow' => 'getValidForNow',
-        'additionalInformation' => 'getAdditionalInformation',
-        'openingHour' => 'getOpeningHour'
+        'dayFrom' => 'getDayFrom',
+        'dayTo' => 'getDayTo',
+        'from' => 'getFrom',
+        'to' => 'getTo',
+        'isExtra' => 'getIsExtra'
     );
 
     public static function getters()
@@ -153,13 +145,11 @@ class ServiceHour implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['serviceHourType'] = isset($data['serviceHourType']) ? $data['serviceHourType'] : null;
-        $this->container['validFrom'] = isset($data['validFrom']) ? $data['validFrom'] : null;
-        $this->container['validTo'] = isset($data['validTo']) ? $data['validTo'] : null;
-        $this->container['isClosed'] = isset($data['isClosed']) ? $data['isClosed'] : null;
-        $this->container['validForNow'] = isset($data['validForNow']) ? $data['validForNow'] : null;
-        $this->container['additionalInformation'] = isset($data['additionalInformation']) ? $data['additionalInformation'] : null;
-        $this->container['openingHour'] = isset($data['openingHour']) ? $data['openingHour'] : null;
+        $this->container['dayFrom'] = isset($data['dayFrom']) ? $data['dayFrom'] : null;
+        $this->container['dayTo'] = isset($data['dayTo']) ? $data['dayTo'] : null;
+        $this->container['from'] = isset($data['from']) ? $data['from'] : null;
+        $this->container['to'] = isset($data['to']) ? $data['to'] : null;
+        $this->container['isExtra'] = isset($data['isExtra']) ? $data['isExtra'] : null;
     }
 
     /**
@@ -186,148 +176,106 @@ class ServiceHour implements ArrayAccess
 
 
     /**
-     * Gets serviceHourType
+     * Gets dayFrom
+     * @return int
+     */
+    public function getDayFrom()
+    {
+        return $this->container['dayFrom'];
+    }
+
+    /**
+     * Sets dayFrom
+     * @param int $dayFrom Day index (0 == Sunday)
+     * @return $this
+     */
+    public function setDayFrom($dayFrom)
+    {
+        $this->container['dayFrom'] = $dayFrom;
+
+        return $this;
+    }
+
+    /**
+     * Gets dayTo
+     * @return int
+     */
+    public function getDayTo()
+    {
+        return $this->container['dayTo'];
+    }
+
+    /**
+     * Sets dayTo
+     * @param int $dayTo Day index (0 == Sunday)
+     * @return $this
+     */
+    public function setDayTo($dayTo)
+    {
+        $this->container['dayTo'] = $dayTo;
+
+        return $this;
+    }
+
+    /**
+     * Gets from
      * @return string
      */
-    public function getServiceHourType()
+    public function getFrom()
     {
-        return $this->container['serviceHourType'];
+        return $this->container['from'];
     }
 
     /**
-     * Sets serviceHourType
-     * @param string $serviceHourType
+     * Sets from
+     * @param string $from Start time for example 10:00:00
      * @return $this
      */
-    public function setServiceHourType($serviceHourType)
+    public function setFrom($from)
     {
-        $this->container['serviceHourType'] = $serviceHourType;
+        $this->container['from'] = $from;
 
         return $this;
     }
 
     /**
-     * Gets validFrom
-     * @return \DateTime
+     * Gets to
+     * @return string
      */
-    public function getValidFrom()
+    public function getTo()
     {
-        return $this->container['validFrom'];
+        return $this->container['to'];
     }
 
     /**
-     * Sets validFrom
-     * @param \DateTime $validFrom Date time where from this entry is valid.
+     * Sets to
+     * @param string $to End time for example 20:00:00
      * @return $this
      */
-    public function setValidFrom($validFrom)
+    public function setTo($to)
     {
-        $this->container['validFrom'] = $validFrom;
+        $this->container['to'] = $to;
 
         return $this;
     }
 
     /**
-     * Gets validTo
-     * @return \DateTime
-     */
-    public function getValidTo()
-    {
-        return $this->container['validTo'];
-    }
-
-    /**
-     * Sets validTo
-     * @param \DateTime $validTo Date time to this entry is valid.
-     * @return $this
-     */
-    public function setValidTo($validTo)
-    {
-        $this->container['validTo'] = $validTo;
-
-        return $this;
-    }
-
-    /**
-     * Gets isClosed
+     * Gets isExtra
      * @return bool
      */
-    public function getIsClosed()
+    public function getIsExtra()
     {
-        return $this->container['isClosed'];
+        return $this->container['isExtra'];
     }
 
     /**
-     * Sets isClosed
-     * @param bool $isClosed Set to true to present a time between the valid from and to times as closed.
+     * Sets isExtra
+     * @param bool $isExtra Set to true to have extra time for a day. Enables to have open times like 10:00-14:00 and also on the same day 16:00-20:00. So the latter time is extra time.
      * @return $this
      */
-    public function setIsClosed($isClosed)
+    public function setIsExtra($isExtra)
     {
-        $this->container['isClosed'] = $isClosed;
-
-        return $this;
-    }
-
-    /**
-     * Gets validForNow
-     * @return bool
-     */
-    public function getValidForNow()
-    {
-        return $this->container['validForNow'];
-    }
-
-    /**
-     * Sets validForNow
-     * @param bool $validForNow Set to true to present that this entry is valid for now.
-     * @return $this
-     */
-    public function setValidForNow($validForNow)
-    {
-        $this->container['validForNow'] = $validForNow;
-
-        return $this;
-    }
-
-    /**
-     * Gets additionalInformation
-     * @return \KuntaAPI\Model\LocalizedValue[]
-     */
-    public function getAdditionalInformation()
-    {
-        return $this->container['additionalInformation'];
-    }
-
-    /**
-     * Sets additionalInformation
-     * @param \KuntaAPI\Model\LocalizedValue[] $additionalInformation Localized list of additional information.
-     * @return $this
-     */
-    public function setAdditionalInformation($additionalInformation)
-    {
-        $this->container['additionalInformation'] = $additionalInformation;
-
-        return $this;
-    }
-
-    /**
-     * Gets openingHour
-     * @return \KuntaAPI\Model\DailyOpeningTime[]
-     */
-    public function getOpeningHour()
-    {
-        return $this->container['openingHour'];
-    }
-
-    /**
-     * Sets openingHour
-     * @param \KuntaAPI\Model\DailyOpeningTime[] $openingHour List of servicing hours (open and closes times).
-     * @return $this
-     */
-    public function setOpeningHour($openingHour)
-    {
-        $this->container['openingHour'] = $openingHour;
+        $this->container['isExtra'] = $isExtra;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ServiceHour
+ * Phone
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * ServiceHour Class Doc Comment
+ * Phone Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,26 +53,27 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ServiceHour implements ArrayAccess
+class Phone implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ServiceHour';
+    protected static $swaggerModelName = 'Phone';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'serviceHourType' => 'string',
-        'validFrom' => '\DateTime',
-        'validTo' => '\DateTime',
-        'isClosed' => 'bool',
-        'validForNow' => 'bool',
-        'additionalInformation' => '\KuntaAPI\Model\LocalizedValue[]',
-        'openingHour' => '\KuntaAPI\Model\DailyOpeningTime[]'
+        'additionalInformation' => 'string',
+        'serviceChargeType' => 'string',
+        'chargeDescription' => 'string',
+        'prefixNumber' => 'string',
+        'isFinnishServiceNumber' => 'bool',
+        'number' => 'string',
+        'language' => 'string',
+        'type' => 'string'
     );
 
     public static function swaggerTypes()
@@ -85,13 +86,14 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'serviceHourType' => 'serviceHourType',
-        'validFrom' => 'validFrom',
-        'validTo' => 'validTo',
-        'isClosed' => 'isClosed',
-        'validForNow' => 'validForNow',
         'additionalInformation' => 'additionalInformation',
-        'openingHour' => 'openingHour'
+        'serviceChargeType' => 'serviceChargeType',
+        'chargeDescription' => 'chargeDescription',
+        'prefixNumber' => 'prefixNumber',
+        'isFinnishServiceNumber' => 'isFinnishServiceNumber',
+        'number' => 'number',
+        'language' => 'language',
+        'type' => 'type'
     );
 
     public static function attributeMap()
@@ -104,13 +106,14 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'serviceHourType' => 'setServiceHourType',
-        'validFrom' => 'setValidFrom',
-        'validTo' => 'setValidTo',
-        'isClosed' => 'setIsClosed',
-        'validForNow' => 'setValidForNow',
         'additionalInformation' => 'setAdditionalInformation',
-        'openingHour' => 'setOpeningHour'
+        'serviceChargeType' => 'setServiceChargeType',
+        'chargeDescription' => 'setChargeDescription',
+        'prefixNumber' => 'setPrefixNumber',
+        'isFinnishServiceNumber' => 'setIsFinnishServiceNumber',
+        'number' => 'setNumber',
+        'language' => 'setLanguage',
+        'type' => 'setType'
     );
 
     public static function setters()
@@ -123,13 +126,14 @@ class ServiceHour implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'serviceHourType' => 'getServiceHourType',
-        'validFrom' => 'getValidFrom',
-        'validTo' => 'getValidTo',
-        'isClosed' => 'getIsClosed',
-        'validForNow' => 'getValidForNow',
         'additionalInformation' => 'getAdditionalInformation',
-        'openingHour' => 'getOpeningHour'
+        'serviceChargeType' => 'getServiceChargeType',
+        'chargeDescription' => 'getChargeDescription',
+        'prefixNumber' => 'getPrefixNumber',
+        'isFinnishServiceNumber' => 'getIsFinnishServiceNumber',
+        'number' => 'getNumber',
+        'language' => 'getLanguage',
+        'type' => 'getType'
     );
 
     public static function getters()
@@ -153,13 +157,14 @@ class ServiceHour implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['serviceHourType'] = isset($data['serviceHourType']) ? $data['serviceHourType'] : null;
-        $this->container['validFrom'] = isset($data['validFrom']) ? $data['validFrom'] : null;
-        $this->container['validTo'] = isset($data['validTo']) ? $data['validTo'] : null;
-        $this->container['isClosed'] = isset($data['isClosed']) ? $data['isClosed'] : null;
-        $this->container['validForNow'] = isset($data['validForNow']) ? $data['validForNow'] : null;
         $this->container['additionalInformation'] = isset($data['additionalInformation']) ? $data['additionalInformation'] : null;
-        $this->container['openingHour'] = isset($data['openingHour']) ? $data['openingHour'] : null;
+        $this->container['serviceChargeType'] = isset($data['serviceChargeType']) ? $data['serviceChargeType'] : null;
+        $this->container['chargeDescription'] = isset($data['chargeDescription']) ? $data['chargeDescription'] : null;
+        $this->container['prefixNumber'] = isset($data['prefixNumber']) ? $data['prefixNumber'] : null;
+        $this->container['isFinnishServiceNumber'] = isset($data['isFinnishServiceNumber']) ? $data['isFinnishServiceNumber'] : null;
+        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -186,113 +191,8 @@ class ServiceHour implements ArrayAccess
 
 
     /**
-     * Gets serviceHourType
-     * @return string
-     */
-    public function getServiceHourType()
-    {
-        return $this->container['serviceHourType'];
-    }
-
-    /**
-     * Sets serviceHourType
-     * @param string $serviceHourType
-     * @return $this
-     */
-    public function setServiceHourType($serviceHourType)
-    {
-        $this->container['serviceHourType'] = $serviceHourType;
-
-        return $this;
-    }
-
-    /**
-     * Gets validFrom
-     * @return \DateTime
-     */
-    public function getValidFrom()
-    {
-        return $this->container['validFrom'];
-    }
-
-    /**
-     * Sets validFrom
-     * @param \DateTime $validFrom Date time where from this entry is valid.
-     * @return $this
-     */
-    public function setValidFrom($validFrom)
-    {
-        $this->container['validFrom'] = $validFrom;
-
-        return $this;
-    }
-
-    /**
-     * Gets validTo
-     * @return \DateTime
-     */
-    public function getValidTo()
-    {
-        return $this->container['validTo'];
-    }
-
-    /**
-     * Sets validTo
-     * @param \DateTime $validTo Date time to this entry is valid.
-     * @return $this
-     */
-    public function setValidTo($validTo)
-    {
-        $this->container['validTo'] = $validTo;
-
-        return $this;
-    }
-
-    /**
-     * Gets isClosed
-     * @return bool
-     */
-    public function getIsClosed()
-    {
-        return $this->container['isClosed'];
-    }
-
-    /**
-     * Sets isClosed
-     * @param bool $isClosed Set to true to present a time between the valid from and to times as closed.
-     * @return $this
-     */
-    public function setIsClosed($isClosed)
-    {
-        $this->container['isClosed'] = $isClosed;
-
-        return $this;
-    }
-
-    /**
-     * Gets validForNow
-     * @return bool
-     */
-    public function getValidForNow()
-    {
-        return $this->container['validForNow'];
-    }
-
-    /**
-     * Sets validForNow
-     * @param bool $validForNow Set to true to present that this entry is valid for now.
-     * @return $this
-     */
-    public function setValidForNow($validForNow)
-    {
-        $this->container['validForNow'] = $validForNow;
-
-        return $this;
-    }
-
-    /**
      * Gets additionalInformation
-     * @return \KuntaAPI\Model\LocalizedValue[]
+     * @return string
      */
     public function getAdditionalInformation()
     {
@@ -301,7 +201,7 @@ class ServiceHour implements ArrayAccess
 
     /**
      * Sets additionalInformation
-     * @param \KuntaAPI\Model\LocalizedValue[] $additionalInformation Localized list of additional information.
+     * @param string $additionalInformation
      * @return $this
      */
     public function setAdditionalInformation($additionalInformation)
@@ -312,22 +212,148 @@ class ServiceHour implements ArrayAccess
     }
 
     /**
-     * Gets openingHour
-     * @return \KuntaAPI\Model\DailyOpeningTime[]
+     * Gets serviceChargeType
+     * @return string
      */
-    public function getOpeningHour()
+    public function getServiceChargeType()
     {
-        return $this->container['openingHour'];
+        return $this->container['serviceChargeType'];
     }
 
     /**
-     * Sets openingHour
-     * @param \KuntaAPI\Model\DailyOpeningTime[] $openingHour List of servicing hours (open and closes times).
+     * Sets serviceChargeType
+     * @param string $serviceChargeType
      * @return $this
      */
-    public function setOpeningHour($openingHour)
+    public function setServiceChargeType($serviceChargeType)
     {
-        $this->container['openingHour'] = $openingHour;
+        $this->container['serviceChargeType'] = $serviceChargeType;
+
+        return $this;
+    }
+
+    /**
+     * Gets chargeDescription
+     * @return string
+     */
+    public function getChargeDescription()
+    {
+        return $this->container['chargeDescription'];
+    }
+
+    /**
+     * Sets chargeDescription
+     * @param string $chargeDescription
+     * @return $this
+     */
+    public function setChargeDescription($chargeDescription)
+    {
+        $this->container['chargeDescription'] = $chargeDescription;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefixNumber
+     * @return string
+     */
+    public function getPrefixNumber()
+    {
+        return $this->container['prefixNumber'];
+    }
+
+    /**
+     * Sets prefixNumber
+     * @param string $prefixNumber
+     * @return $this
+     */
+    public function setPrefixNumber($prefixNumber)
+    {
+        $this->container['prefixNumber'] = $prefixNumber;
+
+        return $this;
+    }
+
+    /**
+     * Gets isFinnishServiceNumber
+     * @return bool
+     */
+    public function getIsFinnishServiceNumber()
+    {
+        return $this->container['isFinnishServiceNumber'];
+    }
+
+    /**
+     * Sets isFinnishServiceNumber
+     * @param bool $isFinnishServiceNumber
+     * @return $this
+     */
+    public function setIsFinnishServiceNumber($isFinnishServiceNumber)
+    {
+        $this->container['isFinnishServiceNumber'] = $isFinnishServiceNumber;
+
+        return $this;
+    }
+
+    /**
+     * Gets number
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->container['number'];
+    }
+
+    /**
+     * Sets number
+     * @param string $number
+     * @return $this
+     */
+    public function setNumber($number)
+    {
+        $this->container['number'] = $number;
+
+        return $this;
+    }
+
+    /**
+     * Gets language
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     * @param string $language
+     * @return $this
+     */
+    public function setLanguage($language)
+    {
+        $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     * @param string $type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

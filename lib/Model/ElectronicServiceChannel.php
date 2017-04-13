@@ -73,7 +73,8 @@ class ElectronicServiceChannel implements ArrayAccess
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'signatureQuantity' => 'int',
         'requiresSignature' => 'bool',
-        'supportContacts' => '\KuntaAPI\Model\SupportContact[]',
+        'supportPhones' => '\KuntaAPI\Model\Phone[]',
+        'supportEmails' => '\KuntaAPI\Model\Email[]',
         'requiresAuthentication' => 'bool',
         'urls' => '\KuntaAPI\Model\LocalizedValue[]',
         'languages' => 'string[]',
@@ -100,7 +101,8 @@ class ElectronicServiceChannel implements ArrayAccess
         'descriptions' => 'descriptions',
         'signatureQuantity' => 'signatureQuantity',
         'requiresSignature' => 'requiresSignature',
-        'supportContacts' => 'supportContacts',
+        'supportPhones' => 'supportPhones',
+        'supportEmails' => 'supportEmails',
         'requiresAuthentication' => 'requiresAuthentication',
         'urls' => 'urls',
         'languages' => 'languages',
@@ -127,7 +129,8 @@ class ElectronicServiceChannel implements ArrayAccess
         'descriptions' => 'setDescriptions',
         'signatureQuantity' => 'setSignatureQuantity',
         'requiresSignature' => 'setRequiresSignature',
-        'supportContacts' => 'setSupportContacts',
+        'supportPhones' => 'setSupportPhones',
+        'supportEmails' => 'setSupportEmails',
         'requiresAuthentication' => 'setRequiresAuthentication',
         'urls' => 'setUrls',
         'languages' => 'setLanguages',
@@ -154,7 +157,8 @@ class ElectronicServiceChannel implements ArrayAccess
         'descriptions' => 'getDescriptions',
         'signatureQuantity' => 'getSignatureQuantity',
         'requiresSignature' => 'getRequiresSignature',
-        'supportContacts' => 'getSupportContacts',
+        'supportPhones' => 'getSupportPhones',
+        'supportEmails' => 'getSupportEmails',
         'requiresAuthentication' => 'getRequiresAuthentication',
         'urls' => 'getUrls',
         'languages' => 'getLanguages',
@@ -192,7 +196,8 @@ class ElectronicServiceChannel implements ArrayAccess
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
         $this->container['signatureQuantity'] = isset($data['signatureQuantity']) ? $data['signatureQuantity'] : null;
         $this->container['requiresSignature'] = isset($data['requiresSignature']) ? $data['requiresSignature'] : null;
-        $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
+        $this->container['supportPhones'] = isset($data['supportPhones']) ? $data['supportPhones'] : null;
+        $this->container['supportEmails'] = isset($data['supportEmails']) ? $data['supportEmails'] : null;
         $this->container['requiresAuthentication'] = isset($data['requiresAuthentication']) ? $data['requiresAuthentication'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
@@ -373,22 +378,43 @@ class ElectronicServiceChannel implements ArrayAccess
     }
 
     /**
-     * Gets supportContacts
-     * @return \KuntaAPI\Model\SupportContact[]
+     * Gets supportPhones
+     * @return \KuntaAPI\Model\Phone[]
      */
-    public function getSupportContacts()
+    public function getSupportPhones()
     {
-        return $this->container['supportContacts'];
+        return $this->container['supportPhones'];
     }
 
     /**
-     * Sets supportContacts
-     * @param \KuntaAPI\Model\SupportContact[] $supportContacts
+     * Sets supportPhones
+     * @param \KuntaAPI\Model\Phone[] $supportPhones List of support phone numbers for the service channel.
      * @return $this
      */
-    public function setSupportContacts($supportContacts)
+    public function setSupportPhones($supportPhones)
     {
-        $this->container['supportContacts'] = $supportContacts;
+        $this->container['supportPhones'] = $supportPhones;
+
+        return $this;
+    }
+
+    /**
+     * Gets supportEmails
+     * @return \KuntaAPI\Model\Email[]
+     */
+    public function getSupportEmails()
+    {
+        return $this->container['supportEmails'];
+    }
+
+    /**
+     * Sets supportEmails
+     * @param \KuntaAPI\Model\Email[] $supportEmails List of support email addresses for the service channel.
+     * @return $this
+     */
+    public function setSupportEmails($supportEmails)
+    {
+        $this->container['supportEmails'] = $supportEmails;
 
         return $this;
     }

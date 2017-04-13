@@ -73,7 +73,7 @@ class PhoneServiceChannel implements ArrayAccess
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'phoneType' => 'string',
         'chargeTypes' => 'string[]',
-        'supportContacts' => '\KuntaAPI\Model\SupportContact[]',
+        'supportEmails' => '\KuntaAPI\Model\Email[]',
         'phoneNumbers' => '\KuntaAPI\Model\LocalizedValue[]',
         'languages' => 'string[]',
         'phoneChargeDescriptions' => '\KuntaAPI\Model\LocalizedValue[]',
@@ -99,7 +99,7 @@ class PhoneServiceChannel implements ArrayAccess
         'descriptions' => 'descriptions',
         'phoneType' => 'phoneType',
         'chargeTypes' => 'chargeTypes',
-        'supportContacts' => 'supportContacts',
+        'supportEmails' => 'supportEmails',
         'phoneNumbers' => 'phoneNumbers',
         'languages' => 'languages',
         'phoneChargeDescriptions' => 'phoneChargeDescriptions',
@@ -125,7 +125,7 @@ class PhoneServiceChannel implements ArrayAccess
         'descriptions' => 'setDescriptions',
         'phoneType' => 'setPhoneType',
         'chargeTypes' => 'setChargeTypes',
-        'supportContacts' => 'setSupportContacts',
+        'supportEmails' => 'setSupportEmails',
         'phoneNumbers' => 'setPhoneNumbers',
         'languages' => 'setLanguages',
         'phoneChargeDescriptions' => 'setPhoneChargeDescriptions',
@@ -151,7 +151,7 @@ class PhoneServiceChannel implements ArrayAccess
         'descriptions' => 'getDescriptions',
         'phoneType' => 'getPhoneType',
         'chargeTypes' => 'getChargeTypes',
-        'supportContacts' => 'getSupportContacts',
+        'supportEmails' => 'getSupportEmails',
         'phoneNumbers' => 'getPhoneNumbers',
         'languages' => 'getLanguages',
         'phoneChargeDescriptions' => 'getPhoneChargeDescriptions',
@@ -188,7 +188,7 @@ class PhoneServiceChannel implements ArrayAccess
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
         $this->container['phoneType'] = isset($data['phoneType']) ? $data['phoneType'] : null;
         $this->container['chargeTypes'] = isset($data['chargeTypes']) ? $data['chargeTypes'] : null;
-        $this->container['supportContacts'] = isset($data['supportContacts']) ? $data['supportContacts'] : null;
+        $this->container['supportEmails'] = isset($data['supportEmails']) ? $data['supportEmails'] : null;
         $this->container['phoneNumbers'] = isset($data['phoneNumbers']) ? $data['phoneNumbers'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
         $this->container['phoneChargeDescriptions'] = isset($data['phoneChargeDescriptions']) ? $data['phoneChargeDescriptions'] : null;
@@ -368,22 +368,22 @@ class PhoneServiceChannel implements ArrayAccess
     }
 
     /**
-     * Gets supportContacts
-     * @return \KuntaAPI\Model\SupportContact[]
+     * Gets supportEmails
+     * @return \KuntaAPI\Model\Email[]
      */
-    public function getSupportContacts()
+    public function getSupportEmails()
     {
-        return $this->container['supportContacts'];
+        return $this->container['supportEmails'];
     }
 
     /**
-     * Sets supportContacts
-     * @param \KuntaAPI\Model\SupportContact[] $supportContacts
+     * Sets supportEmails
+     * @param \KuntaAPI\Model\Email[] $supportEmails List of support email addresses for the service channel.
      * @return $this
      */
-    public function setSupportContacts($supportContacts)
+    public function setSupportEmails($supportEmails)
     {
-        $this->container['supportContacts'] = $supportContacts;
+        $this->container['supportEmails'] = $supportEmails;
 
         return $this;
     }
