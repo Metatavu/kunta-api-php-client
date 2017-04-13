@@ -67,27 +67,17 @@ class ServiceLocationServiceChannel implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'type' => 'string',
         'organizationId' => 'string',
         'names' => '\KuntaAPI\Model\LocalizedValue[]',
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'serviceAreaRestricted' => 'bool',
-        'supportPhones' => '\KuntaAPI\Model\Phone[]',
-        'supportEmails' => '\KuntaAPI\Model\Email[]',
-        'email' => 'string',
-        'phone' => 'string',
+        'phoneNumbers' => '\KuntaAPI\Model\Phone[]',
+        'emails' => '\KuntaAPI\Model\Email[]',
         'languages' => 'string[]',
-        'fax' => 'string',
-        'latitude' => 'string',
-        'longitude' => 'string',
-        'coordinateSystem' => 'string',
-        'coordinatesSetManually' => 'bool',
         'phoneServiceCharge' => 'bool',
         'webPages' => '\KuntaAPI\Model\WebPage[]',
-        'serviceAreas' => 'string[]',
-        'phoneChargeDescriptions' => '\KuntaAPI\Model\LocalizedValue[]',
+        'serviceAreas' => '\KuntaAPI\Model\Municipality[]',
         'addresses' => '\KuntaAPI\Model\Address[]',
-        'chargeTypes' => 'string[]',
         'serviceHours' => '\KuntaAPI\Model\ServiceHour[]',
         'publishingStatus' => 'string'
     );
@@ -103,27 +93,17 @@ class ServiceLocationServiceChannel implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'type' => 'type',
         'organizationId' => 'organizationId',
         'names' => 'names',
         'descriptions' => 'descriptions',
         'serviceAreaRestricted' => 'serviceAreaRestricted',
-        'supportPhones' => 'supportPhones',
-        'supportEmails' => 'supportEmails',
-        'email' => 'email',
-        'phone' => 'phone',
+        'phoneNumbers' => 'phoneNumbers',
+        'emails' => 'emails',
         'languages' => 'languages',
-        'fax' => 'fax',
-        'latitude' => 'latitude',
-        'longitude' => 'longitude',
-        'coordinateSystem' => 'coordinateSystem',
-        'coordinatesSetManually' => 'coordinatesSetManually',
         'phoneServiceCharge' => 'phoneServiceCharge',
         'webPages' => 'webPages',
         'serviceAreas' => 'serviceAreas',
-        'phoneChargeDescriptions' => 'phoneChargeDescriptions',
         'addresses' => 'addresses',
-        'chargeTypes' => 'chargeTypes',
         'serviceHours' => 'serviceHours',
         'publishingStatus' => 'publishingStatus'
     );
@@ -139,27 +119,17 @@ class ServiceLocationServiceChannel implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'type' => 'setType',
         'organizationId' => 'setOrganizationId',
         'names' => 'setNames',
         'descriptions' => 'setDescriptions',
         'serviceAreaRestricted' => 'setServiceAreaRestricted',
-        'supportPhones' => 'setSupportPhones',
-        'supportEmails' => 'setSupportEmails',
-        'email' => 'setEmail',
-        'phone' => 'setPhone',
+        'phoneNumbers' => 'setPhoneNumbers',
+        'emails' => 'setEmails',
         'languages' => 'setLanguages',
-        'fax' => 'setFax',
-        'latitude' => 'setLatitude',
-        'longitude' => 'setLongitude',
-        'coordinateSystem' => 'setCoordinateSystem',
-        'coordinatesSetManually' => 'setCoordinatesSetManually',
         'phoneServiceCharge' => 'setPhoneServiceCharge',
         'webPages' => 'setWebPages',
         'serviceAreas' => 'setServiceAreas',
-        'phoneChargeDescriptions' => 'setPhoneChargeDescriptions',
         'addresses' => 'setAddresses',
-        'chargeTypes' => 'setChargeTypes',
         'serviceHours' => 'setServiceHours',
         'publishingStatus' => 'setPublishingStatus'
     );
@@ -175,27 +145,17 @@ class ServiceLocationServiceChannel implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'type' => 'getType',
         'organizationId' => 'getOrganizationId',
         'names' => 'getNames',
         'descriptions' => 'getDescriptions',
         'serviceAreaRestricted' => 'getServiceAreaRestricted',
-        'supportPhones' => 'getSupportPhones',
-        'supportEmails' => 'getSupportEmails',
-        'email' => 'getEmail',
-        'phone' => 'getPhone',
+        'phoneNumbers' => 'getPhoneNumbers',
+        'emails' => 'getEmails',
         'languages' => 'getLanguages',
-        'fax' => 'getFax',
-        'latitude' => 'getLatitude',
-        'longitude' => 'getLongitude',
-        'coordinateSystem' => 'getCoordinateSystem',
-        'coordinatesSetManually' => 'getCoordinatesSetManually',
         'phoneServiceCharge' => 'getPhoneServiceCharge',
         'webPages' => 'getWebPages',
         'serviceAreas' => 'getServiceAreas',
-        'phoneChargeDescriptions' => 'getPhoneChargeDescriptions',
         'addresses' => 'getAddresses',
-        'chargeTypes' => 'getChargeTypes',
         'serviceHours' => 'getServiceHours',
         'publishingStatus' => 'getPublishingStatus'
     );
@@ -222,27 +182,17 @@ class ServiceLocationServiceChannel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['names'] = isset($data['names']) ? $data['names'] : null;
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
         $this->container['serviceAreaRestricted'] = isset($data['serviceAreaRestricted']) ? $data['serviceAreaRestricted'] : null;
-        $this->container['supportPhones'] = isset($data['supportPhones']) ? $data['supportPhones'] : null;
-        $this->container['supportEmails'] = isset($data['supportEmails']) ? $data['supportEmails'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['phoneNumbers'] = isset($data['phoneNumbers']) ? $data['phoneNumbers'] : null;
+        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
-        $this->container['fax'] = isset($data['fax']) ? $data['fax'] : null;
-        $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
-        $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
-        $this->container['coordinateSystem'] = isset($data['coordinateSystem']) ? $data['coordinateSystem'] : null;
-        $this->container['coordinatesSetManually'] = isset($data['coordinatesSetManually']) ? $data['coordinatesSetManually'] : null;
         $this->container['phoneServiceCharge'] = isset($data['phoneServiceCharge']) ? $data['phoneServiceCharge'] : null;
         $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
         $this->container['serviceAreas'] = isset($data['serviceAreas']) ? $data['serviceAreas'] : null;
-        $this->container['phoneChargeDescriptions'] = isset($data['phoneChargeDescriptions']) ? $data['phoneChargeDescriptions'] : null;
         $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
-        $this->container['chargeTypes'] = isset($data['chargeTypes']) ? $data['chargeTypes'] : null;
         $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
         $this->container['publishingStatus'] = isset($data['publishingStatus']) ? $data['publishingStatus'] : null;
     }
@@ -281,33 +231,12 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id
+     * @param string $id Identifier for the service channel.
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     * @param string $type
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }
@@ -323,7 +252,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets organizationId
-     * @param string $organizationId
+     * @param string $organizationId Organization identifier responsible for the channel.
      * @return $this
      */
     public function setOrganizationId($organizationId)
@@ -344,7 +273,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets names
-     * @param \KuntaAPI\Model\LocalizedValue[] $names
+     * @param \KuntaAPI\Model\LocalizedValue[] $names Localized list of service channel names.
      * @return $this
      */
     public function setNames($names)
@@ -365,7 +294,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets descriptions
-     * @param \KuntaAPI\Model\LocalizedValue[] $descriptions
+     * @param \KuntaAPI\Model\LocalizedValue[] $descriptions List of localized service channel descriptions.
      * @return $this
      */
     public function setDescriptions($descriptions)
@@ -386,7 +315,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets serviceAreaRestricted
-     * @param bool $serviceAreaRestricted
+     * @param bool $serviceAreaRestricted Is the service location channel restricted by service area.
      * @return $this
      */
     public function setServiceAreaRestricted($serviceAreaRestricted)
@@ -397,85 +326,43 @@ class ServiceLocationServiceChannel implements ArrayAccess
     }
 
     /**
-     * Gets supportPhones
+     * Gets phoneNumbers
      * @return \KuntaAPI\Model\Phone[]
      */
-    public function getSupportPhones()
+    public function getPhoneNumbers()
     {
-        return $this->container['supportPhones'];
+        return $this->container['phoneNumbers'];
     }
 
     /**
-     * Sets supportPhones
-     * @param \KuntaAPI\Model\Phone[] $supportPhones List of support phone numbers for the service channel.
+     * Sets phoneNumbers
+     * @param \KuntaAPI\Model\Phone[] $phoneNumbers List of phone numbers for the service channel. Includes also fax numbers.
      * @return $this
      */
-    public function setSupportPhones($supportPhones)
+    public function setPhoneNumbers($phoneNumbers)
     {
-        $this->container['supportPhones'] = $supportPhones;
+        $this->container['phoneNumbers'] = $phoneNumbers;
 
         return $this;
     }
 
     /**
-     * Gets supportEmails
+     * Gets emails
      * @return \KuntaAPI\Model\Email[]
      */
-    public function getSupportEmails()
+    public function getEmails()
     {
-        return $this->container['supportEmails'];
+        return $this->container['emails'];
     }
 
     /**
-     * Sets supportEmails
-     * @param \KuntaAPI\Model\Email[] $supportEmails List of support email addresses for the service channel.
+     * Sets emails
+     * @param \KuntaAPI\Model\Email[] $emails List email addresses for the service channel.
      * @return $this
      */
-    public function setSupportEmails($supportEmails)
+    public function setEmails($emails)
     {
-        $this->container['supportEmails'] = $supportEmails;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     * @param string $email
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->container['phone'];
-    }
-
-    /**
-     * Sets phone
-     * @param string $phone
-     * @return $this
-     */
-    public function setPhone($phone)
-    {
-        $this->container['phone'] = $phone;
+        $this->container['emails'] = $emails;
 
         return $this;
     }
@@ -491,117 +378,12 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets languages
-     * @param string[] $languages
+     * @param string[] $languages List of languages the service channel is available in (two letter language code).
      * @return $this
      */
     public function setLanguages($languages)
     {
         $this->container['languages'] = $languages;
-
-        return $this;
-    }
-
-    /**
-     * Gets fax
-     * @return string
-     */
-    public function getFax()
-    {
-        return $this->container['fax'];
-    }
-
-    /**
-     * Sets fax
-     * @param string $fax
-     * @return $this
-     */
-    public function setFax($fax)
-    {
-        $this->container['fax'] = $fax;
-
-        return $this;
-    }
-
-    /**
-     * Gets latitude
-     * @return string
-     */
-    public function getLatitude()
-    {
-        return $this->container['latitude'];
-    }
-
-    /**
-     * Sets latitude
-     * @param string $latitude
-     * @return $this
-     */
-    public function setLatitude($latitude)
-    {
-        $this->container['latitude'] = $latitude;
-
-        return $this;
-    }
-
-    /**
-     * Gets longitude
-     * @return string
-     */
-    public function getLongitude()
-    {
-        return $this->container['longitude'];
-    }
-
-    /**
-     * Sets longitude
-     * @param string $longitude
-     * @return $this
-     */
-    public function setLongitude($longitude)
-    {
-        $this->container['longitude'] = $longitude;
-
-        return $this;
-    }
-
-    /**
-     * Gets coordinateSystem
-     * @return string
-     */
-    public function getCoordinateSystem()
-    {
-        return $this->container['coordinateSystem'];
-    }
-
-    /**
-     * Sets coordinateSystem
-     * @param string $coordinateSystem
-     * @return $this
-     */
-    public function setCoordinateSystem($coordinateSystem)
-    {
-        $this->container['coordinateSystem'] = $coordinateSystem;
-
-        return $this;
-    }
-
-    /**
-     * Gets coordinatesSetManually
-     * @return bool
-     */
-    public function getCoordinatesSetManually()
-    {
-        return $this->container['coordinatesSetManually'];
-    }
-
-    /**
-     * Sets coordinatesSetManually
-     * @param bool $coordinatesSetManually
-     * @return $this
-     */
-    public function setCoordinatesSetManually($coordinatesSetManually)
-    {
-        $this->container['coordinatesSetManually'] = $coordinatesSetManually;
 
         return $this;
     }
@@ -617,7 +399,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets phoneServiceCharge
-     * @param bool $phoneServiceCharge
+     * @param bool $phoneServiceCharge Is the phone service charged for.
      * @return $this
      */
     public function setPhoneServiceCharge($phoneServiceCharge)
@@ -638,7 +420,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets webPages
-     * @param \KuntaAPI\Model\WebPage[] $webPages
+     * @param \KuntaAPI\Model\WebPage[] $webPages List of service channel web pages.
      * @return $this
      */
     public function setWebPages($webPages)
@@ -650,7 +432,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Gets serviceAreas
-     * @return string[]
+     * @return \KuntaAPI\Model\Municipality[]
      */
     public function getServiceAreas()
     {
@@ -659,33 +441,12 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets serviceAreas
-     * @param string[] $serviceAreas
+     * @param \KuntaAPI\Model\Municipality[] $serviceAreas List of serviceareas. Used when location service channel is restricted by service area (ServiceAreaRestricted=true).
      * @return $this
      */
     public function setServiceAreas($serviceAreas)
     {
         $this->container['serviceAreas'] = $serviceAreas;
-
-        return $this;
-    }
-
-    /**
-     * Gets phoneChargeDescriptions
-     * @return \KuntaAPI\Model\LocalizedValue[]
-     */
-    public function getPhoneChargeDescriptions()
-    {
-        return $this->container['phoneChargeDescriptions'];
-    }
-
-    /**
-     * Sets phoneChargeDescriptions
-     * @param \KuntaAPI\Model\LocalizedValue[] $phoneChargeDescriptions
-     * @return $this
-     */
-    public function setPhoneChargeDescriptions($phoneChargeDescriptions)
-    {
-        $this->container['phoneChargeDescriptions'] = $phoneChargeDescriptions;
 
         return $this;
     }
@@ -701,33 +462,12 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets addresses
-     * @param \KuntaAPI\Model\Address[] $addresses
+     * @param \KuntaAPI\Model\Address[] $addresses List of service location addresses.
      * @return $this
      */
     public function setAddresses($addresses)
     {
         $this->container['addresses'] = $addresses;
-
-        return $this;
-    }
-
-    /**
-     * Gets chargeTypes
-     * @return string[]
-     */
-    public function getChargeTypes()
-    {
-        return $this->container['chargeTypes'];
-    }
-
-    /**
-     * Sets chargeTypes
-     * @param string[] $chargeTypes
-     * @return $this
-     */
-    public function setChargeTypes($chargeTypes)
-    {
-        $this->container['chargeTypes'] = $chargeTypes;
 
         return $this;
     }
@@ -743,7 +483,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets serviceHours
-     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours
+     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours List of service channel service hours.
      * @return $this
      */
     public function setServiceHours($serviceHours)
@@ -764,7 +504,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets publishingStatus
-     * @param string $publishingStatus
+     * @param string $publishingStatus Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished.
      * @return $this
      */
     public function setPublishingStatus($publishingStatus)
