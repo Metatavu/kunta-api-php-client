@@ -67,12 +67,10 @@ class WebPageServiceChannel implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'type' => 'string',
         'organizationId' => 'string',
         'names' => '\KuntaAPI\Model\LocalizedValue[]',
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'urls' => '\KuntaAPI\Model\LocalizedValue[]',
-        'attachments' => '\KuntaAPI\Model\ServiceChannelAttachment[]',
         'supportPhones' => '\KuntaAPI\Model\Phone[]',
         'supportEmails' => '\KuntaAPI\Model\Email[]',
         'languages' => 'string[]',
@@ -92,12 +90,10 @@ class WebPageServiceChannel implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'type' => 'type',
         'organizationId' => 'organizationId',
         'names' => 'names',
         'descriptions' => 'descriptions',
         'urls' => 'urls',
-        'attachments' => 'attachments',
         'supportPhones' => 'supportPhones',
         'supportEmails' => 'supportEmails',
         'languages' => 'languages',
@@ -117,12 +113,10 @@ class WebPageServiceChannel implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'type' => 'setType',
         'organizationId' => 'setOrganizationId',
         'names' => 'setNames',
         'descriptions' => 'setDescriptions',
         'urls' => 'setUrls',
-        'attachments' => 'setAttachments',
         'supportPhones' => 'setSupportPhones',
         'supportEmails' => 'setSupportEmails',
         'languages' => 'setLanguages',
@@ -142,12 +136,10 @@ class WebPageServiceChannel implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'type' => 'getType',
         'organizationId' => 'getOrganizationId',
         'names' => 'getNames',
         'descriptions' => 'getDescriptions',
         'urls' => 'getUrls',
-        'attachments' => 'getAttachments',
         'supportPhones' => 'getSupportPhones',
         'supportEmails' => 'getSupportEmails',
         'languages' => 'getLanguages',
@@ -178,12 +170,10 @@ class WebPageServiceChannel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['names'] = isset($data['names']) ? $data['names'] : null;
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
-        $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
         $this->container['supportPhones'] = isset($data['supportPhones']) ? $data['supportPhones'] : null;
         $this->container['supportEmails'] = isset($data['supportEmails']) ? $data['supportEmails'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
@@ -226,33 +216,12 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id
+     * @param string $id Identifier for the service channel.
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     * @param string $type
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }
@@ -268,7 +237,7 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets organizationId
-     * @param string $organizationId
+     * @param string $organizationId Organization identifier responsible for the channel.
      * @return $this
      */
     public function setOrganizationId($organizationId)
@@ -289,7 +258,7 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets names
-     * @param \KuntaAPI\Model\LocalizedValue[] $names
+     * @param \KuntaAPI\Model\LocalizedValue[] $names Localized list of service channel names.
      * @return $this
      */
     public function setNames($names)
@@ -310,7 +279,7 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets descriptions
-     * @param \KuntaAPI\Model\LocalizedValue[] $descriptions
+     * @param \KuntaAPI\Model\LocalizedValue[] $descriptions List of localized service channel descriptions.
      * @return $this
      */
     public function setDescriptions($descriptions)
@@ -331,33 +300,12 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets urls
-     * @param \KuntaAPI\Model\LocalizedValue[] $urls
+     * @param \KuntaAPI\Model\LocalizedValue[] $urls List of localized urls.
      * @return $this
      */
     public function setUrls($urls)
     {
         $this->container['urls'] = $urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets attachments
-     * @return \KuntaAPI\Model\ServiceChannelAttachment[]
-     */
-    public function getAttachments()
-    {
-        return $this->container['attachments'];
-    }
-
-    /**
-     * Sets attachments
-     * @param \KuntaAPI\Model\ServiceChannelAttachment[] $attachments
-     * @return $this
-     */
-    public function setAttachments($attachments)
-    {
-        $this->container['attachments'] = $attachments;
 
         return $this;
     }
@@ -415,7 +363,7 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets languages
-     * @param string[] $languages
+     * @param string[] $languages List of languages the service channel is available in (two letter language code).
      * @return $this
      */
     public function setLanguages($languages)
@@ -436,7 +384,7 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets webPages
-     * @param \KuntaAPI\Model\WebPage[] $webPages
+     * @param \KuntaAPI\Model\WebPage[] $webPages List of service channel web pages.
      * @return $this
      */
     public function setWebPages($webPages)
@@ -457,7 +405,7 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets serviceHours
-     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours
+     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours List of service channel service hours.
      * @return $this
      */
     public function setServiceHours($serviceHours)
@@ -478,7 +426,7 @@ class WebPageServiceChannel implements ArrayAccess
 
     /**
      * Sets publishingStatus
-     * @param string $publishingStatus
+     * @param string $publishingStatus Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished.
      * @return $this
      */
     public function setPublishingStatus($publishingStatus)

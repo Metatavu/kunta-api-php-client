@@ -67,16 +67,12 @@ class PhoneServiceChannel implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'type' => 'string',
         'organizationId' => 'string',
         'names' => '\KuntaAPI\Model\LocalizedValue[]',
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
-        'phoneType' => 'string',
-        'chargeTypes' => 'string[]',
+        'phoneNumbers' => '\KuntaAPI\Model\Phone[]',
         'supportEmails' => '\KuntaAPI\Model\Email[]',
-        'phoneNumbers' => '\KuntaAPI\Model\LocalizedValue[]',
         'languages' => 'string[]',
-        'phoneChargeDescriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'webPages' => '\KuntaAPI\Model\WebPage[]',
         'serviceHours' => '\KuntaAPI\Model\ServiceHour[]',
         'publishingStatus' => 'string'
@@ -93,16 +89,12 @@ class PhoneServiceChannel implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'type' => 'type',
         'organizationId' => 'organizationId',
         'names' => 'names',
         'descriptions' => 'descriptions',
-        'phoneType' => 'phoneType',
-        'chargeTypes' => 'chargeTypes',
-        'supportEmails' => 'supportEmails',
         'phoneNumbers' => 'phoneNumbers',
+        'supportEmails' => 'supportEmails',
         'languages' => 'languages',
-        'phoneChargeDescriptions' => 'phoneChargeDescriptions',
         'webPages' => 'webPages',
         'serviceHours' => 'serviceHours',
         'publishingStatus' => 'publishingStatus'
@@ -119,16 +111,12 @@ class PhoneServiceChannel implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'type' => 'setType',
         'organizationId' => 'setOrganizationId',
         'names' => 'setNames',
         'descriptions' => 'setDescriptions',
-        'phoneType' => 'setPhoneType',
-        'chargeTypes' => 'setChargeTypes',
-        'supportEmails' => 'setSupportEmails',
         'phoneNumbers' => 'setPhoneNumbers',
+        'supportEmails' => 'setSupportEmails',
         'languages' => 'setLanguages',
-        'phoneChargeDescriptions' => 'setPhoneChargeDescriptions',
         'webPages' => 'setWebPages',
         'serviceHours' => 'setServiceHours',
         'publishingStatus' => 'setPublishingStatus'
@@ -145,16 +133,12 @@ class PhoneServiceChannel implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'type' => 'getType',
         'organizationId' => 'getOrganizationId',
         'names' => 'getNames',
         'descriptions' => 'getDescriptions',
-        'phoneType' => 'getPhoneType',
-        'chargeTypes' => 'getChargeTypes',
-        'supportEmails' => 'getSupportEmails',
         'phoneNumbers' => 'getPhoneNumbers',
+        'supportEmails' => 'getSupportEmails',
         'languages' => 'getLanguages',
-        'phoneChargeDescriptions' => 'getPhoneChargeDescriptions',
         'webPages' => 'getWebPages',
         'serviceHours' => 'getServiceHours',
         'publishingStatus' => 'getPublishingStatus'
@@ -182,16 +166,12 @@ class PhoneServiceChannel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['names'] = isset($data['names']) ? $data['names'] : null;
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
-        $this->container['phoneType'] = isset($data['phoneType']) ? $data['phoneType'] : null;
-        $this->container['chargeTypes'] = isset($data['chargeTypes']) ? $data['chargeTypes'] : null;
-        $this->container['supportEmails'] = isset($data['supportEmails']) ? $data['supportEmails'] : null;
         $this->container['phoneNumbers'] = isset($data['phoneNumbers']) ? $data['phoneNumbers'] : null;
+        $this->container['supportEmails'] = isset($data['supportEmails']) ? $data['supportEmails'] : null;
         $this->container['languages'] = isset($data['languages']) ? $data['languages'] : null;
-        $this->container['phoneChargeDescriptions'] = isset($data['phoneChargeDescriptions']) ? $data['phoneChargeDescriptions'] : null;
         $this->container['webPages'] = isset($data['webPages']) ? $data['webPages'] : null;
         $this->container['serviceHours'] = isset($data['serviceHours']) ? $data['serviceHours'] : null;
         $this->container['publishingStatus'] = isset($data['publishingStatus']) ? $data['publishingStatus'] : null;
@@ -231,33 +211,12 @@ class PhoneServiceChannel implements ArrayAccess
 
     /**
      * Sets id
-     * @param string $id
+     * @param string $id Identifier for the service channel.
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     * @param string $type
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }
@@ -273,7 +232,7 @@ class PhoneServiceChannel implements ArrayAccess
 
     /**
      * Sets organizationId
-     * @param string $organizationId
+     * @param string $organizationId Organization identifier responsible for the channel.
      * @return $this
      */
     public function setOrganizationId($organizationId)
@@ -294,7 +253,7 @@ class PhoneServiceChannel implements ArrayAccess
 
     /**
      * Sets names
-     * @param \KuntaAPI\Model\LocalizedValue[] $names
+     * @param \KuntaAPI\Model\LocalizedValue[] $names Localized list of service channel names.
      * @return $this
      */
     public function setNames($names)
@@ -315,7 +274,7 @@ class PhoneServiceChannel implements ArrayAccess
 
     /**
      * Sets descriptions
-     * @param \KuntaAPI\Model\LocalizedValue[] $descriptions
+     * @param \KuntaAPI\Model\LocalizedValue[] $descriptions List of localized service channel descriptions.
      * @return $this
      */
     public function setDescriptions($descriptions)
@@ -326,43 +285,22 @@ class PhoneServiceChannel implements ArrayAccess
     }
 
     /**
-     * Gets phoneType
-     * @return string
+     * Gets phoneNumbers
+     * @return \KuntaAPI\Model\Phone[]
      */
-    public function getPhoneType()
+    public function getPhoneNumbers()
     {
-        return $this->container['phoneType'];
+        return $this->container['phoneNumbers'];
     }
 
     /**
-     * Sets phoneType
-     * @param string $phoneType
+     * Sets phoneNumbers
+     * @param \KuntaAPI\Model\Phone[] $phoneNumbers List of phone numbers for the service channel.
      * @return $this
      */
-    public function setPhoneType($phoneType)
+    public function setPhoneNumbers($phoneNumbers)
     {
-        $this->container['phoneType'] = $phoneType;
-
-        return $this;
-    }
-
-    /**
-     * Gets chargeTypes
-     * @return string[]
-     */
-    public function getChargeTypes()
-    {
-        return $this->container['chargeTypes'];
-    }
-
-    /**
-     * Sets chargeTypes
-     * @param string[] $chargeTypes
-     * @return $this
-     */
-    public function setChargeTypes($chargeTypes)
-    {
-        $this->container['chargeTypes'] = $chargeTypes;
+        $this->container['phoneNumbers'] = $phoneNumbers;
 
         return $this;
     }
@@ -389,27 +327,6 @@ class PhoneServiceChannel implements ArrayAccess
     }
 
     /**
-     * Gets phoneNumbers
-     * @return \KuntaAPI\Model\LocalizedValue[]
-     */
-    public function getPhoneNumbers()
-    {
-        return $this->container['phoneNumbers'];
-    }
-
-    /**
-     * Sets phoneNumbers
-     * @param \KuntaAPI\Model\LocalizedValue[] $phoneNumbers
-     * @return $this
-     */
-    public function setPhoneNumbers($phoneNumbers)
-    {
-        $this->container['phoneNumbers'] = $phoneNumbers;
-
-        return $this;
-    }
-
-    /**
      * Gets languages
      * @return string[]
      */
@@ -420,33 +337,12 @@ class PhoneServiceChannel implements ArrayAccess
 
     /**
      * Sets languages
-     * @param string[] $languages
+     * @param string[] $languages List of languages the service channel is available in (two letter language code).
      * @return $this
      */
     public function setLanguages($languages)
     {
         $this->container['languages'] = $languages;
-
-        return $this;
-    }
-
-    /**
-     * Gets phoneChargeDescriptions
-     * @return \KuntaAPI\Model\LocalizedValue[]
-     */
-    public function getPhoneChargeDescriptions()
-    {
-        return $this->container['phoneChargeDescriptions'];
-    }
-
-    /**
-     * Sets phoneChargeDescriptions
-     * @param \KuntaAPI\Model\LocalizedValue[] $phoneChargeDescriptions
-     * @return $this
-     */
-    public function setPhoneChargeDescriptions($phoneChargeDescriptions)
-    {
-        $this->container['phoneChargeDescriptions'] = $phoneChargeDescriptions;
 
         return $this;
     }
@@ -462,7 +358,7 @@ class PhoneServiceChannel implements ArrayAccess
 
     /**
      * Sets webPages
-     * @param \KuntaAPI\Model\WebPage[] $webPages
+     * @param \KuntaAPI\Model\WebPage[] $webPages List of service channel web pages.
      * @return $this
      */
     public function setWebPages($webPages)
@@ -483,7 +379,7 @@ class PhoneServiceChannel implements ArrayAccess
 
     /**
      * Sets serviceHours
-     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours
+     * @param \KuntaAPI\Model\ServiceHour[] $serviceHours List of service channel service hours.
      * @return $this
      */
     public function setServiceHours($serviceHours)
@@ -504,7 +400,7 @@ class PhoneServiceChannel implements ArrayAccess
 
     /**
      * Sets publishingStatus
-     * @param string $publishingStatus
+     * @param string $publishingStatus Service channel publishing status. Values: Draft, Published, Deleted, Modified or OldPublished.
      * @return $this
      */
     public function setPublishingStatus($publishingStatus)

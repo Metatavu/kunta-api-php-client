@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **descriptions** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) | List of localized service channel descriptions. | [optional] 
 **serviceAreaRestricted** | **bool** | Is the service location channel restricted by service area. | [optional] 
 **phoneNumbers** | [**\KuntaAPI\Model\Phone[]**](Phone.md) | List of phone numbers for the service channel. Includes also fax numbers. | [optional] 
-**emails** | [**\KuntaAPI\Model\Email[]**](Email.md) | List email addresses for the service channel. | [optional] 
+**emails** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) | List email addresses for the service channel. | [optional] 
 **languages** | **string[]** | List of languages the service channel is available in (two letter language code). | [optional] 
 **phoneServiceCharge** | **bool** | Is the phone service charged for. | [optional] 
 **webPages** | [**\KuntaAPI\Model\WebPage[]**](WebPage.md) | List of service channel web pages. | [optional] 
