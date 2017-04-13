@@ -72,7 +72,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
         'serviceAreaRestricted' => 'bool',
         'phoneNumbers' => '\KuntaAPI\Model\Phone[]',
-        'emails' => '\KuntaAPI\Model\LocalizedValue[]',
+        'emails' => '\KuntaAPI\Model\Email[]',
         'languages' => 'string[]',
         'phoneServiceCharge' => 'bool',
         'webPages' => '\KuntaAPI\Model\WebPage[]',
@@ -348,7 +348,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Gets emails
-     * @return \KuntaAPI\Model\LocalizedValue[]
+     * @return \KuntaAPI\Model\Email[]
      */
     public function getEmails()
     {
@@ -357,7 +357,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets emails
-     * @param \KuntaAPI\Model\LocalizedValue[] $emails List email addresses for the service channel.
+     * @param \KuntaAPI\Model\Email[] $emails List email addresses for the service channel.
      * @return $this
      */
     public function setEmails($emails)
