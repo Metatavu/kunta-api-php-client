@@ -69,8 +69,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\IncidentsApi();
 $organizationId = "organizationId_example"; // string | Organization id
-$startBefore = new \DateTime(); // \DateTime | 
-$endAfter = new \DateTime(); // \DateTime | 
+$startBefore = "startBefore_example"; // string | 
+$endAfter = "endAfter_example"; // string | 
 $area = 56; // int | Return only incidents from specified area
 $firstResult = 56; // int | First index of results
 $maxResults = 56; // int | Maximum number of results
@@ -91,8 +91,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
- **startBefore** | **\DateTime**|  | [optional]
- **endAfter** | **\DateTime**|  | [optional]
+ **startBefore** | **string**|  | [optional]
+ **endAfter** | **string**|  | [optional]
  **area** | **int**| Return only incidents from specified area | [optional]
  **firstResult** | **int**| First index of results | [optional]
  **maxResults** | **int**| Maximum number of results | [optional]

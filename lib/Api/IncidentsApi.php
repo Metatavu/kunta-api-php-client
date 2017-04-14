@@ -219,8 +219,8 @@ class IncidentsApi
      * Lists organizations incidents
      *
      * @param string $organizationId Organization id (required)
-     * @param \DateTime $startBefore  (optional)
-     * @param \DateTime $endAfter  (optional)
+     * @param string $startBefore  (optional)
+     * @param string $endAfter  (optional)
      * @param int $area Return only incidents from specified area (optional)
      * @param int $firstResult First index of results (optional)
      * @param int $maxResults Maximum number of results (optional)
@@ -241,8 +241,8 @@ class IncidentsApi
      * Lists organizations incidents
      *
      * @param string $organizationId Organization id (required)
-     * @param \DateTime $startBefore  (optional)
-     * @param \DateTime $endAfter  (optional)
+     * @param string $startBefore  (optional)
+     * @param string $endAfter  (optional)
      * @param int $area Return only incidents from specified area (optional)
      * @param int $firstResult First index of results (optional)
      * @param int $maxResults Maximum number of results (optional)
