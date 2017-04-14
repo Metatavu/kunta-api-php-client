@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **requirements** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **publishingStatus** | **string** | Publishing status. Possible values are: Draft, Published, Deleted, Modified or OldPublished. | [optional] 
 **chargeType** | **string** |  | [optional] 
+**organizations** | [**\KuntaAPI\Model\ServiceOrganization[]**](ServiceOrganization.md) |  | [optional] 
 **electronicServiceChannelIds** | **string[]** |  | [optional] 
 **phoneServiceChannelIds** | **string[]** |  | [optional] 
 **printableFormServiceChannelIds** | **string[]** |  | [optional] 
