@@ -67,7 +67,6 @@ class ElectronicServiceChannel implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'id' => 'string',
-        'type' => 'string',
         'organizationId' => 'string',
         'names' => '\KuntaAPI\Model\LocalizedValue[]',
         'descriptions' => '\KuntaAPI\Model\LocalizedValue[]',
@@ -95,7 +94,6 @@ class ElectronicServiceChannel implements ArrayAccess
      */
     protected static $attributeMap = array(
         'id' => 'id',
-        'type' => 'type',
         'organizationId' => 'organizationId',
         'names' => 'names',
         'descriptions' => 'descriptions',
@@ -123,7 +121,6 @@ class ElectronicServiceChannel implements ArrayAccess
      */
     protected static $setters = array(
         'id' => 'setId',
-        'type' => 'setType',
         'organizationId' => 'setOrganizationId',
         'names' => 'setNames',
         'descriptions' => 'setDescriptions',
@@ -151,7 +148,6 @@ class ElectronicServiceChannel implements ArrayAccess
      */
     protected static $getters = array(
         'id' => 'getId',
-        'type' => 'getType',
         'organizationId' => 'getOrganizationId',
         'names' => 'getNames',
         'descriptions' => 'getDescriptions',
@@ -190,7 +186,6 @@ class ElectronicServiceChannel implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['organizationId'] = isset($data['organizationId']) ? $data['organizationId'] : null;
         $this->container['names'] = isset($data['names']) ? $data['names'] : null;
         $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
@@ -247,27 +242,6 @@ class ElectronicServiceChannel implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     * @param string $type
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }
