@@ -54,7 +54,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listServiceLocationServiceChannels**
-> \KuntaAPI\Model\ServiceLocationServiceChannel[] listServiceLocationServiceChannels($firstResult, $maxResults)
+> \KuntaAPI\Model\ServiceLocationServiceChannel[] listServiceLocationServiceChannels($search, $firstResult, $maxResults)
 
 Lists service location service channels
 
@@ -66,11 +66,12 @@ Lists service location service channels
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new KuntaAPI\Api\ServiceLocationServiceChannelsApi();
+$search = "search_example"; // string | Search service location channels by free-text query
 $firstResult = 789; // int | First result
 $maxResults = 789; // int | Max results
 
 try {
-    $result = $api_instance->listServiceLocationServiceChannels($firstResult, $maxResults);
+    $result = $api_instance->listServiceLocationServiceChannels($search, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ServiceLocationServiceChannelsApi->listServiceLocationServiceChannels: ', $e->getMessage(), PHP_EOL;
@@ -82,6 +83,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **search** | **string**| Search service location channels by free-text query | [optional]
  **firstResult** | **int**| First result | [optional]
  **maxResults** | **int**| Max results | [optional]
 
