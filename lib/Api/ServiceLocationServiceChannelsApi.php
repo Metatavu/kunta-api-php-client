@@ -208,15 +208,16 @@ class ServiceLocationServiceChannelsApi
      *
      * Lists service location service channels
      *
+     * @param string $organizationId Organization id (optional)
      * @param string $search Search service location channels by free-text query (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\ServiceLocationServiceChannel[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceLocationServiceChannels($search = null, $firstResult = null, $maxResults = null)
+    public function listServiceLocationServiceChannels($organizationId = null, $search = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listServiceLocationServiceChannelsWithHttpInfo($search, $firstResult, $maxResults);
+        list($response) = $this->listServiceLocationServiceChannelsWithHttpInfo($organizationId, $search, $firstResult, $maxResults);
         return $response;
     }
 
@@ -225,13 +226,14 @@ class ServiceLocationServiceChannelsApi
      *
      * Lists service location service channels
      *
+     * @param string $organizationId Organization id (optional)
      * @param string $search Search service location channels by free-text query (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\ServiceLocationServiceChannel[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceLocationServiceChannelsWithHttpInfo($search = null, $firstResult = null, $maxResults = null)
+    public function listServiceLocationServiceChannelsWithHttpInfo($organizationId = null, $search = null, $firstResult = null, $maxResults = null)
     {
         // parse inputs
         $resourcePath = "/serviceLocationServiceChannels";
@@ -245,6 +247,10 @@ class ServiceLocationServiceChannelsApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json;charset=utf-8'));
 
+        // query params
+        if ($organizationId !== null) {
+            $queryParams['organizationId'] = $this->apiClient->getSerializer()->toQueryValue($organizationId);
+        }
         // query params
         if ($search !== null) {
             $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
