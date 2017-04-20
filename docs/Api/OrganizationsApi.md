@@ -48,11 +48,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-<<<<<<< HEAD
 [basicAuth](../../README.md#basicAuth)
-=======
-No authorization required
->>>>>>> 48ed38e0ff1675a6d7e127f1b96fac8fa68d8a9d
 
 ### HTTP request headers
 
