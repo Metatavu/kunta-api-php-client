@@ -195,10 +195,6 @@ class Address implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (!is_null($this->container['country']) && !preg_match("^[A-Z]{2}$", $this->container['country'])) {
-            $invalid_properties[] = "invalid value for 'country', must be conform to the pattern ^[A-Z]{2}$.";
-        }
-
         return $invalid_properties;
     }
 
@@ -210,9 +206,6 @@ class Address implements ArrayAccess
      */
     public function valid()
     {
-        if (!preg_match("^[A-Z]{2}$", $this->container['country'])) {
-            return false;
-        }
         return true;
     }
 
@@ -443,10 +436,6 @@ class Address implements ArrayAccess
      */
     public function setCountry($country)
     {
-
-        if (!preg_match("^[A-Z]{2}$", $country)) {
-            throw new \InvalidArgumentException('invalid value for $country when calling Address., must be conform to the pattern ^[A-Z]{2}$.');
-        }
         $this->container['country'] = $country;
 
         return $this;

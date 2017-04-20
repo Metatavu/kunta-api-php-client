@@ -211,10 +211,6 @@ class Organization implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (!is_null($this->container['businessCode']) && !preg_match("^[0-9]{7}-[0-9]{1}$", $this->container['businessCode'])) {
-            $invalid_properties[] = "invalid value for 'businessCode', must be conform to the pattern ^[0-9]{7}-[0-9]{1}$.";
-        }
-
         return $invalid_properties;
     }
 
@@ -226,9 +222,6 @@ class Organization implements ArrayAccess
      */
     public function valid()
     {
-        if (!preg_match("^[0-9]{7}-[0-9]{1}$", $this->container['businessCode'])) {
-            return false;
-        }
         return true;
     }
 
@@ -312,10 +305,6 @@ class Organization implements ArrayAccess
      */
     public function setBusinessCode($businessCode)
     {
-
-        if (!preg_match("^[0-9]{7}-[0-9]{1}$", $businessCode)) {
-            throw new \InvalidArgumentException('invalid value for $businessCode when calling Organization., must be conform to the pattern ^[0-9]{7}-[0-9]{1}$.');
-        }
         $this->container['businessCode'] = $businessCode;
 
         return $this;
