@@ -214,14 +214,16 @@ class ServiceLocationServiceChannelsApi
      *
      * @param string $organizationId Organization id (optional)
      * @param string $search Search service location channels by free-text query (optional)
+     * @param string $sortOrder define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\ServiceLocationServiceChannel[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceLocationServiceChannels($organizationId = null, $search = null, $firstResult = null, $maxResults = null)
+    public function listServiceLocationServiceChannels($organizationId = null, $search = null, $sortOrder = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listServiceLocationServiceChannelsWithHttpInfo($organizationId, $search, $firstResult, $maxResults);
+        list($response) = $this->listServiceLocationServiceChannelsWithHttpInfo($organizationId, $search, $sortOrder, $sortDir, $firstResult, $maxResults);
         return $response;
     }
 
@@ -232,12 +234,14 @@ class ServiceLocationServiceChannelsApi
      *
      * @param string $organizationId Organization id (optional)
      * @param string $search Search service location channels by free-text query (optional)
+     * @param string $sortOrder define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\ServiceLocationServiceChannel[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceLocationServiceChannelsWithHttpInfo($organizationId = null, $search = null, $firstResult = null, $maxResults = null)
+    public function listServiceLocationServiceChannelsWithHttpInfo($organizationId = null, $search = null, $sortOrder = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
         // parse inputs
         $resourcePath = "/serviceLocationServiceChannels";
@@ -258,6 +262,14 @@ class ServiceLocationServiceChannelsApi
         // query params
         if ($search !== null) {
             $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
+        }
+        // query params
+        if ($sortOrder !== null) {
+            $queryParams['sortOrder'] = $this->apiClient->getSerializer()->toQueryValue($sortOrder);
+        }
+        // query params
+        if ($sortDir !== null) {
+            $queryParams['sortDir'] = $this->apiClient->getSerializer()->toQueryValue($sortDir);
         }
         // query params
         if ($firstResult !== null) {

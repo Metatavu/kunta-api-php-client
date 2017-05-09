@@ -726,14 +726,16 @@ class PagesApi
      * @param string $parentId Filter results by parent id (optional)
      * @param string $path Filter results by page path (optional)
      * @param string $search Search pages by free-text query (optional)
+     * @param string $sortOrder define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\Page[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationPages($organizationId, $parentId = null, $path = null, $search = null, $firstResult = null, $maxResults = null)
+    public function listOrganizationPages($organizationId, $parentId = null, $path = null, $search = null, $sortOrder = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listOrganizationPagesWithHttpInfo($organizationId, $parentId, $path, $search, $firstResult, $maxResults);
+        list($response) = $this->listOrganizationPagesWithHttpInfo($organizationId, $parentId, $path, $search, $sortOrder, $sortDir, $firstResult, $maxResults);
         return $response;
     }
 
@@ -746,12 +748,14 @@ class PagesApi
      * @param string $parentId Filter results by parent id (optional)
      * @param string $path Filter results by page path (optional)
      * @param string $search Search pages by free-text query (optional)
+     * @param string $sortOrder define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\Page[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationPagesWithHttpInfo($organizationId, $parentId = null, $path = null, $search = null, $firstResult = null, $maxResults = null)
+    public function listOrganizationPagesWithHttpInfo($organizationId, $parentId = null, $path = null, $search = null, $sortOrder = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -780,6 +784,14 @@ class PagesApi
         // query params
         if ($search !== null) {
             $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
+        }
+        // query params
+        if ($sortOrder !== null) {
+            $queryParams['sortOrder'] = $this->apiClient->getSerializer()->toQueryValue($sortOrder);
+        }
+        // query params
+        if ($sortDir !== null) {
+            $queryParams['sortDir'] = $this->apiClient->getSerializer()->toQueryValue($sortDir);
         }
         // query params
         if ($firstResult !== null) {
