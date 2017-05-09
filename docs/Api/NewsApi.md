@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listOrganizationNews**
-> \KuntaAPI\Model\NewsArticle[] listOrganizationNews($organizationId, $slug, $tag, $publishedBefore, $publishedAfter, $search, $sortOrder, $sortDir, $firstResult, $maxResults)
+> \KuntaAPI\Model\NewsArticle[] listOrganizationNews($organizationId, $slug, $tag, $publishedBefore, $publishedAfter, $search, $sortBy, $sortDir, $firstResult, $maxResults)
 
 Lists organizations news
 
@@ -193,13 +193,13 @@ $tag = "tag_example"; // string | Filter by tag
 $publishedBefore = "publishedBefore_example"; // string | return only news published before the date
 $publishedAfter = "publishedAfter_example"; // string | return only news published after the date
 $search = "search_example"; // string | Search news by free-text query
-$sortOrder = "sortOrder_example"; // string | define order (NATURAL or SCORE). Default is NATURAL
+$sortBy = "sortBy_example"; // string | define order (NATURAL or SCORE). Default is NATURAL
 $sortDir = "sortDir_example"; // string | ASC or DESC. Default is ASC
 $firstResult = 56; // int | first index of results
 $maxResults = 56; // int | maximum number of results
 
 try {
-    $result = $api_instance->listOrganizationNews($organizationId, $slug, $tag, $publishedBefore, $publishedAfter, $search, $sortOrder, $sortDir, $firstResult, $maxResults);
+    $result = $api_instance->listOrganizationNews($organizationId, $slug, $tag, $publishedBefore, $publishedAfter, $search, $sortBy, $sortDir, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NewsApi->listOrganizationNews: ', $e->getMessage(), PHP_EOL;
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
  **publishedBefore** | **string**| return only news published before the date | [optional]
  **publishedAfter** | **string**| return only news published after the date | [optional]
  **search** | **string**| Search news by free-text query | [optional]
- **sortOrder** | **string**| define order (NATURAL or SCORE). Default is NATURAL | [optional]
+ **sortBy** | **string**| define order (NATURAL or SCORE). Default is NATURAL | [optional]
  **sortDir** | **string**| ASC or DESC. Default is ASC | [optional]
  **firstResult** | **int**| first index of results | [optional]
  **maxResults** | **int**| maximum number of results | [optional]

@@ -492,16 +492,16 @@ class NewsApi
      * @param string $publishedBefore return only news published before the date (optional)
      * @param string $publishedAfter return only news published after the date (optional)
      * @param string $search Search news by free-text query (optional)
-     * @param string $sortOrder define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortBy define order (NATURAL or SCORE). Default is NATURAL (optional)
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult first index of results (optional)
      * @param int $maxResults maximum number of results (optional)
      * @return \KuntaAPI\Model\NewsArticle[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationNews($organizationId, $slug = null, $tag = null, $publishedBefore = null, $publishedAfter = null, $search = null, $sortOrder = null, $sortDir = null, $firstResult = null, $maxResults = null)
+    public function listOrganizationNews($organizationId, $slug = null, $tag = null, $publishedBefore = null, $publishedAfter = null, $search = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listOrganizationNewsWithHttpInfo($organizationId, $slug, $tag, $publishedBefore, $publishedAfter, $search, $sortOrder, $sortDir, $firstResult, $maxResults);
+        list($response) = $this->listOrganizationNewsWithHttpInfo($organizationId, $slug, $tag, $publishedBefore, $publishedAfter, $search, $sortBy, $sortDir, $firstResult, $maxResults);
         return $response;
     }
 
@@ -516,14 +516,14 @@ class NewsApi
      * @param string $publishedBefore return only news published before the date (optional)
      * @param string $publishedAfter return only news published after the date (optional)
      * @param string $search Search news by free-text query (optional)
-     * @param string $sortOrder define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortBy define order (NATURAL or SCORE). Default is NATURAL (optional)
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult first index of results (optional)
      * @param int $maxResults maximum number of results (optional)
      * @return Array of \KuntaAPI\Model\NewsArticle[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listOrganizationNewsWithHttpInfo($organizationId, $slug = null, $tag = null, $publishedBefore = null, $publishedAfter = null, $search = null, $sortOrder = null, $sortDir = null, $firstResult = null, $maxResults = null)
+    public function listOrganizationNewsWithHttpInfo($organizationId, $slug = null, $tag = null, $publishedBefore = null, $publishedAfter = null, $search = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
         // verify the required parameter 'organizationId' is set
         if ($organizationId === null) {
@@ -562,8 +562,8 @@ class NewsApi
             $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
         }
         // query params
-        if ($sortOrder !== null) {
-            $queryParams['sortOrder'] = $this->apiClient->getSerializer()->toQueryValue($sortOrder);
+        if ($sortBy !== null) {
+            $queryParams['sortBy'] = $this->apiClient->getSerializer()->toQueryValue($sortBy);
         }
         // query params
         if ($sortDir !== null) {

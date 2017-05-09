@@ -943,16 +943,16 @@ class ServiceChannelsApi
      *
      * @param string $organizationId Organization id (optional)
      * @param string $search Search service location channels by free-text query (optional)
-     * @param string $sortOrder define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortBy define order (NATURAL or SCORE). Default is NATURAL (optional)
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\ServiceLocationServiceChannel[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceLocationServiceChannels($organizationId = null, $search = null, $sortOrder = null, $sortDir = null, $firstResult = null, $maxResults = null)
+    public function listServiceLocationServiceChannels($organizationId = null, $search = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listServiceLocationServiceChannelsWithHttpInfo($organizationId, $search, $sortOrder, $sortDir, $firstResult, $maxResults);
+        list($response) = $this->listServiceLocationServiceChannelsWithHttpInfo($organizationId, $search, $sortBy, $sortDir, $firstResult, $maxResults);
         return $response;
     }
 
@@ -963,14 +963,14 @@ class ServiceChannelsApi
      *
      * @param string $organizationId Organization id (optional)
      * @param string $search Search service location channels by free-text query (optional)
-     * @param string $sortOrder define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortBy define order (NATURAL or SCORE). Default is NATURAL (optional)
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\ServiceLocationServiceChannel[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listServiceLocationServiceChannelsWithHttpInfo($organizationId = null, $search = null, $sortOrder = null, $sortDir = null, $firstResult = null, $maxResults = null)
+    public function listServiceLocationServiceChannelsWithHttpInfo($organizationId = null, $search = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
         // parse inputs
         $resourcePath = "/serviceLocationServiceChannels";
@@ -993,8 +993,8 @@ class ServiceChannelsApi
             $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
         }
         // query params
-        if ($sortOrder !== null) {
-            $queryParams['sortOrder'] = $this->apiClient->getSerializer()->toQueryValue($sortOrder);
+        if ($sortBy !== null) {
+            $queryParams['sortBy'] = $this->apiClient->getSerializer()->toQueryValue($sortBy);
         }
         // query params
         if ($sortDir !== null) {
