@@ -71,6 +71,7 @@ class Emergency implements ArrayAccess
         'description' => 'string',
         'extent' => 'string',
         'type' => 'string',
+        'url' => 'string',
         'latitude' => 'string',
         'longitude' => 'string',
         'sources' => '\KuntaAPI\Model\EmergencySource[]'
@@ -91,6 +92,7 @@ class Emergency implements ArrayAccess
         'description' => 'description',
         'extent' => 'extent',
         'type' => 'type',
+        'url' => 'url',
         'latitude' => 'latitude',
         'longitude' => 'longitude',
         'sources' => 'sources'
@@ -111,6 +113,7 @@ class Emergency implements ArrayAccess
         'description' => 'setDescription',
         'extent' => 'setExtent',
         'type' => 'setType',
+        'url' => 'setUrl',
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude',
         'sources' => 'setSources'
@@ -131,6 +134,7 @@ class Emergency implements ArrayAccess
         'description' => 'getDescription',
         'extent' => 'getExtent',
         'type' => 'getType',
+        'url' => 'getUrl',
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude',
         'sources' => 'getSources'
@@ -162,6 +166,7 @@ class Emergency implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['extent'] = isset($data['extent']) ? $data['extent'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
         $this->container['sources'] = isset($data['sources']) ? $data['sources'] : null;
@@ -291,6 +296,27 @@ class Emergency implements ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     * @param string $url
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

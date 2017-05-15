@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional] 
 **extent** | **string** |  | [optional] 
 **type** | **string** |  | [optional] 
+**url** | **string** |  | [optional] 
 **latitude** | **string** | Emergency latitude coordinate. | [optional] 
 **longitude** | **string** | Emergency longitude coordinate. | [optional] 
 **sources** | [**\KuntaAPI\Model\EmergencySource[]**](EmergencySource.md) | List of emergency source | [optional] 
