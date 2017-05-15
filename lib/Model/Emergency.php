@@ -67,7 +67,7 @@ class Emergency implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'location' => 'string',
-        'published' => '\DateTime',
+        'time' => '\DateTime',
         'description' => 'string',
         'extent' => 'string',
         'type' => 'string',
@@ -88,7 +88,7 @@ class Emergency implements ArrayAccess
      */
     protected static $attributeMap = array(
         'location' => 'location',
-        'published' => 'published',
+        'time' => 'time',
         'description' => 'description',
         'extent' => 'extent',
         'type' => 'type',
@@ -109,7 +109,7 @@ class Emergency implements ArrayAccess
      */
     protected static $setters = array(
         'location' => 'setLocation',
-        'published' => 'setPublished',
+        'time' => 'setTime',
         'description' => 'setDescription',
         'extent' => 'setExtent',
         'type' => 'setType',
@@ -130,7 +130,7 @@ class Emergency implements ArrayAccess
      */
     protected static $getters = array(
         'location' => 'getLocation',
-        'published' => 'getPublished',
+        'time' => 'getTime',
         'description' => 'getDescription',
         'extent' => 'getExtent',
         'type' => 'getType',
@@ -162,7 +162,7 @@ class Emergency implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['location'] = isset($data['location']) ? $data['location'] : null;
-        $this->container['published'] = isset($data['published']) ? $data['published'] : null;
+        $this->container['time'] = isset($data['time']) ? $data['time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['extent'] = isset($data['extent']) ? $data['extent'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -217,22 +217,22 @@ class Emergency implements ArrayAccess
     }
 
     /**
-     * Gets published
+     * Gets time
      * @return \DateTime
      */
-    public function getPublished()
+    public function getTime()
     {
-        return $this->container['published'];
+        return $this->container['time'];
     }
 
     /**
-     * Sets published
-     * @param \DateTime $published
+     * Sets time
+     * @param \DateTime $time
      * @return $this
      */
-    public function setPublished($published)
+    public function setTime($time)
     {
-        $this->container['published'] = $published;
+        $this->container['time'] = $time;
 
         return $this;
     }

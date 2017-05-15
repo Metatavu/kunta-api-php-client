@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **location** | **string** |  | [optional] 
-**published** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **description** | **string** |  | [optional] 
 **extent** | **string** |  | [optional] 
 **type** | **string** |  | [optional] 
