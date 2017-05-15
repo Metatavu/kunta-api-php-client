@@ -66,6 +66,7 @@ class Emergency implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
+        'id' => 'string',
         'location' => 'string',
         'time' => '\DateTime',
         'description' => 'string',
@@ -87,6 +88,7 @@ class Emergency implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
+        'id' => 'id',
         'location' => 'location',
         'time' => 'time',
         'description' => 'description',
@@ -108,6 +110,7 @@ class Emergency implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
+        'id' => 'setId',
         'location' => 'setLocation',
         'time' => 'setTime',
         'description' => 'setDescription',
@@ -129,6 +132,7 @@ class Emergency implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
+        'id' => 'getId',
         'location' => 'getLocation',
         'time' => 'getTime',
         'description' => 'getDescription',
@@ -161,6 +165,7 @@ class Emergency implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['location'] = isset($data['location']) ? $data['location'] : null;
         $this->container['time'] = isset($data['time']) ? $data['time'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -194,6 +199,27 @@ class Emergency implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets id
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     * @param string $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets location

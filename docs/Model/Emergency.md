@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional] 
 **location** | **string** |  | [optional] 
 **time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **description** | **string** |  | [optional] 
