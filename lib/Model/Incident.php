@@ -71,6 +71,8 @@ class Incident implements ArrayAccess
         'severity' => 'string',
         'title' => 'string',
         'description' => 'string',
+        'detailsLink' => 'string',
+        'detailsLinkText' => 'string',
         'start' => '\DateTime',
         'end' => '\DateTime',
         'areas' => 'string[]'
@@ -91,6 +93,8 @@ class Incident implements ArrayAccess
         'severity' => 'severity',
         'title' => 'title',
         'description' => 'description',
+        'detailsLink' => 'detailsLink',
+        'detailsLinkText' => 'detailsLinkText',
         'start' => 'start',
         'end' => 'end',
         'areas' => 'areas'
@@ -111,6 +115,8 @@ class Incident implements ArrayAccess
         'severity' => 'setSeverity',
         'title' => 'setTitle',
         'description' => 'setDescription',
+        'detailsLink' => 'setDetailsLink',
+        'detailsLinkText' => 'setDetailsLinkText',
         'start' => 'setStart',
         'end' => 'setEnd',
         'areas' => 'setAreas'
@@ -131,6 +137,8 @@ class Incident implements ArrayAccess
         'severity' => 'getSeverity',
         'title' => 'getTitle',
         'description' => 'getDescription',
+        'detailsLink' => 'getDetailsLink',
+        'detailsLinkText' => 'getDetailsLinkText',
         'start' => 'getStart',
         'end' => 'getEnd',
         'areas' => 'getAreas'
@@ -162,6 +170,8 @@ class Incident implements ArrayAccess
         $this->container['severity'] = isset($data['severity']) ? $data['severity'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['detailsLink'] = isset($data['detailsLink']) ? $data['detailsLink'] : null;
+        $this->container['detailsLinkText'] = isset($data['detailsLinkText']) ? $data['detailsLinkText'] : null;
         $this->container['start'] = isset($data['start']) ? $data['start'] : null;
         $this->container['end'] = isset($data['end']) ? $data['end'] : null;
         $this->container['areas'] = isset($data['areas']) ? $data['areas'] : null;
@@ -291,6 +301,48 @@ class Incident implements ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets detailsLink
+     * @return string
+     */
+    public function getDetailsLink()
+    {
+        return $this->container['detailsLink'];
+    }
+
+    /**
+     * Sets detailsLink
+     * @param string $detailsLink
+     * @return $this
+     */
+    public function setDetailsLink($detailsLink)
+    {
+        $this->container['detailsLink'] = $detailsLink;
+
+        return $this;
+    }
+
+    /**
+     * Gets detailsLinkText
+     * @return string
+     */
+    public function getDetailsLinkText()
+    {
+        return $this->container['detailsLinkText'];
+    }
+
+    /**
+     * Sets detailsLinkText
+     * @param string $detailsLinkText
+     * @return $this
+     */
+    public function setDetailsLinkText($detailsLinkText)
+    {
+        $this->container['detailsLinkText'] = $detailsLinkText;
 
         return $this;
     }

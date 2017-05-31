@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **severity** | **string** |  | [optional] 
 **title** | **string** |  | [optional] 
 **description** | **string** |  | [optional] 
+**detailsLink** | **string** |  | [optional] 
+**detailsLinkText** | **string** |  | [optional] 
 **start** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **end** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **areas** | **string[]** |  | [optional] 
