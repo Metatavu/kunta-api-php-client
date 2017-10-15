@@ -224,7 +224,7 @@ class ContactsApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $search Search contacts by free-text query (optional)
-     * @param string $sortBy define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortBy define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL (optional)
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
@@ -244,7 +244,7 @@ class ContactsApi
      *
      * @param string $organizationId Organization id (required)
      * @param string $search Search contacts by free-text query (optional)
-     * @param string $sortBy define order (NATURAL or SCORE). Default is NATURAL (optional)
+     * @param string $sortBy define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL (optional)
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)

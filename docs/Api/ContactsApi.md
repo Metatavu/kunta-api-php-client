@@ -78,7 +78,7 @@ KuntaAPI\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 $api_instance = new KuntaAPI\Api\ContactsApi();
 $organizationId = "organizationId_example"; // string | Organization id
 $search = "search_example"; // string | Search contacts by free-text query
-$sortBy = "sortBy_example"; // string | define order (NATURAL or SCORE). Default is NATURAL
+$sortBy = "sortBy_example"; // string | define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL
 $sortDir = "sortDir_example"; // string | ASC or DESC. Default is ASC
 $firstResult = 789; // int | First result
 $maxResults = 789; // int | Max results
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **string**| Organization id |
  **search** | **string**| Search contacts by free-text query | [optional]
- **sortBy** | **string**| define order (NATURAL or SCORE). Default is NATURAL | [optional]
+ **sortBy** | **string**| define order (NATURAL, DISPLAY_NAME or SCORE). Default is NATURAL | [optional]
  **sortDir** | **string**| ASC or DESC. Default is ASC | [optional]
  **firstResult** | **int**| First result | [optional]
  **maxResults** | **int**| Max results | [optional]

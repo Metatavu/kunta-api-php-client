@@ -70,6 +70,7 @@ class Contact implements ArrayAccess
         'displayName' => 'string',
         'firstName' => 'string',
         'lastName' => 'string',
+        'privateNumber' => 'bool',
         'title' => 'string',
         'organization' => 'string',
         'organizationUnits' => 'string[]',
@@ -94,6 +95,7 @@ class Contact implements ArrayAccess
         'displayName' => 'displayName',
         'firstName' => 'firstName',
         'lastName' => 'lastName',
+        'privateNumber' => 'privateNumber',
         'title' => 'title',
         'organization' => 'organization',
         'organizationUnits' => 'organizationUnits',
@@ -118,6 +120,7 @@ class Contact implements ArrayAccess
         'displayName' => 'setDisplayName',
         'firstName' => 'setFirstName',
         'lastName' => 'setLastName',
+        'privateNumber' => 'setPrivateNumber',
         'title' => 'setTitle',
         'organization' => 'setOrganization',
         'organizationUnits' => 'setOrganizationUnits',
@@ -142,6 +145,7 @@ class Contact implements ArrayAccess
         'displayName' => 'getDisplayName',
         'firstName' => 'getFirstName',
         'lastName' => 'getLastName',
+        'privateNumber' => 'getPrivateNumber',
         'title' => 'getTitle',
         'organization' => 'getOrganization',
         'organizationUnits' => 'getOrganizationUnits',
@@ -177,6 +181,7 @@ class Contact implements ArrayAccess
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
         $this->container['firstName'] = isset($data['firstName']) ? $data['firstName'] : null;
         $this->container['lastName'] = isset($data['lastName']) ? $data['lastName'] : null;
+        $this->container['privateNumber'] = isset($data['privateNumber']) ? $data['privateNumber'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
         $this->container['organizationUnits'] = isset($data['organizationUnits']) ? $data['organizationUnits'] : null;
@@ -290,6 +295,27 @@ class Contact implements ArrayAccess
     public function setLastName($lastName)
     {
         $this->container['lastName'] = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Gets privateNumber
+     * @return bool
+     */
+    public function getPrivateNumber()
+    {
+        return $this->container['privateNumber'];
+    }
+
+    /**
+     * Sets privateNumber
+     * @param bool $privateNumber
+     * @return $this
+     */
+    public function setPrivateNumber($privateNumber)
+    {
+        $this->container['privateNumber'] = $privateNumber;
 
         return $this;
     }
