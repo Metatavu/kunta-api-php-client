@@ -70,7 +70,7 @@ class Contact implements ArrayAccess
         'displayName' => 'string',
         'firstName' => 'string',
         'lastName' => 'string',
-        'privateNumber' => 'bool',
+        'privateContact' => 'bool',
         'title' => 'string',
         'organization' => 'string',
         'organizationUnits' => 'string[]',
@@ -95,7 +95,7 @@ class Contact implements ArrayAccess
         'displayName' => 'displayName',
         'firstName' => 'firstName',
         'lastName' => 'lastName',
-        'privateNumber' => 'privateNumber',
+        'privateContact' => 'privateContact',
         'title' => 'title',
         'organization' => 'organization',
         'organizationUnits' => 'organizationUnits',
@@ -120,7 +120,7 @@ class Contact implements ArrayAccess
         'displayName' => 'setDisplayName',
         'firstName' => 'setFirstName',
         'lastName' => 'setLastName',
-        'privateNumber' => 'setPrivateNumber',
+        'privateContact' => 'setPrivateContact',
         'title' => 'setTitle',
         'organization' => 'setOrganization',
         'organizationUnits' => 'setOrganizationUnits',
@@ -145,7 +145,7 @@ class Contact implements ArrayAccess
         'displayName' => 'getDisplayName',
         'firstName' => 'getFirstName',
         'lastName' => 'getLastName',
-        'privateNumber' => 'getPrivateNumber',
+        'privateContact' => 'getPrivateContact',
         'title' => 'getTitle',
         'organization' => 'getOrganization',
         'organizationUnits' => 'getOrganizationUnits',
@@ -181,7 +181,7 @@ class Contact implements ArrayAccess
         $this->container['displayName'] = isset($data['displayName']) ? $data['displayName'] : null;
         $this->container['firstName'] = isset($data['firstName']) ? $data['firstName'] : null;
         $this->container['lastName'] = isset($data['lastName']) ? $data['lastName'] : null;
-        $this->container['privateNumber'] = isset($data['privateNumber']) ? $data['privateNumber'] : null;
+        $this->container['privateContact'] = isset($data['privateContact']) ? $data['privateContact'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
         $this->container['organizationUnits'] = isset($data['organizationUnits']) ? $data['organizationUnits'] : null;
@@ -300,22 +300,22 @@ class Contact implements ArrayAccess
     }
 
     /**
-     * Gets privateNumber
+     * Gets privateContact
      * @return bool
      */
-    public function getPrivateNumber()
+    public function getPrivateContact()
     {
-        return $this->container['privateNumber'];
+        return $this->container['privateContact'];
     }
 
     /**
-     * Sets privateNumber
-     * @param bool $privateNumber
+     * Sets privateContact
+     * @param bool $privateContact
      * @return $this
      */
-    public function setPrivateNumber($privateNumber)
+    public function setPrivateContact($privateContact)
     {
-        $this->container['privateNumber'] = $privateNumber;
+        $this->container['privateContact'] = $privateContact;
 
         return $this;
     }
