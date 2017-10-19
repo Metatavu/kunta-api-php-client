@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**listPrintableFormServiceChannels**](ServiceChannelsApi.md#listPrintableFormServiceChannels) | **GET** /printableFormServiceChannels | Lists printable form service channels
 [**listServiceLocationServiceChannels**](ServiceChannelsApi.md#listServiceLocationServiceChannels) | **GET** /serviceLocationServiceChannels | Lists service location service channels
 [**listWebPageServiceChannels**](ServiceChannelsApi.md#listWebPageServiceChannels) | **GET** /webPageServiceChannels | Lists web page service channels
+[**updateServiceLocationServiceChannel**](ServiceChannelsApi.md#updateServiceLocationServiceChannel) | **PUT** /serviceLocationServiceChannels/{serviceLocationServiceChannelId} | Updates a service location channel
 
 
 # **findElectronicServiceChannel**
@@ -512,6 +513,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\KuntaAPI\Model\WebPageServiceChannel[]**](../Model/WebPageServiceChannel.md)
+
+### Authorization
+
+[basicAuth](../../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateServiceLocationServiceChannel**
+> \KuntaAPI\Model\ServiceLocationServiceChannel updateServiceLocationServiceChannel($serviceLocationServiceChannelId, $serviceLocationChannel)
+
+Updates a service location channel
+
+Updates a service location channel
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basicAuth
+KuntaAPI\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+KuntaAPI\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
+$api_instance = new KuntaAPI\Api\ServiceChannelsApi();
+$serviceLocationServiceChannelId = "serviceLocationServiceChannelId_example"; // string | serviceLocationChannel id
+$serviceLocationChannel = new \KuntaAPI\Model\ServiceLocationServiceChannel(); // \KuntaAPI\Model\ServiceLocationServiceChannel | New service location channel data
+
+try {
+    $result = $api_instance->updateServiceLocationServiceChannel($serviceLocationServiceChannelId, $serviceLocationChannel);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ServiceChannelsApi->updateServiceLocationServiceChannel: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceLocationServiceChannelId** | **string**| serviceLocationChannel id |
+ **serviceLocationChannel** | [**\KuntaAPI\Model\ServiceLocationServiceChannel**](../Model/\KuntaAPI\Model\ServiceLocationServiceChannel.md)| New service location channel data |
+
+### Return type
+
+[**\KuntaAPI\Model\ServiceLocationServiceChannel**](../Model/ServiceLocationServiceChannel.md)
 
 ### Authorization
 

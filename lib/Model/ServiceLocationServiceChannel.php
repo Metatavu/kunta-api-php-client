@@ -378,7 +378,7 @@ class ServiceLocationServiceChannel implements ArrayAccess
 
     /**
      * Sets phoneServiceCharge
-     * @param bool $phoneServiceCharge Is the phone service charged for.
+     * @param bool $phoneServiceCharge DEPRECATED. DO NOT USE!
      * @return $this
      */
     public function setPhoneServiceCharge($phoneServiceCharge)

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **phoneNumbers** | [**\KuntaAPI\Model\Phone[]**](Phone.md) | List of phone numbers for the service channel. Includes also fax numbers. | [optional] 
 **emails** | [**\KuntaAPI\Model\Email[]**](Email.md) | List email addresses for the service channel. | [optional] 
 **languages** | **string[]** | List of languages the service channel is available in (two letter language code). | [optional] 
-**phoneServiceCharge** | **bool** | Is the phone service charged for. | [optional] 
+**phoneServiceCharge** | **bool** | DEPRECATED. DO NOT USE! | [optional] 
 **webPages** | [**\KuntaAPI\Model\WebPage[]**](WebPage.md) | List of service channel web pages. | [optional] 
 **areaType** | **string** | Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType). | [optional] 
 **areas** | [**\KuntaAPI\Model\Area[]**](Area.md) | List of service channel areas. | [optional] 
