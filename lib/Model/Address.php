@@ -70,6 +70,7 @@ class Address implements ArrayAccess
         'longitude' => 'string',
         'coordinateState' => 'string',
         'type' => 'string',
+        'subtype' => 'string',
         'postOfficeBox' => '\KuntaAPI\Model\LocalizedValue[]',
         'postalCode' => 'string',
         'postOffice' => '\KuntaAPI\Model\LocalizedValue[]',
@@ -94,6 +95,7 @@ class Address implements ArrayAccess
         'longitude' => 'longitude',
         'coordinateState' => 'coordinateState',
         'type' => 'type',
+        'subtype' => 'subtype',
         'postOfficeBox' => 'postOfficeBox',
         'postalCode' => 'postalCode',
         'postOffice' => 'postOffice',
@@ -118,6 +120,7 @@ class Address implements ArrayAccess
         'longitude' => 'setLongitude',
         'coordinateState' => 'setCoordinateState',
         'type' => 'setType',
+        'subtype' => 'setSubtype',
         'postOfficeBox' => 'setPostOfficeBox',
         'postalCode' => 'setPostalCode',
         'postOffice' => 'setPostOffice',
@@ -142,6 +145,7 @@ class Address implements ArrayAccess
         'longitude' => 'getLongitude',
         'coordinateState' => 'getCoordinateState',
         'type' => 'getType',
+        'subtype' => 'getSubtype',
         'postOfficeBox' => 'getPostOfficeBox',
         'postalCode' => 'getPostalCode',
         'postOffice' => 'getPostOffice',
@@ -177,6 +181,7 @@ class Address implements ArrayAccess
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
         $this->container['coordinateState'] = isset($data['coordinateState']) ? $data['coordinateState'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['subtype'] = isset($data['subtype']) ? $data['subtype'] : null;
         $this->container['postOfficeBox'] = isset($data['postOfficeBox']) ? $data['postOfficeBox'] : null;
         $this->container['postalCode'] = isset($data['postalCode']) ? $data['postalCode'] : null;
         $this->container['postOffice'] = isset($data['postOffice']) ? $data['postOffice'] : null;
@@ -295,6 +300,27 @@ class Address implements ArrayAccess
     }
 
     /**
+     * Gets subtype
+     * @return string
+     */
+    public function getSubtype()
+    {
+        return $this->container['subtype'];
+    }
+
+    /**
+     * Sets subtype
+     * @param string $subtype Address sub type, Street, PostOfficeBox or NoAddress.
+     * @return $this
+     */
+    public function setSubtype($subtype)
+    {
+        $this->container['subtype'] = $subtype;
+
+        return $this;
+    }
+
+    /**
      * Gets postOfficeBox
      * @return \KuntaAPI\Model\LocalizedValue[]
      */
@@ -305,7 +331,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets postOfficeBox
-     * @param \KuntaAPI\Model\LocalizedValue[] $postOfficeBox List of localized post office box addresses.
+     * @param \KuntaAPI\Model\LocalizedValue[] $postOfficeBox Post office box like PL 310
      * @return $this
      */
     public function setPostOfficeBox($postOfficeBox)
