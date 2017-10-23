@@ -78,6 +78,7 @@ class Address implements ArrayAccess
         'streetNumber' => 'string',
         'municipality' => '\KuntaAPI\Model\Municipality',
         'country' => 'string',
+        'locationAbroad' => '\KuntaAPI\Model\LocalizedValue[]',
         'additionalInformations' => '\KuntaAPI\Model\LocalizedValue[]'
     );
 
@@ -103,6 +104,7 @@ class Address implements ArrayAccess
         'streetNumber' => 'streetNumber',
         'municipality' => 'municipality',
         'country' => 'country',
+        'locationAbroad' => 'locationAbroad',
         'additionalInformations' => 'additionalInformations'
     );
 
@@ -128,6 +130,7 @@ class Address implements ArrayAccess
         'streetNumber' => 'setStreetNumber',
         'municipality' => 'setMunicipality',
         'country' => 'setCountry',
+        'locationAbroad' => 'setLocationAbroad',
         'additionalInformations' => 'setAdditionalInformations'
     );
 
@@ -153,6 +156,7 @@ class Address implements ArrayAccess
         'streetNumber' => 'getStreetNumber',
         'municipality' => 'getMunicipality',
         'country' => 'getCountry',
+        'locationAbroad' => 'getLocationAbroad',
         'additionalInformations' => 'getAdditionalInformations'
     );
 
@@ -189,6 +193,7 @@ class Address implements ArrayAccess
         $this->container['streetNumber'] = isset($data['streetNumber']) ? $data['streetNumber'] : null;
         $this->container['municipality'] = isset($data['municipality']) ? $data['municipality'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['locationAbroad'] = isset($data['locationAbroad']) ? $data['locationAbroad'] : null;
         $this->container['additionalInformations'] = isset($data['additionalInformations']) ? $data['additionalInformations'] : null;
     }
 
@@ -310,7 +315,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets subtype
-     * @param string $subtype Address sub type, Street, PostOfficeBox or NoAddress.
+     * @param string $subtype Address sub type, Single, Street, PostOfficeBox, Abroad or Multipoint or NoAddress.
      * @return $this
      */
     public function setSubtype($subtype)
@@ -463,6 +468,27 @@ class Address implements ArrayAccess
     public function setCountry($country)
     {
         $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets locationAbroad
+     * @return \KuntaAPI\Model\LocalizedValue[]
+     */
+    public function getLocationAbroad()
+    {
+        return $this->container['locationAbroad'];
+    }
+
+    /**
+     * Sets locationAbroad
+     * @param \KuntaAPI\Model\LocalizedValue[] $locationAbroad Localized list of foreign address information.
+     * @return $this
+     */
+    public function setLocationAbroad($locationAbroad)
+    {
+        $this->container['locationAbroad'] = $locationAbroad;
 
         return $this;
     }
