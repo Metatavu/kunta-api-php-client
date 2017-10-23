@@ -305,7 +305,7 @@ class Address implements ArrayAccess
 
     /**
      * Sets postOfficeBox
-     * @param \KuntaAPI\Model\LocalizedValue[] $postOfficeBox Post office box like PL 310
+     * @param \KuntaAPI\Model\LocalizedValue[] $postOfficeBox List of localized post office box addresses.
      * @return $this
      */
     public function setPostOfficeBox($postOfficeBox)
