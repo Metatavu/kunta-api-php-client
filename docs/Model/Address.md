@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **municipality** | [**\KuntaAPI\Model\Municipality**](Municipality.md) |  | [optional] 
 **country** | **string** | Country code (ISO 3166-1 alpha-2), for example FI. | [optional] 
 **locationAbroad** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) | Localized list of foreign address information. | [optional] 
+**multipointLocation** | [**\KuntaAPI\Model\Address[]**](Address.md) | Moving address. Includes several street addresses. | [optional] 
 **additionalInformations** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) | Localized list of additional information about the address. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -79,6 +79,7 @@ class Address implements ArrayAccess
         'municipality' => '\KuntaAPI\Model\Municipality',
         'country' => 'string',
         'locationAbroad' => '\KuntaAPI\Model\LocalizedValue[]',
+        'multipointLocation' => '\KuntaAPI\Model\Address[]',
         'additionalInformations' => '\KuntaAPI\Model\LocalizedValue[]'
     );
 
@@ -105,6 +106,7 @@ class Address implements ArrayAccess
         'municipality' => 'municipality',
         'country' => 'country',
         'locationAbroad' => 'locationAbroad',
+        'multipointLocation' => 'multipointLocation',
         'additionalInformations' => 'additionalInformations'
     );
 
@@ -131,6 +133,7 @@ class Address implements ArrayAccess
         'municipality' => 'setMunicipality',
         'country' => 'setCountry',
         'locationAbroad' => 'setLocationAbroad',
+        'multipointLocation' => 'setMultipointLocation',
         'additionalInformations' => 'setAdditionalInformations'
     );
 
@@ -157,6 +160,7 @@ class Address implements ArrayAccess
         'municipality' => 'getMunicipality',
         'country' => 'getCountry',
         'locationAbroad' => 'getLocationAbroad',
+        'multipointLocation' => 'getMultipointLocation',
         'additionalInformations' => 'getAdditionalInformations'
     );
 
@@ -194,6 +198,7 @@ class Address implements ArrayAccess
         $this->container['municipality'] = isset($data['municipality']) ? $data['municipality'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
         $this->container['locationAbroad'] = isset($data['locationAbroad']) ? $data['locationAbroad'] : null;
+        $this->container['multipointLocation'] = isset($data['multipointLocation']) ? $data['multipointLocation'] : null;
         $this->container['additionalInformations'] = isset($data['additionalInformations']) ? $data['additionalInformations'] : null;
     }
 
@@ -489,6 +494,27 @@ class Address implements ArrayAccess
     public function setLocationAbroad($locationAbroad)
     {
         $this->container['locationAbroad'] = $locationAbroad;
+
+        return $this;
+    }
+
+    /**
+     * Gets multipointLocation
+     * @return \KuntaAPI\Model\Address[]
+     */
+    public function getMultipointLocation()
+    {
+        return $this->container['multipointLocation'];
+    }
+
+    /**
+     * Sets multipointLocation
+     * @param \KuntaAPI\Model\Address[] $multipointLocation Moving address. Includes several street addresses.
+     * @return $this
+     */
+    public function setMultipointLocation($multipointLocation)
+    {
+        $this->container['multipointLocation'] = $multipointLocation;
 
         return $this;
     }
