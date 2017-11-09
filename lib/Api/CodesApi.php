@@ -109,14 +109,16 @@ class CodesApi
      *
      * @param string[] $types Filter results by types (optional)
      * @param string $search Search codes by free-text query (optional)
-     * @param int $firstResult first index of results (optional)
-     * @param int $maxResults maximum number of results. If not defined, default 50 is used (optional)
+     * @param string $sortBy define order (NATURAL or SCORE). Default is SCORE (optional)
+     * @param string $sortDir ASC or DESC. Default is ASC (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return \KuntaAPI\Model\Code
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listCodes($types = null, $search = null, $firstResult = null, $maxResults = null)
+    public function listCodes($types = null, $search = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
-        list($response) = $this->listCodesWithHttpInfo($types, $search, $firstResult, $maxResults);
+        list($response) = $this->listCodesWithHttpInfo($types, $search, $sortBy, $sortDir, $firstResult, $maxResults);
         return $response;
     }
 
@@ -127,12 +129,14 @@ class CodesApi
      *
      * @param string[] $types Filter results by types (optional)
      * @param string $search Search codes by free-text query (optional)
-     * @param int $firstResult first index of results (optional)
-     * @param int $maxResults maximum number of results. If not defined, default 50 is used (optional)
+     * @param string $sortBy define order (NATURAL or SCORE). Default is SCORE (optional)
+     * @param string $sortDir ASC or DESC. Default is ASC (optional)
+     * @param int $firstResult First result (optional)
+     * @param int $maxResults Max results (optional)
      * @return Array of \KuntaAPI\Model\Code, HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
-    public function listCodesWithHttpInfo($types = null, $search = null, $firstResult = null, $maxResults = null)
+    public function listCodesWithHttpInfo($types = null, $search = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
     {
         // parse inputs
         $resourcePath = "/codes";
@@ -156,6 +160,14 @@ class CodesApi
         // query params
         if ($search !== null) {
             $queryParams['search'] = $this->apiClient->getSerializer()->toQueryValue($search);
+        }
+        // query params
+        if ($sortBy !== null) {
+            $queryParams['sortBy'] = $this->apiClient->getSerializer()->toQueryValue($sortBy);
+        }
+        // query params
+        if ($sortDir !== null) {
+            $queryParams['sortDir'] = $this->apiClient->getSerializer()->toQueryValue($sortDir);
         }
         // query params
         if ($firstResult !== null) {

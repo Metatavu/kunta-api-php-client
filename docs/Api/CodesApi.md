@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **listCodes**
-> \KuntaAPI\Model\Code listCodes($types, $search, $firstResult, $maxResults)
+> \KuntaAPI\Model\Code listCodes($types, $search, $sortBy, $sortDir, $firstResult, $maxResults)
 
 Lists codes
 
@@ -26,11 +26,13 @@ KuntaAPI\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 $api_instance = new KuntaAPI\Api\CodesApi();
 $types = array("types_example"); // string[] | Filter results by types
 $search = "search_example"; // string | Search codes by free-text query
-$firstResult = 56; // int | first index of results
-$maxResults = 56; // int | maximum number of results. If not defined, default 50 is used
+$sortBy = "sortBy_example"; // string | define order (NATURAL or SCORE). Default is SCORE
+$sortDir = "sortDir_example"; // string | ASC or DESC. Default is ASC
+$firstResult = 789; // int | First result
+$maxResults = 789; // int | Max results
 
 try {
-    $result = $api_instance->listCodes($types, $search, $firstResult, $maxResults);
+    $result = $api_instance->listCodes($types, $search, $sortBy, $sortDir, $firstResult, $maxResults);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CodesApi->listCodes: ', $e->getMessage(), PHP_EOL;
@@ -44,8 +46,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **types** | [**string[]**](../Model/string.md)| Filter results by types | [optional]
  **search** | **string**| Search codes by free-text query | [optional]
- **firstResult** | **int**| first index of results | [optional]
- **maxResults** | **int**| maximum number of results. If not defined, default 50 is used | [optional]
+ **sortBy** | **string**| define order (NATURAL or SCORE). Default is SCORE | [optional]
+ **sortDir** | **string**| ASC or DESC. Default is ASC | [optional]
+ **firstResult** | **int**| First result | [optional]
+ **maxResults** | **int**| Max results | [optional]
 
 ### Return type
 
