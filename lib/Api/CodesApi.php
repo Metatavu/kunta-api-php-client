@@ -113,7 +113,7 @@ class CodesApi
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
-     * @return \KuntaAPI\Model\Code
+     * @return \KuntaAPI\Model\Code[]
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function listCodes($types = null, $search = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
@@ -133,7 +133,7 @@ class CodesApi
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
-     * @return Array of \KuntaAPI\Model\Code, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \KuntaAPI\Model\Code[], HTTP status code, HTTP response headers (array of strings)
      * @throws \KuntaAPI\ApiException on non-2xx response
      */
     public function listCodesWithHttpInfo($types = null, $search = null, $sortBy = null, $sortDir = null, $firstResult = null, $maxResults = null)
@@ -199,15 +199,15 @@ class CodesApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\KuntaAPI\Model\Code',
+                '\KuntaAPI\Model\Code[]',
                 '/codes'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Code', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\KuntaAPI\Model\Code[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Code', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\KuntaAPI\Model\Code[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

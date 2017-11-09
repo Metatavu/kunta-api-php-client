@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **listCodes**
-> \KuntaAPI\Model\Code listCodes($types, $search, $sortBy, $sortDir, $firstResult, $maxResults)
+> \KuntaAPI\Model\Code[] listCodes($types, $search, $sortBy, $sortDir, $firstResult, $maxResults)
 
 Lists codes
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\KuntaAPI\Model\Code**](../Model/Code.md)
+[**\KuntaAPI\Model\Code[]**](../Model/Code.md)
 
 ### Authorization
 
