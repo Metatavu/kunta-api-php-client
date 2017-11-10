@@ -66,8 +66,8 @@ class Coordinate implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'latitude' => 'double',
-        'longitude' => 'double'
+        'latitude' => 'string',
+        'longitude' => 'string'
     );
 
     public static function swaggerTypes()
@@ -162,7 +162,7 @@ class Coordinate implements ArrayAccess
 
     /**
      * Gets latitude
-     * @return double
+     * @return string
      */
     public function getLatitude()
     {
@@ -171,7 +171,7 @@ class Coordinate implements ArrayAccess
 
     /**
      * Sets latitude
-     * @param double $latitude latitude coordinate.
+     * @param string $latitude latitude coordinate.
      * @return $this
      */
     public function setLatitude($latitude)
@@ -183,7 +183,7 @@ class Coordinate implements ArrayAccess
 
     /**
      * Gets longitude
-     * @return double
+     * @return string
      */
     public function getLongitude()
     {
@@ -192,7 +192,7 @@ class Coordinate implements ArrayAccess
 
     /**
      * Sets longitude
-     * @param double $longitude longitude coordinate.
+     * @param string $longitude longitude coordinate.
      * @return $this
      */
     public function setLongitude($longitude)
