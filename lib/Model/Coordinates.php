@@ -66,8 +66,8 @@ class Coordinates implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'ePSG3067' => '\KuntaAPI\Model\Coordinate',
-        'ePSG4326' => '\KuntaAPI\Model\Coordinate'
+        'epsg3067' => '\KuntaAPI\Model\Coordinate',
+        'epsg4326' => '\KuntaAPI\Model\Coordinate'
     );
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class Coordinates implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'ePSG3067' => 'EPSG3067',
-        'ePSG4326' => 'EPSG4326'
+        'epsg3067' => 'epsg3067',
+        'epsg4326' => 'epsg4326'
     );
 
     public static function attributeMap()
@@ -94,8 +94,8 @@ class Coordinates implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'ePSG3067' => 'setEPSG3067',
-        'ePSG4326' => 'setEPSG4326'
+        'epsg3067' => 'setEpsg3067',
+        'epsg4326' => 'setEpsg4326'
     );
 
     public static function setters()
@@ -108,8 +108,8 @@ class Coordinates implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'ePSG3067' => 'getEPSG3067',
-        'ePSG4326' => 'getEPSG4326'
+        'epsg3067' => 'getEpsg3067',
+        'epsg4326' => 'getEpsg4326'
     );
 
     public static function getters()
@@ -133,8 +133,8 @@ class Coordinates implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ePSG3067'] = isset($data['ePSG3067']) ? $data['ePSG3067'] : null;
-        $this->container['ePSG4326'] = isset($data['ePSG4326']) ? $data['ePSG4326'] : null;
+        $this->container['epsg3067'] = isset($data['epsg3067']) ? $data['epsg3067'] : null;
+        $this->container['epsg4326'] = isset($data['epsg4326']) ? $data['epsg4326'] : null;
     }
 
     /**
@@ -161,43 +161,43 @@ class Coordinates implements ArrayAccess
 
 
     /**
-     * Gets ePSG3067
+     * Gets epsg3067
      * @return \KuntaAPI\Model\Coordinate
      */
-    public function getEPSG3067()
+    public function getEpsg3067()
     {
-        return $this->container['ePSG3067'];
+        return $this->container['epsg3067'];
     }
 
     /**
-     * Sets ePSG3067
-     * @param \KuntaAPI\Model\Coordinate $ePSG3067
+     * Sets epsg3067
+     * @param \KuntaAPI\Model\Coordinate $epsg3067
      * @return $this
      */
-    public function setEPSG3067($ePSG3067)
+    public function setEpsg3067($epsg3067)
     {
-        $this->container['ePSG3067'] = $ePSG3067;
+        $this->container['epsg3067'] = $epsg3067;
 
         return $this;
     }
 
     /**
-     * Gets ePSG4326
+     * Gets epsg4326
      * @return \KuntaAPI\Model\Coordinate
      */
-    public function getEPSG4326()
+    public function getEpsg4326()
     {
-        return $this->container['ePSG4326'];
+        return $this->container['epsg4326'];
     }
 
     /**
-     * Sets ePSG4326
-     * @param \KuntaAPI\Model\Coordinate $ePSG4326
+     * Sets epsg4326
+     * @param \KuntaAPI\Model\Coordinate $epsg4326
      * @return $this
      */
-    public function setEPSG4326($ePSG4326)
+    public function setEpsg4326($epsg4326)
     {
-        $this->container['ePSG4326'] = $ePSG4326;
+        $this->container['epsg4326'] = $epsg4326;
 
         return $this;
     }
