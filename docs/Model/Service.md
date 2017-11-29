@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **requirements** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **publishingStatus** | **string** | Publishing status. Possible values are: Draft, Published, Deleted, Modified or OldPublished. | [optional] 
 **organizations** | [**\KuntaAPI\Model\ServiceOrganization[]**](ServiceOrganization.md) |  | [optional] 
-**serviceVouchers** | [**\KuntaAPI\Model\ServiceVoucher[]**](ServiceVoucher.md) | List of service vouchers. | [optional] 
+**vouchers** | [**\KuntaAPI\Model\ServiceVoucher[]**](ServiceVoucher.md) | List of service vouchers. | [optional] 
 **electronicServiceChannelIds** | **string[]** |  | [optional] 
 **phoneServiceChannelIds** | **string[]** |  | [optional] 
 **printableFormServiceChannelIds** | **string[]** |  | [optional] 
