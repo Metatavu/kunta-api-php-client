@@ -85,6 +85,7 @@ class Service implements ArrayAccess
         'requirements' => '\KuntaAPI\Model\LocalizedValue[]',
         'publishingStatus' => 'string',
         'organizations' => '\KuntaAPI\Model\ServiceOrganization[]',
+        'serviceVouchers' => '\KuntaAPI\Model\ServiceVoucher[]',
         'electronicServiceChannelIds' => 'string[]',
         'phoneServiceChannelIds' => 'string[]',
         'printableFormServiceChannelIds' => 'string[]',
@@ -121,6 +122,7 @@ class Service implements ArrayAccess
         'requirements' => 'requirements',
         'publishingStatus' => 'publishingStatus',
         'organizations' => 'organizations',
+        'serviceVouchers' => 'serviceVouchers',
         'electronicServiceChannelIds' => 'electronicServiceChannelIds',
         'phoneServiceChannelIds' => 'phoneServiceChannelIds',
         'printableFormServiceChannelIds' => 'printableFormServiceChannelIds',
@@ -157,6 +159,7 @@ class Service implements ArrayAccess
         'requirements' => 'setRequirements',
         'publishingStatus' => 'setPublishingStatus',
         'organizations' => 'setOrganizations',
+        'serviceVouchers' => 'setServiceVouchers',
         'electronicServiceChannelIds' => 'setElectronicServiceChannelIds',
         'phoneServiceChannelIds' => 'setPhoneServiceChannelIds',
         'printableFormServiceChannelIds' => 'setPrintableFormServiceChannelIds',
@@ -193,6 +196,7 @@ class Service implements ArrayAccess
         'requirements' => 'getRequirements',
         'publishingStatus' => 'getPublishingStatus',
         'organizations' => 'getOrganizations',
+        'serviceVouchers' => 'getServiceVouchers',
         'electronicServiceChannelIds' => 'getElectronicServiceChannelIds',
         'phoneServiceChannelIds' => 'getPhoneServiceChannelIds',
         'printableFormServiceChannelIds' => 'getPrintableFormServiceChannelIds',
@@ -240,6 +244,7 @@ class Service implements ArrayAccess
         $this->container['requirements'] = isset($data['requirements']) ? $data['requirements'] : null;
         $this->container['publishingStatus'] = isset($data['publishingStatus']) ? $data['publishingStatus'] : null;
         $this->container['organizations'] = isset($data['organizations']) ? $data['organizations'] : null;
+        $this->container['serviceVouchers'] = isset($data['serviceVouchers']) ? $data['serviceVouchers'] : null;
         $this->container['electronicServiceChannelIds'] = isset($data['electronicServiceChannelIds']) ? $data['electronicServiceChannelIds'] : null;
         $this->container['phoneServiceChannelIds'] = isset($data['phoneServiceChannelIds']) ? $data['phoneServiceChannelIds'] : null;
         $this->container['printableFormServiceChannelIds'] = isset($data['printableFormServiceChannelIds']) ? $data['printableFormServiceChannelIds'] : null;
@@ -665,6 +670,27 @@ class Service implements ArrayAccess
     public function setOrganizations($organizations)
     {
         $this->container['organizations'] = $organizations;
+
+        return $this;
+    }
+
+    /**
+     * Gets serviceVouchers
+     * @return \KuntaAPI\Model\ServiceVoucher[]
+     */
+    public function getServiceVouchers()
+    {
+        return $this->container['serviceVouchers'];
+    }
+
+    /**
+     * Sets serviceVouchers
+     * @param \KuntaAPI\Model\ServiceVoucher[] $serviceVouchers List of service vouchers.
+     * @return $this
+     */
+    public function setServiceVouchers($serviceVouchers)
+    {
+        $this->container['serviceVouchers'] = $serviceVouchers;
 
         return $this;
     }
