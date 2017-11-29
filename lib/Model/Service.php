@@ -70,6 +70,7 @@ class Service implements ArrayAccess
         'type' => 'string',
         'statutoryDescriptionId' => 'string',
         'chargeType' => 'string',
+        'fundingType' => 'string',
         'names' => '\KuntaAPI\Model\LocalizedValue[]',
         'areaType' => 'string',
         'areas' => '\KuntaAPI\Model\Area[]',
@@ -107,6 +108,7 @@ class Service implements ArrayAccess
         'type' => 'type',
         'statutoryDescriptionId' => 'statutoryDescriptionId',
         'chargeType' => 'chargeType',
+        'fundingType' => 'fundingType',
         'names' => 'names',
         'areaType' => 'areaType',
         'areas' => 'areas',
@@ -144,6 +146,7 @@ class Service implements ArrayAccess
         'type' => 'setType',
         'statutoryDescriptionId' => 'setStatutoryDescriptionId',
         'chargeType' => 'setChargeType',
+        'fundingType' => 'setFundingType',
         'names' => 'setNames',
         'areaType' => 'setAreaType',
         'areas' => 'setAreas',
@@ -181,6 +184,7 @@ class Service implements ArrayAccess
         'type' => 'getType',
         'statutoryDescriptionId' => 'getStatutoryDescriptionId',
         'chargeType' => 'getChargeType',
+        'fundingType' => 'getFundingType',
         'names' => 'getNames',
         'areaType' => 'getAreaType',
         'areas' => 'getAreas',
@@ -229,6 +233,7 @@ class Service implements ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['statutoryDescriptionId'] = isset($data['statutoryDescriptionId']) ? $data['statutoryDescriptionId'] : null;
         $this->container['chargeType'] = isset($data['chargeType']) ? $data['chargeType'] : null;
+        $this->container['fundingType'] = isset($data['fundingType']) ? $data['fundingType'] : null;
         $this->container['names'] = isset($data['names']) ? $data['names'] : null;
         $this->container['areaType'] = isset($data['areaType']) ? $data['areaType'] : null;
         $this->container['areas'] = isset($data['areas']) ? $data['areas'] : null;
@@ -355,6 +360,27 @@ class Service implements ArrayAccess
     public function setChargeType($chargeType)
     {
         $this->container['chargeType'] = $chargeType;
+
+        return $this;
+    }
+
+    /**
+     * Gets fundingType
+     * @return string
+     */
+    public function getFundingType()
+    {
+        return $this->container['fundingType'];
+    }
+
+    /**
+     * Sets fundingType
+     * @param string $fundingType Service funding type. Possible values are: PubliclyFunded or MarketFunded.
+     * @return $this
+     */
+    public function setFundingType($fundingType)
+    {
+        $this->container['fundingType'] = $fundingType;
 
         return $this;
     }

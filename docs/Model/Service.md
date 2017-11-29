@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **type** | **string** |  | [optional] 
 **statutoryDescriptionId** | **string** |  | [optional] 
 **chargeType** | **string** |  | [optional] 
+**fundingType** | **string** | Service funding type. Possible values are: PubliclyFunded or MarketFunded. | [optional] 
 **names** | [**\KuntaAPI\Model\LocalizedValue[]**](LocalizedValue.md) |  | [optional] 
 **areaType** | **string** | Area type (WholeCountry, WholeCountryExceptAlandIslands, AreaType). | [optional] 
 **areas** | [**\KuntaAPI\Model\Area[]**](Area.md) | List of service areas. | [optional] 
