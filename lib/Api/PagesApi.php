@@ -837,7 +837,11 @@ class PagesApi
      * @param string $parentId Filter results by parent id (optional)
      * @param string $path Filter results by page path (optional)
      * @param string $search Search pages by free-text query (optional)
+<<<<<<< HEAD
      * @param string $sortBy define order (NATURAL, SCORE or MENU). Default is NATURAL (optional)
+=======
+     * @param string $sortBy define order (NATURAL or SCORE). Default is NATURAL (optional)
+>>>>>>> ca83b5055fa720c5800d086f12043606cbf380ca
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)
@@ -859,7 +863,11 @@ class PagesApi
      * @param string $parentId Filter results by parent id (optional)
      * @param string $path Filter results by page path (optional)
      * @param string $search Search pages by free-text query (optional)
+<<<<<<< HEAD
      * @param string $sortBy define order (NATURAL, SCORE or MENU). Default is NATURAL (optional)
+=======
+     * @param string $sortBy define order (NATURAL or SCORE). Default is NATURAL (optional)
+>>>>>>> ca83b5055fa720c5800d086f12043606cbf380ca
      * @param string $sortDir ASC or DESC. Default is ASC (optional)
      * @param int $firstResult First result (optional)
      * @param int $maxResults Max results (optional)

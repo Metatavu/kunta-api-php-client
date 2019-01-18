@@ -96,6 +96,10 @@ class CodeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ca83b5055fa720c5800d086f12043606cbf380ca
      * Test attribute "id"
      */
     public function testPropertyId()
@@ -104,6 +108,11 @@ class CodeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> adba6226926fbb6534bd0e58712a56979168c94a
+>>>>>>> ca83b5055fa720c5800d086f12043606cbf380ca
      * Test attribute "type"
      */
     public function testPropertyType()

@@ -104,6 +104,17 @@ class ElectronicServiceChannelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Test attribute "type"
+     */
+    public function testPropertyType()
+    {
+
+    }
+
+    /**
+>>>>>>> ca83b5055fa720c5800d086f12043606cbf380ca
      * Test attribute "organizationId"
      */
     public function testPropertyOrganizationId()
@@ -144,6 +155,7 @@ class ElectronicServiceChannelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
      * Test attribute "supportPhones"
      */
     public function testPropertySupportPhones()
@@ -155,6 +167,11 @@ class ElectronicServiceChannelTest extends \PHPUnit_Framework_TestCase
      * Test attribute "supportEmails"
      */
     public function testPropertySupportEmails()
+=======
+     * Test attribute "supportContacts"
+     */
+    public function testPropertySupportContacts()
+>>>>>>> ca83b5055fa720c5800d086f12043606cbf380ca
     {
 
     }
@@ -215,6 +232,7 @@ class ElectronicServiceChannelTest extends \PHPUnit_Framework_TestCase
 
     }
 
+<<<<<<< HEAD
     /**
      * Test attribute "areaType"
      */
@@ -231,4 +249,6 @@ class ElectronicServiceChannelTest extends \PHPUnit_Framework_TestCase
 
     }
 
+=======
+>>>>>>> ca83b5055fa720c5800d086f12043606cbf380ca
 }

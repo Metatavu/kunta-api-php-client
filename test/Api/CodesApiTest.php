@@ -90,6 +90,7 @@ class CodesApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
      * Test case for findCode
      *
      * Finds a code.
@@ -101,6 +102,8 @@ class CodesApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+=======
+>>>>>>> ca83b5055fa720c5800d086f12043606cbf380ca
      * Test case for listCodes
      *
      * Lists codes.
