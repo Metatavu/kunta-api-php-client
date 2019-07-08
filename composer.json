@@ -1,6 +1,10 @@
 {
     "name": "metatavu/kunta-api-php-client",
+<<<<<<< HEAD
     "version": "1.0.15",
+=======
+    "version": "1.0.17",
+>>>>>>> c09e9defe4cebfeb54e4500c809a2a392cb3442b
     "description": "",
     "keywords": [
         "swagger",
