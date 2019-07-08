@@ -81,12 +81,8 @@ class Address implements ArrayAccess
         'country' => 'string',
         'locationAbroad' => '\KuntaAPI\Model\LocalizedValue[]',
         'multipointLocation' => '\KuntaAPI\Model\Address[]',
-<<<<<<< HEAD
         'additionalInformations' => '\KuntaAPI\Model\LocalizedValue[]',
         'entrances' => '\KuntaAPI\Model\AddressEntrance[]'
-=======
-        'additionalInformations' => '\KuntaAPI\Model\LocalizedValue[]'
->>>>>>> c09e9defe4cebfeb54e4500c809a2a392cb3442b
     );
 
     public static function swaggerTypes()
@@ -114,12 +110,8 @@ class Address implements ArrayAccess
         'country' => 'country',
         'locationAbroad' => 'locationAbroad',
         'multipointLocation' => 'multipointLocation',
-<<<<<<< HEAD
         'additionalInformations' => 'additionalInformations',
         'entrances' => 'entrances'
-=======
-        'additionalInformations' => 'additionalInformations'
->>>>>>> c09e9defe4cebfeb54e4500c809a2a392cb3442b
     );
 
     public static function attributeMap()
@@ -147,12 +139,8 @@ class Address implements ArrayAccess
         'country' => 'setCountry',
         'locationAbroad' => 'setLocationAbroad',
         'multipointLocation' => 'setMultipointLocation',
-<<<<<<< HEAD
         'additionalInformations' => 'setAdditionalInformations',
         'entrances' => 'setEntrances'
-=======
-        'additionalInformations' => 'setAdditionalInformations'
->>>>>>> c09e9defe4cebfeb54e4500c809a2a392cb3442b
     );
 
     public static function setters()
@@ -180,12 +168,8 @@ class Address implements ArrayAccess
         'country' => 'getCountry',
         'locationAbroad' => 'getLocationAbroad',
         'multipointLocation' => 'getMultipointLocation',
-<<<<<<< HEAD
         'additionalInformations' => 'getAdditionalInformations',
         'entrances' => 'getEntrances'
-=======
-        'additionalInformations' => 'getAdditionalInformations'
->>>>>>> c09e9defe4cebfeb54e4500c809a2a392cb3442b
     );
 
     public static function getters()
@@ -225,10 +209,7 @@ class Address implements ArrayAccess
         $this->container['locationAbroad'] = isset($data['locationAbroad']) ? $data['locationAbroad'] : null;
         $this->container['multipointLocation'] = isset($data['multipointLocation']) ? $data['multipointLocation'] : null;
         $this->container['additionalInformations'] = isset($data['additionalInformations']) ? $data['additionalInformations'] : null;
-<<<<<<< HEAD
         $this->container['entrances'] = isset($data['entrances']) ? $data['entrances'] : null;
-=======
->>>>>>> c09e9defe4cebfeb54e4500c809a2a392cb3442b
     }
 
     /**
@@ -589,7 +570,6 @@ class Address implements ArrayAccess
 
         return $this;
     }
-<<<<<<< HEAD
 
     /**
      * Gets entrances
@@ -611,8 +591,6 @@ class Address implements ArrayAccess
 
         return $this;
     }
-=======
->>>>>>> c09e9defe4cebfeb54e4500c809a2a392cb3442b
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset
