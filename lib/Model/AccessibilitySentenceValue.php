@@ -1,6 +1,6 @@
 <?php
 /**
- * AccessibilitySentence
+ * AccessibilitySentenceValue
  *
  * PHP version 5
  *
@@ -44,31 +44,30 @@ namespace KuntaAPI\Model;
 use \ArrayAccess;
 
 /**
- * AccessibilitySentence Class Doc Comment
+ * AccessibilitySentenceValue Class Doc Comment
  *
  * @category    Class */
- // @description Accessibility sentences.
+ // @description Accessibility sentence.
 /** 
  * @package     KuntaAPI
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class AccessibilitySentence implements ArrayAccess
+class AccessibilitySentenceValue implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AccessibilitySentence';
+    protected static $swaggerModelName = 'AccessibilitySentenceValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'sentenceGroup' => '\KuntaAPI\Model\LocalizedValue[]',
-        'sentences' => '\KuntaAPI\Model\AccessibilitySentenceValue[]'
+        'sentence' => '\KuntaAPI\Model\LocalizedValue[]'
     );
 
     public static function swaggerTypes()
@@ -81,8 +80,7 @@ class AccessibilitySentence implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'sentenceGroup' => 'sentenceGroup',
-        'sentences' => 'sentences'
+        'sentence' => 'sentence'
     );
 
     public static function attributeMap()
@@ -95,8 +93,7 @@ class AccessibilitySentence implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'sentenceGroup' => 'setSentenceGroup',
-        'sentences' => 'setSentences'
+        'sentence' => 'setSentence'
     );
 
     public static function setters()
@@ -109,8 +106,7 @@ class AccessibilitySentence implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'sentenceGroup' => 'getSentenceGroup',
-        'sentences' => 'getSentences'
+        'sentence' => 'getSentence'
     );
 
     public static function getters()
@@ -134,8 +130,7 @@ class AccessibilitySentence implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sentenceGroup'] = isset($data['sentenceGroup']) ? $data['sentenceGroup'] : null;
-        $this->container['sentences'] = isset($data['sentences']) ? $data['sentences'] : null;
+        $this->container['sentence'] = isset($data['sentence']) ? $data['sentence'] : null;
     }
 
     /**
@@ -162,43 +157,22 @@ class AccessibilitySentence implements ArrayAccess
 
 
     /**
-     * Gets sentenceGroup
+     * Gets sentence
      * @return \KuntaAPI\Model\LocalizedValue[]
      */
-    public function getSentenceGroup()
+    public function getSentence()
     {
-        return $this->container['sentenceGroup'];
+        return $this->container['sentence'];
     }
 
     /**
-     * Sets sentenceGroup
-     * @param \KuntaAPI\Model\LocalizedValue[] $sentenceGroup List of localized sentence group names.
+     * Sets sentence
+     * @param \KuntaAPI\Model\LocalizedValue[] $sentence List of localized sentences.
      * @return $this
      */
-    public function setSentenceGroup($sentenceGroup)
+    public function setSentence($sentence)
     {
-        $this->container['sentenceGroup'] = $sentenceGroup;
-
-        return $this;
-    }
-
-    /**
-     * Gets sentences
-     * @return \KuntaAPI\Model\AccessibilitySentenceValue[]
-     */
-    public function getSentences()
-    {
-        return $this->container['sentences'];
-    }
-
-    /**
-     * Sets sentences
-     * @param \KuntaAPI\Model\AccessibilitySentenceValue[] $sentences List of localized sentences.
-     * @return $this
-     */
-    public function setSentences($sentences)
-    {
-        $this->container['sentences'] = $sentences;
+        $this->container['sentence'] = $sentence;
 
         return $this;
     }
